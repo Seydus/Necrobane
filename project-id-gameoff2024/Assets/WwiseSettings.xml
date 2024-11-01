@@ -1,0 +1,9 @@
+<?xml version='1.0'?>
+<WwiseSettings>
+    <CreateWwiseGlobal>true</CreateWwiseGlobal>
+    <CreateWwiseListener>true</CreateWwiseListener>
+    <SoundbankPath>Audio/GeneratedSoundBanks</SoundbankPath>
+    <WwiseProjectPath>../project-id-gameoff2024_WwiseProject/project-id-gameoff2024_WwiseProject.wproj</WwiseProjectPath>
+    <WwiseInstallationPathWindows>D:\Audio\Wwise\Wwise2023.1.8.8601</WwiseInstallationPathWindows>
+    <WwiseInstallationPathMac></WwiseInstallationPathMac>
+</WwiseSettings>
