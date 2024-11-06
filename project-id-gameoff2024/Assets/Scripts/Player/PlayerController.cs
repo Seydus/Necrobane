@@ -3,9 +3,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] private float moveSpeed = 10f;
-    [SerializeField] private float jumpSpeed = 5f;
-    [SerializeField] private float gravity = -9.81f;
+    [SerializeField] private float maxSpeed = 10f;
+    private float moveSpeed;
+    [SerializeField] private float accelerationSpeed = 5f;
+    [SerializeField] private float decelerationSpeed = 7f;
+    [SerializeField] private float jumpSpeed = 2f;
+    [SerializeField] private float gravity = -29.43f;
+
+    [SerializeField] private Vector3 savedDirection = Vector3.zero;
 
     private CharacterController characterController;
     private Vector3 velocity;
@@ -39,11 +44,31 @@ public class PlayerController : MonoBehaviour
     private void HandleMovement()
     {
         Vector3 moveDirection = GetCameraRelativeMovement();
-        Vector3 movement = moveDirection * moveSpeed;
+
+        if(moveDirection.x != 0 || moveDirection.z != 0)
+        {
+            moveSpeed = Mathf.Lerp(moveSpeed, maxSpeed, accelerationSpeed * Time.deltaTime);
+            savedDirection = moveDirection;
+        }
+        else
+        {
+            if (moveSpeed < 0.05f)
+            {
+                moveSpeed = 0;
+            }
+            else
+            {
+                moveSpeed = Mathf.Lerp(moveSpeed, 0, decelerationSpeed * Time.deltaTime);
+            }
+        }
+
+        Vector3 movement = savedDirection * moveSpeed;
 
         ApplyGravityAndJump();
 
         Vector3 finalMovement = movement + velocity;
+
+
         characterController.Move(finalMovement * Time.deltaTime);
     }
 
@@ -71,11 +96,15 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetButtonDown("Jump"))
             {
+                Debug.Log("Jump!");
                 velocity.y = Mathf.Sqrt(jumpSpeed * -2f * gravity);
             }
+
+            decelerationSpeed = 7f;
         }
         else
         {
+            decelerationSpeed = 1f;
             velocity.y += gravity * Time.deltaTime;
         }
     }
