@@ -459,28 +459,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShowDebugText: 0
-  ShowCameraFrustum: 1
-  IgnoreTimeScale: 0
-  WorldUpOverride: {fileID: 0}
-  ChannelMask: -1
-  UpdateMethod: 2
-  BlendUpdateMethod: 1
-  LensModeOverride:
-    Enabled: 0
-    DefaultMode: 2
-  DefaultBlend:
-    Style: 1
-    Time: 2
-    CustomCurve:
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  CustomBlends: {fileID: 0}
-  m_OutputCamera: {fileID: 963194227}
-  m_TargetOverride: {fileID: 0}
-  m_LastFrameUpdated: 420
 --- !u!1 &1126968098
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,9 +698,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f799c4bf9c68655459e18c2499fccfba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
+  maxSpeed: 10
+  accelerationSpeed: 5
+  decelerationSpeed: 7
   jumpSpeed: 2
   gravity: -29.43
+  savedDirection: {x: 0, y: 0, z: 0}
   cameraHolder: {fileID: 1126968099}
   viewClampYMin: -70
   viewClampYMax: 80
