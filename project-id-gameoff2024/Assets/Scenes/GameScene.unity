@@ -562,6 +562,7 @@ GameObject:
   - component: {fileID: 1673101889}
   - component: {fileID: 1673101893}
   - component: {fileID: 1673101894}
+  - component: {fileID: 1673101895}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -699,18 +700,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 10
-  accelerationSpeed: 5
-  decelerationSpeed: 7
-  jumpSpeed: 2
+  accelerationSpeed: 7
+  decelerationSpeed: 8
+  airDrag: 1.5
+  jumpHeight: 2
   gravity: -29.43
-  savedDirection: {x: 0, y: 0, z: 0}
   cameraHolder: {fileID: 1126968099}
   viewClampYMin: -70
   viewClampYMax: 80
   viewXSensitivity: 300
-  viewYSensitivity: 150
+  viewYSensitivity: 200
   viewXInverted: 0
   viewYInverted: 0
+--- !u!114 &1673101895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673101888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e03a90e90219b4faf4e84724abf684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
