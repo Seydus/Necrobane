@@ -1,0 +1,21 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2895830940	Play_Default_Ambient			\Default Work Unit\Play_Default_Ambient	
+	3689126666	Play_Jump			\Default Work Unit\Play_Jump	
+	3854155799	Play_Footsteps			\Default Work Unit\Play_Footsteps	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	2385628198	Footsteps			\Default Work Unit\Footsteps	
+
+Switch	ID	Name	Switch Group			Notes
+	1216965916	Stone	Footsteps			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	66535431	FootstepStone3	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\FootstepStone3_0030D1C0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\Stone\FootstepStone3		3856
+	218368169	JumpStone	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\JumpStone_DF912346.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Jump\Stone\JumpStone		3856
+	330704271	FootstepStone1	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\FootstepStone1_CF2C53CB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\Stone\FootstepStone1		3856
+	660831382	FootstepStone2	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\FootstepStone2_9104E2B6.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\Stone\FootstepStone2		3856
+	665979234	Default_Ambient	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\Default_Ambient_C7CBF045.wem		\Actor-Mixer Hierarchy\Default Work Unit\test\Default_Ambient		1587712
+	754982117	FootstepStone6	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\FootstepStone6_CDFDB1F0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\Stone\FootstepStone6		3856
+	896910572	FootstepStone5	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\FootstepStone5_54F0E13C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\Stone\FootstepStone5		3856
+	1002423227	FootstepStone4	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\FootstepStone4_EE431228.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\Stone\FootstepStone4		3856
+
