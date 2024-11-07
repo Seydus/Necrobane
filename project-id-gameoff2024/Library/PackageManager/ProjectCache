@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638665495036614305
-    m_Hash: 263901261
+      ticks: 638665498442988960
+    m_Hash: 4244600381
   m_LockFileStatus:
     m_FilePath: C:/Users/Saidus/OneDrive/Documents/My Games/project-id-gameoff2024/project-id-gameoff2024/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638665495036670468
-    m_Hash: 3112590500
+      ticks: 638665498442988960
+    m_Hash: 3478520745
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:

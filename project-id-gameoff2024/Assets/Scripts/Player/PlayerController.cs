@@ -5,10 +5,10 @@ public class PlayerController : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] private float maxSpeed = 8f;
     public float moveSpeed { get; set; }
-    [SerializeField] private float accelerationSpeed = 7f;
-    [SerializeField] private float decelerationSpeed = 9f;
-    private float setAcceleration;
-    private float setDeceleration;
+    [SerializeField] private float setAccelerationSpeed = 7f;
+    [SerializeField] private float setDecelerationSpeed = 9f;
+    private float accelerationSpeed;
+    private float decelerationSpeed;
 
     [Header("Jump Settings")]
     [SerializeField] private float airDrag = 1f;
@@ -39,8 +39,8 @@ public class PlayerController : MonoBehaviour
         cameraRotation = cameraHolder.localRotation.eulerAngles;
         characterRotation = transform.localRotation.eulerAngles;
 
-        setAcceleration = accelerationSpeed;
-        setDeceleration = decelerationSpeed;
+        accelerationSpeed = setAccelerationSpeed;
+        decelerationSpeed = setDecelerationSpeed;
     }
 
     private void Update()
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
         if(moveDirection.x != 0 || moveDirection.z != 0)
         {
-            moveSpeed = Mathf.Lerp(moveSpeed, maxSpeed, setAcceleration * Time.deltaTime);
+            moveSpeed = Mathf.Lerp(moveSpeed, maxSpeed, accelerationSpeed * Time.deltaTime);
             savedDirection = moveDirection;
         }
         else
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                moveSpeed = Mathf.Lerp(moveSpeed, 0, setDeceleration * Time.deltaTime);
+                moveSpeed = Mathf.Lerp(moveSpeed, 0, decelerationSpeed * Time.deltaTime);
             }
         }
 
@@ -107,11 +107,11 @@ public class PlayerController : MonoBehaviour
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             }
 
-            setDeceleration = decelerationSpeed;
+            decelerationSpeed = setDecelerationSpeed;
         }
         else
         {
-            setDeceleration = airDrag;
+            decelerationSpeed = airDrag;
             velocity.y += gravity * Time.deltaTime;
         }
     }
