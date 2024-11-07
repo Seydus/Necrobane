@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="16" SoundBankVersion="150">
+	<RootPaths>
+		<ProjectRoot>../..</ProjectRoot>
+		<SourceFilesRoot>../../.cache/Mac</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>.</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{36B12EE0-F632-0D65-DDEA-978D9B969BC1}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="1069431850" Name="Player"/>
+				<Bus Id="2385628198" Name="Footsteps"/>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+			</Busses>
+			<SwitchGroups>
+				<SwitchGroup Id="2385628198" Name="Footsteps">
+					<Switches>
+						<Switch Id="1216965916" Name="Stone"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{1425681C-2CAD-9C01-F27D-84079BD9F87F}">
+			<ShortName>Main</ShortName>
+			<Path>Main.bnk</Path>
+			<Media>
+				<File Id="66535431" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FootstepStone3.wav</ShortName>
+					<CachePath>SFX/FootstepStone3_0030D1C0.wem</CachePath>
+				</File>
+				<File Id="218368169" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>JumpStone.wav</ShortName>
+					<CachePath>SFX/JumpStone_DF912346.wem</CachePath>
+				</File>
+				<File Id="330704271" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FootstepStone1.wav</ShortName>
+					<CachePath>SFX/FootstepStone1_CF2C53CB.wem</CachePath>
+				</File>
+				<File Id="660831382" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FootstepStone2.wav</ShortName>
+					<CachePath>SFX/FootstepStone2_9104E2B6.wem</CachePath>
+				</File>
+				<File Id="665979234" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Default_Ambient.wav</ShortName>
+					<CachePath>SFX/Default_Ambient_C7CBF045.wem</CachePath>
+				</File>
+				<File Id="754982117" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FootstepStone6.wav</ShortName>
+					<CachePath>SFX/FootstepStone6_CDFDB1F0.wem</CachePath>
+				</File>
+				<File Id="896910572" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FootstepStone5.wav</ShortName>
+					<CachePath>SFX/FootstepStone5_54F0E13C.wem</CachePath>
+				</File>
+				<File Id="1002423227" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FootstepStone4.wav</ShortName>
+					<CachePath>SFX/FootstepStone4_EE431228.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="2895830940" Name="Play_Default_Ambient" MaxAttenuation="100" DurationType="OneShot" DurationMin="128" DurationMax="128">
+					<MediaRefs>
+						<MediaRef Id="665979234"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3854155799" Name="Play_Footsteps" DurationType="OneShot" DurationMin="0.27535725" DurationMax="0.32935387">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="2385628198" Id="1216965916" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="66535431"/>
+								<MediaRef Id="330704271"/>
+								<MediaRef Id="660831382"/>
+								<MediaRef Id="754982117"/>
+								<MediaRef Id="896910572"/>
+								<MediaRef Id="1002423227"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="3689126666" Name="Play_Jump" DurationType="OneShot" DurationMin="0.2639882" DurationMax="0.34314224">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="2385628198" Id="1216965916" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="218368169"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+			</Events>
+			<SwitchGroups>
+				<SwitchGroup Id="2385628198" Name="Footsteps">
+					<Switches>
+						<Switch Id="1216965916" Name="Stone"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{758D519C-48DB-8003-1640-003A9034C612}</FileHash>
+</SoundBanksInfo>

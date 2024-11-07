@@ -1,4 +1,5 @@
 using UnityEngine;
+using AK.Wwise;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float setDecelerationSpeed = 9f;
     private float accelerationSpeed;
     private float decelerationSpeed;
+
+    [Header("Wwise Event")]
+    public AK.Wwise.Event PlayerFootsteps;
+    public AK.Wwise.Event PlayerLanding;
 
     [Header("Jump Settings")]
     [SerializeField] private float airDrag = 1f;
@@ -31,6 +36,13 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 cameraRotation;
     private Vector3 characterRotation;
+
+    // Wwise
+    private bool FootstepIsPlaying = false;
+    private bool LandingIsPlaying = false;
+    private bool IsJumping = false;
+    private float LastFootstepTime = 0;
+    private int _speed;
 
     private void Awake()
     {
@@ -77,6 +89,25 @@ public class PlayerController : MonoBehaviour
         Vector3 finalMovement = movement + velocity;
 
         characterController.Move(finalMovement * Time.deltaTime);
+
+        if (!FootstepIsPlaying && !IsJumping)
+        {
+            PlayerFootsteps.Post(gameObject);
+            LastFootstepTime = Time.time;
+            FootstepIsPlaying = true;
+        }
+        else
+        {
+            if (moveSpeed > 1)
+            {
+
+                if (Time.time - LastFootstepTime > 2.5 / moveSpeed)
+                {
+                    FootstepIsPlaying = false;
+                }
+            }
+
+        }
     }
 
     private Vector3 GetCameraRelativeMovement()
@@ -105,15 +136,27 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("Jump!");
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                IsJumping = true;
+            }
+            else
+            {
+                if (IsJumping)
+                {
+                    PlayerLanding.Post(gameObject);
+                }
+                IsJumping = false;
             }
 
-            decelerationSpeed = setDecelerationSpeed;
+        decelerationSpeed = setDecelerationSpeed;
+
         }
         else
         {
+            IsJumping = true;
             decelerationSpeed = airDrag;
-            velocity.y += gravity * Time.deltaTime;
+            velocity.y += gravity * Time.deltaTime;         
         }
+
     }
 
     private void HandleView()

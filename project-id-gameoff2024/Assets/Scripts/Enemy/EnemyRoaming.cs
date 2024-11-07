@@ -4,14 +4,9 @@ using UnityEngine.AI;
 
 public class EnemyRoaming : MonoBehaviour
 {
-    [SerializeField] private float targetRange;
+    [Header("Waiting Time")]
     [SerializeField] private float setWaitingTime;
     private float waitingTime;
-
-    // Needs to be change 
-    [SerializeField] private Transform groundTransform;
-    private Vector3 groundPosition;
-    //
 
     private Vector3 newPosition;
 
@@ -23,40 +18,17 @@ public class EnemyRoaming : MonoBehaviour
 
     [SerializeField] private EnemyState enemyState;
 
-    private NavMeshHit hit;
     private NavMeshAgent navMeshAgent;
+    [SerializeField] private NavMeshSurface navMeshSurface;
 
     private void Awake()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
-
-        groundPosition = groundTransform.position;
-        newPosition = GetRandomPoint(groundPosition);
-
-        Debug.Log(newPosition);
+        newPosition = GetNewPosition();
     }
 
-    private void Update()
+    private Vector3 GetNewPosition()
     {
-        HandleEnemyState(enemyState);
-    }
-
-    private Vector3 GetRandomPoint(Vector3 center)
-    {
-        Vector3 result = Vector3.zero;
-
-        for (int i = 0; i < 30; i++)
-        {
-            Vector3 randomPoint = center + Random.insideUnitSphere * targetRange;
-
-            if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
-            {
-                result = hit.position;
-                return result;
-            }
-        }
-
-        return result;
+        return Vector3.zero;
     }
 
     private void HandleEnemyState(EnemyState state)
@@ -74,7 +46,7 @@ public class EnemyRoaming : MonoBehaviour
 
     private void HandlePatrol()
     {
-        navMeshAgent.SetDestination(newPosition);
+
     }
 
     private void HandleAttack()

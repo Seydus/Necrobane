@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 55588990}
   - component: {fileID: 55588989}
   - component: {fileID: 55588988}
+  - component: {fileID: 55588992}
   m_Layer: 7
   m_Name: Obstacle (4)
   m_TagString: Untagged
@@ -227,6 +228,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 36.163, z: 0}
+--- !u!54 &55588992
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55588987}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &69463404
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +362,7 @@ Transform:
   m_GameObject: {fileID: 69463404}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.94, y: 0.43, z: -2.01}
+  m_LocalPosition: {x: 0.36592698, y: 0.43, z: -2.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -379,10 +407,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e4a8bc389450c54a802f6d27b1906f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRange: 20
   setWaitingTime: 0
-  groundTransform: {fileID: 487017302}
   enemyState: 0
+  navMeshSurface: {fileID: 0}
 --- !u!195 &69463411
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1061,7 +1088,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8522d570cb47d9844823b91d4b0546ef, type: 3}
   m_Name: 
@@ -1075,7 +1102,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65e1bf5528777654c83c4101ffba3933, type: 3}
   m_Name: 
@@ -1252,6 +1279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1485819040}
   - component: {fileID: 1485819039}
+  - component: {fileID: 1485819041}
   m_Layer: 0
   m_Name: WwiseGlobal
   m_TagString: Untagged
@@ -1299,6 +1327,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1485819041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485819038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc483c6be8511f048b2bb943a80cae07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: ae8d9d44
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 68cec8ca8a32a0441b5f9d1e96607630, type: 2}
+  decodeBank: 0
+  overrideLoadSetting: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &1634953742
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,6 +1614,14 @@ MonoBehaviour:
   maxSpeed: 8
   setAccelerationSpeed: 7
   setDecelerationSpeed: 9
+  PlayerFootsteps:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: cab98593d7bf8a347b889b0049eb5926, type: 2}
+  PlayerLanding:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: e41cb4aedefff7a4e82c1ec34ab4a08b, type: 2}
   airDrag: 1.5
   jumpHeight: 2
   gravity: -29.43

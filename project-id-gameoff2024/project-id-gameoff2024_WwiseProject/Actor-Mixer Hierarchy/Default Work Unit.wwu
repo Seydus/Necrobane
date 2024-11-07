@@ -1,6 +1,354 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{8521127E-F051-48BD-AFE0-E17C1DC96374}" SchemaVersion="119">
 	<AudioObjects>
-		<WorkUnit Name="Default Work Unit" ID="{8521127E-F051-48BD-AFE0-E17C1DC96374}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{8521127E-F051-48BD-AFE0-E17C1DC96374}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Player" ID="{37CEE714-7DE9-470C-B61E-37A433612F04}" ShortID="793523655">
+					<ChildrenList>
+						<SwitchContainer Name="Footsteps" ID="{A26679A2-C10B-48D8-87D8-066E4ABAB041}" ShortID="344332616">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{9F8E1AB1-8766-4F91-8F99-CB790675A752}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="152"/>
+													<Property Name="Min" Type="Real64" Value="-152"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+								</Reference>
+								<Reference Name="DefaultSwitchOrState">
+									<ObjectRef Name="Stone" ID="{2E20ED4A-F7C7-45C8-A416-17A5F018963F}" WorkUnitID="{ED06FA44-546C-4D2B-ACCF-66D261F951D9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Footsteps" ID="{67DAE7F6-F8EE-4726-ACDC-DBB052DBA749}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+								</Reference>
+								<Reference Name="SwitchGroupOrStateGroup">
+									<ObjectRef Name="Footsteps" ID="{8EC27986-04DE-4F47-852D-51E83AD6AC10}" WorkUnitID="{ED06FA44-546C-4D2B-ACCF-66D261F951D9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<RandomSequenceContainer Name="Stone" ID="{D76080E9-80F8-422A-97EE-011A3F27D743}" ShortID="201409666">
+									<PropertyList>
+										<Property Name="OverrideConversion" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="FootstepStone1" ID="{37A60CE6-EFB7-41E9-AEBF-EC1B34AC42BC}" ShortID="713733546">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootstepStone1" ID="{71EA96C8-C1D2-4D2E-8A87-8E5FF030A60B}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0476687543493389"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.300974251913709"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>FootstepStone1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="330704271"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootstepStone1" ID="{71EA96C8-C1D2-4D2E-8A87-8E5FF030A60B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootstepStone2" ID="{F773E3D0-D4E4-4A03-9805-86F327CB357D}" ShortID="1018319166">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootstepStone2" ID="{422917A7-D374-498F-9484-C663A29FA317}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0490605427974947"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.301670146137787"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>FootstepStone2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="660831382"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootstepStone2" ID="{422917A7-D374-498F-9484-C663A29FA317}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootstepStone3" ID="{6B78E2A2-2FD0-4495-BF6F-7681100B1887}" ShortID="357701716">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootstepStone3" ID="{CC6F646B-0A4A-4327-A719-8657A5AC5660}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0494084899095338"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.30062630480167"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>FootstepStone3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="66535431"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootstepStone3" ID="{CC6F646B-0A4A-4327-A719-8657A5AC5660}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootstepStone4" ID="{545ED513-5EAC-4F4C-B0DE-2159558334C0}" ShortID="610215651">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootstepStone4" ID="{C7C09AA1-7265-467B-8C65-8825F2BF7FFE}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0494084899095337"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.30062630480167"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>FootstepStone4.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1002423227"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootstepStone4" ID="{C7C09AA1-7265-467B-8C65-8825F2BF7FFE}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootstepStone5" ID="{75938330-573D-48FD-80E7-50D2F0529A9F}" ShortID="852435348">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootstepStone5" ID="{339400FD-1C4C-44A2-9617-DF7F7C0C4439}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0494084899095338"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.30062630480167"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>FootstepStone5.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="896910572"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootstepStone5" ID="{339400FD-1C4C-44A2-9617-DF7F7C0C4439}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootstepStone6" ID="{D1C953A2-10EB-466D-9F7B-D46270173C9A}" ShortID="786638197">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootstepStone6" ID="{18B8B42B-B44B-4BCB-8B2C-1823FB34F08E}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0497564370215727"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.301322199025748"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>FootstepStone6.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="754982117"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootstepStone6" ID="{18B8B42B-B44B-4BCB-8B2C-1823FB34F08E}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+							</ChildrenList>
+							<GroupingInfo>
+								<GroupingBehaviorList>
+									<GroupingBehavior>
+										<ItemRef Name="Stone" ID="{D76080E9-80F8-422A-97EE-011A3F27D743}"/>
+									</GroupingBehavior>
+								</GroupingBehaviorList>
+								<GroupingList>
+									<Grouping>
+										<SwitchRef Name="Stone" ID="{2E20ED4A-F7C7-45C8-A416-17A5F018963F}"/>
+										<ItemList>
+											<ItemRef Name="Stone" ID="{D76080E9-80F8-422A-97EE-011A3F27D743}"/>
+										</ItemList>
+									</Grouping>
+								</GroupingList>
+							</GroupingInfo>
+						</SwitchContainer>
+						<SwitchContainer Name="Jump" ID="{D207C039-6F2E-4AA4-946E-727356306FAC}" ShortID="295218995">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+								</Reference>
+								<Reference Name="DefaultSwitchOrState">
+									<ObjectRef Name="Stone" ID="{2E20ED4A-F7C7-45C8-A416-17A5F018963F}" WorkUnitID="{ED06FA44-546C-4D2B-ACCF-66D261F951D9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Footsteps" ID="{67DAE7F6-F8EE-4726-ACDC-DBB052DBA749}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+								</Reference>
+								<Reference Name="SwitchGroupOrStateGroup">
+									<ObjectRef Name="Footsteps" ID="{8EC27986-04DE-4F47-852D-51E83AD6AC10}" WorkUnitID="{ED06FA44-546C-4D2B-ACCF-66D261F951D9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<RandomSequenceContainer Name="Stone" ID="{E32A816F-6291-42D0-8D2A-681E3C9E6B64}" ShortID="286923592">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="JumpStone" ID="{BB814702-F44C-4FA1-A6DF-E3C31F9F835E}" ShortID="899760035">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{C882483C-8CE5-406A-9088-62150037BAC5}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="227"/>
+																	<Property Name="Min" Type="Real64" Value="-227"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="JumpStone" ID="{4476C987-3A0E-406B-9820-3874444DD7AD}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0487125956854558"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.300974251913709"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>JumpStone.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="218368169"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="JumpStone" ID="{4476C987-3A0E-406B-9820-3874444DD7AD}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+							</ChildrenList>
+							<GroupingInfo>
+								<GroupingBehaviorList>
+									<GroupingBehavior>
+										<ItemRef Name="Stone" ID="{E32A816F-6291-42D0-8D2A-681E3C9E6B64}"/>
+									</GroupingBehavior>
+								</GroupingBehaviorList>
+								<GroupingList>
+									<Grouping>
+										<SwitchRef Name="Stone" ID="{2E20ED4A-F7C7-45C8-A416-17A5F018963F}"/>
+										<ItemList>
+											<ItemRef Name="Stone" ID="{E32A816F-6291-42D0-8D2A-681E3C9E6B64}"/>
+										</ItemList>
+									</Grouping>
+								</GroupingList>
+							</GroupingInfo>
+						</SwitchContainer>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="test" ID="{9FD91F47-36B3-4292-8ADE-F941BB031B92}" ShortID="548253243">
+					<ChildrenList>
+						<Sound Name="Default_Ambient" ID="{FA52C700-7774-4E34-8B4D-0ACD14944BBF}" ShortID="888779463">
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="normal" ID="{41D4C35B-5778-46DB-8FEA-8FBC4948A9D5}" WorkUnitID="{61E62009-A45E-4D12-A3F4-01EB122C29C4}"/>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Default_Ambient" ID="{7B2370AD-D889-4FFD-8DC4-DB87E4D17475}">
+									<Language>SFX</Language>
+									<AudioFile>Default_Ambient.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="665979234"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Default_Ambient" ID="{7B2370AD-D889-4FFD-8DC4-DB87E4D17475}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>
