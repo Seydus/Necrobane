@@ -1,0 +1,32 @@
+{
+    "originalSdkFolder": "D:\\Audio\\Wwise\\Wwise2023.1.8.8601\\SDK",
+    "currentVersion": {
+        "nickname": "",
+        "build": 3208,
+        "major": 1,
+        "minor": 8,
+        "year": 2023
+    },
+    "installedBundleGroups": [
+        {
+            "id": "Packages",
+            "valueId": "Unity"
+        },
+        {
+            "id": "Packages",
+            "valueId": "Extensions"
+        },
+        {
+            "id": "DeploymentPlatforms",
+            "valueId": "Mac"
+        },
+        {
+            "id": "DeploymentPlatforms",
+            "valueId": "Windows"
+        },
+        {
+            "id": "DeploymentPlatforms",
+            "valueId": "Linux"
+        }
+    ]
+}
