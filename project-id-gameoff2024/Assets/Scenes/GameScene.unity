@@ -334,7 +334,7 @@ Transform:
   m_GameObject: {fileID: 69463404}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.36592698, y: 0.43, z: -2.01}
+  m_LocalPosition: {x: 4.94, y: 0.43, z: -2.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -379,6 +379,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e4a8bc389450c54a802f6d27b1906f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetRange: 20
+  setWaitingTime: 0
+  groundTransform: {fileID: 487017302}
+  enemyState: 0
 --- !u!195 &69463411
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1555,8 +1559,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 8
-  accelerationSpeed: 7
-  decelerationSpeed: 9
+  setAccelerationSpeed: 7
+  setDecelerationSpeed: 9
   airDrag: 1.5
   jumpHeight: 2
   gravity: -29.43
