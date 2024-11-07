@@ -7,10 +7,15 @@ public class PlayerController : MonoBehaviour
     private float moveSpeed;
     [SerializeField] private float accelerationSpeed = 5f;
     [SerializeField] private float decelerationSpeed = 7f;
-    [SerializeField] private float jumpSpeed = 2f;
+    private float setAcceleration;
+    private float setDeceleration;
+
+    [Header("Jump Settings")]
+    [SerializeField] private float airDrag = 1f;
+    [SerializeField] private float jumpHeight = 2f;
     [SerializeField] private float gravity = -29.43f;
 
-    [SerializeField] private Vector3 savedDirection = Vector3.zero;
+    private Vector3 savedDirection = Vector3.zero;
 
     private CharacterController characterController;
     private Vector3 velocity;
@@ -33,6 +38,9 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         cameraRotation = cameraHolder.localRotation.eulerAngles;
         characterRotation = transform.localRotation.eulerAngles;
+
+        setAcceleration = accelerationSpeed;
+        setDeceleration = decelerationSpeed;
     }
 
     private void Update()
@@ -47,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
         if(moveDirection.x != 0 || moveDirection.z != 0)
         {
-            moveSpeed = Mathf.Lerp(moveSpeed, maxSpeed, accelerationSpeed * Time.deltaTime);
+            moveSpeed = Mathf.Lerp(moveSpeed, maxSpeed, setAcceleration * Time.deltaTime);
             savedDirection = moveDirection;
         }
         else
@@ -58,7 +66,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                moveSpeed = Mathf.Lerp(moveSpeed, 0, decelerationSpeed * Time.deltaTime);
+                moveSpeed = Mathf.Lerp(moveSpeed, 0, setDeceleration * Time.deltaTime);
             }
         }
 
@@ -67,7 +75,6 @@ public class PlayerController : MonoBehaviour
         ApplyGravityAndJump();
 
         Vector3 finalMovement = movement + velocity;
-
 
         characterController.Move(finalMovement * Time.deltaTime);
     }
@@ -97,14 +104,14 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
                 Debug.Log("Jump!");
-                velocity.y = Mathf.Sqrt(jumpSpeed * -2f * gravity);
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             }
 
-            decelerationSpeed = 7f;
+            setDeceleration = decelerationSpeed;
         }
         else
         {
-            decelerationSpeed = 1f;
+            setDeceleration = airDrag;
             velocity.y += gravity * Time.deltaTime;
         }
     }
