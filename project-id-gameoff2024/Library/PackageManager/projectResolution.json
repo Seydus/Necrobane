@@ -8,6 +8,14 @@
     "C:\\Users\\Saidus\\OneDrive\\Documents\\My Games\\project-id-gameoff2024\\project-id-gameoff2024\\Packages\\packages-lock.json"
   ],
   "outputs": {
+    "com.unity.ai.navigation@2.0.4": {
+      "name": "com.unity.ai.navigation",
+      "resolvedPath": "C:\\Users\\Saidus\\OneDrive\\Documents\\My Games\\project-id-gameoff2024\\project-id-gameoff2024\\Library\\PackageCache\\com.unity.ai.navigation",
+      "fingerprint": "3f89ad87253dcaae2d0bb583bd5ef4c4f2c17764",
+      "editorCompatibility": "2023.2.0a18",
+      "version": "2.0.4",
+      "source": "registry"
+    },
     "com.unity.collab-proxy@2.5.2": {
       "name": "com.unity.collab-proxy",
       "resolvedPath": "C:\\Users\\Saidus\\OneDrive\\Documents\\My Games\\project-id-gameoff2024\\project-id-gameoff2024\\Library\\PackageCache\\com.unity.collab-proxy",

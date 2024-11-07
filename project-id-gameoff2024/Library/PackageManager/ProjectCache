@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638665021095267635
-    m_Hash: 537835953
+      ticks: 638665495036614305
+    m_Hash: 263901261
   m_LockFileStatus:
     m_FilePath: C:/Users/Saidus/OneDrive/Documents/My Games/project-id-gameoff2024/project-id-gameoff2024/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638665021137255194
-    m_Hash: 1984799494
+      ticks: 638665495036670468
+    m_Hash: 3112590500
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -22,6 +22,113 @@ m_LocalPackages:
 m_ProjectPath: C:/Users/Saidus/OneDrive/Documents/My Games/project-id-gameoff2024/project-id-gameoff2024/Packages
 m_EditorVersion: 6000.0.25f1 (4859ab7b5a49)
 m_ResolvedPackages:
+- packageId: com.unity.ai.navigation@2.0.4
+  testable: 0
+  isDirectDependency: 1
+  version: 2.0.4
+  source: 1
+  resolvedPath: C:\Users\Saidus\OneDrive\Documents\My Games\project-id-gameoff2024\project-id-gameoff2024\Library\PackageCache\com.unity.ai.navigation
+  assetPath: Packages/com.unity.ai.navigation
+  name: com.unity.ai.navigation
+  displayName: AI Navigation
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: 
+  description: The AI Navigation package contains high-level components that allow
+    you to use navmeshes to incorporate navigation and pathfinding in your game.
+    With this package installed you can build and use navmeshes at runtime and at
+    edit time, create dynamic obstacles, and use links to allow specific actions
+    (like jumping) as your characters navigate between navmeshes.
+  errors: []
+  versions:
+    all:
+    - 1.0.0-exp.1
+    - 1.0.0-exp.2
+    - 1.0.0-exp.3
+    - 1.0.0-exp.4
+    - 1.1.0-pre.1
+    - 1.1.0-pre.2
+    - 1.1.1
+    - 1.1.3
+    - 1.1.4
+    - 1.1.5
+    - 2.0.0-pre.3
+    - 2.0.0-pre.4
+    - 2.0.0
+    - 2.0.3
+    - 2.0.4
+    compatible:
+    - 2.0.4
+    recommended: 2.0.4
+    deprecated: []
+  dependencies:
+  - name: com.unity.modules.ai
+    version: 1.0.0
+  resolvedDependencies:
+  - name: com.unity.modules.ai
+    version: 1.0.0
+  keywords:
+  - carving
+  - mesh
+  - navigation
+  - navmesh
+  - NavMesh
+  - navmesh agent
+  - navmesh link
+  - navmeshlink
+  - navmesh modifier
+  - navmeshmodifier
+  - navmesh modifier volume
+  - navmeshmodifiervolume
+  - navmesh obstacle
+  - navmesh surface
+  - navmeshsurface
+  - offmesh link
+  - off-mesh link
+  - pathfinding
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  entitlements:
+    licensingModel: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 638605675584270000
+  documentationUrl: https://docs.unity3d.com/Packages/com.unity.ai.navigation@2.0/manual/index.html
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/com.unity.ai.navigation.git
+    revision: 2c565f88d424bed980de32ead5a48791e9db9936
+    path: 
+  unityLifecycle:
+    version: 2.0.4
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: '{"changelog":"### Fixed\n* NavMesh Modifier was not overriding the
+    area type in a NavMesh built from within an `Awake()` method ([NAVB-39](https://issuetracker.unity3d.com/issues/building-navmesh-with-navmeshsurface-does-not-bake-areas-into-navmeshtriangulation-when-buildnavmesh-is-called-in-awake))"}'
+  assetStore:
+    productId: 
+  fingerprint: 3f89ad87253dcaae2d0bb583bd5ef4c4f2c17764
+  editorCompatibility:
+    compatibilityLevel: 0
+    minimumPackageVersion: 2.0.4
+    minimumUnityVersion: 2023.2.0a18
 - packageId: com.unity.collab-proxy@2.5.2
   testable: 0
   isDirectDependency: 1
