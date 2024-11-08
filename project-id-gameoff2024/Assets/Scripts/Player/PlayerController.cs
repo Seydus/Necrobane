@@ -37,6 +37,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 cameraRotation;
     private Vector3 characterRotation;
 
+    //Debugging
+    public bool isTargeting { get; set; }
+
     // Wwise
     private bool FootstepIsPlaying = false;
     private bool LandingIsPlaying = false;
@@ -167,11 +170,14 @@ public class PlayerController : MonoBehaviour
         if (viewXInverted) mouseX = -mouseX;
         if (viewYInverted) mouseY = -mouseY;
 
-        characterRotation.y += mouseX;
-        transform.localRotation = Quaternion.Euler(characterRotation);
+        if(!isTargeting)
+        {
+            characterRotation.y += mouseX;
+            transform.localRotation = Quaternion.Euler(characterRotation);
 
-        cameraRotation.x -= mouseY;
-        cameraRotation.x = Mathf.Clamp(cameraRotation.x, viewClampYMin, viewClampYMax);
-        cameraHolder.localRotation = Quaternion.Euler(cameraRotation);
+            cameraRotation.x -= mouseY;
+            cameraRotation.x = Mathf.Clamp(cameraRotation.x, viewClampYMin, viewClampYMax);
+            cameraHolder.localRotation = Quaternion.Euler(cameraRotation);
+        }
     }
 }
