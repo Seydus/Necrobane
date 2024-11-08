@@ -15,4 +15,4 @@ MonoBehaviour:
   objectName: Gravel
   id: 2185786256
   guid: 46A14821-43CD-4AA3-80E0-9B8372FBD741
-  WwiseSwitchGroupReference: {fileID: 0}
+  WwiseSwitchGroupReference: {fileID: 11400000, guid: 5a57052b8023c2a45a896a96f06c725a, type: 2}

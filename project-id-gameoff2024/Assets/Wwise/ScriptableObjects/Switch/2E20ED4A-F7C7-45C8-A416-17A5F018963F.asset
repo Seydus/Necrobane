@@ -15,4 +15,4 @@ MonoBehaviour:
   objectName: Stone
   id: 1216965916
   guid: 2E20ED4A-F7C7-45C8-A416-17A5F018963F
-  WwiseSwitchGroupReference: {fileID: 0}
+  WwiseSwitchGroupReference: {fileID: 11400000, guid: 5a57052b8023c2a45a896a96f06c725a, type: 2}

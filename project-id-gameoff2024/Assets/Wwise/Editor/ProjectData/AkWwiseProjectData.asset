@@ -182,8 +182,8 @@ MonoBehaviour:
         guid: be2dd9b4c54c8a48a786bd5c88b87b7b
       Path: Events\Default Work Unit\Play_Jump
       maxAttenuation: 0
-      maxDuration: 0.34314224
-      minDuration: 0.2639882
+      maxDuration: 0.4515745
+      minDuration: 0.23491521
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -291,7 +291,7 @@ MonoBehaviour:
     m_lastTime: -8584711310542716776
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 060000000700000008000000090000000a0000000b0000000d0000000e0000001000000011000000130000001400000015000000
+  ExpandedWaapiItemIds: 060000000700000008000000090000000a0000000b0000000d0000000e000000100000001100000012000000130000001400000015000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

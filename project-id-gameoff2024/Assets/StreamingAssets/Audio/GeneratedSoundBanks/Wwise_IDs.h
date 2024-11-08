@@ -20,16 +20,16 @@ namespace AK
 
     namespace SWITCHES
     {
-        namespace FOOTSTEPS
+        namespace MATERIAL
         {
-            static const AkUniqueID GROUP = 2385628198U;
+            static const AkUniqueID GROUP = 3865314626U;
 
             namespace SWITCH
             {
                 static const AkUniqueID GRAVEL = 2185786256U;
                 static const AkUniqueID STONE = 1216965916U;
             } // namespace SWITCH
-        } // namespace FOOTSTEPS
+        } // namespace MATERIAL
 
     } // namespace SWITCHES
 
