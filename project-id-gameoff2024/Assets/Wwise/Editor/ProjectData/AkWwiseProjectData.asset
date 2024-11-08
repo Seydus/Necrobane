@@ -224,11 +224,11 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 44fa06ed6c542b4daccf66d261f951d9
     GuidInternal: 
-    m_lastTime: -8584705170959429574
+    m_lastTime: -8584705132106767144
     List:
-    - name: Footsteps
+    - name: Material
       guid: 8679c28ede04474f852d51e83ad6ac10
-      id: 2385628198
+      id: 3865314626
       PathAndIcons:
       - ElementName: Switches
         ObjectType: 5
@@ -236,10 +236,10 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 44fa06ed6c542b4daccf66d261f951d9
-      - ElementName: Footsteps
+      - ElementName: Material
         ObjectType: 11
         guid: 8679c28ede04474f852d51e83ad6ac10
-      Path: Switches\Default Work Unit\Footsteps
+      Path: Switches\Default Work Unit\Material
       values:
       - name: Gravel
         guid: 2148a146cd43a34a80e09b8372fbd741
@@ -251,7 +251,7 @@ MonoBehaviour:
         - ElementName: Default Work Unit
           ObjectType: 12
           guid: 44fa06ed6c542b4daccf66d261f951d9
-        - ElementName: Footsteps
+        - ElementName: Material
           ObjectType: 11
           guid: 8679c28ede04474f852d51e83ad6ac10
         - ElementName: Gravel
@@ -267,7 +267,7 @@ MonoBehaviour:
         - ElementName: Default Work Unit
           ObjectType: 12
           guid: 44fa06ed6c542b4daccf66d261f951d9
-        - ElementName: Footsteps
+        - ElementName: Material
           ObjectType: 11
           guid: 8679c28ede04474f852d51e83ad6ac10
         - ElementName: Stone
@@ -291,7 +291,7 @@ MonoBehaviour:
     m_lastTime: -8584711310542716776
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 060000000700000008000000090000000a0000000b0000000d0000000e000000100000001100000012000000130000001400000015000000
+  ExpandedWaapiItemIds: 060000000700000008000000090000000a0000000b0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
