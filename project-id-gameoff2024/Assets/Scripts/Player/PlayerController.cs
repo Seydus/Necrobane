@@ -11,10 +11,6 @@ public class PlayerController : MonoBehaviour
     private float accelerationSpeed;
     private float decelerationSpeed;
 
-    [Header("Wwise Event")]
-    public AK.Wwise.Event PlayerFootsteps;
-    public AK.Wwise.Event PlayerLanding;
-
     [Header("Jump Settings")]
     [SerializeField] private float airDrag = 1f;
     [SerializeField] private float jumpHeight = 2f;
@@ -46,6 +42,9 @@ public class PlayerController : MonoBehaviour
     private bool IsJumping = false;
     private float LastFootstepTime = 0;
     private int _speed;
+    private RaycastHit hit;
+    private string PhysMat;
+    private string PhysMat_Last;
 
     private void Awake()
     {
@@ -68,7 +67,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 moveDirection = GetCameraRelativeMovement();
 
-        if(moveDirection.x != 0 || moveDirection.z != 0)
+        if (moveDirection.x != 0 || moveDirection.z != 0)
         {
             moveSpeed = Mathf.Lerp(moveSpeed, maxSpeed, accelerationSpeed * Time.deltaTime);
             savedDirection = moveDirection;
@@ -95,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
         if (!FootstepIsPlaying && !IsJumping)
         {
-            PlayerFootsteps.Post(gameObject);
+            PlayerFootsteps();
             LastFootstepTime = Time.time;
             FootstepIsPlaying = true;
         }
@@ -145,19 +144,19 @@ public class PlayerController : MonoBehaviour
             {
                 if (IsJumping)
                 {
-                    PlayerLanding.Post(gameObject);
+                    PlayerJump();
                 }
                 IsJumping = false;
             }
 
-        decelerationSpeed = setDecelerationSpeed;
+            decelerationSpeed = setDecelerationSpeed;
 
         }
         else
         {
             IsJumping = true;
             decelerationSpeed = airDrag;
-            velocity.y += gravity * Time.deltaTime;         
+            velocity.y += gravity * Time.deltaTime;
         }
 
     }
@@ -170,7 +169,7 @@ public class PlayerController : MonoBehaviour
         if (viewXInverted) mouseX = -mouseX;
         if (viewYInverted) mouseY = -mouseY;
 
-        if(!isTargeting)
+        if (!isTargeting)
         {
             characterRotation.y += mouseX;
             transform.localRotation = Quaternion.Euler(characterRotation);
@@ -179,5 +178,54 @@ public class PlayerController : MonoBehaviour
             cameraRotation.x = Mathf.Clamp(cameraRotation.x, viewClampYMin, viewClampYMax);
             cameraHolder.localRotation = Quaternion.Euler(cameraRotation);
         }
+    }
+
+    private void PlayerFootsteps()
+    {
+        if (Physics.Raycast(transform.position, -Vector3.up, out hit, Mathf.Infinity))
+        {
+            PhysMat_Last = PhysMat;
+
+            PhysMat = hit.collider.tag;
+
+            if (PhysMat != PhysMat_Last)
+            {
+                AkSoundEngine.SetSwitch("Material", PhysMat, gameObject);
+
+                print(PhysMat);
+            }
+        }
+        if (!characterController.isGrounded)
+        {
+            return;
+        }
+
+        AkSoundEngine.PostEvent("Play_Footsteps", gameObject);
+
+
+    }
+    private void PlayerJump()
+    {
+        if (Physics.Raycast(transform.position, -Vector3.up, out hit, Mathf.Infinity))
+        {
+            PhysMat_Last = PhysMat;
+
+            PhysMat = hit.collider.tag;
+
+            if (PhysMat != PhysMat_Last)
+            {
+                AkSoundEngine.SetSwitch("Material", PhysMat, gameObject);
+
+                print(PhysMat);
+            }
+        }
+        if (!characterController.isGrounded)
+        {
+            return;
+        }
+
+        AkSoundEngine.PostEvent("Play_Jump", gameObject);
+
+
     }
 }

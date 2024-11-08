@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 55588992}
   m_Layer: 7
   m_Name: Obstacle (4)
-  m_TagString: Untagged
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -222,7 +222,7 @@ Transform:
   m_GameObject: {fileID: 55588987}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.31037152, z: -0, w: 0.9506154}
-  m_LocalPosition: {x: 1.78, y: 0.0671, z: -12.08}
+  m_LocalPosition: {x: 1.78, y: 0, z: -12.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -456,7 +456,7 @@ GameObject:
   - component: {fileID: 259775144}
   m_Layer: 7
   m_Name: Obstacle (1)
-  m_TagString: Untagged
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -703,7 +703,7 @@ GameObject:
   - component: {fileID: 487017303}
   m_Layer: 8
   m_Name: AIGround
-  m_TagString: Untagged
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -843,7 +843,7 @@ GameObject:
   - component: {fileID: 493913896}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Gravel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1049,7 +1049,7 @@ GameObject:
   - component: {fileID: 795872049}
   m_Layer: 7
   m_Name: Obstacle (2)
-  m_TagString: Untagged
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1639,7 +1639,7 @@ GameObject:
   - component: {fileID: 1634953743}
   m_Layer: 7
   m_Name: Obstacle
-  m_TagString: Untagged
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1887,14 +1887,6 @@ MonoBehaviour:
   maxSpeed: 8
   setAccelerationSpeed: 7
   setDecelerationSpeed: 9
-  PlayerFootsteps:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: cab98593d7bf8a347b889b0049eb5926, type: 2}
-  PlayerLanding:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: e41cb4aedefff7a4e82c1ec34ab4a08b, type: 2}
   airDrag: 1.5
   jumpHeight: 2
   gravity: -29.43

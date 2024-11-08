@@ -24,7 +24,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 			<SwitchGroups>
-				<SwitchGroup Id="2385628198" Name="Footsteps">
+				<SwitchGroup Id="3865314626" Name="Material">
 					<Switches>
 						<Switch Id="1216965916" Name="Stone"/>
 						<Switch Id="2185786256" Name="Gravel"/>
@@ -32,10 +32,14 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{24F62A16-0330-7F6E-A4EE-C9BF6D2C4784}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{EA3FD0B4-7914-F886-8808-65756DC424F2}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
+				<File Id="21450614" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>JumpGravel1.wav</ShortName>
+					<CachePath>SFX/JumpGravel1_634084A4.wem</CachePath>
+				</File>
 				<File Id="66535431" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepStone3.wav</ShortName>
 					<CachePath>SFX/FootstepStone3_B1E5A22B.wem</CachePath>
@@ -72,6 +76,10 @@
 					<ShortName>FootstepGravel4.wav</ShortName>
 					<CachePath>SFX/FootstepGravel4_7D82D4D2.wem</CachePath>
 				</File>
+				<File Id="725154703" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>JumpGravel2.wav</ShortName>
+					<CachePath>SFX/JumpGravel2_7F86FA5B.wem</CachePath>
+				</File>
 				<File Id="754982117" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepStone6.wav</ShortName>
 					<CachePath>SFX/FootstepStone6_7E86A69D.wem</CachePath>
@@ -102,7 +110,7 @@
 				<Event Id="3854155799" Name="Play_Footsteps" DurationType="OneShot" DurationMin="0.27535725" DurationMax="0.49257997">
 					<SwitchContainers>
 						<SwitchContainer>
-							<SwitchValue GroupType="Switch" GroupId="2385628198" Id="2185786256" Default="true"/>
+							<SwitchValue GroupType="Switch" GroupId="3865314626" Id="2185786256" Default="true"/>
 							<MediaRefs>
 								<MediaRef Id="277656132"/>
 								<MediaRef Id="424456809"/>
@@ -113,7 +121,7 @@
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
-							<SwitchValue GroupType="Switch" GroupId="2385628198" Id="1216965916"/>
+							<SwitchValue GroupType="Switch" GroupId="3865314626" Id="1216965916"/>
 							<MediaRefs>
 								<MediaRef Id="66535431"/>
 								<MediaRef Id="330704271"/>
@@ -125,10 +133,17 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="3689126666" Name="Play_Jump" DurationType="OneShot" DurationMin="0.2639882" DurationMax="0.34314224">
+				<Event Id="3689126666" Name="Play_Jump" DurationType="OneShot" DurationMin="0.23491521" DurationMax="0.4515745">
 					<SwitchContainers>
 						<SwitchContainer>
-							<SwitchValue GroupType="Switch" GroupId="2385628198" Id="1216965916" Default="true"/>
+							<SwitchValue GroupType="Switch" GroupId="3865314626" Id="2185786256" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="21450614"/>
+								<MediaRef Id="725154703"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3865314626" Id="1216965916"/>
 							<MediaRefs>
 								<MediaRef Id="218368169"/>
 							</MediaRefs>
@@ -137,7 +152,7 @@
 				</Event>
 			</Events>
 			<SwitchGroups>
-				<SwitchGroup Id="2385628198" Name="Footsteps">
+				<SwitchGroup Id="3865314626" Name="Material">
 					<Switches>
 						<Switch Id="1216965916" Name="Stone"/>
 						<Switch Id="2185786256" Name="Gravel"/>
@@ -146,5 +161,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{9532350A-EACE-F84F-89F2-E7064FEF0F98}</FileHash>
+	<FileHash>{5E19AFB9-ACF1-71E7-D7EB-DFE02FD33299}</FileHash>
 </SoundBanksInfo>
