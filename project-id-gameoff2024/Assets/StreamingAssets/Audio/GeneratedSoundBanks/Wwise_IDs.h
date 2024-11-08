@@ -26,6 +26,7 @@ namespace AK
 
             namespace SWITCH
             {
+                static const AkUniqueID GRAVEL = 2185786256U;
                 static const AkUniqueID STONE = 1216965916U;
             } // namespace SWITCH
         } // namespace FOOTSTEPS

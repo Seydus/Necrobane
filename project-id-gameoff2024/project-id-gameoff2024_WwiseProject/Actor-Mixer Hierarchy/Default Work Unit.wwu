@@ -26,7 +26,7 @@
 									<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
 								</Reference>
 								<Reference Name="DefaultSwitchOrState">
-									<ObjectRef Name="Stone" ID="{2E20ED4A-F7C7-45C8-A416-17A5F018963F}" WorkUnitID="{ED06FA44-546C-4D2B-ACCF-66D261F951D9}"/>
+									<ObjectRef Name="Gravel" ID="{46A14821-43CD-4AA3-80E0-9B8372FBD741}" WorkUnitID="{ED06FA44-546C-4D2B-ACCF-66D261F951D9}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Footsteps" ID="{67DAE7F6-F8EE-4726-ACDC-DBB052DBA749}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
@@ -39,6 +39,11 @@
 								<RandomSequenceContainer Name="Stone" ID="{D76080E9-80F8-422A-97EE-011A3F27D743}" ShortID="201409666">
 									<PropertyList>
 										<Property Name="OverrideConversion" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -213,14 +218,217 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Gravel" ID="{CC2325C1-8B19-4016-AE32-635782DC87F0}" ShortID="721664465">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{76ECCAF5-4484-4F00-854C-6C60EFDF7238}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="202"/>
+															<Property Name="Min" Type="Real64" Value="-202"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="FootstepGravel1" ID="{523D1B8A-21FE-4973-BE92-9F270D209FB8}" ShortID="874429939">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootstepGravel1" ID="{B515F39C-C354-407D-B5A6-69417001435B}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0981573352232459"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.400070871722183"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>FootstepGravel1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="704861748"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootstepGravel1" ID="{B515F39C-C354-407D-B5A6-69417001435B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootstepGravel2" ID="{3FB126CC-0B35-45AD-A63A-73D6F0EB8E77}" ShortID="945061428">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootstepGravel2" ID="{5DC04C67-A263-462B-BAC7-DB6410029B36}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0496102055279943"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.40148830616584"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>FootstepGravel2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="424456809"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootstepGravel2" ID="{5DC04C67-A263-462B-BAC7-DB6410029B36}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootstepGravel3" ID="{D672BAAA-1D19-4309-8501-BD05D6AECE72}" ShortID="721872294">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootstepGravel3" ID="{F6D80B71-FEA1-4EE5-99CC-D4EB04713174}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0503189227498229"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.401133947554926"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>FootstepGravel3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="980383192"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootstepGravel3" ID="{F6D80B71-FEA1-4EE5-99CC-D4EB04713174}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootstepGravel4" ID="{F947F997-857A-4132-B77B-1FB2B8E8F5E0}" ShortID="960049599">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootstepGravel4" ID="{F59B8282-4D77-459C-86C7-CCD69B48ABAF}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0503189227498229"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.401133947554926"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>FootstepGravel4.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="710961184"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootstepGravel4" ID="{F59B8282-4D77-459C-86C7-CCD69B48ABAF}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootstepGravel5" ID="{D8CD9FBF-D0AC-485E-91B8-E60081ED89D5}" ShortID="674461361">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootstepGravel5" ID="{7190AE09-6BD7-49DE-A899-E5C75D4205DC}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0499645641389086"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.401133947554926"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>FootstepGravel5.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1048641856"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootstepGravel5" ID="{7190AE09-6BD7-49DE-A899-E5C75D4205DC}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootstepGravel6" ID="{BCFCE393-5A23-4F92-B135-76381EE76155}" ShortID="1065937170">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootstepGravel6" ID="{4983C842-001D-4A1C-84D9-002919B530AA}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0503189227498228"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.400779588944011"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>FootstepGravel6.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="277656132"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootstepGravel6" ID="{4983C842-001D-4A1C-84D9-002919B530AA}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
 							</ChildrenList>
 							<GroupingInfo>
 								<GroupingBehaviorList>
+									<GroupingBehavior>
+										<ItemRef Name="Gravel" ID="{CC2325C1-8B19-4016-AE32-635782DC87F0}"/>
+									</GroupingBehavior>
 									<GroupingBehavior>
 										<ItemRef Name="Stone" ID="{D76080E9-80F8-422A-97EE-011A3F27D743}"/>
 									</GroupingBehavior>
 								</GroupingBehaviorList>
 								<GroupingList>
+									<Grouping>
+										<SwitchRef Name="Gravel" ID="{46A14821-43CD-4AA3-80E0-9B8372FBD741}"/>
+										<ItemList>
+											<ItemRef Name="Gravel" ID="{CC2325C1-8B19-4016-AE32-635782DC87F0}"/>
+										</ItemList>
+									</Grouping>
 									<Grouping>
 										<SwitchRef Name="Stone" ID="{2E20ED4A-F7C7-45C8-A416-17A5F018963F}"/>
 										<ItemList>
@@ -300,9 +508,22 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Gravel" ID="{C3F4DA06-6BA6-44B4-91D7-764165D805DD}" ShortID="821394346">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+										</Reference>
+									</ReferenceList>
+								</RandomSequenceContainer>
 							</ChildrenList>
 							<GroupingInfo>
 								<GroupingBehaviorList>
+									<GroupingBehavior>
+										<ItemRef Name="Gravel" ID="{C3F4DA06-6BA6-44B4-91D7-764165D805DD}"/>
+									</GroupingBehavior>
 									<GroupingBehavior>
 										<ItemRef Name="Stone" ID="{E32A816F-6291-42D0-8D2A-681E3C9E6B64}"/>
 									</GroupingBehavior>
