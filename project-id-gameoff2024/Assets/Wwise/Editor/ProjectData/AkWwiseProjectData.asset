@@ -165,7 +165,7 @@ MonoBehaviour:
         guid: a9ce29e796074f418e1d3a3bfdeee3dd
       Path: Events\Default Work Unit\Play_Footsteps
       maxAttenuation: 0
-      maxDuration: 0.32935387
+      maxDuration: 0.49257997
       minDuration: 0.27535725
     - name: Play_Jump
       guid: be2dd9b4c54c8a48a786bd5c88b87b7b
@@ -224,7 +224,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 44fa06ed6c542b4daccf66d261f951d9
     GuidInternal: 
-    m_lastTime: -8584705810525093857
+    m_lastTime: -8584705170959429574
     List:
     - name: Footsteps
       guid: 8679c28ede04474f852d51e83ad6ac10
@@ -241,6 +241,22 @@ MonoBehaviour:
         guid: 8679c28ede04474f852d51e83ad6ac10
       Path: Switches\Default Work Unit\Footsteps
       values:
+      - name: Gravel
+        guid: 2148a146cd43a34a80e09b8372fbd741
+        id: 2185786256
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 44fa06ed6c542b4daccf66d261f951d9
+        - ElementName: Footsteps
+          ObjectType: 11
+          guid: 8679c28ede04474f852d51e83ad6ac10
+        - ElementName: Gravel
+          ObjectType: 10
+          guid: 2148a146cd43a34a80e09b8372fbd741
       - name: Stone
         guid: 4aed202ec7f7c845a41617a5f018963f
         id: 1216965916
