@@ -3,6 +3,14 @@ using static UnityEngine.GraphicsBuffer;
 
 public class PlayerCombat : MonoBehaviour
 {
+    private enum MeleeType
+    {
+        Hand,
+        Sword
+    };
+
+    [SerializeField] private MeleeType meleeType = MeleeType.Hand;
+
     [Header("FocusTarget")]
     [SerializeField] private float focusTargetSpeed;
     [SerializeField] private float combatTargetMaxDistance;
@@ -15,18 +23,8 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private float sphereRadius;
     [SerializeField] private float maxDistance;
     [SerializeField] private LayerMask combatLayer;
-
-    private enum MeleeType
-    {
-        Hand,
-        Sword
-    };
-
-    [SerializeField] private MeleeType meleeType = MeleeType.Hand;
-
     private Ray sphereRay;
     private RaycastHit hitInfo;
-
     [SerializeField] private Camera cam;
     private PlayerController playerController;
 
@@ -97,7 +95,11 @@ public class PlayerCombat : MonoBehaviour
             if(Input.GetMouseButtonDown(0))
             {
                 PlayerControllerEvent();
-                HandleMeleeType(meleeType);
+
+                if(hitInfo.transform.TryGetComponent<EnemyRoaming>(out EnemyRoaming enemy))
+                {
+                    HandleMeleeType(meleeType, enemy);
+                }
             }
         }
         else
@@ -111,25 +113,26 @@ public class PlayerCombat : MonoBehaviour
         
     }
 
-    private void HandleMeleeType(MeleeType type)
+    private void HandleMeleeType(MeleeType type, EnemyRoaming enemy)
     {
         switch (type)
         {
             case MeleeType.Hand:
-                HandleHandCombat();
+                HandleHandCombat(enemy);
                 break;
             case MeleeType.Sword:
-                HandleSwordCombat();
+                HandleSwordCombat(enemy);
                 break;
         }
     }
 
-    private void HandleHandCombat()
+    private void HandleHandCombat(EnemyRoaming enemy)
     {
         Debug.Log("Hand Combat Triggered");
+        enemy.DamageHealth(playerController.damage);
     }
 
-    private void HandleSwordCombat()
+    private void HandleSwordCombat(EnemyRoaming enemy)
     {
         Debug.Log("Sword Combat Triggered");
     }

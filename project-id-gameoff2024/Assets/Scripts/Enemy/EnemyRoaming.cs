@@ -1,5 +1,7 @@
 using System.Collections;
+using TMPro.Examples;
 using Unity.AI.Navigation;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,6 +14,12 @@ public class EnemyRoaming : MonoBehaviour
     }
 
     private EnemyState enemyState;
+
+    [Header("Stats")]
+    [SerializeField] private float health = 100f;
+    public float Health { get; private set; }
+    [SerializeField] private float damage = 20f;
+
 
     [Header("Enemy Settings")]
     [SerializeField] private float minRoamWaitTime;
@@ -42,6 +50,21 @@ public class EnemyRoaming : MonoBehaviour
     private float disengageCooldown;
     private bool isPlayerDetected;
 
+    [Header("Enemy Combat")]
+    [SerializeField] private float attackDelay;
+    private float setAttackDelay;
+    private bool initAttack;
+    private bool damagedPlayer;
+
+    [SerializeField] private float sphereRadius;
+    [SerializeField] private float maxDistance;
+    [SerializeField] private LayerMask combatLayer;
+    private Ray sphereRay;
+    private RaycastHit hitInfo;
+
+    [Header("Debugging")]
+    private bool isHit;
+
     [Header("Others")]
     [SerializeField] private NavMeshSurface navMeshSurface;
     private NavMeshAgent navMeshAgent;
@@ -52,6 +75,7 @@ public class EnemyRoaming : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
 
         roamTargetPosition = GetNewPosition();
+        Health = health;
     }
 
     private void Update()
@@ -68,6 +92,7 @@ public class EnemyRoaming : MonoBehaviour
         }
 
         HandleEnemyState();
+        EnemyStat();
     }
 
     private void DetectPlayer()
@@ -165,12 +190,88 @@ public class EnemyRoaming : MonoBehaviour
 
     private void HandleAttack()
     {
-        navMeshAgent.SetDestination(player.position);
+        if(Vector3.Distance(player.position, transform.position) >= 2.5f)
+        {
+            navMeshAgent.SetDestination(player.position);
+        }
+        else
+        {
+            navMeshAgent.ResetPath();
+
+            if(!initAttack)
+            {
+                StartCoroutine(InitAttack());
+                initAttack = true;
+            }
+        }
+    }
+
+    private Ray GetEnemyDirection()
+    {
+        return new Ray(transform.position, transform.forward);
+    }
+
+    private IEnumerator InitAttack()
+    {
+        sphereRay = GetEnemyDirection();
+
+        if (Physics.SphereCast(sphereRay, sphereRadius, out hitInfo, maxDistance, combatLayer))
+        {
+            isHit = true;
+
+            Debug.Log("Detected player");
+
+            yield return new WaitForSeconds(attackDelay);
+
+            if (!damagedPlayer)
+            {
+                if (hitInfo.transform.TryGetComponent<PlayerController>(out PlayerController player))
+                {
+                    player.DamageHealth(damage);
+                    Debug.Log("Enemy damaged player");
+                }
+
+                damagedPlayer = true;
+            }
+        }
+
+        yield return new WaitForSeconds(0.1f);
+
+        damagedPlayer = false;
+        initAttack = false;
+    }
+
+    // temp can be coded better
+    public void DamageHealth(float damage)
+    {
+        health -= damage;
+    }
+
+    private void EnemyStat()
+    {
+        if(health <= 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, detectRadius);
+        // Gizmos.color = Color.red;
+        // Gizmos.DrawWireSphere(transform.position, detectRadius);
+
+        Gizmos.color = isHit ? Color.green : Color.yellow;
+
+        sphereRay = GetEnemyDirection();
+
+        if (isHit)
+        {
+            Gizmos.DrawRay(sphereRay.origin, hitInfo.point - sphereRay.origin);
+            Gizmos.DrawWireSphere(hitInfo.point, sphereRadius);
+        }
+        else
+        {
+            Gizmos.DrawRay(sphereRay.origin, sphereRay.direction.normalized * maxDistance);
+        }
     }
 }

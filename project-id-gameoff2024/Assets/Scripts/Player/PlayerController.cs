@@ -3,6 +3,10 @@ using AK.Wwise;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Stats")]
+    public float health = 100f;
+    public float damage = 20f;
+
     [Header("Movement Settings")]
     [SerializeField] private float maxSpeed = 8f;
     public float moveSpeed { get; set; }
@@ -59,8 +63,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        HandleMovement();
-        HandleView();
+        if(GameManager.Instance.GameState)
+        {
+            HandleMovement();
+            HandleView();
+        }
     }
 
     private void HandleMovement()
@@ -225,7 +232,11 @@ public class PlayerController : MonoBehaviour
         }
 
         AkSoundEngine.PostEvent("Play_Jump", gameObject);
+    }
 
-
+    // temp can be coded better
+    public void DamageHealth(float damage)
+    {
+        health -= damage;
     }
 }
