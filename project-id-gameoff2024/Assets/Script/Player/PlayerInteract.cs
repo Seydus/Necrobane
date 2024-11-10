@@ -30,7 +30,7 @@ public class PlayerInteract : MonoBehaviour
     {
         sphereRay = HandleCameraDirection();
 
-        HandleMelee();
+        HandleAttack();
         HandleInteract();
     }
 
@@ -43,9 +43,11 @@ public class PlayerInteract : MonoBehaviour
     {
         if (!isEquippedWeapon)
         {
+            GameManager.Instance.uIManager.playerDropTxt.gameObject.SetActive(false);
             // Equip weapon
             if (Physics.SphereCast(sphereRay, sphereRadius, out hitInfo, interactDistance, interactLayer))
             {
+                GameManager.Instance.uIManager.playerGrabTxt.gameObject.SetActive(true);
                 isHit = true;
                 Debug.Log("Interacting a weapon...");
 
@@ -62,8 +64,14 @@ public class PlayerInteract : MonoBehaviour
             }
             else
             {
+                GameManager.Instance.uIManager.playerGrabTxt.gameObject.SetActive(false);
                 isHit = false;
             }
+        }
+        else
+        {
+            GameManager.Instance.uIManager.playerGrabTxt.gameObject.SetActive(false);
+            GameManager.Instance.uIManager.playerDropTxt.gameObject.SetActive(true);
         }
 
         // Drop weapon
@@ -81,12 +89,13 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
-    private void HandleMelee()
+    private void HandleAttack()
     {
         if(weaponHolder)
         {
             if (Physics.SphereCast(sphereRay, sphereRadius, out hitInfo, combatDistance, combatLayer))
             {
+                GameManager.Instance.uIManager.playerAttackTxt.gameObject.SetActive(true);
                 isHit = true;
 
                 if (Input.GetMouseButtonDown(0))
@@ -99,11 +108,13 @@ public class PlayerInteract : MonoBehaviour
             }
             else
             {
+                GameManager.Instance.uIManager.playerAttackTxt.gameObject.SetActive(false);
                 isHit = false;
             }
         }
         else
         {
+            GameManager.Instance.uIManager.playerGrabTxt.gameObject.SetActive(false);
             Debug.LogWarning("You haven't equiped a weapon");
         }
     }
