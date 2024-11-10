@@ -15,11 +15,7 @@ public class EnemyRoaming : MonoBehaviour
 
     private EnemyState enemyState;
 
-    [Header("Stats")]
-    [SerializeField] private float health = 100f;
-    public float Health { get; private set; }
-    [SerializeField] private float damage = 20f;
-
+    private EnemyHolder enemyHolder;
 
     [Header("Enemy Settings")]
     [SerializeField] private float minRoamWaitTime;
@@ -50,35 +46,21 @@ public class EnemyRoaming : MonoBehaviour
     private float disengageCooldown;
     private bool isPlayerDetected;
 
-    [Header("Enemy Combat")]
-    [SerializeField] private float attackDelay;
-    private float setAttackDelay;
-    private bool initAttack;
-    private bool damagedPlayer;
-
-    [SerializeField] private float sphereRadius;
-    [SerializeField] private float maxDistance;
-    [SerializeField] private LayerMask combatLayer;
-    private Ray sphereRay;
-    private RaycastHit hitInfo;
-
-    [Header("Debugging")]
-    private bool isHit;
-
     [Header("Others")]
+    // can be better
     [SerializeField] private NavMeshSurface navMeshSurface;
     private NavMeshAgent navMeshAgent;
     private NavMeshHit navHit;
 
     private void Awake()
     {
+        enemyHolder = GetComponent<EnemyHolder>();
         navMeshAgent = GetComponent<NavMeshAgent>();
 
         roamTargetPosition = GetNewPosition();
-        Health = health;
     }
 
-    private void Update()
+    public void Init()
     {
         DetectPlayer();
 
@@ -92,7 +74,7 @@ public class EnemyRoaming : MonoBehaviour
         }
 
         HandleEnemyState();
-        EnemyStat();
+        enemyHolder.EnemyProfile.EnemyStatus(gameObject);
     }
 
     private void DetectPlayer()
@@ -104,36 +86,6 @@ public class EnemyRoaming : MonoBehaviour
         {
             player = hitColliders[0].transform;
         }
-    }
-
-    private void HandleEngagement()
-    {
-        if (engageCooldown >= engageCooldownDuration)
-        {
-            enemyState = EnemyState.Attack;
-            engageCooldown = 0f;
-        }
-        else
-        {
-            engageCooldown += Time.deltaTime;
-        }
-
-        disengageCooldown = 0f;
-    }
-
-    private void HandleDisengagement()
-    {
-        if (disengageCooldown >= disengageCooldownDuration)
-        {
-            enemyState = EnemyState.Patrol;
-            disengageCooldown = 0f;
-        }
-        else
-        {
-            disengageCooldown += Time.deltaTime;
-        }
-
-        engageCooldown = 0f;
     }
 
     private Vector3 GetNewPosition()
@@ -164,7 +116,7 @@ public class EnemyRoaming : MonoBehaviour
                 HandlePatrol();
                 break;
             case EnemyState.Attack:
-                HandleAttack();
+                enemyHolder.EnemyCombat.HandleAttack(player, navMeshAgent);
                 break;
         }
     }
@@ -188,90 +140,34 @@ public class EnemyRoaming : MonoBehaviour
         isRoaming = false;
     }
 
-    private void HandleAttack()
+
+    private void HandleEngagement()
     {
-        if(Vector3.Distance(player.position, transform.position) >= 2.5f)
+        if (engageCooldown >= engageCooldownDuration)
         {
-            navMeshAgent.SetDestination(player.position);
+            enemyState = EnemyState.Attack;
+            engageCooldown = 0f;
         }
         else
         {
-            navMeshAgent.ResetPath();
-
-            if(!initAttack)
-            {
-                StartCoroutine(InitAttack());
-                initAttack = true;
-            }
-        }
-    }
-
-    private Ray GetEnemyDirection()
-    {
-        return new Ray(transform.position, transform.forward);
-    }
-
-    private IEnumerator InitAttack()
-    {
-        sphereRay = GetEnemyDirection();
-
-        if (Physics.SphereCast(sphereRay, sphereRadius, out hitInfo, maxDistance, combatLayer))
-        {
-            isHit = true;
-
-            Debug.Log("Detected player");
-
-            yield return new WaitForSeconds(attackDelay);
-
-            if (!damagedPlayer)
-            {
-                if (hitInfo.transform.TryGetComponent<PlayerController>(out PlayerController player))
-                {
-                    player.DamageHealth(damage);
-                    Debug.Log("Enemy damaged player");
-                }
-
-                damagedPlayer = true;
-            }
+            engageCooldown += Time.deltaTime;
         }
 
-        yield return new WaitForSeconds(0.1f);
-
-        damagedPlayer = false;
-        initAttack = false;
+        disengageCooldown = 0f;
     }
 
-    // temp can be coded better
-    public void DamageHealth(float damage)
+    private void HandleDisengagement()
     {
-        health -= damage;
-    }
-
-    private void EnemyStat()
-    {
-        if(health <= 0)
+        if (disengageCooldown >= disengageCooldownDuration)
         {
-            gameObject.SetActive(false);
-        }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        // Gizmos.color = Color.red;
-        // Gizmos.DrawWireSphere(transform.position, detectRadius);
-
-        Gizmos.color = isHit ? Color.green : Color.yellow;
-
-        sphereRay = GetEnemyDirection();
-
-        if (isHit)
-        {
-            Gizmos.DrawRay(sphereRay.origin, hitInfo.point - sphereRay.origin);
-            Gizmos.DrawWireSphere(hitInfo.point, sphereRadius);
+            enemyState = EnemyState.Patrol;
+            disengageCooldown = 0f;
         }
         else
         {
-            Gizmos.DrawRay(sphereRay.origin, sphereRay.direction.normalized * maxDistance);
+            disengageCooldown += Time.deltaTime;
         }
+
+        engageCooldown = 0f;
     }
 }

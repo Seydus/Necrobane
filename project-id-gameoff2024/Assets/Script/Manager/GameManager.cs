@@ -5,16 +5,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; set; }
 
-    [SerializeField] private PlayerController playerController;
-
-    [Header("State")]
-    public bool PlayerState { get; private set; } = true;
+    public PlayerManager playerManager;
+    public UIManager uIManager;
 
     public bool GameState { get; private set; } = true;
-
-
-    [Header("UI")]
-    [SerializeField] private GameObject gameOverUI;
 
     private void Awake()
     {
@@ -32,9 +26,9 @@ public class GameManager : MonoBehaviour
 
     private void HandleGameState()
     {
-        if(playerController.health <= 0)
+        if (playerManager.PlayerProfile.playerHealth <= 0)
         {
-            gameOverUI.SetActive(true);
+            uIManager.gameOverUI.SetActive(true);
             GameState = false;
         }
     }
