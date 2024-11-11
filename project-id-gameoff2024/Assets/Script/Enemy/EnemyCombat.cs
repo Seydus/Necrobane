@@ -1,7 +1,4 @@
 using System.Collections;
-using TMPro.Examples;
-using Unity.AI.Navigation;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -21,8 +18,14 @@ public class EnemyCombat : MonoBehaviour
     private Ray sphereRay;
     private RaycastHit hitInfo;
 
+    [Header("Wwise")]
+    public AK.Wwise.Event HitPlayer;
+
     [Header("Debugging")]
     private bool isHit;
+
+    // Store reference to player
+    private Transform playerTransform;
 
     private void Awake()
     {
@@ -36,6 +39,9 @@ public class EnemyCombat : MonoBehaviour
 
     public void HandleAttack(Transform player, NavMeshAgent navMeshAgent)
     {
+        // Store player reference
+        playerTransform = player;
+
         if (Vector3.Distance(player.position, transform.position) >= 2.5f)
         {
             navMeshAgent.SetDestination(player.position);
@@ -69,6 +75,10 @@ public class EnemyCombat : MonoBehaviour
                 if (hitInfo.transform.TryGetComponent<PlayerManager>(out PlayerManager playerManager))
                 {
                     playerManager.PlayerProfile.DeductHealth(enemyHolder.EnemyProfile.enemyDamage);
+
+                    // Use playerTransform reference here
+                    HitPlayer.Post(playerTransform.gameObject);
+
                     Debug.Log("Enemy damaged player");
                 }
 

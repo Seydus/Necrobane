@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7029640471b0f2c4a8144313d2dcf6f7, type: 3}
+  m_Name: 03BA0516-35D7-44F5-A9DD-7FC55DD00984
+  m_EditorClassIdentifier: 
+  objectName: Play_Chops
+  id: 3488755065
+  guid: 03BA0516-35D7-44F5-A9DD-7FC55DD00984

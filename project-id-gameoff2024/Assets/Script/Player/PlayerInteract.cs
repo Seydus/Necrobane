@@ -58,6 +58,7 @@ public class PlayerInteract : MonoBehaviour
                     weaponHolder.transform.SetParent(powerGlovePos);
                     weaponHolder.transform.GetComponent<Rigidbody>().isKinematic = true;
                     isEquippedWeapon = true;
+                    AkSoundEngine.PostEvent("Play_Equip_Fist", gameObject);
 
                     Debug.Log("Succesfully equipped a weapon.");
                 }

@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{2A2F1CDB-26C2-D738-D3DF-FD747C340FBF}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{AFDDE30A-12A4-7EBD-39B2-3496DE61093A}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -21,6 +21,8 @@
 			<Busses>
 				<Bus Id="1069431850" Name="Player"/>
 				<Bus Id="2385628198" Name="Footsteps"/>
+				<Bus Id="2764240573" Name="Combat"/>
+				<Bus Id="3714854501" Name="Hit SFX"/>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 			<SwitchGroups>
@@ -32,13 +34,17 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{EA3FD0B4-7914-F886-8808-65756DC424F2}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{08E89F48-1267-D377-EE6B-70E9D76ED524}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
 				<File Id="21450614" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>JumpGravel1.wav</ShortName>
-					<CachePath>SFX/JumpGravel1_634084A4.wem</CachePath>
+					<CachePath>SFX/JumpGravel1_CD6D7486.wem</CachePath>
+				</File>
+				<File Id="31399390" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Equip_Blade.wav</ShortName>
+					<CachePath>SFX/Equip_Blade_C7CBF045.wem</CachePath>
 				</File>
 				<File Id="66535431" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepStone3.wav</ShortName>
@@ -50,7 +56,11 @@
 				</File>
 				<File Id="277656132" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepGravel6.wav</ShortName>
-					<CachePath>SFX/FootstepGravel6_634084A4.wem</CachePath>
+					<CachePath>SFX/FootstepGravel6_CD6D7486.wem</CachePath>
+				</File>
+				<File Id="303371798" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>chop3.wav</ShortName>
+					<CachePath>SFX/chop3_44B7B028.wem</CachePath>
 				</File>
 				<File Id="330704271" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepStone1.wav</ShortName>
@@ -58,27 +68,31 @@
 				</File>
 				<File Id="424456809" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepGravel2.wav</ShortName>
-					<CachePath>SFX/FootstepGravel2_7E67A8DB.wem</CachePath>
+					<CachePath>SFX/FootstepGravel2_4D51242E.wem</CachePath>
+				</File>
+				<File Id="502519958" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>chop2.wav</ShortName>
+					<CachePath>SFX/chop2_77251A79.wem</CachePath>
+				</File>
+				<File Id="551142929" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>chop1.wav</ShortName>
+					<CachePath>SFX/chop1_B29FA329.wem</CachePath>
 				</File>
 				<File Id="660831382" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepStone2.wav</ShortName>
 					<CachePath>SFX/FootstepStone2_2494716E.wem</CachePath>
 				</File>
-				<File Id="665979234" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Default_Ambient.wav</ShortName>
-					<CachePath>SFX/Default_Ambient_C7CBF045.wem</CachePath>
-				</File>
 				<File Id="704861748" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepGravel1.wav</ShortName>
-					<CachePath>SFX/FootstepGravel1_7A478B88.wem</CachePath>
+					<CachePath>SFX/FootstepGravel1_D72A91EC.wem</CachePath>
 				</File>
 				<File Id="710961184" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepGravel4.wav</ShortName>
-					<CachePath>SFX/FootstepGravel4_7D82D4D2.wem</CachePath>
+					<CachePath>SFX/FootstepGravel4_1214EF90.wem</CachePath>
 				</File>
 				<File Id="725154703" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>JumpGravel2.wav</ShortName>
-					<CachePath>SFX/JumpGravel2_7F86FA5B.wem</CachePath>
+					<CachePath>SFX/JumpGravel2_375876C5.wem</CachePath>
 				</File>
 				<File Id="754982117" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepStone6.wav</ShortName>
@@ -90,7 +104,11 @@
 				</File>
 				<File Id="980383192" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepGravel3.wav</ShortName>
-					<CachePath>SFX/FootstepGravel3_5C7F0387.wem</CachePath>
+					<CachePath>SFX/FootstepGravel3_1214EF90.wem</CachePath>
+				</File>
+				<File Id="980660262" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Equip_Fist.wav</ShortName>
+					<CachePath>SFX/Equip_Fist_5F42CCA5.wem</CachePath>
 				</File>
 				<File Id="1002423227" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepStone4.wav</ShortName>
@@ -98,13 +116,25 @@
 				</File>
 				<File Id="1048641856" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepGravel5.wav</ShortName>
-					<CachePath>SFX/FootstepGravel5_A2812C94.wem</CachePath>
+					<CachePath>SFX/FootstepGravel5_55758AB2.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
-				<Event Id="2895830940" Name="Play_Default_Ambient" MaxAttenuation="100" DurationType="OneShot" DurationMin="128" DurationMax="128">
+				<Event Id="3488755065" Name="Play_Chops" DurationType="OneShot" DurationMin="0.12909532" DurationMax="0.34744823">
 					<MediaRefs>
-						<MediaRef Id="665979234"/>
+						<MediaRef Id="303371798"/>
+						<MediaRef Id="502519958"/>
+						<MediaRef Id="551142929"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1527095013" Name="Play_Equip_Blade" DurationType="OneShot" DurationMin="0.5" DurationMax="0.5">
+					<MediaRefs>
+						<MediaRef Id="31399390"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1554763031" Name="Play_Equip_Fist" DurationType="OneShot" DurationMin="0.34885338" DurationMax="0.34885338">
+					<MediaRefs>
+						<MediaRef Id="980660262"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3854155799" Name="Play_Footsteps" DurationType="OneShot" DurationMin="0.27535725" DurationMax="0.49257997">
@@ -161,5 +191,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{44AFF6F3-4C81-D07F-2F21-07EDFBD7CCBA}</FileHash>
+	<FileHash>{683310CE-33A9-5FE5-85BB-06C420E927D0}</FileHash>
 </SoundBanksInfo>

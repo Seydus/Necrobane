@@ -13,7 +13,9 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID PLAY_DEFAULT_AMBIENT = 2895830940U;
+        static const AkUniqueID PLAY_CHOPS = 3488755065U;
+        static const AkUniqueID PLAY_EQUIP_BLADE = 1527095013U;
+        static const AkUniqueID PLAY_EQUIP_FIST = 1554763031U;
         static const AkUniqueID PLAY_FOOTSTEPS = 3854155799U;
         static const AkUniqueID PLAY_JUMP = 3689126666U;
     } // namespace EVENTS
@@ -41,7 +43,9 @@ namespace AK
 
     namespace BUSSES
     {
+        static const AkUniqueID COMBAT = 2764240573U;
         static const AkUniqueID FOOTSTEPS = 2385628198U;
+        static const AkUniqueID HIT_SFX = 3714854501U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
         static const AkUniqueID PLAYER = 1069431850U;
     } // namespace BUSSES
