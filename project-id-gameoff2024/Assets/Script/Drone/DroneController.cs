@@ -13,6 +13,7 @@ public class DroneController : MonoBehaviour
 
     private Vector3 direction;
     private Vector3 previousDirection;
+    private Vector3 resetPosition;
     private float resetHeight;
 
     [Header("Drone Stabilization & Physics")]
@@ -50,6 +51,7 @@ public class DroneController : MonoBehaviour
         targetHeight = transform.position.y;
         currentRotation = transform.localRotation.eulerAngles;
         resetHeight = targetHeight;
+        resetPosition = transform.position;
     }
 
     private void FixedUpdate()
@@ -86,6 +88,7 @@ public class DroneController : MonoBehaviour
         GameManager.Instance.playerManager.enableDrone = false;
         backToPlayer = false;
         targetHeight = resetHeight;
+        transform.position = resetPosition;
     }
 
     private void PIDController()
