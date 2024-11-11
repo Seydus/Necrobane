@@ -11,7 +11,7 @@ public class DroneController : MonoBehaviour
     private Vector3 direction;
     private Vector3 previousDirection;
 
-    [Header("Drone Physics")]
+    [Header("Drone Stabilization & Physics")]
     [SerializeField] private float forceValue = 9.81f;
     [SerializeField] private float proportionalGain = 5f;
     [SerializeField] private float integralGain = 0.5f;
