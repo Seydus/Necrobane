@@ -84,6 +84,7 @@ public class PlayerInteract : MonoBehaviour
                 weaponHolder.transform.GetComponent<Rigidbody>().isKinematic = false;
                 weaponHolder = null;
                 isEquippedWeapon = false;
+                AkSoundEngine.PostEvent("Play_Drop_Item", gameObject);
 
                 Debug.Log("Succesfully dropped a weapon");
             }

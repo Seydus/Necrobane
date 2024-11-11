@@ -11,6 +11,7 @@
 						<ObjectRef Name="Play_Chops" ID="{03BA0516-35D7-44F5-A9DD-7FC55DD00984}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Jump" ID="{B4D92DBE-4CC5-488A-A786-BD5C88B87B7B}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Equip_Blade" ID="{9270CA08-880D-4A0C-9484-2A2BFC462ED5}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Drop_Item" ID="{D6FE0DAC-430E-4C62-84BA-3CBC9A84989D}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

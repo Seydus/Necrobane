@@ -14,6 +14,7 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID PLAY_CHOPS = 3488755065U;
+        static const AkUniqueID PLAY_DROP_ITEM = 1363530945U;
         static const AkUniqueID PLAY_EQUIP_BLADE = 1527095013U;
         static const AkUniqueID PLAY_EQUIP_FIST = 1554763031U;
         static const AkUniqueID PLAY_FOOTSTEPS = 3854155799U;

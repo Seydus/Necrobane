@@ -81,6 +81,17 @@
 										</Event>
 									</ChildrenList>
 								</Folder>
+								<Event Name="Play_Drop_Item" ID="{D6FE0DAC-430E-4C62-84BA-3CBC9A84989D}">
+									<ChildrenList>
+										<Action Name="" ID="{8C0E0F0F-A0C4-4FDD-84BF-842560820FB1}" ShortID="769330624">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Drop_Item" ID="{751DCF73-C710-41A3-80B8-5BF55290EB27}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>

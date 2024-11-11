@@ -34,7 +34,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{08E89F48-1267-D377-EE6B-70E9D76ED524}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{7A8FACA0-1356-D500-40CD-7FCFBD544C29}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -94,6 +94,10 @@
 					<ShortName>JumpGravel2.wav</ShortName>
 					<CachePath>SFX/JumpGravel2_375876C5.wem</CachePath>
 				</File>
+				<File Id="725457929" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Drop_Item.wav</ShortName>
+					<CachePath>SFX/Drop_Item_C7CBF045.wem</CachePath>
+				</File>
 				<File Id="754982117" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepStone6.wav</ShortName>
 					<CachePath>SFX/FootstepStone6_7E86A69D.wem</CachePath>
@@ -125,6 +129,11 @@
 						<MediaRef Id="303371798"/>
 						<MediaRef Id="502519958"/>
 						<MediaRef Id="551142929"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1363530945" Name="Play_Drop_Item" DurationType="OneShot" DurationMin="0.44493505" DurationMax="0.56187975">
+					<MediaRefs>
+						<MediaRef Id="725457929"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="1527095013" Name="Play_Equip_Blade" DurationType="OneShot" DurationMin="0.5" DurationMax="0.5">
@@ -191,5 +200,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{683310CE-33A9-5FE5-85BB-06C420E927D0}</FileHash>
+	<FileHash>{0FE4DFD0-87F7-592F-3AFF-454A6942B752}</FileHash>
 </SoundBanksInfo>
