@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 941462bbcdf49043a0f64a9675eb7ab8
     GuidInternal: 
-    m_lastTime: -8584702680109080450
+    m_lastTime: -8584702576214285099
     List:
     - name: Combat
       guid: 881744ad62cff440b60ced41959ff75d
@@ -141,7 +141,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 3808cfcbeba5d043a9389dbcef0f39f7
     GuidInternal: 
-    m_lastTime: -8584702680108823477
+    m_lastTime: -8584702540561814916
     List:
     - name: Main
       guid: 71be9a838e8f7a4e9bbaa45884ab4f12
@@ -169,7 +169,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: fafe2c5e31679a46a1450b34d8466393
     GuidInternal: 
-    m_lastTime: -8584702680109184343
+    m_lastTime: -8584702540561891770
     List:
     - name: Combat
       guid: ae1540da24697444ba795ec5f656fbee
@@ -185,6 +185,49 @@ MonoBehaviour:
         ObjectType: 4
         guid: ae1540da24697444ba795ec5f656fbee
       Path: Events\Default Work Unit\Combat
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Equip
+      guid: 6d536aca9fd0bf429a5bf57759c4f54a
+      id: 2412608643
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Player
+        ObjectType: 4
+        guid: f551b75890fe14408f2af5b372cd1baa
+      - ElementName: Interaction
+        ObjectType: 4
+        guid: 9e40580bb299964082c7844532dad1f3
+      - ElementName: Equip
+        ObjectType: 4
+        guid: 6d536aca9fd0bf429a5bf57759c4f54a
+      Path: Events\Default Work Unit\Player\Interaction\Equip
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Interaction
+      guid: 9e40580bb299964082c7844532dad1f3
+      id: 3900887599
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Player
+        ObjectType: 4
+        guid: f551b75890fe14408f2af5b372cd1baa
+      - ElementName: Interaction
+        ObjectType: 4
+        guid: 9e40580bb299964082c7844532dad1f3
+      Path: Events\Default Work Unit\Player\Interaction
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -225,6 +268,81 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Play_Drop_Item
+      guid: ac0dfed60e43624c84ba3cbc9a84989d
+      id: 1363530945
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Player
+        ObjectType: 4
+        guid: f551b75890fe14408f2af5b372cd1baa
+      - ElementName: Interaction
+        ObjectType: 4
+        guid: 9e40580bb299964082c7844532dad1f3
+      - ElementName: Play_Drop_Item
+        ObjectType: 3
+        guid: ac0dfed60e43624c84ba3cbc9a84989d
+      Path: Events\Default Work Unit\Player\Interaction\Play_Drop_Item
+      maxAttenuation: 0
+      maxDuration: 0.56187975
+      minDuration: 0.44493505
+    - name: Play_Equip_Blade
+      guid: 08ca70920d880c4a94842a2bfc462ed5
+      id: 1527095013
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Player
+        ObjectType: 4
+        guid: f551b75890fe14408f2af5b372cd1baa
+      - ElementName: Interaction
+        ObjectType: 4
+        guid: 9e40580bb299964082c7844532dad1f3
+      - ElementName: Equip
+        ObjectType: 4
+        guid: 6d536aca9fd0bf429a5bf57759c4f54a
+      - ElementName: Play_Equip_Blade
+        ObjectType: 3
+        guid: 08ca70920d880c4a94842a2bfc462ed5
+      Path: Events\Default Work Unit\Player\Interaction\Equip\Play_Equip_Blade
+      maxAttenuation: 0
+      maxDuration: 0.5
+      minDuration: 0.5
+    - name: Play_Equip_Fist
+      guid: c4552cba43496044bef0e844c7ffec43
+      id: 1554763031
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Player
+        ObjectType: 4
+        guid: f551b75890fe14408f2af5b372cd1baa
+      - ElementName: Interaction
+        ObjectType: 4
+        guid: 9e40580bb299964082c7844532dad1f3
+      - ElementName: Equip
+        ObjectType: 4
+        guid: 6d536aca9fd0bf429a5bf57759c4f54a
+      - ElementName: Play_Equip_Fist
+        ObjectType: 3
+        guid: c4552cba43496044bef0e844c7ffec43
+      Path: Events\Default Work Unit\Player\Interaction\Equip\Play_Equip_Fist
+      maxAttenuation: 0
+      maxDuration: 0.34885338
+      minDuration: 0.34885338
     - name: Play_Footsteps
       guid: a9ce29e796074f418e1d3a3bfdeee3dd
       id: 3854155799
