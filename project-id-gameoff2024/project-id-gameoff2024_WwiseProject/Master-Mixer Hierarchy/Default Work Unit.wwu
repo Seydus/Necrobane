@@ -15,6 +15,11 @@
 								<Bus Name="Footsteps" ID="{67DAE7F6-F8EE-4726-ACDC-DBB052DBA749}"/>
 							</ChildrenList>
 						</Bus>
+						<Bus Name="Combat" ID="{AD441788-CF62-40F4-B60C-ED41959FF75D}">
+							<ChildrenList>
+								<Bus Name="Hit SFX" ID="{F44299FA-5275-4517-AFAE-D8B695D50FBE}"/>
+							</ChildrenList>
+						</Bus>
 					</ChildrenList>
 				</Bus>
 			</ChildrenList>

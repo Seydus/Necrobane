@@ -38,8 +38,25 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 941462bbcdf49043a0f64a9675eb7ab8
     GuidInternal: 
-    m_lastTime: -8584705810525866923
+    m_lastTime: -8584702680109080450
     List:
+    - name: Combat
+      guid: 881744ad62cff440b60ced41959ff75d
+      id: 2764240573
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 941462bbcdf49043a0f64a9675eb7ab8
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: Combat
+        ObjectType: 2
+        guid: 881744ad62cff440b60ced41959ff75d
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Combat
     - name: Footsteps
       guid: f6e7da67eef82647acdcdbb052dba749
       id: 2385628198
@@ -60,6 +77,27 @@ MonoBehaviour:
         ObjectType: 2
         guid: f6e7da67eef82647acdcdbb052dba749
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Player\Footsteps
+    - name: Hit SFX
+      guid: fa9942f475521745afaed8b695d50fbe
+      id: 3714854501
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 941462bbcdf49043a0f64a9675eb7ab8
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: Combat
+        ObjectType: 2
+        guid: 881744ad62cff440b60ced41959ff75d
+      - ElementName: Hit SFX
+        ObjectType: 2
+        guid: fa9942f475521745afaed8b695d50fbe
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Combat\Hit
+        SFX
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
       id: 3803692087
@@ -103,7 +141,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 3808cfcbeba5d043a9389dbcef0f39f7
     GuidInternal: 
-    m_lastTime: -8584705810525093857
+    m_lastTime: -8584702680108823477
     List:
     - name: Main
       guid: 71be9a838e8f7a4e9bbaa45884ab4f12
@@ -131,8 +169,45 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: fafe2c5e31679a46a1450b34d8466393
     GuidInternal: 
-    m_lastTime: -8584705810526066895
+    m_lastTime: -8584702680109184343
     List:
+    - name: Combat
+      guid: ae1540da24697444ba795ec5f656fbee
+      id: 2764240573
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Combat
+        ObjectType: 4
+        guid: ae1540da24697444ba795ec5f656fbee
+      Path: Events\Default Work Unit\Combat
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Chops
+      guid: 1605ba03d735f544a9dd7fc55dd00984
+      id: 3488755065
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Combat
+        ObjectType: 4
+        guid: ae1540da24697444ba795ec5f656fbee
+      - ElementName: Play_Chops
+        ObjectType: 3
+        guid: 1605ba03d735f544a9dd7fc55dd00984
+      Path: Events\Default Work Unit\Combat\Play_Chops
+      maxAttenuation: 0
+      maxDuration: 0.34744823
+      minDuration: 0.12909532
     - name: Play_Default_Ambient
       guid: 663b252e9d152e4a9fd21cb3272025da
       id: 2895830940
@@ -147,9 +222,9 @@ MonoBehaviour:
         ObjectType: 3
         guid: 663b252e9d152e4a9fd21cb3272025da
       Path: Events\Default Work Unit\Play_Default_Ambient
-      maxAttenuation: 100
-      maxDuration: 128
-      minDuration: 128
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_Footsteps
       guid: a9ce29e796074f418e1d3a3bfdeee3dd
       id: 3854155799
@@ -160,10 +235,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Player
+        ObjectType: 4
+        guid: f551b75890fe14408f2af5b372cd1baa
       - ElementName: Play_Footsteps
         ObjectType: 3
         guid: a9ce29e796074f418e1d3a3bfdeee3dd
-      Path: Events\Default Work Unit\Play_Footsteps
+      Path: Events\Default Work Unit\Player\Play_Footsteps
       maxAttenuation: 0
       maxDuration: 0.49257997
       minDuration: 0.27535725
@@ -177,13 +255,33 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Player
+        ObjectType: 4
+        guid: f551b75890fe14408f2af5b372cd1baa
       - ElementName: Play_Jump
         ObjectType: 3
         guid: be2dd9b4c54c8a48a786bd5c88b87b7b
-      Path: Events\Default Work Unit\Play_Jump
+      Path: Events\Default Work Unit\Player\Play_Jump
       maxAttenuation: 0
       maxDuration: 0.4515745
       minDuration: 0.23491521
+    - name: Player
+      guid: f551b75890fe14408f2af5b372cd1baa
+      id: 1069431850
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Player
+        ObjectType: 4
+        guid: f551b75890fe14408f2af5b372cd1baa
+      Path: Events\Default Work Unit\Player
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:

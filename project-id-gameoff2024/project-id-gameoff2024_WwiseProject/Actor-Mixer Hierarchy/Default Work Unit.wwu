@@ -640,35 +640,174 @@
 								</GroupingList>
 							</GroupingInfo>
 						</SwitchContainer>
+						<Folder Name="Equip" ID="{B015EAE0-0C45-4570-85AC-B75F9ECC0A0C}" ShortID="164993132">
+							<ChildrenList>
+								<Sound Name="Equip_Blade" ID="{3625E2BE-9EB8-4099-99DC-0D17CEFEADDB}" ShortID="868266655">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Equip_Blade" ID="{F05F8CA6-CCE5-4220-B2F8-7196FF0A156C}">
+											<Language>SFX</Language>
+											<AudioFile>Equip_Blade.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="31399390"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Equip_Blade" ID="{F05F8CA6-CCE5-4220-B2F8-7196FF0A156C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Equip_Fist" ID="{47119557-2197-43BB-A24A-8389BD7FB3B0}" ShortID="976925258">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Player" ID="{154CDA3D-51E7-42BC-8CD5-FBCF9A701868}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Equip_Fist" ID="{B9BCF3D6-F174-479C-BCD5-EC067F025CD5}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.348853370396108"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Equip_Fist.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="980660262"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Equip_Fist" ID="{B9BCF3D6-F174-479C-BCD5-EC067F025CD5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
-				<Folder Name="test" ID="{9FD91F47-36B3-4292-8ADE-F941BB031B92}" ShortID="548253243">
+				<Folder Name="Combat" ID="{5FA2CC77-FD76-4C8B-815D-BDCCA9129CC4}" ShortID="80745627">
 					<ChildrenList>
-						<Sound Name="Default_Ambient" ID="{FA52C700-7774-4E34-8B4D-0ACD14944BBF}" ShortID="888779463">
-							<ReferenceList>
-								<Reference Name="Attenuation">
-									<ObjectRef Name="normal" ID="{41D4C35B-5778-46DB-8FEA-8FBC4948A9D5}" WorkUnitID="{61E62009-A45E-4D12-A3F4-01EB122C29C4}"/>
-								</Reference>
-								<Reference Name="Conversion">
-									<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
-								</Reference>
-							</ReferenceList>
+						<Folder Name="Hit SFX" ID="{8463030E-5B41-42F5-A87D-FD5BB72F00F0}" ShortID="968055532">
 							<ChildrenList>
-								<AudioFileSource Name="Default_Ambient" ID="{7B2370AD-D889-4FFD-8DC4-DB87E4D17475}">
-									<Language>SFX</Language>
-									<AudioFile>Default_Ambient.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="665979234"/>
-									</MediaIDList>
-								</AudioFileSource>
+								<RandomSequenceContainer Name="Chops" ID="{85675BD4-244A-4DCF-AC5C-E069C7D6E23F}" ShortID="55624613">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{C37C25DD-2209-4D55-A1BC-1B206509A061}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="253"/>
+															<Property Name="Min" Type="Real64" Value="-253"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Hit SFX" ID="{F44299FA-5275-4517-AFAE-D8B695D50FBE}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="chop3" ID="{7B4D595E-DFCF-42F1-B121-1A8B8FA0BB3E}" ShortID="180304968">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="chop3" ID="{86F05646-95FB-46E2-990A-7FECA770245B}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0482974287699791"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.300208478109799"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>chop3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="303371798"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="chop3" ID="{86F05646-95FB-46E2-990A-7FECA770245B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="chop1" ID="{08E3FC3F-4533-4F4E-B547-8F47E2F89AB5}" ShortID="779235924">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="chop1" ID="{A834B7CB-6F64-49D5-BA68-4E12C8C3B53A}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0472550382209868"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.149409312022238"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>chop1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="551142929"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="chop1" ID="{A834B7CB-6F64-49D5-BA68-4E12C8C3B53A}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="chop2" ID="{2420421D-CE6C-4F7C-AEED-FC86C9F1E617}" ShortID="36173941">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="chop2" ID="{31794795-5EB6-4D9F-98B0-B2579475C951}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0465601111883252"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.250173731758165"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>chop2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="502519958"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="chop2" ID="{31794795-5EB6-4D9F-98B0-B2579475C951}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
 							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Default_Ambient" ID="{7B2370AD-D889-4FFD-8DC4-DB87E4D17475}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

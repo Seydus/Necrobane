@@ -3,28 +3,6 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="Play_Footsteps" ID="{E729CEA9-0796-414F-8E1D-3A3BFDEEE3DD}">
-					<ChildrenList>
-						<Action Name="" ID="{9FF60452-A08F-4163-86CF-1ECE39ADDA04}" ShortID="238660115">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Footsteps" ID="{A26679A2-C10B-48D8-87D8-066E4ABAB041}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Play_Jump" ID="{B4D92DBE-4CC5-488A-A786-BD5C88B87B7B}">
-					<ChildrenList>
-						<Action Name="" ID="{7E841052-2683-4CAC-BD19-14EB732D81F4}" ShortID="1019228336">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Jump" ID="{D207C039-6F2E-4AA4-946E-727356306FAC}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="Play_Default_Ambient" ID="{2E253B66-159D-4A2E-9FD2-1CB3272025DA}">
 					<ChildrenList>
 						<Action Name="" ID="{D7674DA7-F6FE-44F4-A357-5C479E33C057}" ShortID="340033562">
@@ -36,6 +14,77 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Folder Name="Combat" ID="{DA4015AE-6924-4474-BA79-5EC5F656FBEE}" ShortID="693924153">
+					<ChildrenList>
+						<Event Name="Play_Chops" ID="{03BA0516-35D7-44F5-A9DD-7FC55DD00984}">
+							<ChildrenList>
+								<Action Name="" ID="{7326C363-52C9-4088-9D48-EEFD5B7AB07A}" ShortID="405171130">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Chops" ID="{85675BD4-244A-4DCF-AC5C-E069C7D6E23F}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Player" ID="{58B751F5-FE90-4014-8F2A-F5B372CD1BAA}" ShortID="963908562">
+					<ChildrenList>
+						<Event Name="Play_Footsteps" ID="{E729CEA9-0796-414F-8E1D-3A3BFDEEE3DD}">
+							<ChildrenList>
+								<Action Name="" ID="{9FF60452-A08F-4163-86CF-1ECE39ADDA04}" ShortID="238660115">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Footsteps" ID="{A26679A2-C10B-48D8-87D8-066E4ABAB041}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Jump" ID="{B4D92DBE-4CC5-488A-A786-BD5C88B87B7B}">
+							<ChildrenList>
+								<Action Name="" ID="{7E841052-2683-4CAC-BD19-14EB732D81F4}" ShortID="1019228336">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Jump" ID="{D207C039-6F2E-4AA4-946E-727356306FAC}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Folder Name="Interaction" ID="{0B58409E-99B2-4096-82C7-844532DAD1F3}" ShortID="756271809">
+							<ChildrenList>
+								<Folder Name="Equip" ID="{CA6A536D-D09F-42BF-9A5B-F57759C4F54A}" ShortID="142383785">
+									<ChildrenList>
+										<Event Name="Play_Equip_Blade" ID="{9270CA08-880D-4A0C-9484-2A2BFC462ED5}">
+											<ChildrenList>
+												<Action Name="" ID="{C3E0BDEB-15FB-478B-9F82-D4AD8EC876D3}" ShortID="910070526">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Equip_Blade" ID="{3625E2BE-9EB8-4099-99DC-0D17CEFEADDB}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_Equip_Fist" ID="{BA2C55C4-4943-4460-BEF0-E844C7FFEC43}">
+											<ChildrenList>
+												<Action Name="" ID="{4077C005-C90A-4C25-A99E-62053F87040B}" ShortID="626011356">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Equip_Fist" ID="{47119557-2197-43BB-A24A-8389BD7FB3B0}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+									</ChildrenList>
+								</Folder>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
