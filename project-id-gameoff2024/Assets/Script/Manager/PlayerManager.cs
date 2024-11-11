@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -27,17 +28,13 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.T))
+        if(Input.GetKeyDown(KeyCode.T) && !enableDrone)
         {
-            enableDrone = true;
+            StartCoroutine(BackToDrone());
+
         }
 
-        if(enableDrone)
-        {
-            droneController.gameObject.SetActive(true);
-            cameraHolder.SetActive(false);
-        }
-        else
+        if(!enableDrone)
         {
             droneController.transform.position = dronePosition.position;
             cameraHolder.SetActive(true);
@@ -49,5 +46,13 @@ public class PlayerManager : MonoBehaviour
             PlayerController.Init();
             PlayerInteract.Init();
         }
+    }
+
+    private IEnumerator BackToDrone()
+    {
+        enableDrone = true;
+        yield return new WaitForSeconds(0.5f);
+        droneController.gameObject.SetActive(true);
+        cameraHolder.SetActive(false);
     }
 }
