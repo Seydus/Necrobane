@@ -8,10 +8,6 @@ public class GameManager : MonoBehaviour
     public PlayerManager playerManager;
     public UIManager uIManager;
 
-    private bool switchDrone;
-    public GameObject player;
-    public GameObject drone;
-
     public bool GameState { get; private set; } = true;
 
     private void Awake()
@@ -26,22 +22,6 @@ public class GameManager : MonoBehaviour
     {
         HandleGameState();
         RestartGame();
-
-        if(Input.GetKeyDown(KeyCode.T))
-        {
-            switchDrone = !switchDrone;
-        }
-
-        if(switchDrone)
-        {
-            player.SetActive(false);
-            drone.SetActive(true);
-        }
-        else
-        {
-            player.SetActive(true);
-            drone.SetActive(false);
-        }
     }
 
     private void HandleGameState()

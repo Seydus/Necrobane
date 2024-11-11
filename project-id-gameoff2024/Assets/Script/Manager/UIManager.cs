@@ -10,6 +10,9 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI playerDropTxt;
     public TextMeshProUGUI playerAttackTxt;
 
+    [Header("Drone UI")]
+    public TextMeshProUGUI droneBatteryTxt;
+
     [Header("Game UI")]
     public GameObject gameOverUI;
 }
