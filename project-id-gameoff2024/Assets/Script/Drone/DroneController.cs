@@ -1,15 +1,19 @@
+using Unity.VisualScripting;
+using System.Collections;
 using UnityEngine;
 
 public class DroneController : MonoBehaviour
 {
+    private DroneProfile droneProfile;
+
     [Header("Drone Settings")]
     [SerializeField] private float droneSpeed = 3.81f;
     [SerializeField] private float liftValue = 5f;
-    private bool droneMoving = false;
-    private bool droneEnable = false;
+    private bool backToPlayer;
 
     private Vector3 direction;
     private Vector3 previousDirection;
+    private float resetHeight;
 
     [Header("Drone Stabilization & Physics")]
     [SerializeField] private float forceValue = 9.81f;
@@ -35,24 +39,53 @@ public class DroneController : MonoBehaviour
 
     private void Awake()
     {
+        droneProfile = GetComponent<DroneProfile>();
         myBody = GetComponent<Rigidbody>();
-        targetHeight = transform.position.y;
-        currentRotation = transform.localRotation.eulerAngles;
     }
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+
+        targetHeight = transform.position.y;
+        currentRotation = transform.localRotation.eulerAngles;
+        resetHeight = targetHeight;
     }
 
     private void FixedUpdate()
     {
-        if(droneEnable)
+        Init();
+    }
+
+    private void Init()
+    {
+        if (droneProfile.droneTimer > 0 && !backToPlayer)
         {
             PIDController();
             Movement();
             HandleView();
+
+            droneProfile.DeductTimer(droneProfile.batteryCost);
+
+            GameManager.Instance.uIManager.droneBatteryTxt.SetText("{0:1}", droneProfile.droneTimer);
         }
+        else
+        {
+            StartCoroutine(BackToPlayer());
+        }
+    }
+
+    private IEnumerator BackToPlayer()
+    {
+        backToPlayer = true;
+        droneProfile.ResetTimer();
+        yield return new WaitForSeconds(0.2f);
+        GameManager.Instance.uIManager.droneBatteryTxt.SetText("{0:1}", droneProfile.droneTimer);
+        yield return new WaitForSeconds(0.3f);
+        gameObject.SetActive(false);
+        GameManager.Instance.playerManager.enableDrone = false;
+        backToPlayer = false;
+        targetHeight = resetHeight;
     }
 
     private void PIDController()
@@ -85,9 +118,9 @@ public class DroneController : MonoBehaviour
 
     private void DroneState()
     {
-        if(Input.GetKeyDown(KeyCode.R))
+        if(Input.GetKeyDown(KeyCode.T) && !backToPlayer)
         {
-            droneEnable = !droneEnable;
+            StartCoroutine(BackToPlayer());
         }
     }
 

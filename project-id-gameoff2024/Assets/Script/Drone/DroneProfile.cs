@@ -2,15 +2,29 @@ using UnityEngine;
 
 public class DroneProfile : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private float setDroneTimer = 5;
+    [SerializeField] private float setBatteryCost = 5;
+    public float droneTimer { get; private set; }
+    public float batteryCost { get; private set; }
+
+    private void Start()
     {
-        
+        droneTimer = setDroneTimer;
+        batteryCost = setBatteryCost;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DeductTimer(float cost)
     {
-        
+        droneTimer -= cost;
+
+        if(droneTimer <= 0)
+        {
+            droneTimer = 0;
+        }
+    }
+
+    public void ResetTimer()
+    {
+        droneTimer = setDroneTimer;
     }
 }
