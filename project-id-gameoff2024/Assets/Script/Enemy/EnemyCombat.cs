@@ -32,6 +32,11 @@ public class EnemyCombat : MonoBehaviour
         enemyHolder = GetComponent<EnemyHolder>();
     }
 
+    private void Start()
+    {
+        setAttackDelay = attackDelay;
+    }
+
     private Ray GetEnemyDirection()
     {
         return new Ray(transform.position, transform.forward);
@@ -52,13 +57,13 @@ public class EnemyCombat : MonoBehaviour
 
             if (!initAttack)
             {
-                StartCoroutine(InitAttack());
+                StartCoroutine(InitAttack(attackDelay));
                 initAttack = true;
             }
         }
     }
 
-    private IEnumerator InitAttack()
+    private IEnumerator InitAttack(float delay)
     {
         sphereRay = GetEnemyDirection();
 
@@ -68,7 +73,7 @@ public class EnemyCombat : MonoBehaviour
 
             Debug.Log("Detected player");
 
-            yield return new WaitForSeconds(attackDelay);
+            yield return new WaitForSeconds(delay);
 
             if (!damagedPlayer)
             {

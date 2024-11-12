@@ -465,7 +465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb15cefcabddbd4bad66eaf4680033e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDelay: 0.25
+  attackDelay: 2
   sphereRadius: 1
   maxDistance: 2
   combatLayer:
@@ -2018,7 +2018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb15cefcabddbd4bad66eaf4680033e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDelay: 0.25
+  attackDelay: 2
   sphereRadius: 1
   maxDistance: 2
   combatLayer:
@@ -4822,7 +4822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb15cefcabddbd4bad66eaf4680033e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDelay: 0.25
+  attackDelay: 1.5
   sphereRadius: 1
   maxDistance: 2
   combatLayer:
