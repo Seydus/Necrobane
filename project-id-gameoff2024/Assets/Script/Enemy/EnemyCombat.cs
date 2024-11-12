@@ -67,13 +67,13 @@ public class EnemyCombat : MonoBehaviour
     {
         sphereRay = GetEnemyDirection();
 
+        yield return new WaitForSeconds(delay);
+
         if (Physics.SphereCast(sphereRay, sphereRadius, out hitInfo, maxDistance, combatLayer))
         {
             isHit = true;
 
             Debug.Log("Detected player");
-
-            yield return new WaitForSeconds(delay);
 
             if (!damagedPlayer)
             {
