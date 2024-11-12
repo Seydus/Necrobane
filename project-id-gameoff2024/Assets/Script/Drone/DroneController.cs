@@ -83,7 +83,7 @@ public class DroneController : MonoBehaviour
         droneProfile.ResetTimer();
         yield return new WaitForSeconds(0.2f);
         GameManager.Instance.uIManager.droneBatteryTxt.SetText("{0:1}", droneProfile.droneTimer);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(1f);
         gameObject.SetActive(false);
         GameManager.Instance.playerManager.enableDrone = false;
         backToPlayer = false;
