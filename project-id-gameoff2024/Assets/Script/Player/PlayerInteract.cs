@@ -9,7 +9,7 @@ public class PlayerInteract : MonoBehaviour
     private Ray sphereRay;
     private RaycastHit hitInfo;
 
-    [Header("Interct")]
+    [Header("Interact")]
     [SerializeField] private LayerMask interactLayer;
     [SerializeField] private float interactDistance;
     private bool isEquippedWeapon;
@@ -19,6 +19,7 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private LayerMask combatLayer;
     [SerializeField] private float combatDistance;
     private WeaponHolder weaponHolder;
+    private ItemHolder itemHolder;
 
     [Header("Others")]
     [SerializeField] private Camera cam;
@@ -43,8 +44,8 @@ public class PlayerInteract : MonoBehaviour
     {
         if (!isEquippedWeapon)
         {
-            GameManager.Instance.uIManager.playerDropTxt.gameObject.SetActive(false);
             // Equip weapon
+            GameManager.Instance.uIManager.playerDropTxt.gameObject.SetActive(false);
             if (Physics.SphereCast(sphereRay, sphereRadius, out hitInfo, interactDistance, interactLayer))
             {
                 GameManager.Instance.uIManager.playerGrabTxt.gameObject.SetActive(true);
@@ -53,10 +54,23 @@ public class PlayerInteract : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    weaponHolder = hitInfo.collider.GetComponent<WeaponHolder>();
-                    weaponHolder.transform.position = powerGlovePos.position;
-                    weaponHolder.transform.SetParent(powerGlovePos);
-                    weaponHolder.transform.GetComponent<Rigidbody>().isKinematic = true;
+                    if(hitInfo.transform.TryGetComponent<WeaponHolder>(out WeaponHolder _weaponHolder))
+                    {
+                        weaponHolder = _weaponHolder;
+                        weaponHolder.transform.position = powerGlovePos.position;
+                        weaponHolder.transform.SetParent(powerGlovePos);
+                        weaponHolder.transform.GetComponent<BoxCollider>().enabled = false;
+                        weaponHolder.transform.GetComponent<Rigidbody>().isKinematic = true;
+                    }
+                    else if(hitInfo.transform.TryGetComponent<ItemHolder>(out ItemHolder _itemHolder))
+                    {
+                        // temporary attributes
+                        itemHolder = _itemHolder;
+                        itemHolder.transform.position = powerGlovePos.position;
+                        itemHolder.transform.SetParent(powerGlovePos);
+                        itemHolder.transform.GetComponent<Rigidbody>().isKinematic = true;
+                    }
+ 
                     isEquippedWeapon = true;
                     AkSoundEngine.PostEvent("Play_Equip_Fist", gameObject);
 
@@ -82,11 +96,26 @@ public class PlayerInteract : MonoBehaviour
             {
                 weaponHolder.transform.SetParent(null);
                 weaponHolder.transform.GetComponent<Rigidbody>().isKinematic = false;
+                weaponHolder.transform.GetComponent<BoxCollider>().enabled = true;
                 weaponHolder = null;
                 isEquippedWeapon = false;
                 AkSoundEngine.PostEvent("Play_Drop_Item", gameObject);
 
                 Debug.Log("Succesfully dropped a weapon");
+            }
+        }
+
+        if (itemHolder)
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                itemHolder.transform.SetParent(null);
+                itemHolder.transform.GetComponent<Rigidbody>().isKinematic = false;
+                itemHolder = null;
+                isEquippedWeapon = false;
+                AkSoundEngine.PostEvent("Play_Drop_Item", gameObject);
+
+                Debug.Log("Succesfully dropped an item");
             }
         }
     }

@@ -1,6 +1,8 @@
 using Unity.VisualScripting;
 using System.Collections;
 using UnityEngine;
+using System.Security.Cryptography;
+using UnityEditor.PackageManager;
 
 public class DroneController : MonoBehaviour
 {
@@ -15,6 +17,14 @@ public class DroneController : MonoBehaviour
     private Vector3 previousDirection;
     private Vector3 resetPosition;
     private float resetHeight;
+
+    [Header("Interact")]
+    [SerializeField] private LayerMask interactLayer;
+    [SerializeField] private float sphereRadius = 1;
+    [SerializeField] private float interactDistance = 2;
+    private bool markedItem;
+    private Ray sphereRay;
+    private RaycastHit hitInfo;
 
     [Header("Drone Stabilization & Physics")]
     [SerializeField] private float forceValue = 9.81f;
@@ -37,6 +47,12 @@ public class DroneController : MonoBehaviour
     [SerializeField] private bool viewYInverted = false;
 
     private Vector3 currentRotation;
+
+    [Header("Others")]
+    [SerializeField] private Camera cam;
+
+    [Header("Debugging")]
+    private bool isHit;
 
     private void Awake()
     {
@@ -66,9 +82,9 @@ public class DroneController : MonoBehaviour
             PIDController();
             Movement();
             HandleView();
+            HandleInteract();
 
             droneProfile.DeductTimer(droneProfile.batteryCost);
-
             GameManager.Instance.uIManager.droneBatteryTxt.SetText("{0:1}", droneProfile.droneTimer);
         }
         else
@@ -83,10 +99,12 @@ public class DroneController : MonoBehaviour
         droneProfile.ResetTimer();
         yield return new WaitForSeconds(0.2f);
         GameManager.Instance.uIManager.droneBatteryTxt.SetText("{0:1}", droneProfile.droneTimer);
-        yield return new WaitForSeconds(0.3f);
-        gameObject.SetActive(false);
+        yield return new WaitForSeconds(0.001f);
         GameManager.Instance.playerManager.enableDrone = false;
         backToPlayer = false;
+        yield return new WaitForSeconds(0.001f);
+        GameManager.Instance.uIManager.droneMarkItemTxt.gameObject.SetActive(false);
+        gameObject.SetActive(false);
         targetHeight = resetHeight;
         transform.position = resetPosition;
     }
@@ -119,6 +137,12 @@ public class DroneController : MonoBehaviour
         DroneState();
     }
 
+    private Ray HandleCameraDirection()
+    {
+        return new Ray(cam.transform.position, cam.transform.forward);
+    }
+
+
     private void DroneState()
     {
         if(Input.GetKeyDown(KeyCode.T) && !backToPlayer)
@@ -144,6 +168,32 @@ public class DroneController : MonoBehaviour
         if(direction.magnitude >= 0.1f)
         {
             myBody.AddRelativeForce(direction * droneSpeed, ForceMode.Acceleration);
+        }
+    }
+    private void HandleInteract()
+    {
+        sphereRay = HandleCameraDirection();
+
+        // Interact an item
+        if (Physics.SphereCast(sphereRay, sphereRadius, out hitInfo, interactDistance, interactLayer))
+        {
+            Debug.Log("Interacting an item...");
+            GameManager.Instance.uIManager.droneMarkItemTxt.gameObject.SetActive(true);
+            isHit = true;
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if(hitInfo.transform.TryGetComponent<ItemHolder>(out ItemHolder itemHolder))
+                {
+                    itemHolder.HandleSelected(markedItem = !markedItem);
+                    Debug.Log("Succesfully marked an item.");
+                }
+            }
+        }
+        else
+        {
+            GameManager.Instance.uIManager.droneMarkItemTxt.gameObject.SetActive(false);
+            isHit = false;
         }
     }
 
