@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 03ebd34214b41ef459d7ee6753b062be
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 183591
+  packageName: PSX Shader Kit
+  packageVersion: 1.93
+  assetPath: Assets/PSXShaderKit/Shaders/ImageEffects/PSX-Interlacing.shader
+  uploadId: 585336

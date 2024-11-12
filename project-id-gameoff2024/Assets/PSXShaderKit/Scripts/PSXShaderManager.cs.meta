@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: c1a4c69f7a9d3ea43907b5765229dc85
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 183591
+  packageName: PSX Shader Kit
+  packageVersion: 1.93
+  assetPath: Assets/PSXShaderKit/Scripts/PSXShaderManager.cs
+  uploadId: 585336

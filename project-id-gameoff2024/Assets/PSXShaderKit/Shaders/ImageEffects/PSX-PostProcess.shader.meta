@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 56d52fd5b7c6911468179e5a7359ce0e
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 183591
+  packageName: PSX Shader Kit
+  packageVersion: 1.93
+  assetPath: Assets/PSXShaderKit/Shaders/ImageEffects/PSX-PostProcess.shader
+  uploadId: 585336

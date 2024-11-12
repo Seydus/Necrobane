@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 1b37d1cf11328ee44a1de83f6c28fbe6
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 183591
+  packageName: PSX Shader Kit
+  packageVersion: 1.93
+  assetPath: Assets/PSXShaderKit/Shaders/PSX-Unlit Transparent.shader
+  uploadId: 585336

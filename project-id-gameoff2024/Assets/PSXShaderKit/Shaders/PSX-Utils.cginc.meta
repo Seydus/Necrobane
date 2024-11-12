@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 44bec1a4b39b78f4485ccc239f331433
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 183591
+  packageName: PSX Shader Kit
+  packageVersion: 1.93
+  assetPath: Assets/PSXShaderKit/Shaders/PSX-Utils.cginc
+  uploadId: 585336
