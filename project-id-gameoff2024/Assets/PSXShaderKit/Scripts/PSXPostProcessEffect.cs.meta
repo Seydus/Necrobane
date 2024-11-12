@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 433faa8b758afed4f9295b193c697276
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _PostProcessShader: {fileID: 4800000, guid: 56d52fd5b7c6911468179e5a7359ce0e,
+      type: 3}
+  - _PostProcessShaderAccurate: {fileID: 4800000, guid: 2ebed186567d3c244a87538744a62920,
+      type: 3}
+  - _PixelationShader: {fileID: 4800000, guid: f2da0e2a14a532548b5db043244b3df1, type: 3}
+  - _InterlacingShader: {fileID: 4800000, guid: 03ebd34214b41ef459d7ee6753b062be,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 183591
+  packageName: PSX Shader Kit
+  packageVersion: 1.93
+  assetPath: Assets/PSXShaderKit/Scripts/PSXPostProcessEffect.cs
+  uploadId: 585336

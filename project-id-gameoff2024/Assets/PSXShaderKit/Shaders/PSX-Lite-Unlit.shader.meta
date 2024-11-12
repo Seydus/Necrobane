@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 9fe118684aa1f0247976a8d9cd733e38
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 183591
+  packageName: PSX Shader Kit
+  packageVersion: 1.93
+  assetPath: Assets/PSXShaderKit/Shaders/PSX-Lite-Unlit.shader
+  uploadId: 585336

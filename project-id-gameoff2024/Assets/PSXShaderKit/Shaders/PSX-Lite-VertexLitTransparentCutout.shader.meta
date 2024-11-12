@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d639c4c40bbfeb44fb7c7d9cbcd3a572
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 183591
+  packageName: PSX Shader Kit
+  packageVersion: 1.93
+  assetPath: Assets/PSXShaderKit/Shaders/PSX-Lite-VertexLitTransparentCutout.shader
+  uploadId: 585336

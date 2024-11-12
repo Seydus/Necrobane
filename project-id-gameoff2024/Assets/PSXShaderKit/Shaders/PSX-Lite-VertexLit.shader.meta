@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 7df62e33d3d17584ab47e30a7e668103
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 183591
+  packageName: PSX Shader Kit
+  packageVersion: 1.93
+  assetPath: Assets/PSXShaderKit/Shaders/PSX-Lite-VertexLit.shader
+  uploadId: 585336

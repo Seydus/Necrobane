@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: f2da0e2a14a532548b5db043244b3df1
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 183591
+  packageName: PSX Shader Kit
+  packageVersion: 1.93
+  assetPath: Assets/PSXShaderKit/Shaders/ImageEffects/PSX-Pixelation.shader
+  uploadId: 585336
