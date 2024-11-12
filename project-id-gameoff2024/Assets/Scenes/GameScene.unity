@@ -466,7 +466,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69463404}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69463404}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc8d7ec529b55c6489158493d2a6b735, type: 3}
   m_Name: 
@@ -6508,7 +6508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72e03a90e90219b4faf4e84724abf684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sphereRadius: 1
+  sphereRadius: 0.2
   interactLayer:
     serializedVersion: 2
     m_Bits: 3072
@@ -6517,7 +6517,7 @@ MonoBehaviour:
   combatLayer:
     serializedVersion: 2
     m_Bits: 64
-  combatDistance: 2
+  combatDistance: 1.4
   cam: {fileID: 963194227}
 --- !u!114 &1673101896
 MonoBehaviour:

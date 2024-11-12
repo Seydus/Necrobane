@@ -59,6 +59,7 @@ public class PlayerInteract : MonoBehaviour
                         weaponHolder = _weaponHolder;
                         weaponHolder.transform.position = powerGlovePos.position;
                         weaponHolder.transform.SetParent(powerGlovePos);
+                        weaponHolder.transform.GetComponent<BoxCollider>().enabled = false;
                         weaponHolder.transform.GetComponent<Rigidbody>().isKinematic = true;
                     }
                     else if(hitInfo.transform.TryGetComponent<ItemHolder>(out ItemHolder _itemHolder))
@@ -95,6 +96,7 @@ public class PlayerInteract : MonoBehaviour
             {
                 weaponHolder.transform.SetParent(null);
                 weaponHolder.transform.GetComponent<Rigidbody>().isKinematic = false;
+                weaponHolder.transform.GetComponent<BoxCollider>().enabled = true;
                 weaponHolder = null;
                 isEquippedWeapon = false;
                 AkSoundEngine.PostEvent("Play_Drop_Item", gameObject);
