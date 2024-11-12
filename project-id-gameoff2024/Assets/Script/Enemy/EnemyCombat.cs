@@ -53,6 +53,13 @@ public class EnemyCombat : MonoBehaviour
         }
         else
         {
+            Vector3 directionToPlayer = player.position - transform.position;
+            directionToPlayer.Normalize();
+
+            Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+
+            // Needs to be adjusted
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, 3f * Time.deltaTime);
             navMeshAgent.ResetPath();
 
             if (!initAttack)
