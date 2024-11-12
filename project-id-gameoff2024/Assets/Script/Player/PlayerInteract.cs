@@ -122,10 +122,13 @@ public class PlayerInteract : MonoBehaviour
 
     private void HandleAttack()
     {
-        if(weaponHolder)
+        Debug.Log("Init Handle Attack");
+        if (weaponHolder)
         {
-            if (Physics.SphereCast(sphereRay, sphereRadius, out hitInfo, combatDistance, combatLayer))
+            Debug.Log("WeaponHolder Exist");
+            if (Physics.SphereCast(sphereRay, sphereRadius, out hitInfo, combatDistance, combatLayer, QueryTriggerInteraction.Collide))
             {
+                Debug.Log("Spherecast Triggered");
                 GameManager.Instance.uIManager.playerAttackTxt.gameObject.SetActive(true);
                 isHit = true;
 
@@ -204,7 +207,7 @@ public class PlayerInteract : MonoBehaviour
         }
         else
         {
-            Gizmos.DrawRay(sphereRay.origin, sphereRay.direction.normalized * interactDistance);
+            Gizmos.DrawRay(sphereRay.origin, sphereRay.direction.normalized * combatDistance);
         }
     }
 }

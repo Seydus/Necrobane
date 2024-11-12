@@ -31,8 +31,12 @@ public class GameManager : MonoBehaviour
 
         if (playerManager.PlayerProfile.playerHealth <= 0)
         {
+            uIManager.playerHealthTxt.text = "" + playerManager.PlayerProfile.playerHealth;
+            uIManager.playerStaminaTxt.text = "" + playerManager.PlayerProfile.playerStamina;
             uIManager.gameOverUI.SetActive(true);
             GameState = false;
+
+            playerManager.PlayerProfile.playerHealth = 0;
         }
     }
 
