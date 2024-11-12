@@ -50,9 +50,10 @@ public class PlayerManager : MonoBehaviour
 
     private IEnumerator BackToDrone()
     {
+        yield return new WaitForSeconds(0.1f);
         enableDrone = true;
-        yield return new WaitForSeconds(0.5f);
         droneController.gameObject.SetActive(true);
         cameraHolder.SetActive(false);
+        GameManager.Instance.uIManager.playerGrabTxt.gameObject.SetActive(false);
     }
 }
