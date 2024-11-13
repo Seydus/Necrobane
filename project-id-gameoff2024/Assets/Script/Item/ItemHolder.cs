@@ -52,4 +52,31 @@ public class ItemHolder : MonoBehaviour
             itemFound = false;
         }
     }
+
+    public void SetBoxCollider(bool state)
+    {
+        boxCollider.enabled = state;
+    }
+
+    public void SetRigidbodyKinematic(bool state)
+    {
+        myBody.isKinematic = state;
+    }
+
+    public void SetPosition(Vector3 position)
+    {
+        transform.position = position;
+    }
+
+    public void SetItemParent(Transform transform)
+    {
+        transform.SetParent(transform);
+    }
+
+
+    public void SetRotation(Vector3 value)
+    {
+        Debug.LogError(value);
+        transform.localEulerAngles = value;
+    }
 }
