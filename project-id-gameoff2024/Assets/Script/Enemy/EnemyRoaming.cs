@@ -60,6 +60,11 @@ public class EnemyRoaming : MonoBehaviour
         roamTargetPosition = GetNewPosition();
     }
 
+    private void Update()
+    {
+        Init();
+    }
+
     public void Init()
     {
         DetectPlayer();
@@ -123,7 +128,7 @@ public class EnemyRoaming : MonoBehaviour
 
     private void HandlePatrol()
     {
-        if (!isRoaming && Vector3.Distance(roamTargetPosition, transform.position) <= 1.2f)
+        if (!isRoaming && Vector3.Distance(roamTargetPosition, transform.position) <= 2f)
         {
             isRoaming = true;
             StartCoroutine(InitRoaming(Random.Range(minRoamWaitTime, maxRoamWaitTime)));

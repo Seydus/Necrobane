@@ -1,5 +1,6 @@
 using UnityEngine;
 using AK.Wwise;
+using UnityEditor.PackageManager;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,11 +16,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float airDrag = 1f;
     [SerializeField] private float jumpHeight = 2f;
     [SerializeField] private float gravity = -29.43f;
+    [SerializeField] private float ceilingPullPower = 2f;
+    [SerializeField] private float ceilingHeight = 2f;
+    [SerializeField] private float ceilingSphereRadius = 2f;
+    private bool hitCeiling;
 
     private Vector3 savedDirection = Vector3.zero;
-
-    private CharacterController characterController;
     private Vector3 velocity;
+
+    private RaycastHit ceilingHit;
+    private CharacterController characterController;
 
     [Header("Camera Settings")]
     [SerializeField] private Transform cameraHolder;
@@ -32,6 +38,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 cameraRotation;
     private Vector3 characterRotation;
+
 
     // Wwise
     private bool FootstepIsPlaying = false;
@@ -147,13 +154,19 @@ public class PlayerController : MonoBehaviour
             }
 
             decelerationSpeed = setDecelerationSpeed;
-
+            hitCeiling = false;
         }
         else
         {
-            IsJumping = true;
             decelerationSpeed = airDrag;
-            velocity.y += gravity * Time.deltaTime;
+
+            if (Physics.SphereCast(transform.position, ceilingSphereRadius, Vector3.up, out ceilingHit, ceilingHeight))
+            {
+                hitCeiling = true;
+                Debug.Log("Hit ceilling");
+            }
+
+            velocity.y += gravity * (Time.deltaTime * (hitCeiling ? ceilingPullPower : 1));
         }
 
     }
@@ -198,6 +211,22 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = hitCeiling ? Color.green : Color.red;
+
+        if (hitCeiling)
+        {
+            Gizmos.DrawRay(transform.position, Vector3.up * ceilingHeight);
+            Gizmos.DrawWireSphere(ceilingHit.point, ceilingSphereRadius);
+        }
+        else
+        {
+            Gizmos.DrawRay(transform.position, Vector3.up * ceilingHeight);
+        }
+    }
+
     private void PlayerJump()
     {
         if (Physics.Raycast(transform.position, -Vector3.up, out hit, Mathf.Infinity))
