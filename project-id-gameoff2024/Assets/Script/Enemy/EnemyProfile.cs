@@ -14,6 +14,11 @@ public class EnemyProfile : MonoBehaviour
         enemyDamage = profile.EnemyDamage;
     }
 
+    private void Update()
+    {
+        EnemyStatus(gameObject);
+    }
+
     public void DeductHealth(float damage)
     {
         enemyHealth -= damage;

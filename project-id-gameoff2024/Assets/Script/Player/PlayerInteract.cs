@@ -20,6 +20,7 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private float combatDistance;
     private WeaponHolder weaponHolder;
     private ItemHolder itemHolder;
+    [SerializeField] private GameObject powerGloveObj;
 
     [Header("Others")]
     [SerializeField] private Camera cam;
@@ -58,6 +59,7 @@ public class PlayerInteract : MonoBehaviour
                     {
                         weaponHolder = _weaponHolder;
                         weaponHolder.transform.position = powerGlovePos.position;
+                        weaponHolder.transform.localRotation = Quaternion.identity;
                         weaponHolder.transform.SetParent(powerGlovePos);
                         weaponHolder.transform.GetComponent<BoxCollider>().enabled = false;
                         weaponHolder.transform.GetComponent<Rigidbody>().isKinematic = true;

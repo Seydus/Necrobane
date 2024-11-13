@@ -56,7 +56,10 @@ public class EnemyRoaming : MonoBehaviour
     {
         enemyHolder = GetComponent<EnemyHolder>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+    }
 
+    private void Start()
+    {
         roamTargetPosition = GetNewPosition();
     }
 
@@ -79,7 +82,6 @@ public class EnemyRoaming : MonoBehaviour
         }
 
         HandleEnemyState();
-        enemyHolder.EnemyProfile.EnemyStatus(gameObject);
     }
 
     private void DetectPlayer()
@@ -99,7 +101,7 @@ public class EnemyRoaming : MonoBehaviour
 
         walkable = false;
 
-        while (!walkable)
+        for (int i = 0; i < 10 && !walkable; i++)
         {
             Vector3 randomPoint = groundCheckOrigin.position + Random.insideUnitSphere * roamDetectionRadius;
 
