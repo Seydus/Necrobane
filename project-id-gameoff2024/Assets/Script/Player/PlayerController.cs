@@ -1,5 +1,6 @@
 using UnityEngine;
 using AK.Wwise;
+using UnityEditor.PackageManager;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,11 +16,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float airDrag = 1f;
     [SerializeField] private float jumpHeight = 2f;
     [SerializeField] private float gravity = -29.43f;
+    [SerializeField] private float ceilingPullPower = 2f;
+    [SerializeField] private float ceilingHeight = 2f;
+    [SerializeField] private float ceilingSphereRadius = 2f;
+    private bool hitCeiling;
 
     private Vector3 savedDirection = Vector3.zero;
-
-    private CharacterController characterController;
     private Vector3 velocity;
+
+    private RaycastHit ceilingHit;
+    private CharacterController characterController;
 
     [Header("Camera Settings")]
     [SerializeField] private Transform cameraHolder;
@@ -32,6 +38,15 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 cameraRotation;
     private Vector3 characterRotation;
+
+    [Header("Camera Bob Settings")]
+    [SerializeField] private Transform cameraBob;
+    [SerializeField] private float bobSpeed = 9.8f;
+    [SerializeField] private float bobAmountVertical = 0.01f;
+    [SerializeField] private float bobAmountHorizontal = 0.01f;
+    private float bobTimer = 0f;
+    private Vector3 originalBobCameraPosition;
+
 
     // Wwise
     private bool FootstepIsPlaying = false;
@@ -52,6 +67,8 @@ public class PlayerController : MonoBehaviour
 
         accelerationSpeed = setAccelerationSpeed;
         decelerationSpeed = setDecelerationSpeed;
+
+        originalBobCameraPosition = cameraBob.localPosition;
     }
 
     public void Init()
@@ -68,25 +85,41 @@ public class PlayerController : MonoBehaviour
         {
             moveSpeed = Mathf.Lerp(moveSpeed, maxSpeed, accelerationSpeed * Time.deltaTime);
             savedDirection = moveDirection;
+
+            if (characterController.isGrounded)
+            {
+                // Update bob timer and apply both vertical and horizontal variations
+                bobTimer += Time.deltaTime * bobSpeed;
+                float bobOffsetVertical = Mathf.Sin(bobTimer) * bobAmountVertical;
+                float bobOffsetHorizontal = Mathf.Cos(bobTimer * 0.5f) * bobAmountHorizontal; // Slower horizontal sway
+
+                cameraBob.localPosition = Vector3.Slerp(cameraBob.localPosition, originalBobCameraPosition + new Vector3(bobOffsetHorizontal, bobOffsetVertical, 0), bobSpeed * Time.deltaTime);
+            }
+            else
+            {
+                // Reset camera position when stationary
+                cameraBob.localPosition = Vector3.Slerp(cameraBob.localPosition, originalBobCameraPosition, bobSpeed * Time.deltaTime);
+            }
         }
         else
         {
             if (moveSpeed < 0.05f)
             {
                 moveSpeed = 0;
+                bobTimer = 0;
             }
             else
             {
                 moveSpeed = Mathf.Lerp(moveSpeed, 0, decelerationSpeed * Time.deltaTime);
             }
+
+            // Reset camera position when stationary
+            cameraBob.localPosition = Vector3.Slerp(cameraBob.localPosition, originalBobCameraPosition, bobSpeed * Time.deltaTime);
         }
 
         Vector3 movement = savedDirection * moveSpeed;
-
         ApplyGravityAndJump();
-
         Vector3 finalMovement = movement + velocity;
-
         characterController.Move(finalMovement * Time.deltaTime);
 
         if (!FootstepIsPlaying && !IsJumping)
@@ -99,13 +132,11 @@ public class PlayerController : MonoBehaviour
         {
             if (moveSpeed > 1)
             {
-
                 if (Time.time - LastFootstepTime > 2.5 / moveSpeed)
                 {
                     FootstepIsPlaying = false;
                 }
             }
-
         }
     }
 
@@ -147,13 +178,19 @@ public class PlayerController : MonoBehaviour
             }
 
             decelerationSpeed = setDecelerationSpeed;
-
+            hitCeiling = false;
         }
         else
         {
-            IsJumping = true;
             decelerationSpeed = airDrag;
-            velocity.y += gravity * Time.deltaTime;
+
+            if (Physics.SphereCast(transform.position, ceilingSphereRadius, Vector3.up, out ceilingHit, ceilingHeight))
+            {
+                hitCeiling = true;
+                Debug.Log("Hit ceilling");
+            }
+
+            velocity.y += gravity * (Time.deltaTime * (hitCeiling ? ceilingPullPower : 1));
         }
 
     }
@@ -198,6 +235,22 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = hitCeiling ? Color.green : Color.red;
+
+        if (hitCeiling)
+        {
+            Gizmos.DrawRay(transform.position, Vector3.up * ceilingHeight);
+            Gizmos.DrawWireSphere(ceilingHit.point, ceilingSphereRadius);
+        }
+        else
+        {
+            Gizmos.DrawRay(transform.position, Vector3.up * ceilingHeight);
+        }
+    }
+
     private void PlayerJump()
     {
         if (Physics.Raycast(transform.position, -Vector3.up, out hit, Mathf.Infinity))

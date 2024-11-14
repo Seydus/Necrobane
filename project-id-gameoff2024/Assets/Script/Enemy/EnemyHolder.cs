@@ -12,9 +12,4 @@ public class EnemyHolder : MonoBehaviour
         EnemyRoaming = GetComponent<EnemyRoaming>();
         EnemyCombat = GetComponent<EnemyCombat>();
     }
-
-    private void Update()
-    {
-        EnemyRoaming.Init();
-    }
 }

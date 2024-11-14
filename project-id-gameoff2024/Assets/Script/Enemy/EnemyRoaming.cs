@@ -56,8 +56,16 @@ public class EnemyRoaming : MonoBehaviour
     {
         enemyHolder = GetComponent<EnemyHolder>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+    }
 
+    private void Start()
+    {
         roamTargetPosition = GetNewPosition();
+    }
+
+    private void Update()
+    {
+        Init();
     }
 
     public void Init()
@@ -74,7 +82,6 @@ public class EnemyRoaming : MonoBehaviour
         }
 
         HandleEnemyState();
-        enemyHolder.EnemyProfile.EnemyStatus(gameObject);
     }
 
     private void DetectPlayer()
@@ -94,7 +101,7 @@ public class EnemyRoaming : MonoBehaviour
 
         walkable = false;
 
-        while (!walkable)
+        for (int i = 0; i < 10 && !walkable; i++)
         {
             Vector3 randomPoint = groundCheckOrigin.position + Random.insideUnitSphere * roamDetectionRadius;
 
@@ -123,7 +130,7 @@ public class EnemyRoaming : MonoBehaviour
 
     private void HandlePatrol()
     {
-        if (!isRoaming && Vector3.Distance(roamTargetPosition, transform.position) <= 1.2f)
+        if (!isRoaming && Vector3.Distance(roamTargetPosition, transform.position) <= 2f)
         {
             isRoaming = true;
             StartCoroutine(InitRoaming(Random.Range(minRoamWaitTime, maxRoamWaitTime)));

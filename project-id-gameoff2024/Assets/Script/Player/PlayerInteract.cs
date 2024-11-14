@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor.PackageManager;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
@@ -20,6 +21,14 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private float combatDistance;
     private WeaponHolder weaponHolder;
     private ItemHolder itemHolder;
+    [SerializeField] private GameObject hitVFXPrefab;
+
+    [Header("Combat Anim")]
+    private bool isRightPunchNext = true;
+    private bool isPunching = false;
+    public float punchResetTime = 1.5f; // Time in seconds to reset punch sequence
+    private float timeSinceLastPunch = 0f;
+
 
     [Header("Others")]
     [SerializeField] private Camera cam;
@@ -54,23 +63,24 @@ public class PlayerInteract : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    if(hitInfo.transform.TryGetComponent<WeaponHolder>(out WeaponHolder _weaponHolder))
+                    if (hitInfo.transform.TryGetComponent<WeaponHolder>(out WeaponHolder _weaponHolder))
                     {
                         weaponHolder = _weaponHolder;
-                        weaponHolder.transform.position = powerGlovePos.position;
+                        weaponHolder.SetBoxCollider(false);
+                        weaponHolder.SetRigidbodyKinematic(true);
                         weaponHolder.transform.SetParent(powerGlovePos);
-                        weaponHolder.transform.GetComponent<BoxCollider>().enabled = false;
-                        weaponHolder.transform.GetComponent<Rigidbody>().isKinematic = true;
+                        weaponHolder.SetPosition(powerGlovePos.position);
+                        weaponHolder.SetRotation(Vector3.zero);
                     }
-                    else if(hitInfo.transform.TryGetComponent<ItemHolder>(out ItemHolder _itemHolder))
+                    else if (hitInfo.transform.TryGetComponent<ItemHolder>(out ItemHolder _itemHolder))
                     {
-                        // temporary attributes
                         itemHolder = _itemHolder;
-                        itemHolder.transform.position = powerGlovePos.position;
+                        itemHolder.SetBoxCollider(false);
+                        itemHolder.SetRigidbodyKinematic(true);
                         itemHolder.transform.SetParent(powerGlovePos);
-                        itemHolder.transform.GetComponent<Rigidbody>().isKinematic = true;
+                        itemHolder.SetRotation(Vector3.zero);
                     }
- 
+
                     isEquippedWeapon = true;
                     AkSoundEngine.PostEvent("Play_Equip_Fist", gameObject);
 
@@ -90,18 +100,19 @@ public class PlayerInteract : MonoBehaviour
         }
 
         // Drop weapon
-        if(weaponHolder)
+        if (weaponHolder)
         {
-            if(Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
-                weaponHolder.transform.SetParent(null);
-                weaponHolder.transform.GetComponent<Rigidbody>().isKinematic = false;
-                weaponHolder.transform.GetComponent<BoxCollider>().enabled = true;
-                weaponHolder = null;
-                isEquippedWeapon = false;
+                Debug.Log("Succesfully dropped a weapon");
+                weaponHolder.SetBoxCollider(true);
+                weaponHolder.SetRigidbodyKinematic(false);
+
                 AkSoundEngine.PostEvent("Play_Drop_Item", gameObject);
 
-                Debug.Log("Succesfully dropped a weapon");
+                weaponHolder.transform.SetParent(null);
+                weaponHolder = null;
+                isEquippedWeapon = false;
             }
         }
 
@@ -109,36 +120,57 @@ public class PlayerInteract : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                itemHolder.transform.SetParent(null);
-                itemHolder.transform.GetComponent<Rigidbody>().isKinematic = false;
-                itemHolder = null;
-                isEquippedWeapon = false;
+                Debug.Log("Succesfully dropped an item");
+                itemHolder.SetBoxCollider(true);
+                itemHolder.SetRigidbodyKinematic(false);
+
                 AkSoundEngine.PostEvent("Play_Drop_Item", gameObject);
 
-                Debug.Log("Succesfully dropped an item");
+                itemHolder.transform.SetParent(null);
+                itemHolder = null;
+                isEquippedWeapon = false;
             }
         }
     }
-
     private void HandleAttack()
     {
-        Debug.Log("Init Handle Attack");
         if (weaponHolder)
         {
-            Debug.Log("WeaponHolder Exist");
-            if (Physics.SphereCast(sphereRay, sphereRadius, out hitInfo, combatDistance, combatLayer, QueryTriggerInteraction.Collide))
-            {
-                Debug.Log("Spherecast Triggered");
-                GameManager.Instance.uIManager.playerAttackTxt.gameObject.SetActive(true);
-                isHit = true;
+            timeSinceLastPunch += Time.deltaTime;
 
-                if (Input.GetMouseButtonDown(0))
+            bool sphereCast = Physics.SphereCast(sphereRay, sphereRadius, out hitInfo, combatDistance, combatLayer, QueryTriggerInteraction.Collide);
+
+            if (Input.GetMouseButtonDown(0) && !isPunching)
+            {
+                if (timeSinceLastPunch > punchResetTime)
                 {
+                    isRightPunchNext = true;
+                }
+
+                StartCoroutine(PerformPunch());
+
+                if (sphereCast)
+                {
+                    // Punched hit enemy
                     if (hitInfo.transform.TryGetComponent<EnemyHolder>(out EnemyHolder enemyHolder))
                     {
                         HandleMeleeType(enemyHolder);
                     }
                 }
+                else
+                {
+                    if (Physics.SphereCast(sphereRay, sphereRadius, out hitInfo, combatDistance))
+                    {
+                        GameObject hitVFX = Instantiate(hitVFXPrefab, hitInfo.point, Quaternion.identity);
+                        hitVFX.GetComponent<ParticleSystem>().Play();
+                    }
+                }
+            }
+
+            if(sphereCast)
+            {
+                GameManager.Instance.uIManager.playerAttackTxt.gameObject.SetActive(true);
+                isHit = true;
             }
             else
             {
@@ -151,6 +183,54 @@ public class PlayerInteract : MonoBehaviour
             GameManager.Instance.uIManager.playerGrabTxt.gameObject.SetActive(false);
             Debug.LogWarning("You haven't equiped a weapon");
         }
+    }
+
+    private IEnumerator PerformPunch()
+    {
+        isPunching = true;
+        timeSinceLastPunch = 0f;
+
+        if (isRightPunchNext)
+        {
+            weaponHolder.GetAnimator().SetTrigger("RightPunch");
+        }
+        else
+        {
+            weaponHolder.GetAnimator().SetTrigger("LeftPunch");
+        }
+
+
+        isRightPunchNext = !isRightPunchNext;
+        yield return new WaitForSeconds(GetCurrentAnimationLength());
+
+        isPunching = false;
+    }
+
+    private IEnumerator CameraShake(float duration, float magnitude)
+    {
+        Vector3 originalPosition = cam.transform.localPosition;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            float x = Random.Range(-1f, 1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
+
+            cam.transform.localPosition = new Vector3(x, y, originalPosition.z);
+
+            elapsed += Time.deltaTime;
+
+            yield return null;
+        }
+
+        cam.transform.localPosition = originalPosition;
+    }
+
+
+    private float GetCurrentAnimationLength()
+    {
+        AnimatorStateInfo stateInfo = weaponHolder.GetAnimator().GetCurrentAnimatorStateInfo(0);
+        return stateInfo.length;
     }
 
     private void HandleMeleeType(EnemyHolder enemyHolder)
@@ -176,6 +256,9 @@ public class PlayerInteract : MonoBehaviour
     {
         Debug.Log("Hand Combat Triggered");
         enemyHolder.EnemyProfile.DeductHealth(weaponHolder.weapon.WeaponDamage);
+        StartCoroutine(CameraShake(0.08f, 0.03f));
+        GameObject hitVFX = Instantiate(hitVFXPrefab, hitInfo.point, Quaternion.identity);
+        hitVFX.GetComponent<ParticleSystem>().Play();
     }
 
     private void HandleSwordCombat(EnemyHolder enemyHolder)

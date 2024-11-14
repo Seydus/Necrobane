@@ -12,11 +12,14 @@ public class EnemyCombat : MonoBehaviour
     private bool initAttack;
     private bool damagedPlayer;
 
-    [SerializeField] private float sphereRadius;
-    [SerializeField] private float maxDistance;
+    [SerializeField] private float sphereRadius = 0.4f;
+    [SerializeField] private float maxDistance = 0.9f;
     [SerializeField] private LayerMask combatLayer;
+    [SerializeField] private float rotateSpeed;
     private Ray sphereRay;
     private RaycastHit hitInfo;
+
+    private float angleSetDifference;
 
     [Header("Wwise")]
     public AK.Wwise.Event HitPlayer;
@@ -39,28 +42,31 @@ public class EnemyCombat : MonoBehaviour
 
     private Ray GetEnemyDirection()
     {
-        return new Ray(transform.position, transform.forward);
+        Vector3 newPosition = transform.position;
+        newPosition.y = 0.8689178f;
+        return new Ray(newPosition, transform.forward);
     }
 
     public void HandleAttack(Transform player, NavMeshAgent navMeshAgent)
     {
-        // Store player reference
-        playerTransform = player;
+        if (Vector3.Distance(player.position, transform.position) <= 2.5f)
+        {
+            navMeshAgent.ResetPath();
+            // Store player reference
+            playerTransform = player;
 
-        if (Vector3.Distance(player.position, transform.position) >= 2.5f)
-        {
-            navMeshAgent.SetDestination(player.position);
-        }
-        else
-        {
             Vector3 directionToPlayer = player.position - transform.position;
             directionToPlayer.Normalize();
 
             Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+            float angleDifference = Quaternion.Angle(transform.localRotation, targetRotation);
 
-            // Needs to be adjusted
-            transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, 3f * Time.deltaTime);
-            navMeshAgent.ResetPath();
+            Debug.Log(angleDifference);
+
+            if (angleDifference > angleSetDifference)
+            {
+                transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, rotateSpeed * Time.deltaTime);
+            }
 
             if (!initAttack)
             {
@@ -68,6 +74,11 @@ public class EnemyCombat : MonoBehaviour
                 initAttack = true;
             }
         }
+        else
+        {
+            navMeshAgent.SetDestination(player.position);
+        }
+
     }
 
     private IEnumerator InitAttack(float delay)
@@ -117,7 +128,7 @@ public class EnemyCombat : MonoBehaviour
         }
         else
         {
-            Gizmos.DrawRay(sphereRay.origin, sphereRay.direction.normalized * maxDistance);
+            Gizmos.DrawRay(sphereRay.origin, sphereRay.direction * maxDistance);
         }
     }
 }
