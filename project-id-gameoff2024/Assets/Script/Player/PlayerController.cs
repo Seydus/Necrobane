@@ -39,14 +39,6 @@ public class PlayerController : MonoBehaviour
     private Vector3 cameraRotation;
     private Vector3 characterRotation;
 
-    [Header("Camera Bob Settings")]
-    [SerializeField] private Transform cameraBob;
-    [SerializeField] private float bobSpeed = 9.8f;
-    [SerializeField] private float bobAmountVertical = 0.01f;
-    [SerializeField] private float bobAmountHorizontal = 0.01f;
-    private float bobTimer = 0f;
-    private Vector3 originalBobCameraPosition;
-
 
     // Wwise
     private bool FootstepIsPlaying = false;
@@ -68,7 +60,6 @@ public class PlayerController : MonoBehaviour
         accelerationSpeed = setAccelerationSpeed;
         decelerationSpeed = setDecelerationSpeed;
 
-        originalBobCameraPosition = cameraBob.localPosition;
     }
 
     public void Init()
@@ -85,36 +76,18 @@ public class PlayerController : MonoBehaviour
         {
             moveSpeed = Mathf.Lerp(moveSpeed, maxSpeed, accelerationSpeed * Time.deltaTime);
             savedDirection = moveDirection;
-
-            if (characterController.isGrounded)
-            {
-                // Update bob timer and apply both vertical and horizontal variations
-                bobTimer += Time.deltaTime * bobSpeed;
-                float bobOffsetVertical = Mathf.Sin(bobTimer) * bobAmountVertical;
-                float bobOffsetHorizontal = Mathf.Cos(bobTimer * 0.5f) * bobAmountHorizontal; // Slower horizontal sway
-
-                cameraBob.localPosition = Vector3.Slerp(cameraBob.localPosition, originalBobCameraPosition + new Vector3(bobOffsetHorizontal, bobOffsetVertical, 0), bobSpeed * Time.deltaTime);
-            }
-            else
-            {
-                // Reset camera position when stationary
-                cameraBob.localPosition = Vector3.Slerp(cameraBob.localPosition, originalBobCameraPosition, bobSpeed * Time.deltaTime);
-            }
         }
         else
         {
             if (moveSpeed < 0.05f)
             {
                 moveSpeed = 0;
-                bobTimer = 0;
             }
             else
             {
                 moveSpeed = Mathf.Lerp(moveSpeed, 0, decelerationSpeed * Time.deltaTime);
             }
 
-            // Reset camera position when stationary
-            cameraBob.localPosition = Vector3.Slerp(cameraBob.localPosition, originalBobCameraPosition, bobSpeed * Time.deltaTime);
         }
 
         Vector3 movement = savedDirection * moveSpeed;

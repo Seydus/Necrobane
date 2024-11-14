@@ -42,7 +42,6 @@ public class WeaponHolder : MonoBehaviour
 
     public void SetRotation(Vector3 value)
     {
-        Debug.LogError(value);
         transform.localEulerAngles = value;
     }
 }

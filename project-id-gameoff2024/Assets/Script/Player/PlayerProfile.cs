@@ -13,10 +13,15 @@ public class PlayerProfile : MonoBehaviour
         playerStamina = profile.PlayerStamina;
     }
 
+    private void Update()
+    {
+        IncreaseStamina();
+    }
+
     public void Init()
     {
-        GameManager.Instance.uIManager.playerHealthTxt.text = "" + playerHealth;
-        GameManager.Instance.uIManager.playerStaminaTxt.text = "" + playerStamina;
+        GameManager.Instance.uIManager.playerHealthTxt.SetText("{0:1}", playerHealth);
+        GameManager.Instance.uIManager.playerStaminaTxt.SetText("{0:1}", playerStamina);
     }
 
     public void DeductHealth(float damage)
@@ -27,5 +32,17 @@ public class PlayerProfile : MonoBehaviour
     public void DeductStamina(float cost)
     {
         playerStamina -= cost;
+    }
+
+    private void IncreaseStamina()
+    {
+        if(playerStamina < profile.PlayerStamina)
+        {
+            playerStamina += Time.deltaTime;
+        }
+        else
+        {
+            playerStamina = profile.PlayerStamina;
+        }
     }
 }

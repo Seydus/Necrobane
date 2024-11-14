@@ -236,7 +236,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 220f33f4567537c418f424ff092ec1fc, type: 2}
+  - {fileID: 2100000, guid: e6b9b44320f4448d9d5e0ee634259966, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20307,7 +20307,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 220f33f4567537c418f424ff092ec1fc, type: 2}
+  - {fileID: 2100000, guid: aadd5a709a48466c887296bb5b1b8110, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21260,10 +21260,8 @@ MonoBehaviour:
   viewYInverted: 0
   cameraBob: {fileID: 1091351507}
   bobSpeed: 9.8
-  originalBobAmountVertical: 0.01
-  orignalBobAmountHorizontal: 0.01
-  handlerBobAmountVertical: 1
-  handlerBobAmountHorizontal: 1
+  bobAmountVertical: 0.01
+  bobAmountHorizontal: 0.01
 --- !u!114 &1673101895
 MonoBehaviour:
   m_ObjectHideFlags: 0

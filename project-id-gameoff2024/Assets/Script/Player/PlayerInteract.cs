@@ -22,19 +22,35 @@ public class PlayerInteract : MonoBehaviour
     private WeaponHolder weaponHolder;
     private ItemHolder itemHolder;
     [SerializeField] private GameObject hitVFXPrefab;
+    private bool isSuperAttack;
+    private bool isBasicAttack;
+    bool sphereCast;
+
+    private Vector3 originalPosition;
 
     [Header("Combat Anim")]
     private bool isRightPunchNext = true;
     private bool isPunching = false;
-    public float punchResetTime = 1.5f; // Time in seconds to reset punch sequence
+    public float punchResetTime = 1.5f;
     private float timeSinceLastPunch = 0f;
 
 
     [Header("Others")]
     [SerializeField] private Camera cam;
+    private PlayerProfile playerProfile;
 
     [Header("Debugging")]
     private bool isHit;
+
+    private void Awake()
+    {
+        playerProfile = GetComponent<PlayerProfile>();
+    }
+
+    private void Start()
+    {
+        originalPosition = cam.transform.localPosition;
+    }
 
     public void Init()
     {
@@ -138,33 +154,25 @@ public class PlayerInteract : MonoBehaviour
         {
             timeSinceLastPunch += Time.deltaTime;
 
-            bool sphereCast = Physics.SphereCast(sphereRay, sphereRadius, out hitInfo, combatDistance, combatLayer, QueryTriggerInteraction.Collide);
+            sphereCast = Physics.SphereCast(sphereRay, sphereRadius, out hitInfo, combatDistance, combatLayer, QueryTriggerInteraction.Collide);
 
-            if (Input.GetMouseButtonDown(0) && !isPunching)
+            if (Input.GetMouseButtonDown(0) && !isPunching && !isSuperAttack)
             {
+                isBasicAttack = true;
+
                 if (timeSinceLastPunch > punchResetTime)
                 {
                     isRightPunchNext = true;
                 }
 
-                StartCoroutine(PerformPunch());
+                StartCoroutine(PerformBasicAttack());
+            }
 
-                if (sphereCast)
-                {
-                    // Punched hit enemy
-                    if (hitInfo.transform.TryGetComponent<EnemyHolder>(out EnemyHolder enemyHolder))
-                    {
-                        HandleMeleeType(enemyHolder);
-                    }
-                }
-                else
-                {
-                    if (Physics.SphereCast(sphereRay, sphereRadius, out hitInfo, combatDistance))
-                    {
-                        GameObject hitVFX = Instantiate(hitVFXPrefab, hitInfo.point, Quaternion.identity);
-                        hitVFX.GetComponent<ParticleSystem>().Play();
-                    }
-                }
+            if (Input.GetMouseButtonDown(1) && !isPunching && !isBasicAttack)
+            {
+                isSuperAttack = true;
+
+                StartCoroutine(PerformSuperAttack());
             }
 
             if(sphereCast)
@@ -185,98 +193,138 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
-    private IEnumerator PerformPunch()
+    private IEnumerator PerformBasicAttack()
     {
+
         isPunching = true;
         timeSinceLastPunch = 0f;
 
         if (isRightPunchNext)
         {
             weaponHolder.GetAnimator().SetTrigger("RightPunch");
+            // StartCoroutine(CameraShake(0.07f, 0.05f, Vector3.right));
         }
         else
         {
             weaponHolder.GetAnimator().SetTrigger("LeftPunch");
+            // StartCoroutine(CameraShake(0.07f, 0.05f, Vector3.left));
         }
 
+        yield return null;
 
         isRightPunchNext = !isRightPunchNext;
         yield return new WaitForSeconds(GetCurrentAnimationLength());
 
-        isPunching = false;
-    }
-
-    private IEnumerator CameraShake(float duration, float magnitude)
-    {
-        Vector3 originalPosition = cam.transform.localPosition;
-        float elapsed = 0f;
-
-        while (elapsed < duration)
+        if (sphereCast)
         {
-            float x = Random.Range(-1f, 1f) * magnitude;
-            float y = Random.Range(-1f, 1f) * magnitude;
-
-            cam.transform.localPosition = new Vector3(x, y, originalPosition.z);
-
-            elapsed += Time.deltaTime;
-
-            yield return null;
+            if (hitInfo.transform.TryGetComponent<EnemyHolder>(out EnemyHolder enemyHolder))
+            {
+                HandleMeleeType(enemyHolder, weaponHolder.weapon.WeaponBasicDamage);
+            }
+        }
+        else
+        {
+            if (Physics.SphereCast(sphereRay, sphereRadius, out hitInfo, combatDistance))
+            {
+                GameObject hitVFX = Instantiate(hitVFXPrefab, hitInfo.point, Quaternion.identity);
+                hitVFX.GetComponent<ParticleSystem>().Play();
+            }
         }
 
-        cam.transform.localPosition = originalPosition;
+        isPunching = false;
+        isBasicAttack = false;
+    }
+
+    private IEnumerator PerformSuperAttack()
+    {
+        playerProfile.DeductStamina(weaponHolder.weapon.WeaponStaminaCost);
+        isPunching = true;
+        timeSinceLastPunch = 0f;
+
+        weaponHolder.GetAnimator().SetTrigger("SuperPunch");
+
+        yield return null;
+
+        isRightPunchNext = !isRightPunchNext;
+        yield return new WaitForSeconds(GetCurrentAnimationLength());
+
+        if (sphereCast)
+        {
+            if (hitInfo.transform.TryGetComponent<EnemyHolder>(out EnemyHolder enemyHolder))
+            {
+                HandleMeleeType(enemyHolder, weaponHolder.weapon.WeaponSuperAttackDamage);
+            }
+        }
+        else
+        {
+            if (Physics.SphereCast(sphereRay, sphereRadius, out hitInfo, combatDistance))
+            {
+                GameObject hitVFX = Instantiate(hitVFXPrefab, hitInfo.point, Quaternion.identity);
+                hitVFX.GetComponent<ParticleSystem>().Play();
+            }
+        }
+
+        isPunching = false;
+        isSuperAttack = false;
     }
 
 
     private float GetCurrentAnimationLength()
     {
-        AnimatorStateInfo stateInfo = weaponHolder.GetAnimator().GetCurrentAnimatorStateInfo(0);
-        return stateInfo.length;
+        Debug.Log(weaponHolder.GetAnimator().GetCurrentAnimatorStateInfo(0).length);
+        return weaponHolder.GetAnimator().GetCurrentAnimatorStateInfo(0).length;
     }
 
-    private void HandleMeleeType(EnemyHolder enemyHolder)
+    private void HandleMeleeType(EnemyHolder enemyHolder, float damage)
     {
         switch (weaponHolder.weapon.WeaponType)
         {
             case Weapon.Weapons.PowerGlove:
-                HandleHandCombat(enemyHolder);
+                HandleHandCombat(enemyHolder, damage);
                 break;
             case Weapon.Weapons.Sword:
-                HandleSwordCombat(enemyHolder);
+                HandleSwordCombat(enemyHolder, damage);
                 break;
             case Weapon.Weapons.Axe:
-                HandleSwordCombat(enemyHolder);
+                HandleSwordCombat(enemyHolder, damage);
                 break;
             case Weapon.Weapons.Dagger:
-                HandleSwordCombat(enemyHolder);
+                HandleSwordCombat(enemyHolder, damage);
                 break;
         }
     }
 
-    private void HandleHandCombat(EnemyHolder enemyHolder)
+    private void HandleHandCombat(EnemyHolder enemyHolder, float damage)
     {
         Debug.Log("Hand Combat Triggered");
-        enemyHolder.EnemyProfile.DeductHealth(weaponHolder.weapon.WeaponDamage);
-        StartCoroutine(CameraShake(0.08f, 0.03f));
+        enemyHolder.EnemyProfile.DeductHealth(damage);
+
+        Vector3 punchDirection = isRightPunchNext ? Vector3.right : Vector3.left;
+
+        // StartCoroutine(CameraShake(0.03f, 0.01f, punchDirection));
+
         GameObject hitVFX = Instantiate(hitVFXPrefab, hitInfo.point, Quaternion.identity);
         hitVFX.GetComponent<ParticleSystem>().Play();
+        cam.transform.localPosition = originalPosition;
     }
 
-    private void HandleSwordCombat(EnemyHolder enemyHolder)
+
+    private void HandleSwordCombat(EnemyHolder enemyHolder, float damage)
     {
         Debug.Log("Sword Combat Triggered");
-        enemyHolder.EnemyProfile.DeductHealth(weaponHolder.weapon.WeaponDamage);
+        enemyHolder.EnemyProfile.DeductHealth(damage);
     }
 
-    private void HandleAxeCombat(EnemyHolder enemyHolder)
+    private void HandleAxeCombat(EnemyHolder enemyHolder, float damage)
     {
         Debug.Log("Axe Combat Triggered");
-        enemyHolder.EnemyProfile.DeductHealth(weaponHolder.weapon.WeaponDamage);
+        enemyHolder.EnemyProfile.DeductHealth(damage);
     }
 
-    private void HandleDaggerCombat(EnemyHolder enemyHolder)
+    private void HandleDaggerCombat(EnemyHolder enemyHolder, float damage)
     {
         Debug.Log("Dagger Combat Triggered");
-        enemyHolder.EnemyProfile.DeductHealth(weaponHolder.weapon.WeaponDamage);
+        enemyHolder.EnemyProfile.DeductHealth(damage);
     }
 
     private void OnDrawGizmosSelected()

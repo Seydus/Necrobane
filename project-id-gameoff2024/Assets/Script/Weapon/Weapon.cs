@@ -16,5 +16,11 @@ public class Weapon : ScriptableObject
     [Space]
 
     public string WeaponName;
-    public float WeaponDamage;
+
+    public float WeaponBasicDamage;
+
+    public float WeaponStaminaCost;
+    public float WeaponSuperAttackDamage;
+
+    public float WeaponStunDuration;
 }
