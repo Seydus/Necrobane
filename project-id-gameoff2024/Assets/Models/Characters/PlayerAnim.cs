@@ -11,24 +11,8 @@ public class PlayerAnim : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.LogError("Banan");
-            if (right && punch)
-            {
                 animator.SetBool("RightPunch", true);
                 Invoke("OffPunch", 0.3f);
-                right = false;
-                punch = false;
-            }
-
-            if (!right && punch)
-            {
-                animator.SetBool("LeftPunch", true);
-                Invoke("OffPunch", 0.3f);
-                right = true;
-                punch = false;
-            }
-
-            punch = true;
         }
     }
 
