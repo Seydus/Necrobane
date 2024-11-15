@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyProfile : MonoBehaviour
 {
@@ -23,6 +25,7 @@ public class EnemyProfile : MonoBehaviour
     {
         enemyHealth -= damage;
         Debug.Log("Enemy (" + enemyName + ") health: " + enemyHealth);
+        
     }
 
     public void EnemyStatus(GameObject gameObject)
@@ -32,5 +35,11 @@ public class EnemyProfile : MonoBehaviour
             Instantiate(profile.itemDrop, transform.position, Quaternion.identity);
             gameObject.SetActive(false);
         }
+    }
+
+    public void SetEnemyForce(Vector3 direction, float currentForce)
+    {
+        Debug.Log(direction + " and " + currentForce);
+        // myBody.AddForce(direction * currentForce * Time.deltaTime, ForceMode.Impulse);
     }
 }

@@ -43,7 +43,7 @@ public class EnemyCombat : MonoBehaviour
     private Ray GetEnemyDirection()
     {
         Vector3 newPosition = transform.position;
-        newPosition.y = 0.8689178f;
+        newPosition.y = -0.115f;
         return new Ray(newPosition, transform.forward);
     }
 

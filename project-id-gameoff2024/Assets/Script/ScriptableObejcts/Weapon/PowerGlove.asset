@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponType: 0
   WeaponName: Gloves of Power Glove
-  WeaponDamage: 20
+  WeaponBasicDamage: 10
   WeaponStaminaCost: 20
+  WeaponSuperAttackDamage: 20
+  WeaponStunDuration: 1
