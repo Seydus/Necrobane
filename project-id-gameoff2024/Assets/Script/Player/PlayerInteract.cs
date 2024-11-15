@@ -176,9 +176,15 @@ public class PlayerInteract : MonoBehaviour
 
             if (Input.GetMouseButtonDown(1) && !isPunching && !isBasicAttack)
             {
-                isSuperAttack = true;
-
-                StartCoroutine(PerformSuperAttack());
+                if(playerProfile.playerStamina > 0)
+                {
+                    isSuperAttack = true;
+                    StartCoroutine(PerformSuperAttack());
+                }
+                else
+                {
+                    Debug.Log("You don't have enough mana.");
+                }
             }
 
             if(sphereCast)
@@ -205,7 +211,7 @@ public class PlayerInteract : MonoBehaviour
         timeSinceLastPunch = 0f;
 
         Vector3 swingDirection = isRightPunchNext ? Vector3.left : Vector3.right;
-        StartCoroutine(CameraSwingShake(0.13f, 0.03f, swingDirection));
+        // StartCoroutine(CameraSwingShake(0.13f, 0.03f, swingDirection));
 
         if (isRightPunchNext)
         {
@@ -219,13 +225,13 @@ public class PlayerInteract : MonoBehaviour
         yield return null;
 
         isRightPunchNext = !isRightPunchNext;
-        yield return new WaitForSeconds(GetCurrentAnimationLength());
+        yield return new WaitForSeconds(/*GetCurrentAnimationLength()*/ 0.1f);
 
         if (sphereCast)
         {
-            if (hitInfo.transform.TryGetComponent<EnemyHolder>(out EnemyHolder enemyHolder))
+            if (hitInfo.transform.TryGetComponent<Enemy>(out Enemy enemy))
             {
-                HandleMeleeType(enemyHolder, weaponHolder.weapon.WeaponBasicDamage);
+                HandleMeleeType(enemy, weaponHolder.weapon.WeaponBasicDamage);
                 StartCoroutine(CameraShake(0.15f, 0.015f));
             }
         }
@@ -260,9 +266,9 @@ public class PlayerInteract : MonoBehaviour
 
         if (sphereCast)
         {
-            if (hitInfo.transform.TryGetComponent<EnemyHolder>(out EnemyHolder enemyHolder))
+            if (hitInfo.transform.TryGetComponent<Enemy>(out Enemy enemy))
             {
-                HandleMeleeType(enemyHolder, weaponHolder.weapon.WeaponSuperAttackDamage);
+                HandleMeleeType(enemy, weaponHolder.weapon.WeaponSuperAttackDamage);
                 StartCoroutine(CameraShake(0.3f, 0.05f));
             }
         }
@@ -321,29 +327,29 @@ public class PlayerInteract : MonoBehaviour
         return anim.GetCurrentAnimatorStateInfo(0).length;
     }
 
-    private void HandleMeleeType(EnemyHolder enemyHolder, float damage)
+    private void HandleMeleeType(Enemy enemy, float damage)
     {
         switch (weaponHolder.weapon.WeaponType)
         {
             case Weapon.Weapons.PowerGlove:
-                HandleHandCombat(enemyHolder, damage);
+                HandleHandCombat(enemy, damage);
                 break;
             case Weapon.Weapons.Sword:
-                HandleSwordCombat(enemyHolder, damage);
+                HandleSwordCombat(enemy, damage);
                 break;
             case Weapon.Weapons.Axe:
-                HandleSwordCombat(enemyHolder, damage);
+                HandleSwordCombat(enemy, damage);
                 break;
             case Weapon.Weapons.Dagger:
-                HandleSwordCombat(enemyHolder, damage);
+                HandleSwordCombat(enemy, damage);
                 break;
         }
     }
 
-    private void HandleHandCombat(EnemyHolder enemyHolder, float damage)
+    private void HandleHandCombat(Enemy enemy, float damage)
     {
         Debug.Log("Hand Combat Triggered");
-        enemyHolder.EnemyProfile.DeductHealth(damage);
+        enemy.DeductHealth(damage);
 
         Vector3 punchDirection = isRightPunchNext ? Vector3.right : Vector3.left;
 
@@ -356,38 +362,38 @@ public class PlayerInteract : MonoBehaviour
     }
 
 
-    private void HandleSwordCombat(EnemyHolder enemyHolder, float damage)
+    private void HandleSwordCombat(Enemy enemy, float damage)
     {
         Debug.Log("Sword Combat Triggered");
-        enemyHolder.EnemyProfile.DeductHealth(damage);
+        enemy.DeductHealth(damage);
     }
 
-    private void HandleAxeCombat(EnemyHolder enemyHolder, float damage)
+    private void HandleAxeCombat(Enemy enemy, float damage)
     {
         Debug.Log("Axe Combat Triggered");
-        enemyHolder.EnemyProfile.DeductHealth(damage);
+        enemy.DeductHealth(damage);
     }
 
-    public void Knockback(float initialForce, float collisionTime, EnemyHolder enemyHolder)
+    public void Knockback(float initialForce, float collisionTime, Enemy enemy)
     {
         if (knockbackRoutine != null)
         {
             StopCoroutine(knockbackRoutine);
         }
 
-        knockbackRoutine = StartCoroutine(ApplyKnockback(initialForce, collisionTime, enemyHolder));
+        knockbackRoutine = StartCoroutine(ApplyKnockback(initialForce, collisionTime, enemy));
     }
 
-    private IEnumerator ApplyKnockback(float baseForce, float duration, EnemyHolder enemyHolder)
+    private IEnumerator ApplyKnockback(float baseForce, float duration, Enemy enemy)
     {
-        Vector3 direction = (enemyHolder.transform.position - transform.position).normalized;
+        Vector3 direction = (enemy.transform.position - transform.position).normalized;
 
-        float distance = Vector3.Distance(enemyHolder.transform.position, transform.position);
+        float distance = Vector3.Distance(enemy.transform.position, transform.position);
 
         float adjustedForce = baseForce * Mathf.Clamp(1f / distance, 0.1f, 10f);
 
-        var navMeshAgent = enemyHolder.EnemyProfile.GetComponent<NavMeshAgent>();
-        var rigidbody = enemyHolder.EnemyProfile.GetComponent<Rigidbody>();
+        var navMeshAgent = enemy.GetComponent<NavMeshAgent>();
+        var rigidbody = enemy.GetComponent<Rigidbody>();
 
         navMeshAgent.enabled = false;
         rigidbody.isKinematic = false;
@@ -400,10 +406,10 @@ public class PlayerInteract : MonoBehaviour
         rigidbody.isKinematic = true;
     }
 
-    private void HandleDaggerCombat(EnemyHolder enemyHolder, float damage)
+    private void HandleDaggerCombat(Enemy enemy, float damage)
     {
         Debug.Log("Dagger Combat Triggered");
-        enemyHolder.EnemyProfile.DeductHealth(damage);
+        enemy.DeductHealth(damage);
     }
 
     private void OnDrawGizmosSelected()

@@ -2,75 +2,63 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyCombat : MonoBehaviour
+
+// Note: Coroutine doesn't work unless you add Enemy.StartCoroutine
+public class EnemyCombat : MonoBehaviour, IEnemyCombat
 {
-    private EnemyHolder enemyHolder;
+    protected IEnemyCombat enemyCombat;
+    public Enemy Enemy { get; set; }
 
     [Header("Enemy Combat")]
-    [SerializeField] private float attackDelay;
-    private float setAttackDelay;
-    private bool initAttack;
-    private bool damagedPlayer;
+    public float AttackDelay { get; set; }
+    protected float setAttackDelay;
+    protected bool initAttack;
+    protected bool damagedPlayer;
 
-    [SerializeField] private float sphereRadius = 0.4f;
-    [SerializeField] private float maxDistance = 0.9f;
-    [SerializeField] private LayerMask combatLayer;
-    [SerializeField] private float rotateSpeed;
-    private Ray sphereRay;
-    private RaycastHit hitInfo;
+    public float SphereRadius { get; set; }
+    public float MaxDistance { get; set; }
+    public LayerMask CombatLayer { get; set; }
+    public float RotateSpeed { get; set; }
+    protected Ray sphereRay;
+    protected RaycastHit hitInfo;
 
-    private float angleSetDifference;
+    protected float angleSetDifference;
 
     [Header("Wwise")]
-    public AK.Wwise.Event HitPlayer;
+    public AK.Wwise.Event _HitPlayer { get; set; }
 
     [Header("Debugging")]
-    private bool isHit;
+    protected bool isHit;
 
-    // Store reference to player
-    private Transform playerTransform;
+    protected Transform playerTransform;
 
-    private void Awake()
+    public void Awake()
     {
-        enemyHolder = GetComponent<EnemyHolder>();
-    }
-
-    private void Start()
-    {
-        setAttackDelay = attackDelay;
-    }
-
-    private Ray GetEnemyDirection()
-    {
-        Vector3 newPosition = transform.position;
-        newPosition.y = -0.115f;
-        return new Ray(newPosition, transform.forward);
+        enemyCombat = this;
+        setAttackDelay = AttackDelay;
     }
 
     public void HandleAttack(Transform player, NavMeshAgent navMeshAgent)
     {
-        if (Vector3.Distance(player.position, transform.position) <= 2.5f)
+        if (Vector3.Distance(player.position, Enemy.transform.position) <= 2.5f)
         {
             navMeshAgent.ResetPath();
-            // Store player reference
             playerTransform = player;
 
-            Vector3 directionToPlayer = player.position - transform.position;
+            Vector3 directionToPlayer = player.position - Enemy.transform.position;
             directionToPlayer.Normalize();
 
             Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
-            float angleDifference = Quaternion.Angle(transform.localRotation, targetRotation);
-
-            Debug.Log(angleDifference);
+            float angleDifference = Quaternion.Angle(Enemy.transform.localRotation, targetRotation);
 
             if (angleDifference > angleSetDifference)
             {
-                transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, rotateSpeed * Time.deltaTime);
+                Enemy.transform.localRotation = Quaternion.Slerp(Enemy.transform.localRotation, targetRotation, RotateSpeed * Time.deltaTime);
             }
 
             if (!initAttack)
             {
-                StartCoroutine(InitAttack(attackDelay));
+                Enemy.StartCoroutine(InitAttack(AttackDelay));
                 initAttack = true;
             }
         }
@@ -81,28 +69,32 @@ public class EnemyCombat : MonoBehaviour
 
     }
 
-    private IEnumerator InitAttack(float delay)
+    Ray IEnemyCombat.GetEnemyDirection()
     {
-        sphereRay = GetEnemyDirection();
+        return new Ray(Enemy.transform.position, Enemy.transform.forward);
+    }
+
+    public IEnumerator InitAttack(float delay)
+    {
+        sphereRay = enemyCombat.GetEnemyDirection();
 
         yield return new WaitForSeconds(delay);
 
-        if (Physics.SphereCast(sphereRay, sphereRadius, out hitInfo, maxDistance, combatLayer))
+        if (Physics.SphereCast(sphereRay, SphereRadius, out hitInfo, MaxDistance, CombatLayer))
         {
+            Debug.Log("Player damaged");
             isHit = true;
-
-            Debug.Log("Detected player");
 
             if (!damagedPlayer)
             {
                 if (hitInfo.transform.TryGetComponent<PlayerManager>(out PlayerManager playerManager))
                 {
-                    playerManager.PlayerProfile.DeductHealth(enemyHolder.EnemyProfile.enemyDamage);
+                    playerManager.PlayerProfile.DeductHealth(Enemy.EnemyDamage);
 
-                    // Use playerTransform reference here
-                    HitPlayer.Post(playerTransform.gameObject);
-
-                    Debug.Log("Enemy damaged player");
+                    if (playerTransform != null)
+                    {
+                        _HitPlayer.Post(playerTransform.gameObject);
+                    }
                 }
 
                 damagedPlayer = true;
@@ -114,21 +106,20 @@ public class EnemyCombat : MonoBehaviour
         damagedPlayer = false;
         initAttack = false;
     }
-
-    private void OnDrawGizmosSelected()
+    public void OnDrawGizmosSelected()
     {
         Gizmos.color = isHit ? Color.green : Color.red;
 
-        sphereRay = GetEnemyDirection();
+        sphereRay = enemyCombat.GetEnemyDirection();
 
         if (isHit)
         {
             Gizmos.DrawRay(sphereRay.origin, hitInfo.point - sphereRay.origin);
-            Gizmos.DrawWireSphere(hitInfo.point, sphereRadius);
+            Gizmos.DrawWireSphere(hitInfo.point, SphereRadius);
         }
         else
         {
-            Gizmos.DrawRay(sphereRay.origin, sphereRay.direction * maxDistance);
+            Gizmos.DrawRay(sphereRay.origin, sphereRay.direction * MaxDistance);
         }
     }
 }
