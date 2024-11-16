@@ -5,7 +5,7 @@ using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyRoaming : MonoBehaviour, IEnemyRoaming
+public class EnemyRoaming : IEnemyRoaming
 {
     private enum EnemyState
     {
@@ -124,42 +124,17 @@ public class EnemyRoaming : MonoBehaviour, IEnemyRoaming
 
     private void HandleEnemyType()
     {
-        switch(Enemy)
+        if(Enemy is IEnemyCombat enemyCombat)
         {
-            case Skeleton skeleton:
-                if(skeleton)
-                {
-                    Debug.Log(player);
-                    Debug.Log(NavMeshAgent);
-
-                    skeleton.HandleAttack(player, NavMeshAgent);
-                }
-                else
-                {
-                    Debug.LogError("Error no skeleton script");
-                }
-                break;
-            case Cultist cultist:
-                //
-                break;
+            enemyCombat.HandleAttack(player, NavMeshAgent);
         }
     }
 
     private void HandlePatrol()
     {
-        Debug.Log($"MinRoamWaitTime: {MinRoamWaitTime}, MaxRoamWaitTime: {MaxRoamWaitTime}");
-
         if (!isRoaming && Vector3.Distance(roamTargetPosition, Enemy.transform.position) <= 2f)
         {
             isRoaming = true;
-
-            // Ensure MinRoamWaitTime and MaxRoamWaitTime are properly assigned
-            if (MinRoamWaitTime <= 0 || MaxRoamWaitTime <= 0)
-            {
-                Debug.LogError("MinRoamWaitTime or MaxRoamWaitTime is not properly initialized.");
-                return;
-            }
-
             Enemy.StartCoroutine(InitRoaming(Random.Range(MinRoamWaitTime, MaxRoamWaitTime)));
         }
 
@@ -173,7 +148,6 @@ public class EnemyRoaming : MonoBehaviour, IEnemyRoaming
         yield return null;
         isRoaming = false;
     }
-
 
     private void HandleEngagement()
     {

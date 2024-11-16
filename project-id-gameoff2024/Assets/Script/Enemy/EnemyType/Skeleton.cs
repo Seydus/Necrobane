@@ -1,5 +1,6 @@
 using System.Collections;
 using Unity.AI.Navigation;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -19,7 +20,7 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
     public float MaxRoamWaitTime { get; set; }
     public float RoamDetectionRadius { get; set; }
     public float MaxRoamDistance { get; set; }
-    public float RoamDirectionChangeChance { get; set ; }
+    public float RoamDirectionChangeChance { get; set; }
     public Transform GroundPos { get; set; }
     public float DetectRadius { get; set; }
     public LayerMask PlayerMask { get; set; }
@@ -30,7 +31,7 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
     public NavMeshAgent NavMeshAgent { get; set; }
     #endregion
 
-    public new void Awake()
+    public override void Awake()
     {
         base.Awake();
 
@@ -38,11 +39,7 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
         enemyRoaming = new EnemyRoaming();
 
         enemyCombat.AttackDelay = attackDelay;
-        enemyCombat.SphereRadius = sphereRadius;
-        enemyCombat.MaxDistance = maxDistance;
-        enemyCombat.CombatLayer = combatLayer;
         enemyCombat.RotateSpeed = rotateSpeed;
-        enemyCombat._HitPlayer = HitPlayer;
 
         enemyRoaming.MinRoamWaitTime = minRoamWaitTime;
         enemyRoaming.MaxRoamWaitTime = maxRoamWaitTime;
@@ -59,29 +56,29 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
         enemyRoaming.NavMeshAgent = base._NavMeshAgent;
 
         enemyCombat.Enemy = this;
-        enemyRoaming.Enemy = this; 
+        enemyRoaming.Enemy = this;
 
         enemyCombat.Awake();
     }
 
-    public new void Start()
+    public override void Start()
     {
         base.Start();
 
         enemyRoaming.Start();
     }
 
-    public new void Update()
+    public override void Update()
     {
         base.Update();
 
-        if(enableRoaming)
+        if (enableRoaming)
             enemyRoaming.Update();
     }
 
     public Ray GetEnemyDirection()
     {
-        return enemyCombat.GetEnemyDirection();
+        return new Ray(transform.position, transform.forward);
     }
 
     public void HandleAttack(Transform player, NavMeshAgent navMeshAgent)
@@ -89,16 +86,46 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
         enemyCombat.HandleAttack(player, navMeshAgent);
     }
 
-    public IEnumerator InitAttack(float delay)
+    public IEnumerator InitAttack(Transform player, float delay)
     {
-        yield return enemyCombat.InitAttack(delay);
+        sphereRay = enemyCombat.GetEnemyDirection();
+
+        yield return new WaitForSeconds(delay);
+
+        // Skeleton Melee Sword Attack
+
+        if (Physics.SphereCast(sphereRay, SphereRadius, out enemyHitInfo, MaxDistance, CombatLayer))
+        {
+            enemyHit = true;
+
+            if (enemyHitInfo.transform.TryGetComponent<PlayerManager>(out PlayerManager playerManager))
+            {
+                playerManager.PlayerProfile.DeductHealth(Enemy.EnemyDamage);
+
+                if (player != null)
+                {
+                    _HitPlayer.Post(player.gameObject);
+                    yield return null;
+                }
+            }
+        }
     }
 
-    public void OnDrawGizmosSelected()
+    public override void OnDrawGizmosSelected()
     {
-        if(enemyCombat != null)
+        Debug.Log("OnDrawGizmosSelected called in Skeleton.");
+
+        Gizmos.color = enemyHit ? Color.green : Color.red;
+
+        if (enemyHit)
         {
-            enemyCombat.OnDrawGizmosSelected();
+            Gizmos.DrawRay(sphereRay.origin, enemyHitInfo.point - sphereRay.origin);
+            Gizmos.DrawWireSphere(enemyHitInfo.point, SphereRadius);
+        }
+        else
+        {
+            Gizmos.DrawRay(sphereRay.origin, sphereRay.direction * MaxDistance);
+            Gizmos.DrawWireSphere(transform.position, SphereRadius);
         }
     }
 }

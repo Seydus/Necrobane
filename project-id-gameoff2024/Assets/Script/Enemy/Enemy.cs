@@ -32,27 +32,34 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float rotateSpeed = 0.7f;
     public AK.Wwise.Event HitPlayer;
 
+    [Header("SphereCast")]
+    protected Ray sphereRay;
+    protected RaycastHit enemyHitInfo;
+
     [Header("Enemy Stats")]
     public string EnemyName { get; set; }
     public float EnemyHealth { get; set; }
     public float EnemyDamage { get; set; }
 
+    [Header("Debugging")]
+    protected bool enemyHit;
+
     [Header("Others")]
     protected NavMeshAgent _NavMeshAgent;
 
-    public void Awake()
+    public virtual void Awake()
     {
         _NavMeshAgent = GetComponent<NavMeshAgent>();
     }
 
-    public void Start()
+    public virtual void Start()
     {
         EnemyName = profile.EnemyName;
         EnemyHealth = profile.EnemyHealth;
         EnemyDamage = profile.EnemyDamage;
     }
 
-    public void Update()
+    public virtual void Update()
     {
         EnemyStatus(gameObject);
     }
@@ -77,4 +84,6 @@ public class Enemy : MonoBehaviour
         Debug.Log(direction + " and " + currentForce);
         // myBody.AddForce(direction * currentForce * Time.deltaTime, ForceMode.Impulse);
     }
+
+    public virtual void OnDrawGizmosSelected() { }
 }
