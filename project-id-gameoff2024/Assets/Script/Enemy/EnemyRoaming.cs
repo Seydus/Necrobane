@@ -126,7 +126,7 @@ public class EnemyRoaming : IEnemyRoaming
     {
         if(Enemy is IEnemyCombat enemyCombat)
         {
-            enemyCombat.HandleAttack(player, NavMeshAgent);
+            enemyCombat.HandleAttack(player, NavMeshAgent, Enemy.profile.EnemyRange);
         }
     }
 

@@ -10,7 +10,7 @@ public class EnemyCombat : IEnemyCombat
     public Enemy Enemy { get; set; }
 
     [Header("Enemy Combat")]
-    public float AttackDelay { get; set; }
+    public float AttackSpeed { get; set; }
     public float RotateSpeed { get; set; }
 
     protected float AngleSetDifference;
@@ -20,9 +20,9 @@ public class EnemyCombat : IEnemyCombat
         enemyCombat = this;
     }
 
-    public void HandleAttack(Transform player, NavMeshAgent navMeshAgent)
+    public void HandleAttack(Transform player, NavMeshAgent navMeshAgent, float range)
     {
-        if (Vector3.Distance(player.position, Enemy.transform.position) <= 2.5f)
+        if (Vector3.Distance(player.position, Enemy.transform.position) <= range)
         {
             navMeshAgent.ResetPath();
 
@@ -37,15 +37,9 @@ public class EnemyCombat : IEnemyCombat
                 Enemy.transform.localRotation = Quaternion.Slerp(Enemy.transform.localRotation, targetRotation, RotateSpeed * Time.deltaTime);
             }
 
-            if (Enemy == null)
-            {
-                Debug.LogError("Enemy is null. Ensure it is properly assigned.");
-                return;
-            }
-
             if (Enemy is IEnemyCombat enemyCombat)
             {
-                Enemy.StartCoroutine(ExecuteAttack(enemyCombat, player, AttackDelay));
+                Enemy.StartCoroutine(ExecuteAttack(enemyCombat, player, AttackSpeed));
             }
         }
         else

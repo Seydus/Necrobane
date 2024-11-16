@@ -10,6 +10,7 @@ public class EnemyProfileSO : ScriptableObject
 
     [Header("Enemy Combat Profile")]
     public float EnemyDamage;
+    public float EnemyRange;
 
     [Header("Enemy Item Drop")]
     public GameObject itemDrop;

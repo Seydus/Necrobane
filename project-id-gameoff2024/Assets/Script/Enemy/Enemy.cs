@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private EnemyProfileSO profile;
+    public EnemyProfileSO profile;
 
     [Header("Status")]
     [SerializeField] protected bool enableRoaming = true;
@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float disengageCooldownDuration = 0.2f;
 
     [Header("Enemy Combat")]
-    [SerializeField] protected float attackDelay = 1;
+    [SerializeField] protected float attackSpeed = 1;
     [SerializeField] protected float sphereRadius = 0.4f;
     [SerializeField] protected float maxDistance = 0.9f;
     [SerializeField] protected LayerMask combatLayer;
@@ -84,6 +84,4 @@ public class Enemy : MonoBehaviour
         Debug.Log(direction + " and " + currentForce);
         // myBody.AddForce(direction * currentForce * Time.deltaTime, ForceMode.Impulse);
     }
-
-    public virtual void OnDrawGizmosSelected() { }
 }
