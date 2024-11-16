@@ -4,6 +4,10 @@
 		<WorkUnit Name="Default Work Unit" ID="{8521127E-F051-48BD-AFE0-E17C1DC96374}" PersistMode="Standalone">
 			<ChildrenList>
 				<Folder Name="Player" ID="{37CEE714-7DE9-470C-B61E-37A433612F04}" ShortID="793523655">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="1"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
 					<ChildrenList>
 						<SwitchContainer Name="Footsteps" ID="{A26679A2-C10B-48D8-87D8-066E4ABAB041}" ShortID="344332616">
 							<PropertyList>
@@ -740,6 +744,10 @@
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Combat" ID="{5FA2CC77-FD76-4C8B-815D-BDCCA9129CC4}" ShortID="80745627">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="10"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
 					<ChildrenList>
 						<Folder Name="Hit SFX" ID="{8463030E-5B41-42F5-A87D-FD5BB72F00F0}" ShortID="968055532">
 							<ChildrenList>
@@ -847,6 +855,45 @@
 											</ChildrenList>
 											<ActiveSourceList>
 												<ActiveSource Name="chop2" ID="{31794795-5EB6-4D9F-98B0-B2579475C951}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Punch" ID="{E2A8FFCD-1275-441B-8748-23A251236B39}" ShortID="820601453">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Hit SFX" ID="{F44299FA-5275-4517-AFAE-D8B695D50FBE}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="Punch" ID="{D4AE2B45-274D-469C-BF49-F1BABA1FE4AD}" ShortID="573638295">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Punch" ID="{B563C041-CB3A-442C-8376-4D7016C0F607}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0253648366921473"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.249826268241835"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Punch.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1312919"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Punch" ID="{B563C041-CB3A-442C-8376-4D7016C0F607}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>

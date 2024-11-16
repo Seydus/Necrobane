@@ -34,10 +34,14 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{7A8FACA0-1356-D500-40CD-7FCFBD544C29}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{4DB3B70D-A23D-2A8C-D48F-4416484314B7}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
+				<File Id="1312919" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Punch.wav</ShortName>
+					<CachePath>SFX/Punch_4C8907BF.wem</CachePath>
+				</File>
 				<File Id="21450614" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>JumpGravel1.wav</ShortName>
 					<CachePath>SFX/JumpGravel1_CD6D7486.wem</CachePath>
@@ -112,7 +116,7 @@
 				</File>
 				<File Id="980660262" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Equip_Fist.wav</ShortName>
-					<CachePath>SFX/Equip_Fist_5F42CCA5.wem</CachePath>
+					<CachePath>SFX/Equip_Fist_D5D41D9D.wem</CachePath>
 				</File>
 				<File Id="1002423227" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepStone4.wav</ShortName>
@@ -189,6 +193,11 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
+				<Event Id="3946911806" Name="Play_Punch" DurationType="OneShot" DurationMin="0.24982627" DurationMax="0.24982627">
+					<MediaRefs>
+						<MediaRef Id="1312919"/>
+					</MediaRefs>
+				</Event>
 			</Events>
 			<SwitchGroups>
 				<SwitchGroup Id="3865314626" Name="Material">
@@ -200,5 +209,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{DB77594B-23B0-C512-91A6-F9FFCBA12AEE}</FileHash>
+	<FileHash>{453C6946-D681-F801-A58C-05D230921E50}</FileHash>
 </SoundBanksInfo>
