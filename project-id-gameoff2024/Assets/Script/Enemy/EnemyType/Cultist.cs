@@ -38,11 +38,7 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
         enemyRoaming = new EnemyRoaming();
 
         enemyCombat.AttackDelay = attackDelay;
-        enemyCombat.SphereRadius = sphereRadius;
-        enemyCombat.MaxDistance = maxDistance;
-        enemyCombat.CombatLayer = combatLayer;
         enemyCombat.RotateSpeed = rotateSpeed;
-        enemyCombat._HitPlayer = HitPlayer;
 
         enemyRoaming.MinRoamWaitTime = minRoamWaitTime;
         enemyRoaming.MaxRoamWaitTime = maxRoamWaitTime;
@@ -81,7 +77,7 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
 
     public Ray GetEnemyDirection()
     {
-        return enemyCombat.GetEnemyDirection();
+        return new Ray(Enemy.transform.position, Enemy.transform.forward);
     }
 
     public void HandleAttack(Transform player, NavMeshAgent navMeshAgent)
@@ -89,16 +85,13 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
         enemyCombat.HandleAttack(player, navMeshAgent);
     }
 
-    public IEnumerator InitAttack(float delay)
+    public IEnumerator InitAttack(Transform player, float delay)
     {
-        yield return enemyCombat.InitAttack(delay);
+        yield return enemyCombat.InitAttack(player, delay);
     }
 
     public void OnDrawGizmosSelected()
     {
-        if (enemyCombat != null)
-        {
-            enemyCombat.OnDrawGizmosSelected();
-        }
+
     }
 }
