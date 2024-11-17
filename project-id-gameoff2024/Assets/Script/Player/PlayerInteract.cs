@@ -211,7 +211,6 @@ public class PlayerInteract : MonoBehaviour
         timeSinceLastPunch = 0f;
 
         Vector3 swingDirection = isRightPunchNext ? Vector3.left : Vector3.right;
-        // StartCoroutine(CameraSwingShake(0.13f, 0.03f, swingDirection));
 
         if (isRightPunchNext)
         {
@@ -256,8 +255,6 @@ public class PlayerInteract : MonoBehaviour
 
         anim.SetTrigger("SuperPunch");
 
-        // Start a more intense camera shake for the super attack
-        // StartCoroutine(CameraSwingShake(2.3f, 0.1f, Vector3.right));
         yield return null;
 
         isRightPunchNext = !isRightPunchNext;
