@@ -62,11 +62,11 @@ public class PlayerInteract : MonoBehaviour
         {
             EquipTargetCast();
 
-            GameManager.Instance.uIManager.playerDropTxt.gameObject.SetActive(false);
+            GameManager.Instance.uIManager.playerDropTxt.SetActive(false);
         }
         else
         {
-            GameManager.Instance.uIManager.playerDropTxt.gameObject.SetActive(true);
+            GameManager.Instance.uIManager.playerDropTxt.SetActive(true);
         }
 
         DropWeapon();
@@ -82,7 +82,7 @@ public class PlayerInteract : MonoBehaviour
             EqupWeapon();
             EquipItem();
 
-            GameManager.Instance.uIManager.playerGrabTxt.gameObject.SetActive(true);
+            GameManager.Instance.uIManager.playerGrabTxt.SetActive(!isEquipped ? true : false);
 
             Debug.Log("Interacting a weapon...");
         }
@@ -90,7 +90,7 @@ public class PlayerInteract : MonoBehaviour
         {
             isHit = false;
 
-            GameManager.Instance.uIManager.playerGrabTxt.gameObject.SetActive(false);
+            GameManager.Instance.uIManager.playerGrabTxt.SetActive(false);
         }
     }
 
@@ -182,6 +182,3 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 }
-
-
-

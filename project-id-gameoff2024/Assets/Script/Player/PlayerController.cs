@@ -1,16 +1,19 @@
 using UnityEngine;
 using AK.Wwise;
 using UnityEditor.PackageManager;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] private float maxSpeed = 8f;
-    public float moveSpeed { get; set; }
+    private float moveSpeed;
     [SerializeField] private float setAccelerationSpeed = 7f;
     [SerializeField] private float setDecelerationSpeed = 9f;
     private float accelerationSpeed;
     private float decelerationSpeed;
+
+    private Vector3 savedDirection = Vector3.zero;
 
     [Header("Jump Settings")]
     [SerializeField] private float airDrag = 1f;
@@ -21,11 +24,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float ceilingSphereRadius = 2f;
     private bool hitCeiling;
 
-    private Vector3 savedDirection = Vector3.zero;
-    private Vector3 velocity;
-
+    private Vector3 velocity = Vector3.zero;
     private RaycastHit ceilingHit;
-    private CharacterController characterController;
 
     [Header("Camera Settings")]
     [SerializeField] private Transform cameraHolder;
@@ -42,6 +42,10 @@ public class PlayerController : MonoBehaviour
     [Header("Animation")]
     [SerializeField] private Animator anim;
 
+    [Header("Others")]
+    private CharacterController characterController;
+
+    [Header("Wwise")]
     // Wwise
     private bool FootstepIsPlaying = false;
     private bool LandingIsPlaying = false;
@@ -51,8 +55,7 @@ public class PlayerController : MonoBehaviour
     private RaycastHit hit;
     private string PhysMat;
     private string PhysMat_Last;
-    [SerializeField]
-    private PlayerSounds PlayerSounds;
+
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -62,7 +65,6 @@ public class PlayerController : MonoBehaviour
 
         accelerationSpeed = setAccelerationSpeed;
         decelerationSpeed = setDecelerationSpeed;
-
     }
 
     public void Init()
@@ -72,6 +74,16 @@ public class PlayerController : MonoBehaviour
     }
 
     private void HandleMovement()
+    {
+        Vector3 finalMovement = UpdateMoveDirectionAndSpeed() + ApplyGravityAndJump();
+
+        WalkAnimation();
+        WalkSound();
+
+        characterController.Move(finalMovement * Time.deltaTime);
+    }
+
+    private Vector3 UpdateMoveDirectionAndSpeed()
     {
         Vector3 moveDirection = GetCameraRelativeMovement();
 
@@ -93,29 +105,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        anim.SetFloat("IsWalking", moveSpeed);
-
-        Vector3 movement = savedDirection * moveSpeed;
-        ApplyGravityAndJump();
-        Vector3 finalMovement = movement + velocity;
-        characterController.Move(finalMovement * Time.deltaTime);
-
-        if (!FootstepIsPlaying && !IsJumping)
-        {
-            PlayerFootsteps();
-            LastFootstepTime = Time.time;
-            FootstepIsPlaying = true;
-        }
-        else
-        {
-            if (moveSpeed > 1)
-            {
-                if (Time.time - LastFootstepTime > 2.5 / moveSpeed)
-                {
-                    FootstepIsPlaying = false;
-                }
-            }
-        }
+        return savedDirection * moveSpeed;
     }
 
     private Vector3 GetCameraRelativeMovement()
@@ -134,7 +124,7 @@ public class PlayerController : MonoBehaviour
         return direction.normalized;
     }
 
-    private void ApplyGravityAndJump()
+    private Vector3 ApplyGravityAndJump()
     {
         if (characterController.isGrounded)
         {
@@ -150,7 +140,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (IsJumping)
                 {
-                    PlayerJump();
+                    JumpSound();
                 }
                 IsJumping = false;
             }
@@ -171,6 +161,7 @@ public class PlayerController : MonoBehaviour
             velocity.y += gravity * (Time.deltaTime * (hitCeiling ? ceilingPullPower : 1));
         }
 
+        return velocity;
     }
 
     private void HandleView()
@@ -189,7 +180,54 @@ public class PlayerController : MonoBehaviour
         cameraHolder.localRotation = Quaternion.Euler(cameraRotation);
     }
 
-    private void PlayerFootsteps()
+    private void WalkAnimation()
+    {
+        anim.SetFloat("IsWalking", moveSpeed);
+    }
+
+    private void WalkSound()
+    {
+        if (!FootstepIsPlaying && !IsJumping)
+        {
+            FootstepSound();
+            LastFootstepTime = Time.time;
+            FootstepIsPlaying = true;
+        }
+        else
+        {
+            if (moveSpeed > 1)
+            {
+                if (Time.time - LastFootstepTime > 2.5 / moveSpeed)
+                {
+                    FootstepIsPlaying = false;
+                }
+            }
+        }
+    }
+
+    private void JumpSound()
+    {
+        if (Physics.Raycast(transform.position, -Vector3.up, out hit, Mathf.Infinity))
+        {
+            PhysMat_Last = PhysMat;
+
+            PhysMat = hit.collider.tag;
+
+            if (PhysMat != PhysMat_Last)
+            {
+                AkSoundEngine.SetSwitch("Material", PhysMat, gameObject);
+
+                print(PhysMat);
+            }
+        }
+        if (!characterController.isGrounded)
+        {
+            return;
+        }
+        AkSoundEngine.PostEvent("Play_Jump", gameObject);
+    }
+
+    private void FootstepSound()
     {
         if (Physics.Raycast(transform.position, -Vector3.up, out hit, Mathf.Infinity))
         {
@@ -210,9 +248,8 @@ public class PlayerController : MonoBehaviour
         }
 
         AkSoundEngine.PostEvent("Play_Footsteps", gameObject);
-
-
     }
+
 
     private void OnDrawGizmosSelected()
     {
@@ -227,27 +264,5 @@ public class PlayerController : MonoBehaviour
         {
             Gizmos.DrawRay(transform.position, Vector3.up * ceilingHeight);
         }
-    }
-
-    private void PlayerJump()
-    {
-        if (Physics.Raycast(transform.position, -Vector3.up, out hit, Mathf.Infinity))
-        {
-            PhysMat_Last = PhysMat;
-
-            PhysMat = hit.collider.tag;
-
-            if (PhysMat != PhysMat_Last)
-            {
-                AkSoundEngine.SetSwitch("Material", PhysMat, gameObject);
-
-                print(PhysMat);
-            }
-        }
-        if (!characterController.isGrounded)
-        {
-            return;
-        }
-        AkSoundEngine.PostEvent("Play_Jump", gameObject);
     }
 }
