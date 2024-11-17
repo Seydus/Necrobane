@@ -56,8 +56,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: LeftPunch.001
-      takeName: LeftPunch.001
+      name: RightPunch.001 (1)
+      takeName: RightPunch.001
       internalID: -8467848523223358887
       firstFrame: 0
       lastFrame: 29
@@ -312,8 +312,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.8323495
-        functionName: SuperPunch
+      - time: 0.73359054
+        functionName: PlayPunch
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

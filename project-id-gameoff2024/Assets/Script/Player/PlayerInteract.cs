@@ -43,9 +43,11 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private Camera cam;
     private PlayerProfile playerProfile;
 
+    [SerializeField]
+    private PlayerSounds PlayerSounds;
     [Header("Debugging")]
     private bool isHit;
-
+    
     private void Awake()
     {
         playerProfile = GetComponent<PlayerProfile>();
@@ -172,6 +174,7 @@ public class PlayerInteract : MonoBehaviour
                 }
 
                 StartCoroutine(PerformBasicAttack());
+                
             }
 
             if (Input.GetMouseButtonDown(1) && !isPunching && !isBasicAttack)
@@ -180,6 +183,7 @@ public class PlayerInteract : MonoBehaviour
                 {
                     isSuperAttack = true;
                     StartCoroutine(PerformSuperAttack());
+                 
                 }
                 else
                 {
@@ -267,6 +271,7 @@ public class PlayerInteract : MonoBehaviour
             {
                 HandleMeleeType(enemy, weaponHolder.weapon.WeaponSuperAttackDamage);
                 StartCoroutine(CameraShake(0.3f, 0.05f));
+                AkSoundEngine.PostEvent("Play_HitBones", gameObject);
             }
         }
         else
@@ -356,6 +361,7 @@ public class PlayerInteract : MonoBehaviour
         hitVFX.GetComponent<ParticleSystem>().Play();
         cam.transform.localPosition = originalPosition;
         // Knockback(initialForce, collisionTime, enemyHolder);
+        
     }
 
 
@@ -423,4 +429,13 @@ public class PlayerInteract : MonoBehaviour
             Gizmos.DrawRay(sphereRay.origin, sphereRay.direction.normalized * combatDistance);
         }
     }
+    public void PlayPunch()
+    {
+        //AkSoundEngine.PostEvent("Play_Punch", gameObject);
+        //Debug.Log("Punch");
+        PlayerSounds.PlayPunch();
+    }
 }
+
+
+
