@@ -8,15 +8,15 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MetallDark
-  m_Shader: {fileID: 4800000, guid: 7df62e33d3d17584ab47e30a7e668103, type: 3}
+  m_Shader: {fileID: 4800000, guid: 4b3238d16cca8084da054287ad7d914c, type: 3}
   m_Parent: {fileID: 2100000, guid: 380f22cdd723c6340b227305fe46db67, type: 2}
-  m_ModifiedSerializedProperties: 0
+  m_ModifiedSerializedProperties: 16
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2001
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 

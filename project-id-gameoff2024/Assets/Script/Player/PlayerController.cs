@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 cameraRotation;
     private Vector3 characterRotation;
 
+    [Header("Animation")]
+    [SerializeField] private Animator anim;
 
     // Wwise
     private bool FootstepIsPlaying = false;
@@ -90,6 +92,8 @@ public class PlayerController : MonoBehaviour
             }
 
         }
+
+        anim.SetFloat("IsWalking", moveSpeed);
 
         Vector3 movement = savedDirection * moveSpeed;
         ApplyGravityAndJump();
