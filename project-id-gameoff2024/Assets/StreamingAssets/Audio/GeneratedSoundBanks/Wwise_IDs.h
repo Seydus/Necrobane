@@ -17,9 +17,10 @@ namespace AK
         static const AkUniqueID PLAY_DROP_ITEM = 1363530945U;
         static const AkUniqueID PLAY_EQUIP_BLADE = 1527095013U;
         static const AkUniqueID PLAY_EQUIP_FIST = 1554763031U;
+        static const AkUniqueID PLAY_FISTSWING = 1452450734U;
         static const AkUniqueID PLAY_FOOTSTEPS = 3854155799U;
+        static const AkUniqueID PLAY_HITBONES = 372480478U;
         static const AkUniqueID PLAY_JUMP = 3689126666U;
-        static const AkUniqueID PLAY_PUNCH = 3946911806U;
     } // namespace EVENTS
 
     namespace SWITCHES

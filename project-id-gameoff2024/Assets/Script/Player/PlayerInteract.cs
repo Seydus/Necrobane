@@ -274,6 +274,7 @@ public class PlayerInteract : MonoBehaviour
             {
                 HandleMeleeType(enemy, weaponHolder.weapon.WeaponSuperAttackDamage);
                 StartCoroutine(CameraShake(0.3f, 0.05f));
+                AkSoundEngine.PostEvent("Play_HitBones", gameObject);
             }
         }
         else
@@ -433,8 +434,9 @@ public class PlayerInteract : MonoBehaviour
     }
     public void PlayPunch()
     {
-        AkSoundEngine.PostEvent("Play_Punch", gameObject);
-        Debug.Log("Punch");
+        //AkSoundEngine.PostEvent("Play_Punch", gameObject);
+        //Debug.Log("Punch");
+        PlayerSounds.PlayPunch();
     }
 }
 

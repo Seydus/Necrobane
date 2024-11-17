@@ -27,6 +27,32 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Folder Name="PowerFist" ID="{7586927C-5203-4CCC-962B-EE309801135C}" ShortID="10771192">
+							<ChildrenList>
+								<Event Name="Play_FistSwing" ID="{F896B83D-0E5D-495E-9B2F-C26BF84C377C}">
+									<ChildrenList>
+										<Action Name="" ID="{6E6F9AA1-C4EF-4549-85B9-7E3770260F40}" ShortID="273096663">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="FistSwing" ID="{E2A8FFCD-1275-441B-8748-23A251236B39}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_HitBones" ID="{791B1485-5846-4245-A32C-B5D678128E10}">
+									<ChildrenList>
+										<Action Name="" ID="{21456EBE-DF45-4290-90CE-30DCD49E516C}" ShortID="66911855">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="HitBones" ID="{203C1A53-03AE-40D5-9F44-3E5563A60824}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Player" ID="{58B751F5-FE90-4014-8F2A-F5B372CD1BAA}" ShortID="963908562">
