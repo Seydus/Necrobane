@@ -5,7 +5,7 @@ using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyRoaming : MonoBehaviour
+public class EnemyRoaming : IEnemyRoaming
 {
     private enum EnemyState
     {
@@ -15,13 +15,13 @@ public class EnemyRoaming : MonoBehaviour
 
     private EnemyState enemyState;
 
-    private EnemyHolder enemyHolder;
+    public Enemy Enemy { get; set; }
 
     [Header("Enemy Settings")]
-    [SerializeField] private float minRoamWaitTime;
-    [SerializeField] private float maxRoamWaitTime;
-    [SerializeField] private float roamDetectionRadius;
-    [SerializeField] private float maxRoamDistance;
+    public float MinRoamWaitTime { get; set; }
+    public float MaxRoamWaitTime { get; set; }
+    public float RoamDetectionRadius { get; set; }
+    public float MaxRoamDistance { get; set; }
     private float randomRoamValue;
     private float currentWaitTime;
     private bool walkable = false;
@@ -29,17 +29,16 @@ public class EnemyRoaming : MonoBehaviour
     private bool decideRandomValue;
     private bool isRoaming;
 
-    [Space]
-    [SerializeField] private float roamDirectionChangeChance;
-    [SerializeField] private Transform groundCheckOrigin;
+    public float RoamDirectionChangeChance { get; set; }
+    public Transform GroundPos { get; set; }
 
     private Vector3 roamTargetPosition;
 
     [Header("Enemy Detection")]
-    [SerializeField] private float detectRadius = 5.0f;
-    [SerializeField] private LayerMask playerMask;
-    [SerializeField] private float engageCooldownDuration = 2.0f;
-    [SerializeField] private float disengageCooldownDuration = 2.0f;
+    public float DetectRadius { get; set; }
+    public LayerMask PlayerMask { get; set; }
+    public float EngageCooldownDuration { get; set; }
+    public float DisengageCooldownDuration { get; set; }
 
     private Transform player;
     private float engageCooldown;
@@ -48,27 +47,22 @@ public class EnemyRoaming : MonoBehaviour
 
     [Header("Others")]
     // can be better
-    [SerializeField] private NavMeshSurface navMeshSurface;
-    private NavMeshAgent navMeshAgent;
+    public NavMeshSurface NavMeshSurface { get; set; }
+    public NavMeshAgent NavMeshAgent { get; set; }
     private NavMeshHit navHit;
 
-    private void Awake()
-    {
-        enemyHolder = GetComponent<EnemyHolder>();
-        navMeshAgent = GetComponent<NavMeshAgent>();
-    }
 
-    private void Start()
+    public void Start()
     {
         roamTargetPosition = GetNewPosition();
     }
 
-    private void Update()
+    public void Update()
     {
         Init();
     }
 
-    public void Init()
+    private void Init()
     {
         DetectPlayer();
 
@@ -86,7 +80,7 @@ public class EnemyRoaming : MonoBehaviour
 
     private void DetectPlayer()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectRadius, playerMask);
+        Collider[] hitColliders = Physics.OverlapSphere(Enemy.transform.position, DetectRadius, PlayerMask);
         isPlayerDetected = hitColliders.Length > 0;
 
         if (isPlayerDetected)
@@ -101,11 +95,11 @@ public class EnemyRoaming : MonoBehaviour
 
         walkable = false;
 
-        for (int i = 0; i < 10 && !walkable; i++)
+        for (int i = 0; i < 50 && !walkable; i++)
         {
-            Vector3 randomPoint = groundCheckOrigin.position + Random.insideUnitSphere * roamDetectionRadius;
+            Vector3 randomPoint = GroundPos.position + Random.insideUnitSphere * RoamDetectionRadius;
 
-            if (NavMesh.SamplePosition(randomPoint, out navHit, maxRoamDistance, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(randomPoint, out navHit, MaxRoamDistance, NavMesh.AllAreas))
             {
                 newPosition = navHit.position;
                 walkable = true;
@@ -123,20 +117,28 @@ public class EnemyRoaming : MonoBehaviour
                 HandlePatrol();
                 break;
             case EnemyState.Attack:
-                enemyHolder.EnemyCombat.HandleAttack(player, navMeshAgent);
+                HandleEnemyType();
                 break;
+        }
+    }
+
+    private void HandleEnemyType()
+    {
+        if(Enemy is IEnemyCombat enemyCombat)
+        {
+            enemyCombat.HandleAttack(player, NavMeshAgent, Enemy.profile.EnemyRange);
         }
     }
 
     private void HandlePatrol()
     {
-        if (!isRoaming && Vector3.Distance(roamTargetPosition, transform.position) <= 2f)
+        if (!isRoaming && Vector3.Distance(roamTargetPosition, Enemy.transform.position) <= 2f)
         {
             isRoaming = true;
-            StartCoroutine(InitRoaming(Random.Range(minRoamWaitTime, maxRoamWaitTime)));
+            Enemy.StartCoroutine(InitRoaming(Random.Range(MinRoamWaitTime, MaxRoamWaitTime)));
         }
 
-        navMeshAgent.SetDestination(roamTargetPosition);
+        NavMeshAgent.SetDestination(roamTargetPosition);
     }
 
     private IEnumerator InitRoaming(float value)
@@ -147,10 +149,9 @@ public class EnemyRoaming : MonoBehaviour
         isRoaming = false;
     }
 
-
     private void HandleEngagement()
     {
-        if (engageCooldown >= engageCooldownDuration)
+        if (engageCooldown >= EngageCooldownDuration)
         {
             enemyState = EnemyState.Attack;
             engageCooldown = 0f;
@@ -165,7 +166,7 @@ public class EnemyRoaming : MonoBehaviour
 
     private void HandleDisengagement()
     {
-        if (disengageCooldown >= disengageCooldownDuration)
+        if (disengageCooldown >= DisengageCooldownDuration)
         {
             enemyState = EnemyState.Patrol;
             disengageCooldown = 0f;
