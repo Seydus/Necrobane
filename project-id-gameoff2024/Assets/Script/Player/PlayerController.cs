@@ -49,7 +49,8 @@ public class PlayerController : MonoBehaviour
     private RaycastHit hit;
     private string PhysMat;
     private string PhysMat_Last;
-
+    [SerializeField]
+    private PlayerSounds PlayerSounds;
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -243,7 +244,6 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-
         AkSoundEngine.PostEvent("Play_Jump", gameObject);
     }
 }

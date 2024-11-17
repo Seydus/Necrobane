@@ -1,11 +1,12 @@
 Event	ID	Name			Wwise Object Path	Notes
+	372480478	Play_HitBones			\Default Work Unit\Combat\PowerFist\Play_HitBones	
 	1363530945	Play_Drop_Item			\Default Work Unit\Player\Interaction\Play_Drop_Item	
+	1452450734	Play_FistSwing			\Default Work Unit\Combat\PowerFist\Play_FistSwing	
 	1527095013	Play_Equip_Blade			\Default Work Unit\Player\Interaction\Equip\Play_Equip_Blade	
 	1554763031	Play_Equip_Fist			\Default Work Unit\Player\Interaction\Equip\Play_Equip_Fist	
 	3488755065	Play_Chops			\Default Work Unit\Combat\Play_Chops	
 	3689126666	Play_Jump			\Default Work Unit\Player\Play_Jump	
 	3854155799	Play_Footsteps			\Default Work Unit\Player\Play_Footsteps	
-	3946911806	Play_Punch			\Default Work Unit\Combat\Play_Punch	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
 	3865314626	Material			\Default Work Unit\Material	
@@ -15,17 +16,22 @@ Switch	ID	Name	Switch Group			Notes
 	2185786256	Gravel	Material			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	1312919	Punch	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\Punch_4C8907BF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Combat\Hit SFX\Punch\Punch		3244
 	21450614	JumpGravel1	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\JumpGravel1_CD6D7486.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Jump\Gravel\JumpGravel1		5116
 	31399390	Equip_Blade	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\Equip_Blade_C7CBF045.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Interaction\Equip\Equip_Blade		6340
 	66535431	FootstepStone3	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\FootstepStone3_B1E5A22B.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\Stone\FootstepStone3		3856
+	113363503	HitSkeleton3	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\HitSkeleton3_C7CBF045.wem		\Actor-Mixer Hierarchy\Default Work Unit\Combat\Hit SFX\PowerFist\FistHit\HitBones\HitSkeleton3		6340
 	218368169	JumpStone	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\JumpStone_50CC79CB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Jump\Stone\JumpStone		3856
+	266045855	FistSwing3	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\FistSwing3_4E3FFCEE.wem		\Actor-Mixer Hierarchy\Default Work Unit\Combat\Hit SFX\PowerFist\FistSwing\FistSwing3		3856
 	277656132	FootstepGravel6	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\FootstepGravel6_CD6D7486.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\Gravel\FootstepGravel6		5116
 	303371798	chop3	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\chop3_44B7B028.wem		\Actor-Mixer Hierarchy\Default Work Unit\Combat\Hit SFX\Chops\chop3		3856
 	330704271	FootstepStone1	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\FootstepStone1_0EB2837D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\Stone\FootstepStone1		3856
+	361689572	FistSwing1	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\FistSwing1_CA008C87.wem		\Actor-Mixer Hierarchy\Default Work Unit\Combat\Hit SFX\PowerFist\FistSwing\FistSwing1		3856
 	424456809	FootstepGravel2	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\FootstepGravel2_4D51242E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\Gravel\FootstepGravel2		5116
+	457189610	HitSkeleton	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\HitSkeleton_C7CBF045.wem		\Actor-Mixer Hierarchy\Default Work Unit\Combat\Hit SFX\PowerFist\FistHit\HitBones\HitSkeleton		6340
 	502519958	chop2	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\chop2_77251A79.wem		\Actor-Mixer Hierarchy\Default Work Unit\Combat\Hit SFX\Chops\chop2		3244
 	551142929	chop1	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\chop1_B29FA329.wem		\Actor-Mixer Hierarchy\Default Work Unit\Combat\Hit SFX\Chops\chop1		1984
+	565521538	FistSwing2	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\FistSwing2_8663E1A7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Combat\Hit SFX\PowerFist\FistSwing\FistSwing2		4468
+	570984170	HitSkeleton2	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\HitSkeleton2_C7CBF045.wem		\Actor-Mixer Hierarchy\Default Work Unit\Combat\Hit SFX\PowerFist\FistHit\HitBones\HitSkeleton2		6340
 	660831382	FootstepStone2	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\FootstepStone2_2494716E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\Stone\FootstepStone2		3856
 	704861748	FootstepGravel1	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\FootstepGravel1_D72A91EC.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\Gravel\FootstepGravel1		5080
 	710961184	FootstepGravel4	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\FootstepGravel4_1214EF90.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\Gravel\FootstepGravel4		5116

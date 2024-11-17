@@ -141,7 +141,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 3808cfcbeba5d043a9389dbcef0f39f7
     GuidInternal: 
-    m_lastTime: -8584701731287096665
+    m_lastTime: -8584698096567403514
     List:
     - name: Main
       guid: 71be9a838e8f7a4e9bbaa45884ab4f12
@@ -169,7 +169,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: fafe2c5e31679a46a1450b34d8466393
     GuidInternal: 
-    m_lastTime: -8584701731287334395
+    m_lastTime: -8584698096567661393
     List:
     - name: Combat
       guid: ae1540da24697444ba795ec5f656fbee
@@ -343,6 +343,29 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.34885338
       minDuration: 0.34885338
+    - name: Play_FistSwing
+      guid: 3db896f85d0e5e499b2fc26bf84c377c
+      id: 1452450734
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Combat
+        ObjectType: 4
+        guid: ae1540da24697444ba795ec5f656fbee
+      - ElementName: PowerFist
+        ObjectType: 4
+        guid: 7c9286750352cc4c962bee309801135c
+      - ElementName: Play_FistSwing
+        ObjectType: 3
+        guid: 3db896f85d0e5e499b2fc26bf84c377c
+      Path: Events\Default Work Unit\Combat\PowerFist\Play_FistSwing
+      maxAttenuation: 0
+      maxDuration: 0.3989179
+      minDuration: 0.2633165
     - name: Play_Footsteps
       guid: a9ce29e796074f418e1d3a3bfdeee3dd
       id: 3854155799
@@ -363,6 +386,29 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.49257997
       minDuration: 0.27535725
+    - name: Play_HitBones
+      guid: 85141b7946584542a32cb5d678128e10
+      id: 372480478
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Combat
+        ObjectType: 4
+        guid: ae1540da24697444ba795ec5f656fbee
+      - ElementName: PowerFist
+        ObjectType: 4
+        guid: 7c9286750352cc4c962bee309801135c
+      - ElementName: Play_HitBones
+        ObjectType: 3
+        guid: 85141b7946584542a32cb5d678128e10
+      Path: Events\Default Work Unit\Combat\PowerFist\Play_HitBones
+      maxAttenuation: 0
+      maxDuration: 0.5700525
+      minDuration: 0.4385561
     - name: Play_Jump
       guid: be2dd9b4c54c8a48a786bd5c88b87b7b
       id: 3689126666
@@ -397,6 +443,26 @@ MonoBehaviour:
         ObjectType: 4
         guid: f551b75890fe14408f2af5b372cd1baa
       Path: Events\Default Work Unit\Player
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: PowerFist
+      guid: 7c9286750352cc4c962bee309801135c
+      id: 1721555186
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Combat
+        ObjectType: 4
+        guid: ae1540da24697444ba795ec5f656fbee
+      - ElementName: PowerFist
+        ObjectType: 4
+        guid: 7c9286750352cc4c962bee309801135c
+      Path: Events\Default Work Unit\Combat\PowerFist
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -507,7 +573,7 @@ MonoBehaviour:
     m_lastTime: -8584701737193982455
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 05000000060000000700000008000000090000000a0000000b0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000
+  ExpandedWaapiItemIds: 050000000600000007000000080000000a0000000b0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
