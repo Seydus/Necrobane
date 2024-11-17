@@ -82,7 +82,6 @@ public class PlayerCombat : MonoBehaviour
         }
         else
         {
-            GameManager.Instance.uIManager.playerGrabTxt.gameObject.SetActive(false);
             Debug.LogWarning("You haven't equiped a weapon");
         }
     }
@@ -93,12 +92,12 @@ public class PlayerCombat : MonoBehaviour
 
         if (sphereCast)
         {
-            GameManager.Instance.uIManager.playerAttackTxt.gameObject.SetActive(true);
+            GameManager.Instance.uIManager.playerAttackTxt.SetActive(true);
             isHit = true;
         }
         else
         {
-            GameManager.Instance.uIManager.playerAttackTxt.gameObject.SetActive(false);
+            GameManager.Instance.uIManager.playerAttackTxt.SetActive(false);
             isHit = false;
         }
     }
@@ -172,6 +171,7 @@ public class PlayerCombat : MonoBehaviour
             {
                 HandleMeleeType(enemy, weaponHolder.weapon.WeaponBasicDamage);
                 StartCoroutine(playerCombatCam.CameraShake(new CameraCombatInfo(0.15f, 0.015f, Vector3.zero)));
+                AkSoundEngine.PostEvent("Play_HitBones", gameObject);
             }
         }
         else

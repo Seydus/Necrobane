@@ -6,9 +6,9 @@ public class UIManager : MonoBehaviour
     [Header("Player UI")]
     public TextMeshProUGUI playerHealthTxt;
     public TextMeshProUGUI playerStaminaTxt;
-    public TextMeshProUGUI playerGrabTxt;
-    public TextMeshProUGUI playerDropTxt;
-    public TextMeshProUGUI playerAttackTxt;
+    public GameObject playerGrabTxt;
+    public GameObject playerDropTxt;
+    public GameObject playerAttackTxt;
 
     [Header("Drone UI")]
     public TextMeshProUGUI droneBatteryTxt;
