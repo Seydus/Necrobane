@@ -4,13 +4,15 @@ using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.AI;
 
+
+// Becareful not to use the the first-capital letter variables
 public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
 {
     IEnemyCombat enemyCombat;
     IEnemyRoaming enemyRoaming;
 
     #region Misc
-    public float AttackDelay { get; set; }
+    public float AttackSpeed { get; set; }
     public float SphereRadius { get; set; }
     public float MaxDistance { get; set; }
     public LayerMask CombatLayer { get; set; }
@@ -38,7 +40,7 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
         enemyCombat = new EnemyCombat();
         enemyRoaming = new EnemyRoaming();
 
-        enemyCombat.AttackDelay = attackDelay;
+        enemyCombat.AttackSpeed = attackSpeed;
         enemyCombat.RotateSpeed = rotateSpeed;
 
         enemyRoaming.MinRoamWaitTime = minRoamWaitTime;
@@ -81,51 +83,51 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
         return new Ray(transform.position, transform.forward);
     }
 
-    public void HandleAttack(Transform player, NavMeshAgent navMeshAgent)
+    public void HandleAttack(Transform player, NavMeshAgent navMeshAgent, float range)
     {
-        enemyCombat.HandleAttack(player, navMeshAgent);
+        enemyCombat.HandleAttack(player, navMeshAgent, range);
     }
 
     public IEnumerator InitAttack(Transform player, float delay)
     {
-        sphereRay = enemyCombat.GetEnemyDirection();
+        sphereRay = GetEnemyDirection();
 
         yield return new WaitForSeconds(delay);
 
         // Skeleton Melee Sword Attack
 
-        if (Physics.SphereCast(sphereRay, SphereRadius, out enemyHitInfo, MaxDistance, CombatLayer))
+        if (Physics.SphereCast(sphereRay, sphereRadius, out enemyHitInfo, maxDistance, combatLayer))
         {
             enemyHit = true;
 
             if (enemyHitInfo.transform.TryGetComponent<PlayerManager>(out PlayerManager playerManager))
             {
-                playerManager.PlayerProfile.DeductHealth(Enemy.EnemyDamage);
+                playerManager.PlayerProfile.DeductHealth(EnemyDamage);
 
                 if (player != null)
                 {
                     _HitPlayer.Post(player.gameObject);
-                    yield return null;
                 }
             }
         }
+
+        yield return new WaitForSeconds(0.3f);
     }
 
-    public override void OnDrawGizmosSelected()
+    public void OnDrawGizmosSelected()
     {
-        Debug.Log("OnDrawGizmosSelected called in Skeleton.");
-
         Gizmos.color = enemyHit ? Color.green : Color.red;
+
+        sphereRay = GetEnemyDirection();
 
         if (enemyHit)
         {
             Gizmos.DrawRay(sphereRay.origin, enemyHitInfo.point - sphereRay.origin);
-            Gizmos.DrawWireSphere(enemyHitInfo.point, SphereRadius);
+            Gizmos.DrawWireSphere(enemyHitInfo.point, sphereRadius);
         }
         else
         {
-            Gizmos.DrawRay(sphereRay.origin, sphereRay.direction * MaxDistance);
-            Gizmos.DrawWireSphere(transform.position, SphereRadius);
+            Gizmos.DrawRay(sphereRay.origin, sphereRay.direction * maxDistance);
         }
     }
 }

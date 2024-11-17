@@ -8,8 +8,14 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
     IEnemyCombat enemyCombat;
     IEnemyRoaming enemyRoaming;
 
+    [Header("Cultist Settings")]
+    [SerializeField] private Transform projectilePos;
+    [SerializeField] private GameObject projectileObj;
+    private bool enemyShoot;
+    private bool enemyAttacking;
+
     #region Misc
-    public float AttackDelay { get; set; }
+    public float AttackSpeed { get; set; }
     public float SphereRadius { get; set; }
     public float MaxDistance { get; set; }
     public LayerMask CombatLayer { get; set; }
@@ -37,7 +43,7 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
         enemyCombat = new EnemyCombat();
         enemyRoaming = new EnemyRoaming();
 
-        enemyCombat.AttackDelay = attackDelay;
+        enemyCombat.AttackSpeed = attackSpeed;
         enemyCombat.RotateSpeed = rotateSpeed;
 
         enemyRoaming.MinRoamWaitTime = minRoamWaitTime;
@@ -80,18 +86,35 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
         return new Ray(Enemy.transform.position, Enemy.transform.forward);
     }
 
-    public void HandleAttack(Transform player, NavMeshAgent navMeshAgent)
+    public void HandleAttack(Transform player, NavMeshAgent navMeshAgent, float range) 
     {
-        enemyCombat.HandleAttack(player, navMeshAgent);
+        enemyCombat.HandleAttack(player, navMeshAgent, range);    
     }
 
     public IEnumerator InitAttack(Transform player, float delay)
     {
-        yield return enemyCombat.InitAttack(player, delay);
-    }
+        if (enemyAttacking)
+        {
+            yield break;
+        }
 
-    public void OnDrawGizmosSelected()
-    {
+        enemyAttacking = true;
 
+        Vector3 direction = player.position - transform.position;
+        direction.Normalize();
+
+        yield return new WaitForSeconds(delay);
+
+        if (!enemyShoot)
+        {
+            GameObject newProjectile = Instantiate(projectileObj, projectilePos.position, Quaternion.identity);
+            newProjectile.GetComponent<EnemyProjectileBullet>().Init(direction);
+            enemyShoot = true;
+        }
+
+        yield return new WaitForSeconds(0.1f);
+
+        enemyShoot = false;
+        enemyAttacking = false;
     }
 }
