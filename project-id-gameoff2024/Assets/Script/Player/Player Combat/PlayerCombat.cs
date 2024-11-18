@@ -90,8 +90,6 @@ public class PlayerCombat : MonoBehaviour
     {
         sphereCast = Physics.SphereCast(sphereCastInfo.sphereRay, sphereCastInfo.sphereRadius, out sphereCastInfo.hitInfo, combatDistance, enemyLayer, QueryTriggerInteraction.Collide);
 
-        Debug.Log(sphereCastInfo.hitInfo.collider.gameObject.name);
-
         if (sphereCast)
         {
             GameManager.Instance.uIManager.playerAttackTxt.SetActive(true);

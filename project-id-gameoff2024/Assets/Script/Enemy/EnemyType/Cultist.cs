@@ -5,8 +5,8 @@ using System.Collections;
 
 public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
 {
-    IEnemyCombat enemyCombat;
     IEnemyRoaming enemyRoaming;
+    IEnemyCombat enemyCombat;
 
     [Header("Cultist Settings")]
     [SerializeField] private Transform projectilePos;
