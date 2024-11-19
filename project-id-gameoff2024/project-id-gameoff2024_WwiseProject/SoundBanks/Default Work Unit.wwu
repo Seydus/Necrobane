@@ -9,12 +9,12 @@
 						<ObjectRef Name="Play_Footsteps" ID="{E729CEA9-0796-414F-8E1D-3A3BFDEEE3DD}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_HitBones" ID="{791B1485-5846-4245-A32C-B5D678128E10}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Equip_Fist" ID="{BA2C55C4-4943-4460-BEF0-E844C7FFEC43}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Punch" ID="{86391764-B174-4497-8320-D80299F72E39}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Chops" ID="{03BA0516-35D7-44F5-A9DD-7FC55DD00984}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Jump" ID="{B4D92DBE-4CC5-488A-A786-BD5C88B87B7B}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_FistSwing" ID="{F896B83D-0E5D-495E-9B2F-C26BF84C377C}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Equip_Blade" ID="{9270CA08-880D-4A0C-9484-2A2BFC462ED5}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Drop_Item" ID="{D6FE0DAC-430E-4C62-84BA-3CBC9A84989D}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Music" ID="{141702EB-40C3-4F2F-BB1E-5F7D4DF5EBEE}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

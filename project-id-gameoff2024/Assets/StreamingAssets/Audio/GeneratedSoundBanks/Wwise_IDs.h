@@ -21,6 +21,7 @@ namespace AK
         static const AkUniqueID PLAY_FOOTSTEPS = 3854155799U;
         static const AkUniqueID PLAY_HITBONES = 372480478U;
         static const AkUniqueID PLAY_JUMP = 3689126666U;
+        static const AkUniqueID PLAY_MUSIC = 2932040671U;
     } // namespace EVENTS
 
     namespace SWITCHES
@@ -36,6 +37,16 @@ namespace AK
             } // namespace SWITCH
         } // namespace MATERIAL
 
+        namespace MUSIC
+        {
+            static const AkUniqueID GROUP = 3991942870U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID EXPLORATION = 2582085496U;
+            } // namespace SWITCH
+        } // namespace MUSIC
+
     } // namespace SWITCHES
 
     namespace BANKS
@@ -50,6 +61,7 @@ namespace AK
         static const AkUniqueID FOOTSTEPS = 2385628198U;
         static const AkUniqueID HIT_SFX = 3714854501U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
+        static const AkUniqueID MUSIC = 3991942870U;
         static const AkUniqueID PLAYER = 1069431850U;
     } // namespace BUSSES
 

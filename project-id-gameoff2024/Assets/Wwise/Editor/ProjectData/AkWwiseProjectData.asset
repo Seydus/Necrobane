@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 941462bbcdf49043a0f64a9675eb7ab8
     GuidInternal: 
-    m_lastTime: -8584701731287151436
+    m_lastTime: -8584695667819178128
     List:
     - name: Combat
       guid: 881744ad62cff440b60ced41959ff75d
@@ -112,6 +112,23 @@ MonoBehaviour:
         ObjectType: 2
         guid: d8a41415a61d2a41a17e75ca0c2149f3
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus
+    - name: Music
+      guid: f243002ebabbae408f37af2ca2e32fa8
+      id: 3991942870
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 941462bbcdf49043a0f64a9675eb7ab8
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: Music
+        ObjectType: 2
+        guid: f243002ebabbae408f37af2ca2e32fa8
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Music
     - name: Player
       guid: 3dda4c15e751bc428cd5fbcf9a701868
       id: 1069431850
@@ -141,7 +158,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 3808cfcbeba5d043a9389dbcef0f39f7
     GuidInternal: 
-    m_lastTime: -8584695763870138444
+    m_lastTime: -8584695667573148208
     List:
     - name: Main
       guid: 71be9a838e8f7a4e9bbaa45884ab4f12
@@ -169,7 +186,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: fafe2c5e31679a46a1450b34d8466393
     GuidInternal: 
-    m_lastTime: -8584695763870288582
+    m_lastTime: -8584695667820004284
     List:
     - name: Combat
       guid: ae1540da24697444ba795ec5f656fbee
@@ -429,6 +446,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.4515745
       minDuration: 0.23491521
+    - name: Play_Music
+      guid: eb021714c3402f4fbb1e5f7d4df5ebee
+      id: 2932040671
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Play_Music
+        ObjectType: 3
+        guid: eb021714c3402f4fbb1e5f7d4df5ebee
+      Path: Events\Default Work Unit\Play_Music
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Player
       guid: f551b75890fe14408f2af5b372cd1baa
       id: 1069431850
