@@ -10,10 +10,12 @@ public class EnemyCombat : IEnemyCombat
     public Enemy Enemy { get; set; }
 
     [Header("Enemy Combat")]
-    public float AttackSpeed { get; set; }
     public float RotateSpeed { get; set; }
 
+    public float AttackDelay { get; set; }
+
     protected float AngleSetDifference;
+    public bool IsAttacking { get; set; }
 
     public void Awake()
     {
@@ -37,24 +39,28 @@ public class EnemyCombat : IEnemyCombat
                 Enemy.transform.localRotation = Quaternion.Slerp(Enemy.transform.localRotation, targetRotation, RotateSpeed * Time.deltaTime);
             }
 
-            if (Enemy is IEnemyCombat enemyCombat)
+            if (!IsAttacking && Enemy is IEnemyCombat enemyCombat)
             {
-                Enemy.StartCoroutine(ExecuteAttack(enemyCombat, player, AttackSpeed));
+                Enemy.StartCoroutine(enemyCombat.InitAttack(AttackDelay));
             }
         }
         else
         {
-            navMeshAgent.SetDestination(player.position);
+            if (!IsAttacking)
+            {
+                navMeshAgent.SetDestination(player.position);
+            }
+            else
+            {
+                navMeshAgent.ResetPath();
+            }
         }
     }
 
+    public IEnumerator InitAttack(float delay) { yield return null; }
+
     public Ray GetEnemyDirection() { return new Ray(); }
 
-    private IEnumerator ExecuteAttack(IEnemyCombat enemyCombat, Transform player, float attackDelay)
-    {
-        // Wait for the enemy's InitAttack coroutine to complete
-        yield return Enemy.StartCoroutine(enemyCombat.InitAttack(player, attackDelay));
-    }
 
     public IEnumerator InitAttack(Transform player, float delay) { Debug.Log("Enemy Attack is coming from the EnemyCombat"); yield return null; }
 }
