@@ -114,7 +114,7 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
 
     public Ray GetEnemyDirection()
     {
-        return new Ray(weaponPos.position, transform.forward);
+        return new Ray(weaponPos.position + transform.forward * -0.3f, transform.forward);
     }
 
     public void HandleAttack(Transform player, NavMeshAgent agent, float range)
