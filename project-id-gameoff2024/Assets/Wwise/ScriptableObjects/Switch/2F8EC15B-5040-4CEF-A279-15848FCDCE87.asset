@@ -15,4 +15,4 @@ MonoBehaviour:
   objectName: Exploration
   id: 2582085496
   guid: 2F8EC15B-5040-4CEF-A279-15848FCDCE87
-  WwiseSwitchGroupReference: {fileID: 0}
+  WwiseSwitchGroupReference: {fileID: 11400000, guid: f6126ce9516ebf84a9d6437826dca9aa, type: 2}
