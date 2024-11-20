@@ -141,7 +141,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 3808cfcbeba5d043a9389dbcef0f39f7
     GuidInternal: 
-    m_lastTime: -8584697512437537944
+    m_lastTime: -8584695763870138444
     List:
     - name: Main
       guid: 71be9a838e8f7a4e9bbaa45884ab4f12
@@ -169,7 +169,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: fafe2c5e31679a46a1450b34d8466393
     GuidInternal: 
-    m_lastTime: -8584697512437720616
+    m_lastTime: -8584695763870288582
     List:
     - name: Combat
       guid: ae1540da24697444ba795ec5f656fbee
@@ -478,7 +478,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 5401744f63e1ed4b894045eacce7d766
     GuidInternal: 
-    m_lastTime: -8584701737195057175
+    m_lastTime: -8584702651381395060
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
@@ -492,7 +492,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: c10c20c359e8414fab4e671e1833dd9a
     GuidInternal: 
-    m_lastTime: -8584701737193992610
+    m_lastTime: -8584702651378830441
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -506,7 +506,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 44fa06ed6c542b4daccf66d261f951d9
     GuidInternal: 
-    m_lastTime: -8584701737193992610
+    m_lastTime: -8584702651378820437
     List:
     - name: Material
       guid: 8679c28ede04474f852d51e83ad6ac10
@@ -570,10 +570,10 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 08a992fe8781004ab4b2f375d3857560
     GuidInternal: 
-    m_lastTime: -8584701737193982455
+    m_lastTime: -8584702651378810426
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 050000000600000007000000080000000a0000000b0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000
+  ExpandedWaapiItemIds: 
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
