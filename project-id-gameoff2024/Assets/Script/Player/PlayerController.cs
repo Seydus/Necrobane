@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 finalMovement = UpdateMoveDirectionAndSpeed() + ApplyGravityAndJump();
 
-        WalkAnimation();
+        //WalkAnimation();
         WalkSound();
 
         characterController.Move(finalMovement * Time.deltaTime);

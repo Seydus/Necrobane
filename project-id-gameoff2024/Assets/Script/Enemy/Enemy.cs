@@ -30,6 +30,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float maxDistance = 0.9f;
     [SerializeField] protected LayerMask combatLayer;
     [SerializeField] protected float rotateSpeed = 0.7f;
+    public bool isAttacking { get; set; }
+    public bool EnemyHit { get; set; }
     public AK.Wwise.Event HitPlayer;
 
     [Header("SphereCast")]
@@ -40,9 +42,6 @@ public class Enemy : MonoBehaviour
     public string EnemyName { get; set; }
     public float EnemyHealth { get; set; }
     public float EnemyDamage { get; set; }
-
-    [Header("Debugging")]
-    protected bool enemyHit;
 
     [Header("Others")]
     protected NavMeshAgent _NavMeshAgent;
