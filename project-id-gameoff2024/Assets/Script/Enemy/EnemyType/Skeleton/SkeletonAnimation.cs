@@ -18,5 +18,4 @@ public class SkeletonAnimation : MonoBehaviour
     {
         return anim.GetCurrentAnimatorStateInfo(0).length;
     }
-
 }

@@ -12,6 +12,8 @@ public class EnemyCombat : IEnemyCombat
     [Header("Enemy Combat")]
     public float RotateSpeed { get; set; }
 
+    public float AttackDelay { get; set; }
+
     protected float AngleSetDifference;
     public bool IsAttacking { get; set; }
 
@@ -39,16 +41,23 @@ public class EnemyCombat : IEnemyCombat
 
             if (!IsAttacking && Enemy is IEnemyCombat enemyCombat)
             {
-                enemyCombat.InitAttack();
+                Enemy.StartCoroutine(enemyCombat.InitAttack(AttackDelay));
             }
         }
         else
         {
-            navMeshAgent.SetDestination(player.position);
+            if (!IsAttacking)
+            {
+                navMeshAgent.SetDestination(player.position);
+            }
+            else
+            {
+                navMeshAgent.ResetPath();
+            }
         }
     }
 
-    public void InitAttack() { }
+    public IEnumerator InitAttack(float delay) { yield return null; }
 
     public Ray GetEnemyDirection() { return new Ray(); }
 

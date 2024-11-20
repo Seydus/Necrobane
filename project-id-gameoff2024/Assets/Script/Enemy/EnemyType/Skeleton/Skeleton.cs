@@ -3,15 +3,22 @@ using Unity.AI.Navigation;
 using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 
 // Becareful not to use the the first-capital letter variables
 public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
 {
+
     IEnemyCombat enemyCombat;
     IEnemyRoaming enemyRoaming;
 
     private SkeletonAnimation skeletonAnimation;
+    [SerializeField] private Transform weaponPos;
+
+    [Header("Events")]
+    public static UnityAction OnPerformAttackTriggered;
+    public static UnityAction OnFinishAttackTriggered;
 
     #region Misc
     public float AttackSpeed { get; set; }
@@ -34,7 +41,20 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
     public Enemy Enemy { get; set; }
     public NavMeshAgent NavMeshAgent { get; set; }
     public bool IsAttacking { get; set; }
+    public float AttackDelay { get; set; }
     #endregion
+
+    private void OnEnable()
+    {
+        OnPerformAttackTriggered += PerformAttack;
+        OnFinishAttackTriggered += FinishAttack;
+    }
+
+    private void OnDisable()
+    {
+        OnPerformAttackTriggered -= PerformAttack;
+        OnFinishAttackTriggered -= FinishAttack;
+    }
 
     public override void Awake()
     {
@@ -44,6 +64,7 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
         enemyRoaming = new EnemyRoaming();
 
         enemyCombat.RotateSpeed = rotateSpeed;
+        enemyCombat.AttackDelay = attackDelay;
         enemyCombat.IsAttacking = isAttacking;
 
         enemyRoaming.MinRoamWaitTime = minRoamWaitTime;
@@ -87,25 +108,27 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
         if (enableRoaming)
         {
             enemyRoaming.Update();
-
             skeletonAnimation.SkeletonWalking(enemyRoaming.NavMeshAgent.desiredVelocity.magnitude);
         }
     }
 
     public Ray GetEnemyDirection()
     {
-        return new Ray(transform.position, transform.forward);
+        return new Ray(weaponPos.position, transform.forward);
     }
 
-    public void HandleAttack(Transform player, NavMeshAgent navMeshAgent, float range)
+    public void HandleAttack(Transform player, NavMeshAgent agent, float range)
     {
-        enemyCombat.HandleAttack(player, navMeshAgent, range);
+        enemyCombat.HandleAttack(player, agent, range);
     }
 
-    public void InitAttack()
+    public IEnumerator InitAttack(float delay)
     {
+        enemyRoaming.NavMeshAgent.velocity = Vector3.zero;
+        isAttacking = true;
         enemyCombat.IsAttacking = true;
-        sphereRay = GetEnemyDirection();
+        yield return new WaitForSeconds(delay);
+
         skeletonAnimation.SkeletonAttack(true);
     }
 
@@ -113,13 +136,15 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
     {
         if (Physics.SphereCast(sphereRay, sphereRadius, out enemyHitInfo, maxDistance, combatLayer))
         {
+            EnemyHit = true;
+
             if (enemyHitInfo.transform.TryGetComponent<PlayerManager>(out PlayerManager playerManager))
             {
                 playerManager.PlayerProfile.DeductHealth(EnemyDamage);
 
                 if (playerManager.transform != null)
                 {
-                    // _HitPlayer.Post(player.gameObject);
+                    // _HitPlayer.Post(playerManager.transform.gameObject);
                 }
             }
         }
@@ -127,7 +152,9 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
 
     private void FinishAttack()
     {
+        EnemyHit = false;
         skeletonAnimation.SkeletonAttack(false);
+        isAttacking = false;
         enemyCombat.IsAttacking = false;
     }
 
@@ -146,5 +173,7 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
         {
             Gizmos.DrawRay(sphereRay.origin, sphereRay.direction * maxDistance);
         }
+
+        //Gizmos.DrawWireSphere(groundPos.position, enemyProfile.EnemyRange);
     }
 }

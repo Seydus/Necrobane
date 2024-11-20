@@ -191,7 +191,7 @@ public class PlayerCombat : MonoBehaviour
             if (sphereCastInfo.hitInfo.transform.TryGetComponent<Enemy>(out Enemy enemy))
             {
                 HandleMeleeType(enemy, weaponHolder.weapon.WeaponSuperAttackDamage);
-                StartCoroutine(playerCombatCam.CameraShake(new CameraCombatInfo(0.15f, 0.015f, Vector3.zero)));
+                StartCoroutine(playerCombatCam.CameraShake(new CameraCombatInfo(0.15f, 0.025f, Vector3.zero)));
                 AkSoundEngine.PostEvent("Play_HitBones", gameObject);
             }
         }

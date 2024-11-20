@@ -66,13 +66,16 @@ public class EnemyRoaming : IEnemyRoaming
     {
         DetectPlayer();
 
-        if (isPlayerDetected)
+        if (!Enemy.isAttacking)
         {
-            HandleEngagement();
-        }
-        else
-        {
-            HandleDisengagement();
+            if (isPlayerDetected)
+            {
+                HandleEngagement();
+            }
+            else
+            {
+                HandleDisengagement();
+            }
         }
 
         HandleEnemyState();
@@ -124,21 +127,29 @@ public class EnemyRoaming : IEnemyRoaming
 
     private void HandleEnemyType()
     {
-        if(Enemy is IEnemyCombat enemyCombat)
+        if (Enemy is IEnemyCombat enemyCombat)
         {
-            enemyCombat.HandleAttack(player, NavMeshAgent, Enemy.profile.EnemyRange);
+            enemyCombat.HandleAttack(player, NavMeshAgent, Enemy.enemyProfile.EnemyRange);
         }
     }
 
     private void HandlePatrol()
     {
-        if (!isRoaming && Vector3.Distance(roamTargetPosition, Enemy.transform.position) <= 2f)
+        if (!Enemy.isAttacking)
         {
-            isRoaming = true;
-            Enemy.StartCoroutine(InitRoaming(Random.Range(MinRoamWaitTime, MaxRoamWaitTime)));
-        }
+            if (!isRoaming && Vector3.Distance(roamTargetPosition, Enemy.transform.position) <= 2f)
+            {
+                isRoaming = true;
+                Enemy.StartCoroutine(InitRoaming(Random.Range(MinRoamWaitTime, MaxRoamWaitTime)));
+            }
 
-        NavMeshAgent.SetDestination(roamTargetPosition);
+            Debug.Log(Enemy.isAttacking);
+            NavMeshAgent.SetDestination(roamTargetPosition);
+        }
+        else
+        {
+            NavMeshAgent.ResetPath();
+        }
     }
 
     private IEnumerator InitRoaming(float value)

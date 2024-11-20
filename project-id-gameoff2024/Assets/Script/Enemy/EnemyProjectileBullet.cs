@@ -12,7 +12,7 @@ public class EnemyProjectileBullet : MonoBehaviour
     {
         myBody = GetComponent<Rigidbody>();
 
-        lifeSpan = 10f;
+        lifeSpan = 3f;
     }
 
     private void Update()
@@ -21,6 +21,8 @@ public class EnemyProjectileBullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        lifeSpan -= Time.deltaTime;
     }
 
     public void Init(Vector3 direction)
@@ -28,11 +30,15 @@ public class EnemyProjectileBullet : MonoBehaviour
         myBody.AddRelativeForce(direction * projectileSpeed, ForceMode.Acceleration);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.transform.tag == "Player")
+        if(other.CompareTag("Player"))
         {
-            collision.transform.GetComponent<PlayerProfile>().DeductHealth(projectileDamage);
+            other.transform.GetComponent<PlayerProfile>().DeductHealth(projectileDamage);
+        }
+
+        if(other.CompareTag("Enemy") == false)
+        {
             Destroy(gameObject);
         }
     }

@@ -4,8 +4,14 @@ public class PlayerProfile : MonoBehaviour
 {
 
     [SerializeField] private PlayerProfileSO profile;
+    private PlayerCombatCamera playerCombatCam;
     public float playerHealth { get; set; }
     public float playerStamina { get; set; }
+
+    private void Awake()
+    {
+        playerCombatCam = GetComponent<PlayerCombatCamera>();
+    }
 
     private void Start()
     {
@@ -27,6 +33,7 @@ public class PlayerProfile : MonoBehaviour
     public void DeductHealth(float damage)
     {
         playerHealth -= damage;
+        StartCoroutine(playerCombatCam.CameraShake(new CameraCombatInfo(0.25f, 0.025f, Vector3.zero)));
     }
 
     public void DeductStamina(float cost)
@@ -36,7 +43,7 @@ public class PlayerProfile : MonoBehaviour
 
     private void IncreaseStamina()
     {
-        if(playerStamina < profile.PlayerStamina)
+        if (playerStamina < profile.PlayerStamina)
         {
             playerStamina += Time.deltaTime;
         }

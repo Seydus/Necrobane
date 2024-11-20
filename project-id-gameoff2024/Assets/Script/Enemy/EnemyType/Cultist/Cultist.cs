@@ -2,17 +2,27 @@ using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
+using UnityEngine.Events;
 
 public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
 {
     IEnemyRoaming enemyRoaming;
     IEnemyCombat enemyCombat;
 
+    private CultistAnimation cultistAnimation;
+
     [Header("Cultist Settings")]
     [SerializeField] private Transform projectilePos;
     [SerializeField] private GameObject projectileObj;
     private bool enemyShoot;
     private bool enemyAttacking;
+
+    [Header("Events")]
+    public static UnityAction OnPerformAttackTriggered;
+    public static UnityAction OnFinishAttackTriggered;
+
+    // can be improved
+    private Transform player;
 
     #region Misc
     public float AttackSpeed { get; set; }
@@ -35,7 +45,20 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
     public Enemy Enemy { get; set; }
     public NavMeshAgent NavMeshAgent { get; set; }
     public bool IsAttacking { get; set; }
+    public float AttackDelay { get; set; }
     #endregion
+
+    public void OnEnable()
+    {
+        OnPerformAttackTriggered += PerformAttack;
+        OnFinishAttackTriggered += FinishAttack;
+    }
+
+    public void OnDisable()
+    {
+        OnPerformAttackTriggered -= PerformAttack;
+        OnFinishAttackTriggered -= FinishAttack;
+    }
 
     public new void Awake()
     {
@@ -45,6 +68,7 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
         enemyRoaming = new EnemyRoaming();
 
         enemyCombat.RotateSpeed = rotateSpeed;
+        enemyCombat.AttackDelay = attackDelay;
         enemyCombat.IsAttacking = isAttacking;
 
         enemyRoaming.MinRoamWaitTime = minRoamWaitTime;
@@ -65,6 +89,8 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
         enemyRoaming.Enemy = this;
 
         enemyCombat.Awake();
+
+        cultistAnimation = GetComponent<CultistAnimation>();
     }
 
     public new void Start()
@@ -79,43 +105,51 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
         base.Update();
 
         if (enableRoaming)
+        {
             enemyRoaming.Update();
+            cultistAnimation.CultistWalking(enemyRoaming.NavMeshAgent.desiredVelocity.magnitude);
+        }
     }
 
     public Ray GetEnemyDirection()
     {
-        return new Ray(Enemy.transform.position, Enemy.transform.forward);
+        return new Ray(transform.position, transform.forward);
     }
 
     public void HandleAttack(Transform player, NavMeshAgent navMeshAgent, float range)
     {
+        this.player = player;
         enemyCombat.HandleAttack(player, navMeshAgent, range);
     }
 
-    public void InitAttack()
+    public IEnumerator InitAttack(float delay)
     {
+        enemyRoaming.NavMeshAgent.velocity = Vector3.zero;
+        isAttacking = true;
         enemyCombat.IsAttacking = true;
-        sphereRay = GetEnemyDirection();
+        yield return new WaitForSeconds(delay);
+        cultistAnimation.CultistAttack(true);
     }
 
     private void PerformAttack()
     {
-        if (Physics.SphereCast(sphereRay, sphereRadius, out enemyHitInfo, maxDistance, combatLayer))
-        {
-            if (enemyHitInfo.transform.TryGetComponent<PlayerManager>(out PlayerManager playerManager))
-            {
-                playerManager.PlayerProfile.DeductHealth(EnemyDamage);
+        Vector3 direction = (player.position + (Vector3.up * 0.3f) - projectilePos.position).normalized;
 
-                if (playerManager.transform != null)
-                {
-                    // _HitPlayer.Post(player.gameObject);
-                }
-            }
-        }
+        GameObject newProjectile = Instantiate(projectileObj, projectilePos.position, Quaternion.identity);
+        newProjectile.GetComponent<EnemyProjectileBullet>().Init(direction);
     }
 
     private void FinishAttack()
     {
+        cultistAnimation.CultistAttack(false);
         enemyCombat.IsAttacking = false;
+        isAttacking = false;
+        enemyCombat.IsAttacking = false;
+    }
+
+    public void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, enemyProfile.EnemyRange);
     }
 }
