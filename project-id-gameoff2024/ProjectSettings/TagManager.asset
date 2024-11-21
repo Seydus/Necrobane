@@ -7,6 +7,9 @@ TagManager:
   - Stone
   - Gravel
   - Enemy
+  - Lever
+  - Key
+  - Door
   layers:
   - Default
   - TransparentFX
