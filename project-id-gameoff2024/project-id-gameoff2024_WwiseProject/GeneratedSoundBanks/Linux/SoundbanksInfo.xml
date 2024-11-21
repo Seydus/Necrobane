@@ -41,7 +41,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{0644F3B6-6778-7EE5-3849-CF8B707BC3AA}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{5D259282-5781-316B-A33A-6D7A28F744E7}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -65,9 +65,21 @@
 					<ShortName>HitSkeleton3.wav</ShortName>
 					<CachePath>SFX/HitSkeleton3_C7CBF045.wem</CachePath>
 				</File>
+				<File Id="205507889" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>2Hand2.wav</ShortName>
+					<CachePath>SFX/2Hand2_C7CBF045.wem</CachePath>
+				</File>
 				<File Id="218368169" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>JumpStone.wav</ShortName>
 					<CachePath>SFX/JumpStone_50CC79CB.wem</CachePath>
+				</File>
+				<File Id="244195078" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Firebolt.wav</ShortName>
+					<CachePath>SFX/Firebolt_C7CBF045.wem</CachePath>
+				</File>
+				<File Id="249291889" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>2Hand3.wav</ShortName>
+					<CachePath>SFX/2Hand3_C7CBF045.wem</CachePath>
 				</File>
 				<File Id="266045855" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FistSwing3.wav</ShortName>
@@ -97,6 +109,10 @@
 					<ShortName>FootstepGravel2.wav</ShortName>
 					<CachePath>SFX/FootstepGravel2_4D51242E.wem</CachePath>
 				</File>
+				<File Id="426715762" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>2Hand1.wav</ShortName>
+					<CachePath>SFX/2Hand1_C7CBF045.wem</CachePath>
+				</File>
 				<File Id="457189610" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>HitSkeleton.wav</ShortName>
 					<CachePath>SFX/HitSkeleton_C7CBF045.wem</CachePath>
@@ -124,6 +140,10 @@
 				<File Id="601276256" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>doomhammer exploration2.wav</ShortName>
 					<CachePath>SFX/doomhammer exploration2_F93BF523.wem</CachePath>
+				</File>
+				<File Id="647251812" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Firebolt_Explosion.wav</ShortName>
+					<CachePath>SFX/Firebolt_Explosion_C7CBF045.wem</CachePath>
 				</File>
 				<File Id="660831382" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepStone2.wav</ShortName>
@@ -195,6 +215,16 @@
 				<Event Id="1554763031" Name="Play_Equip_Fist" DurationType="OneShot" DurationMin="0.34885338" DurationMax="0.34885338">
 					<MediaRefs>
 						<MediaRef Id="980660262"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="79128399" Name="Play_Firebolt" MaxAttenuation="20" DurationType="OneShot" DurationMin="8" DurationMax="8">
+					<MediaRefs>
+						<MediaRef Id="244195078"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="38142515" Name="Play_Firebolt_Explosion" DurationType="OneShot" DurationMin="0.75002265" DurationMax="0.75002265">
+					<MediaRefs>
+						<MediaRef Id="647251812"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="1452450734" Name="Play_FistSwing" DurationType="OneShot" DurationMin="0.2633165" DurationMax="0.3989179">
@@ -274,16 +304,25 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="1127904212" Name="Play_Open_Gate" DurationType="OneShot" DurationMin="1.6646712" DurationMax="1.6646712">
+				<Event Id="1127904212" Name="Play_Open_Gate" MaxAttenuation="40" DurationType="OneShot" DurationMin="1.6646712" DurationMax="1.6646712">
 					<MediaRefs>
 						<MediaRef Id="76519647"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="356987792" Name="Play_Unlock_Gate" DurationType="OneShot" DurationMin="1" DurationMax="1">
+				<Event Id="1187857689" Name="Play_Swings2H" MaxAttenuation="40" DurationType="OneShot" DurationMin="0.5" DurationMax="0.5">
+					<MediaRefs>
+						<MediaRef Id="205507889"/>
+						<MediaRef Id="249291889"/>
+						<MediaRef Id="426715762"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="356987792" Name="Play_Unlock_Gate" MaxAttenuation="40" DurationType="OneShot" DurationMin="1" DurationMax="1">
 					<MediaRefs>
 						<MediaRef Id="522520838"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="2555710829" Name="Stop_Firebolt" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="2837384057" Name="Stop_Music" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 			</Events>
 			<SwitchGroups>
 				<SwitchGroup Id="3865314626" Name="Material">
@@ -300,5 +339,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{94B04045-BC87-ABB4-0E44-9D7D14A6A94B}</FileHash>
+	<FileHash>{00796FF6-D064-8A89-0A74-685BA2859D74}</FileHash>
 </SoundBanksInfo>

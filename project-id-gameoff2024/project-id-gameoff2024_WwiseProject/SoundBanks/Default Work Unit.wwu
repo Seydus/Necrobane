@@ -6,15 +6,22 @@
 				<SoundBank Name="Main" ID="{839ABE71-8F8E-4E7A-9BBA-A45884AB4F12}">
 					<ObjectInclusionList>
 						<ObjectRef Name="Interaction" ID="{0B58409E-99B2-4096-82C7-844532DAD1F3}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Unlock_Gate" ID="{4B37A869-80FD-411E-9B38-BAA3E0C510AE}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Footsteps" ID="{E729CEA9-0796-414F-8E1D-3A3BFDEEE3DD}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Lever" ID="{7504D633-82C6-4215-868A-385DED6DFF55}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_HitBones" ID="{791B1485-5846-4245-A32C-B5D678128E10}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Firebolt" ID="{D2576D54-1DB3-435E-B6C1-C8D47B498B06}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Equip_Fist" ID="{BA2C55C4-4943-4460-BEF0-E844C7FFEC43}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Open_Gate" ID="{F8BBCAC3-5AAB-4489-9CE1-5C8702640BD0}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Chops" ID="{03BA0516-35D7-44F5-A9DD-7FC55DD00984}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Jump" ID="{B4D92DBE-4CC5-488A-A786-BD5C88B87B7B}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Stop_Music" ID="{89CC9419-CB30-488A-8D7D-1A7852F48365}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_FistSwing" ID="{F896B83D-0E5D-495E-9B2F-C26BF84C377C}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Equip_Blade" ID="{9270CA08-880D-4A0C-9484-2A2BFC462ED5}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Drop_Item" ID="{D6FE0DAC-430E-4C62-84BA-3CBC9A84989D}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Swings2H" ID="{2BA2F1B5-6E80-4EEB-90B8-7FD43648A7CB}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Music" ID="{141702EB-40C3-4F2F-BB1E-5F7D4DF5EBEE}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Key_Pickup" ID="{4437832E-6B32-4FE8-A94F-ED665EF84DE3}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

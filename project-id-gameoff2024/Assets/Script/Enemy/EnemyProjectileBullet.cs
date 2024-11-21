@@ -35,6 +35,7 @@ public class EnemyProjectileBullet : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             other.transform.GetComponent<PlayerProfile>().DeductHealth(projectileDamage);
+            AkSoundEngine.PostEvent("Play_Firebolt_Explosion", gameObject);
         }
 
         if(other.CompareTag("Enemy") == false)

@@ -175,7 +175,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 3808cfcbeba5d043a9389dbcef0f39f7
     GuidInternal: 
-    m_lastTime: -8584693935820890162
+    m_lastTime: -8584693763971237169
     List:
     - name: Main
       guid: 71be9a838e8f7a4e9bbaa45884ab4f12
@@ -203,8 +203,28 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: fafe2c5e31679a46a1450b34d8466393
     GuidInternal: 
-    m_lastTime: -8584693919191214566
+    m_lastTime: -8584693762725753062
     List:
+    - name: Blades
+      guid: 5057d7e9557c8a4d848d8a0c0ae142fc
+      id: 1041766312
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Combat
+        ObjectType: 4
+        guid: ae1540da24697444ba795ec5f656fbee
+      - ElementName: Blades
+        ObjectType: 4
+        guid: 5057d7e9557c8a4d848d8a0c0ae142fc
+      Path: Events\Default Work Unit\Combat\Blades
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Combat
       guid: ae1540da24697444ba795ec5f656fbee
       id: 2764240573
@@ -279,6 +299,26 @@ MonoBehaviour:
         ObjectType: 4
         guid: 6d536aca9fd0bf429a5bf57759c4f54a
       Path: Events\Default Work Unit\Player\Interaction\Equip
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Firebolt
+      guid: 546d57d2b31d5e43b6c1c8d47b498b06
+      id: 3236324180
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Combat
+        ObjectType: 4
+        guid: ae1540da24697444ba795ec5f656fbee
+      - ElementName: Firebolt
+        ObjectType: 4
+        guid: 546d57d2b31d5e43b6c1c8d47b498b06
+      Path: Events\Default Work Unit\Combat\Firebolt
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -358,10 +398,13 @@ MonoBehaviour:
       - ElementName: Combat
         ObjectType: 4
         guid: ae1540da24697444ba795ec5f656fbee
+      - ElementName: Blades
+        ObjectType: 4
+        guid: 5057d7e9557c8a4d848d8a0c0ae142fc
       - ElementName: Play_Chops
         ObjectType: 3
         guid: 1605ba03d735f544a9dd7fc55dd00984
-      Path: Events\Default Work Unit\Combat\Play_Chops
+      Path: Events\Default Work Unit\Combat\Blades\Play_Chops
       maxAttenuation: 0
       maxDuration: 0.34744823
       minDuration: 0.12909532
@@ -440,6 +483,52 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.34885338
       minDuration: 0.34885338
+    - name: Play_Firebolt
+      guid: a9f45b701c74784ab613640aeacd30d4
+      id: 79128399
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Combat
+        ObjectType: 4
+        guid: ae1540da24697444ba795ec5f656fbee
+      - ElementName: Firebolt
+        ObjectType: 4
+        guid: 546d57d2b31d5e43b6c1c8d47b498b06
+      - ElementName: Play_Firebolt
+        ObjectType: 3
+        guid: a9f45b701c74784ab613640aeacd30d4
+      Path: Events\Default Work Unit\Combat\Firebolt\Play_Firebolt
+      maxAttenuation: 20
+      maxDuration: 8
+      minDuration: 8
+    - name: Play_Firebolt_Explosion
+      guid: b69073fc0dd89e448eef4fe01d1e0dfb
+      id: 38142515
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Combat
+        ObjectType: 4
+        guid: ae1540da24697444ba795ec5f656fbee
+      - ElementName: Firebolt
+        ObjectType: 4
+        guid: 546d57d2b31d5e43b6c1c8d47b498b06
+      - ElementName: Play_Firebolt_Explosion
+        ObjectType: 3
+        guid: b69073fc0dd89e448eef4fe01d1e0dfb
+      Path: Events\Default Work Unit\Combat\Firebolt\Play_Firebolt_Explosion
+      maxAttenuation: 0
+      maxDuration: 0.75002265
+      minDuration: 0.75002265
     - name: Play_FistSwing
       guid: 3db896f85d0e5e499b2fc26bf84c377c
       id: 1452450734
@@ -612,9 +701,32 @@ MonoBehaviour:
         ObjectType: 3
         guid: c3cabbf8ab5a89449ce15c8702640bd0
       Path: Events\Default Work Unit\Environment\Doors and Gates\Play_Open_Gate
-      maxAttenuation: 0
+      maxAttenuation: 40
       maxDuration: 1.6646712
       minDuration: 1.6646712
+    - name: Play_Swings2H
+      guid: b5f1a22b806eeb4e90b87fd43648a7cb
+      id: 1187857689
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Combat
+        ObjectType: 4
+        guid: ae1540da24697444ba795ec5f656fbee
+      - ElementName: Blades
+        ObjectType: 4
+        guid: 5057d7e9557c8a4d848d8a0c0ae142fc
+      - ElementName: Play_Swings2H
+        ObjectType: 3
+        guid: b5f1a22b806eeb4e90b87fd43648a7cb
+      Path: Events\Default Work Unit\Combat\Blades\Play_Swings2H
+      maxAttenuation: 40
+      maxDuration: 0.5
+      minDuration: 0.5
     - name: Play_Unlock_Gate
       guid: 69a8374bfd801e419b38baa3e0c510ae
       id: 356987792
@@ -635,7 +747,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: 69a8374bfd801e419b38baa3e0c510ae
       Path: Events\Default Work Unit\Environment\Doors and Gates\Play_Unlock_Gate
-      maxAttenuation: 0
+      maxAttenuation: 40
       maxDuration: 1
       minDuration: 1
     - name: Player
@@ -675,6 +787,46 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Stop_Firebolt
+      guid: 2769d38bc0f6194abc26a3bfc16afacc
+      id: 2555710829
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Combat
+        ObjectType: 4
+        guid: ae1540da24697444ba795ec5f656fbee
+      - ElementName: Firebolt
+        ObjectType: 4
+        guid: 546d57d2b31d5e43b6c1c8d47b498b06
+      - ElementName: Stop_Firebolt
+        ObjectType: 3
+        guid: 2769d38bc0f6194abc26a3bfc16afacc
+      Path: Events\Default Work Unit\Combat\Firebolt\Stop_Firebolt
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Stop_Music
+      guid: 1994cc8930cb8a488d7d1a7852f48365
+      id: 2837384057
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Stop_Music
+        ObjectType: 3
+        guid: 1994cc8930cb8a488d7d1a7852f48365
+      Path: Events\Default Work Unit\Stop_Music
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -816,7 +968,7 @@ MonoBehaviour:
     m_lastTime: -8584701737193982455
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0500000006000000080000000a0000000b0000001000000011000000130000001e000000200000002d000000
+  ExpandedWaapiItemIds: 050000000600000007000000080000000b0000001000000011000000130000001c0000001e000000200000002d000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

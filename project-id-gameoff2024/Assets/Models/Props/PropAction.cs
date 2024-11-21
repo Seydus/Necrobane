@@ -25,11 +25,11 @@ public class PropAction : MonoBehaviour
         {
             if (la.active)
             {
-                anim.SetBool(BoolName, false);
+                anim.SetBool(BoolName, true);
             }
             else
             {
-                anim.SetBool(BoolName, true);
+                anim.SetBool(BoolName, false);
             }
         }
 
