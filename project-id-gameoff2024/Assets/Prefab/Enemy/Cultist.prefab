@@ -214,7 +214,7 @@ MonoBehaviour:
   HitPlayer:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 64e593b0b252b394fa905760a42c41a7, type: 2}
   enemyTouchDamageCooldown: 0.2
   projectilePos: {fileID: 2768699981532868774}
   projectileObj: {fileID: 2439430410376026776, guid: c317f2feb0f5bda4daa68dd6ed1021e9, type: 3}
