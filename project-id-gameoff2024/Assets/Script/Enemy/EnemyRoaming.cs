@@ -143,7 +143,7 @@ public class EnemyRoaming : IEnemyRoaming
                 Enemy.StartCoroutine(InitRoaming(Random.Range(MinRoamWaitTime, MaxRoamWaitTime)));
             }
 
-            Debug.Log(Enemy.isAttacking);
+            //Debug.Log(Enemy.isAttacking);
             NavMeshAgent.SetDestination(roamTargetPosition);
         }
         else

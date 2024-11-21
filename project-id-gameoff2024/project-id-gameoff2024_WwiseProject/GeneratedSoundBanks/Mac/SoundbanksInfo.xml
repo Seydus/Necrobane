@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{EB6E6A6B-A709-4150-1189-EB5EB8B96CA9}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{EEA1C00F-5151-B9F0-08EF-26F767B10732}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -20,10 +20,12 @@
 			</Plugins>
 			<Busses>
 				<Bus Id="1069431850" Name="Player"/>
+				<Bus Id="1229948536" Name="Environment"/>
 				<Bus Id="2385628198" Name="Footsteps"/>
 				<Bus Id="2764240573" Name="Combat"/>
 				<Bus Id="3714854501" Name="Hit SFX"/>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
+				<Bus Id="3991942870" Name="Music"/>
 			</Busses>
 			<SwitchGroups>
 				<SwitchGroup Id="3865314626" Name="Material">
@@ -32,9 +34,14 @@
 						<Switch Id="2185786256" Name="Gravel"/>
 					</Switches>
 				</SwitchGroup>
+				<SwitchGroup Id="3991942870" Name="Music">
+					<Switches>
+						<Switch Id="2582085496" Name="Exploration"/>
+					</Switches>
+				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{117B81D1-31BC-70C0-417D-A660CC13D099}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{0644F3B6-6778-7EE5-3849-CF8B707BC3AA}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -50,6 +57,10 @@
 					<ShortName>FootstepStone3.wav</ShortName>
 					<CachePath>SFX/FootstepStone3_B1E5A22B.wem</CachePath>
 				</File>
+				<File Id="76519647" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Open_Gate.wav</ShortName>
+					<CachePath>SFX/Open_Gate_C7CBF045.wem</CachePath>
+				</File>
 				<File Id="113363503" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>HitSkeleton3.wav</ShortName>
 					<CachePath>SFX/HitSkeleton3_C7CBF045.wem</CachePath>
@@ -60,7 +71,7 @@
 				</File>
 				<File Id="266045855" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FistSwing3.wav</ShortName>
-					<CachePath>SFX/FistSwing3_4E3FFCEE.wem</CachePath>
+					<CachePath>SFX/FistSwing3_07CC845F.wem</CachePath>
 				</File>
 				<File Id="277656132" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepGravel6.wav</ShortName>
@@ -76,7 +87,11 @@
 				</File>
 				<File Id="361689572" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FistSwing1.wav</ShortName>
-					<CachePath>SFX/FistSwing1_CA008C87.wem</CachePath>
+					<CachePath>SFX/FistSwing1_72CB0EFF.wem</CachePath>
+				</File>
+				<File Id="392231127" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Lever.wav</ShortName>
+					<CachePath>SFX/Lever_C7CBF045.wem</CachePath>
 				</File>
 				<File Id="424456809" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepGravel2.wav</ShortName>
@@ -90,17 +105,25 @@
 					<ShortName>chop2.wav</ShortName>
 					<CachePath>SFX/chop2_77251A79.wem</CachePath>
 				</File>
+				<File Id="522520838" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Unlock_Gate.wav</ShortName>
+					<CachePath>SFX/Unlock_Gate_C7CBF045.wem</CachePath>
+				</File>
 				<File Id="551142929" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>chop1.wav</ShortName>
 					<CachePath>SFX/chop1_B29FA329.wem</CachePath>
 				</File>
 				<File Id="565521538" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FistSwing2.wav</ShortName>
-					<CachePath>SFX/FistSwing2_8663E1A7.wem</CachePath>
+					<CachePath>SFX/FistSwing2_39D2951C.wem</CachePath>
 				</File>
 				<File Id="570984170" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>HitSkeleton2.wav</ShortName>
 					<CachePath>SFX/HitSkeleton2_C7CBF045.wem</CachePath>
+				</File>
+				<File Id="601276256" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>doomhammer exploration2.wav</ShortName>
+					<CachePath>SFX/doomhammer exploration2_F93BF523.wem</CachePath>
 				</File>
 				<File Id="660831382" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepStone2.wav</ShortName>
@@ -129,6 +152,10 @@
 				<File Id="896910572" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepStone5.wav</ShortName>
 					<CachePath>SFX/FootstepStone5_B1E5A22B.wem</CachePath>
+				</File>
+				<File Id="959077550" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Key_Pickup.wav</ShortName>
+					<CachePath>SFX/Key_Pickup_59B0B949.wem</CachePath>
 				</File>
 				<File Id="980383192" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepGravel3.wav</ShortName>
@@ -227,6 +254,36 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
+				<Event Id="2881789206" Name="Play_Key_Pickup" DurationType="OneShot" DurationMin="0.14948097" DurationMax="0.14948097">
+					<MediaRefs>
+						<MediaRef Id="959077550"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3196500978" Name="Play_Lever" DurationType="OneShot" DurationMin="0.5" DurationMax="0.5">
+					<MediaRefs>
+						<MediaRef Id="392231127"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2932040671" Name="Play_Music" DurationType="Infinite">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3991942870" Id="2582085496"/>
+							<MediaRefs>
+								<MediaRef Id="601276256"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="1127904212" Name="Play_Open_Gate" DurationType="OneShot" DurationMin="1.6646712" DurationMax="1.6646712">
+					<MediaRefs>
+						<MediaRef Id="76519647"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="356987792" Name="Play_Unlock_Gate" DurationType="OneShot" DurationMin="1" DurationMax="1">
+					<MediaRefs>
+						<MediaRef Id="522520838"/>
+					</MediaRefs>
+				</Event>
 			</Events>
 			<SwitchGroups>
 				<SwitchGroup Id="3865314626" Name="Material">
@@ -235,8 +292,13 @@
 						<Switch Id="2185786256" Name="Gravel"/>
 					</Switches>
 				</SwitchGroup>
+				<SwitchGroup Id="3991942870" Name="Music">
+					<Switches>
+						<Switch Id="2582085496" Name="Exploration"/>
+					</Switches>
+				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{1EE90225-00DA-EB2B-9FF9-6F5B53086657}</FileHash>
+	<FileHash>{872BD749-707D-5A32-3CD4-A03E73C6591B}</FileHash>
 </SoundBanksInfo>

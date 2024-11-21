@@ -1,9 +1,11 @@
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	1069431850	Player			\Default Work Unit\Master Audio Bus\Player	
+	1229948536	Environment			\Default Work Unit\Master Audio Bus\Environment	
 	2385628198	Footsteps			\Default Work Unit\Master Audio Bus\Player\Footsteps	
 	2764240573	Combat			\Default Work Unit\Master Audio Bus\Combat	
 	3714854501	Hit SFX			\Default Work Unit\Master Audio Bus\Combat\Hit SFX	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+	3991942870	Music			\Default Work Unit\Master Audio Bus\Music	
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

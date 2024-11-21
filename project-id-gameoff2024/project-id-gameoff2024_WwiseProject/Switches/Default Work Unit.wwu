@@ -9,6 +9,11 @@
 						<Switch Name="Gravel" ID="{46A14821-43CD-4AA3-80E0-9B8372FBD741}"/>
 					</ChildrenList>
 				</SwitchGroup>
+				<SwitchGroup Name="Music" ID="{1B7882BB-7E4A-42F5-BCEC-021C8719B791}">
+					<ChildrenList>
+						<Switch Name="Exploration" ID="{2F8EC15B-5040-4CEF-A279-15848FCDCE87}"/>
+					</ChildrenList>
+				</SwitchGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</Switches>

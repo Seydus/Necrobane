@@ -82,7 +82,7 @@ public class PlayerCombat : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("You haven't equiped a weapon");
+            //Debug.LogWarning("You haven't equiped a weapon");
         }
     }
 

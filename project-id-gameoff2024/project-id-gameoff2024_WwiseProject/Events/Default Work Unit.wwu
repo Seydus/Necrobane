@@ -3,17 +3,6 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="Play_Default_Ambient" ID="{2E253B66-159D-4A2E-9FD2-1CB3272025DA}">
-					<ChildrenList>
-						<Action Name="" ID="{D7674DA7-F6FE-44F4-A357-5C479E33C057}" ShortID="340033562">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Default_Ambient" ID="{FA52C700-7774-4E34-8B4D-0ACD14944BBF}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Folder Name="Combat" ID="{DA4015AE-6924-4474-BA79-5EC5F656FBEE}" ShortID="693924153">
 					<ChildrenList>
 						<Event Name="Play_Chops" ID="{03BA0516-35D7-44F5-A9DD-7FC55DD00984}">
@@ -113,6 +102,77 @@
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="Drop_Item" ID="{751DCF73-C710-41A3-80B8-5BF55290EB27}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Folder Name="Pickup" ID="{250D8E56-06C9-41C0-8578-4D56870FFDE2}" ShortID="882859383">
+									<ChildrenList>
+										<Event Name="Play_Key_Pickup" ID="{4437832E-6B32-4FE8-A94F-ED665EF84DE3}">
+											<ChildrenList>
+												<Action Name="" ID="{62AFA6F9-BDD2-407C-809A-6DD9B408E4DF}" ShortID="569185575">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Key_Pickup" ID="{DB395B41-FA70-4041-84F3-6643EFA6C996}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+									</ChildrenList>
+								</Folder>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
+				<Event Name="Play_Music" ID="{141702EB-40C3-4F2F-BB1E-5F7D4DF5EBEE}">
+					<ChildrenList>
+						<Action Name="" ID="{AE164F17-7547-4971-A9FE-62420011ABF0}" ShortID="68645374">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music" ID="{F5FF7702-21D2-439D-AACE-89B8A8E0BE4E}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Folder Name="Environment" ID="{9BD9E8D7-511F-4A1D-9088-B85C0DBD3903}" ShortID="961994736">
+					<ChildrenList>
+						<Folder Name="Doors and Gates" ID="{4B97D779-46B4-414E-AFD0-9329629A6063}" ShortID="266535803">
+							<ChildrenList>
+								<Event Name="Play_Open_Gate" ID="{F8BBCAC3-5AAB-4489-9CE1-5C8702640BD0}">
+									<ChildrenList>
+										<Action Name="" ID="{2F4DB45D-6662-4CD3-8627-2E92EAF5BF16}" ShortID="271456711">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Open_Gate" ID="{04ACF479-8C99-435A-B0CB-C2FFF36D09B5}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Unlock_Gate" ID="{4B37A869-80FD-411E-9B38-BAA3E0C510AE}">
+									<ChildrenList>
+										<Action Name="" ID="{2D8E395C-C175-4D9D-A56B-29853C0C174D}" ShortID="578519950">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Unlock_Gate" ID="{605E5D90-BA65-493D-89CF-A82C98FA27DB}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Mechanisms" ID="{442070E3-E602-4612-85D8-4F2821A44F0F}" ShortID="404742501">
+							<ChildrenList>
+								<Event Name="Play_Lever" ID="{7504D633-82C6-4215-868A-385DED6DFF55}">
+									<ChildrenList>
+										<Action Name="" ID="{8A629600-F78A-41E9-B0D2-7C1C08E879B2}" ShortID="1025624916">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Lever" ID="{AD1C60FF-DBEF-40FC-967D-E8D1D41AE9A0}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
