@@ -1,9 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyProjectileBullet : MonoBehaviour
 {
     [SerializeField] private float projectileSpeed;
     [SerializeField] private float projectileDamage;
+    private Vector3 direction;
     private float lifeSpan;
 
     private Rigidbody myBody;
@@ -13,6 +15,11 @@ public class EnemyProjectileBullet : MonoBehaviour
         myBody = GetComponent<Rigidbody>();
 
         lifeSpan = 3f;
+    }
+
+    private void FixedUpdate()
+    {
+        myBody.AddRelativeForce(direction * projectileSpeed, ForceMode.Acceleration);
     }
 
     private void Update()
@@ -27,7 +34,7 @@ public class EnemyProjectileBullet : MonoBehaviour
 
     public void Init(Vector3 direction)
     {
-        myBody.AddRelativeForce(direction * projectileSpeed, ForceMode.Acceleration);
+        this.direction = direction;
     }
 
     private void OnTriggerEnter(Collider other)

@@ -48,7 +48,22 @@ public class EnemyCombat : IEnemyCombat
         {
             if (!IsAttacking)
             {
-                navMeshAgent.SetDestination(player.position);
+                if (Enemy is IEnemyRoaming enemyRoaming)
+                {
+                    Vector3 directionToTargetPosition = player.position - Enemy.transform.position;
+                    directionToTargetPosition.y = 0;
+                    directionToTargetPosition.Normalize();
+
+                    Quaternion targetRotation = Quaternion.LookRotation(directionToTargetPosition);
+                    Quaternion yAxisOnlyRotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
+
+                    Enemy.transform.localRotation = Quaternion.Slerp(Enemy.transform.localRotation, yAxisOnlyRotation, enemyRoaming.RoamingRotateSpeed * Time.deltaTime);
+
+                    navMeshAgent.SetDestination(player.position);
+
+                    Vector3 velocity = navMeshAgent.desiredVelocity;
+                    Enemy.transform.position += velocity.normalized * enemyRoaming.RoamingMoveSpeed * Time.deltaTime;
+                }
             }
             else
             {

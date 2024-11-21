@@ -5,11 +5,14 @@ using UnityEngine.AI;
 public interface IEnemyRoaming
 {
     public Enemy Enemy { get; set; }
+    public float RoamingMoveSpeed { get; set; }
     public float MinRoamWaitTime { get; set; }
     public float MaxRoamWaitTime { get; set; }
     public float RoamDetectionRadius { get; set; }
+    public float MinRoamDistance { get; set; }
     public float MaxRoamDistance { get; set; }
     public float RoamDirectionChangeChance { get; set; }
+    public float RoamingRotateSpeed { get; set; }
     public Transform GroundPos { get; set; }
     public float DetectRadius { get; set; }
     public LayerMask PlayerMask { get; set; }

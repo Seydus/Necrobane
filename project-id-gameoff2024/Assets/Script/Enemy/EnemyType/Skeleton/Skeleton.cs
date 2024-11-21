@@ -28,6 +28,7 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
     public float RotateSpeed { get; set; }
     public AK.Wwise.Event _HitPlayer { get; set; }
     public float MinRoamWaitTime { get; set; }
+    public float MinRoamDistance { get; set; }
     public float MaxRoamWaitTime { get; set; }
     public float RoamDetectionRadius { get; set; }
     public float MaxRoamDistance { get; set; }
@@ -42,6 +43,8 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
     public NavMeshAgent NavMeshAgent { get; set; }
     public bool IsAttacking { get; set; }
     public float AttackDelay { get; set; }
+    public float RoamingRotateSpeed { get; set; }
+    public float RoamingMoveSpeed { get; set; }
     #endregion
 
     private void OnEnable()
@@ -67,13 +70,16 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
         enemyCombat.AttackDelay = attackDelay;
         enemyCombat.IsAttacking = isAttacking;
 
+        enemyRoaming.RoamingMoveSpeed = roamingMoveSpeed;
         enemyRoaming.MinRoamWaitTime = minRoamWaitTime;
         enemyRoaming.MaxRoamWaitTime = maxRoamWaitTime;
         enemyRoaming.RoamDetectionRadius = roamDetectionRadius;
+        enemyRoaming.MinRoamDistance = minRoamDistance;
         enemyRoaming.MaxRoamDistance = maxRoamDistance;
         enemyRoaming.RoamDirectionChangeChance = roamDirectionChangeChance;
         enemyRoaming.GroundPos = groundPos;
         enemyRoaming.NavMeshSurface = navMeshSurface;
+        enemyRoaming.RoamingRotateSpeed = roamingRotateSpeed;
 
         enemyRoaming.DetectRadius = detectRadius;
         enemyRoaming.PlayerMask = playerMask;
@@ -92,7 +98,6 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
     public override void Start()
     {
         base.Start();
-
         enemyRoaming.Start();
     }
 
@@ -134,6 +139,8 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
 
     private void PerformAttack()
     {
+        sphereRay = GetEnemyDirection();
+
         if (Physics.SphereCast(sphereRay, sphereRadius, out enemyHitInfo, maxDistance, combatLayer))
         {
             EnemyHit = true;

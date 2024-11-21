@@ -137,7 +137,7 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 120000
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyProfile: {fileID: 11400000, guid: 96fed7e43282c184ebbd33ffa00e49eb, type: 2}
-  enableRoaming: 1
+  enableRoaming: 0
   minRoamWaitTime: 2
   maxRoamWaitTime: 3
   roamDetectionRadius: 12
@@ -171,10 +171,10 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 512
-  engageCooldownDuration: 0.3
-  disengageCooldownDuration: 0.2
+  engageCooldownDuration: 0.2
+  disengageCooldownDuration: 2
   sphereRadius: 0.4
-  maxDistance: 1.8
+  maxDistance: 2.07
   combatLayer:
     serializedVersion: 2
     m_Bits: 512

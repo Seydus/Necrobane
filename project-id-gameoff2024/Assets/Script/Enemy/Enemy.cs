@@ -10,13 +10,16 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected bool enableRoaming = true;
 
     [Header("Enemy Roaming")]
+    [SerializeField] protected float roamingMoveSpeed = 10f;
     [SerializeField] protected float minRoamWaitTime = 2f;
     [SerializeField] protected float maxRoamWaitTime = 3f;
     [SerializeField] protected float roamDetectionRadius = 12f;
+    [SerializeField] protected float minRoamDistance = 3f;
     [SerializeField] protected float maxRoamDistance = 5f;
     [SerializeField] protected float roamDirectionChangeChance = 0.3f;
     [SerializeField] protected Transform groundPos;
     [SerializeField] protected NavMeshSurface navMeshSurface;
+    [SerializeField] protected float roamingRotateSpeed = 1f;
 
     [Header("Enemy Detection")]
     [SerializeField] protected float detectRadius = 6f;

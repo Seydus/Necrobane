@@ -15,6 +15,6 @@ MonoBehaviour:
   WeaponType: 0
   WeaponName: Gloves of Power Glove
   WeaponBasicDamage: 10
-  WeaponStaminaCost: 20
-  WeaponSuperAttackDamage: 20
+  WeaponStaminaCost: 40
+  WeaponSuperAttackDamage: 50
   WeaponStunDuration: 1

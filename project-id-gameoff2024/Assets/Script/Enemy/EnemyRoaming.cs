@@ -18,9 +18,13 @@ public class EnemyRoaming : IEnemyRoaming
     public Enemy Enemy { get; set; }
 
     [Header("Enemy Settings")]
+    public float RoamingMoveSpeed { get; set; }
     public float MinRoamWaitTime { get; set; }
     public float MaxRoamWaitTime { get; set; }
     public float RoamDetectionRadius { get; set; }
+    public float RoamingRotateSpeed { get; set; }
+    public float AngleSetDifference;
+    public float MinRoamDistance { get; set; }
     public float MaxRoamDistance { get; set; }
     private float randomRoamValue;
     private float currentWaitTime;
@@ -33,6 +37,7 @@ public class EnemyRoaming : IEnemyRoaming
     public Transform GroundPos { get; set; }
 
     private Vector3 roamTargetPosition;
+    private Vector3 directionToPlayer;
 
     [Header("Enemy Detection")]
     public float DetectRadius { get; set; }
@@ -51,6 +56,11 @@ public class EnemyRoaming : IEnemyRoaming
     public NavMeshAgent NavMeshAgent { get; set; }
     private NavMeshHit navHit;
 
+    public void Awake()
+    {
+        NavMeshAgent.updatePosition = true;
+        NavMeshAgent.updateRotation = false;
+    }
 
     public void Start()
     {
@@ -95,22 +105,34 @@ public class EnemyRoaming : IEnemyRoaming
     private Vector3 GetNewPosition()
     {
         Vector3 newPosition = Vector3.zero;
-
         walkable = false;
 
         for (int i = 0; i < 50 && !walkable; i++)
         {
             Vector3 randomPoint = GroundPos.position + Random.insideUnitSphere * RoamDetectionRadius;
+            randomPoint.y = GroundPos.position.y;
 
             if (NavMesh.SamplePosition(randomPoint, out navHit, MaxRoamDistance, NavMesh.AllAreas))
             {
-                newPosition = navHit.position;
-                walkable = true;
+                float distanceToOrigin = Vector3.Distance(GroundPos.position, navHit.position);
+
+                if (distanceToOrigin >= MinRoamDistance)
+                {
+                    newPosition = navHit.position;
+                    walkable = true;
+                }
             }
+        }
+
+        if (!walkable)
+        {
+            newPosition = Enemy.transform.position;
         }
 
         return newPosition;
     }
+
+
 
     private void HandleEnemyState()
     {
@@ -143,8 +165,30 @@ public class EnemyRoaming : IEnemyRoaming
                 Enemy.StartCoroutine(InitRoaming(Random.Range(MinRoamWaitTime, MaxRoamWaitTime)));
             }
 
-            Debug.Log(Enemy.isAttacking);
+            Vector3 directionToTargetPosition = roamTargetPosition - Enemy.transform.position;
+            directionToTargetPosition.y = 0;
+            directionToTargetPosition.Normalize();
+
+            Quaternion targetRotation = Quaternion.LookRotation(directionToTargetPosition);
+            Quaternion yAxisOnlyRotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
+
             NavMeshAgent.SetDestination(roamTargetPosition);
+
+            if (Vector3.Distance(roamTargetPosition, Enemy.transform.position) > 1.21f)
+            {
+                Enemy.transform.localRotation = Quaternion.Slerp(
+                    Enemy.transform.localRotation,
+                    yAxisOnlyRotation,
+                    RoamingRotateSpeed * Time.deltaTime
+                );
+
+                Vector3 velocity = NavMeshAgent.desiredVelocity;
+                Enemy.transform.position += velocity.normalized * RoamingMoveSpeed * Time.deltaTime;
+            }
+            else
+            {
+                NavMeshAgent.ResetPath();
+            }
         }
         else
         {
@@ -155,10 +199,11 @@ public class EnemyRoaming : IEnemyRoaming
     private IEnumerator InitRoaming(float value)
     {
         yield return new WaitForSeconds(value);
+
         roamTargetPosition = GetNewPosition();
-        yield return null;
         isRoaming = false;
     }
+
 
     private void HandleEngagement()
     {
