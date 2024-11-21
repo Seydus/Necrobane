@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PropAction : MonoBehaviour
 {
+    
     public LeverActives la;
 
     public Animator anim;
@@ -32,4 +34,11 @@ public class PropAction : MonoBehaviour
         }
 
     }
+    private void PlayGateSFX()
+    {
+        Debug.Log("Gate");
+        AkSoundEngine.PostEvent("Play_Open_Gate", gameObject);
+    }
+
+
 }

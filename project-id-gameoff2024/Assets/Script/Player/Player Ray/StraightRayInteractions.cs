@@ -53,6 +53,7 @@ public class StraightRayInteractions : MonoBehaviour
                 if (hit.collider.tag == "Key")
                 {
                     kh.Keys.Add(hit.collider.GetComponent<KeyPurpose>().keyPupose);
+                    AkSoundEngine.PostEvent("Play_Key_Pickup", gameObject);
                     Destroy(hit.collider.gameObject);
                 }
 

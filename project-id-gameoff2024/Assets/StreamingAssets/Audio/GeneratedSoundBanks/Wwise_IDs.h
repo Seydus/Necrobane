@@ -21,7 +21,11 @@ namespace AK
         static const AkUniqueID PLAY_FOOTSTEPS = 3854155799U;
         static const AkUniqueID PLAY_HITBONES = 372480478U;
         static const AkUniqueID PLAY_JUMP = 3689126666U;
+        static const AkUniqueID PLAY_KEY_PICKUP = 2881789206U;
+        static const AkUniqueID PLAY_LEVER = 3196500978U;
         static const AkUniqueID PLAY_MUSIC = 2932040671U;
+        static const AkUniqueID PLAY_OPEN_GATE = 1127904212U;
+        static const AkUniqueID PLAY_UNLOCK_GATE = 356987792U;
     } // namespace EVENTS
 
     namespace SWITCHES
@@ -58,6 +62,7 @@ namespace AK
     namespace BUSSES
     {
         static const AkUniqueID COMBAT = 2764240573U;
+        static const AkUniqueID ENVIRONMENT = 1229948536U;
         static const AkUniqueID FOOTSTEPS = 2385628198U;
         static const AkUniqueID HIT_SFX = 3714854501U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;

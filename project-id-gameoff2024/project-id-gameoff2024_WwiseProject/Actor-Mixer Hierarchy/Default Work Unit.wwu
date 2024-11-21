@@ -739,6 +739,44 @@
 										</Sound>
 									</ChildrenList>
 								</Folder>
+								<Folder Name="Pickup" ID="{264E2E24-B08B-40C6-AAA6-0EAE06A32D99}" ShortID="759835180">
+									<ChildrenList>
+										<Sound Name="Key_Pickup" ID="{DB395B41-FA70-4041-84F3-6643EFA6C996}" ShortID="979050002">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>15</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Key_Pickup" ID="{B649822F-FD65-4885-89AC-5A941FFA3D0D}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0449826989619377"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.149480968858132"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Key_Pickup.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="959077550"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Key_Pickup" ID="{B649822F-FD65-4885-89AC-5A941FFA3D0D}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</Folder>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>
@@ -1069,6 +1107,84 @@
 										</Folder>
 									</ChildrenList>
 								</Folder>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Environment" ID="{85980BDC-E111-4C76-83CF-9EADCE9F1127}" ShortID="438283668">
+					<ChildrenList>
+						<Folder Name="Doors and Gates" ID="{5A51E1B7-E96E-494F-8405-A40CB7714A07}" ShortID="363704998">
+							<ChildrenList>
+								<Sound Name="Open_Gate" ID="{04ACF479-8C99-435A-B0CB-C2FFF36D09B5}" ShortID="1051587601">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Environment" ID="{2F63637F-A042-4128-A9D1-86BFE5FA7BF1}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Open_Gate" ID="{254DF3DF-C483-4E16-86F3-FA7C1FCB660E}">
+											<Language>SFX</Language>
+											<AudioFile>Open_Gate.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="76519647"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Open_Gate" ID="{254DF3DF-C483-4E16-86F3-FA7C1FCB660E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Unlock_Gate" ID="{605E5D90-BA65-493D-89CF-A82C98FA27DB}" ShortID="407896402">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Environment" ID="{2F63637F-A042-4128-A9D1-86BFE5FA7BF1}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Unlock_Gate" ID="{283A7309-863B-43A2-80C3-008E53EC2C4F}">
+											<Language>SFX</Language>
+											<AudioFile>Unlock_Gate.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="522520838"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Unlock_Gate" ID="{283A7309-863B-43A2-80C3-008E53EC2C4F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Mechanisms" ID="{8917F8F7-4EAA-4976-9DBF-4DC9367D38BB}" ShortID="294356113">
+							<ChildrenList>
+								<Sound Name="Lever" ID="{AD1C60FF-DBEF-40FC-967D-E8D1D41AE9A0}" ShortID="595231374">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Lever" ID="{97B3D00E-3BDE-4E71-8AC4-EF3285629CCA}">
+											<Language>SFX</Language>
+											<AudioFile>Lever.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="392231127"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Lever" ID="{97B3D00E-3BDE-4E71-8AC4-EF3285629CCA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>
