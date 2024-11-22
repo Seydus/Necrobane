@@ -1,12 +1,11 @@
 using UnityEngine;
 using AK.Wwise;
-using UnityEditor.PackageManager;
 using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] private float maxSpeed = 8f;
+    public float maxSpeed = 8f;
     private float moveSpeed;
     [SerializeField] private float setAccelerationSpeed = 7f;
     [SerializeField] private float setDecelerationSpeed = 9f;

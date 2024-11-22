@@ -1,6 +1,4 @@
-using UnityEditor.PackageManager;
 using UnityEngine;
-using System.Collections;
 using UnityEngine.Events;
 
 public class PlayerCombat : MonoBehaviour
@@ -10,6 +8,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private float punchResetTime = 1.5f;
     [SerializeField] private float combatDistance;
     private float timeSinceLastBasicPunch = 0f;
+    private float oldMaxSpeed;
 
     private bool isSuperAttack = false;
     private bool isBasicAttack = false;
@@ -22,7 +21,9 @@ public class PlayerCombat : MonoBehaviour
     [Header("Others")]
     [SerializeField] private GameObject hitVFXPrefab;
     [SerializeField] private Transform powerGlovesPos;
+    [SerializeField] private Camera cam;
 
+    private PlayerController playerController;
     private PlayerProfile playerProfile;
     private PlayerInteract playerInteract;
     private PlayerAnimation playerAnim;
@@ -59,23 +60,37 @@ public class PlayerCombat : MonoBehaviour
 
     private void Awake()
     {
+        playerController = GetComponent<PlayerController>();
         playerProfile = GetComponent<PlayerProfile>();
         playerInteract = GetComponent<PlayerInteract>();
         playerAnim = GetComponent<PlayerAnimation>();
         playerCombatCam = GetComponent<PlayerCombatCamera>();
     }
 
-    public void HandleAttack(SphereCastInfo _sphereCastInfo, WeaponHolder _weaponHolder)
+    private void Start()
     {
-        sphereCastInfo = _sphereCastInfo;
-        weaponHolder = _weaponHolder;
+        oldMaxSpeed = playerController.maxSpeed;
+        sphereCastInfo = new SphereCastInfo();
+    }
 
-        if (weaponHolder)
+    public Ray HandleCameraDirection()
+    {
+        return new Ray(cam.transform.position, cam.transform.forward);
+    }
+
+    public void HandleAttack(WeaponHolder weaponHolder)
+    {
+        this.weaponHolder = weaponHolder;
+        sphereCastInfo.sphereRay = HandleCameraDirection();
+
+        if (this.weaponHolder)
         {
             if (isBasicAttack || isSuperAttack)
                 return;
 
             TargetCast();
+
+            Debug.Log(sphereCastInfo.sphereRay);
 
             TryBasicAttack();
             TrySuperAttack();
@@ -92,12 +107,14 @@ public class PlayerCombat : MonoBehaviour
 
         if (sphereCast)
         {
-            GameManager.Instance.uIManager.playerAttackTxt.SetActive(true);
+            GameManager.Instance.uIManager.playerCrosshairLine.SetActive(true);
+            GameManager.Instance.uIManager.playerCrosshair.SetActive(false);
             isHit = true;
         }
         else
         {
-            GameManager.Instance.uIManager.playerAttackTxt.SetActive(false);
+            GameManager.Instance.uIManager.playerCrosshairLine.SetActive(false);
+            GameManager.Instance.uIManager.playerCrosshair.SetActive(true);
             isHit = false;
         }
     }
@@ -109,6 +126,7 @@ public class PlayerCombat : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             isBasicAttack = true;
+            playerController.maxSpeed /= 2f;
 
             if (timeSinceLastBasicPunch > punchResetTime)
             {
@@ -127,8 +145,8 @@ public class PlayerCombat : MonoBehaviour
             if (playerProfile.playerStamina >= weaponHolder.weapon.WeaponStaminaCost)
             {
                 isSuperAttack = true;
-
                 // Triggers the animation event for super attack
+                playerController.maxSpeed /= 2;
                 playerAnim.PerformSuperAttackAnim();
             }
             else
@@ -165,12 +183,14 @@ public class PlayerCombat : MonoBehaviour
 
     private void PerformBasicAttack()
     {
+        sphereCast = Physics.SphereCast(sphereCastInfo.sphereRay, sphereCastInfo.sphereRadius, out sphereCastInfo.hitInfo, combatDistance, enemyLayer, QueryTriggerInteraction.Collide);
+
         if (sphereCast)
         {
             if (sphereCastInfo.hitInfo.transform.TryGetComponent<Enemy>(out Enemy enemy))
             {
                 HandleMeleeType(enemy, weaponHolder.weapon.WeaponBasicDamage);
-                StartCoroutine(playerCombatCam.CameraShake(new CameraCombatInfo(0.15f, 0.015f, Vector3.zero)));
+                StartCoroutine(playerCombatCam.CameraShake(new CameraCombatInfo(0.25f, 0.025f, Vector3.zero)));
                 AkSoundEngine.PostEvent("Play_HitBones", gameObject);
             }
         }
@@ -182,10 +202,14 @@ public class PlayerCombat : MonoBehaviour
                 hitVFX.GetComponent<ParticleSystem>().Play();
             }
         }
+
+        playerController.maxSpeed = oldMaxSpeed;
     }
 
     private void PerformSuperAttack()
     {
+        sphereCast = Physics.SphereCast(sphereCastInfo.sphereRay, sphereCastInfo.sphereRadius, out sphereCastInfo.hitInfo, combatDistance, enemyLayer, QueryTriggerInteraction.Collide);
+
         if (sphereCast)
         {
             if (sphereCastInfo.hitInfo.transform.TryGetComponent<Enemy>(out Enemy enemy))
@@ -203,6 +227,8 @@ public class PlayerCombat : MonoBehaviour
                 hitVFX.GetComponent<ParticleSystem>().Play();
             }
         }
+
+        playerController.maxSpeed = oldMaxSpeed;
     }
 
     private void HandleMeleeType(Enemy enemy, float damage)

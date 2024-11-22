@@ -1,8 +1,5 @@
-using Unity.VisualScripting;
 using System.Collections;
 using UnityEngine;
-using System.Security.Cryptography;
-using UnityEditor.PackageManager;
 
 public class DroneController : MonoBehaviour
 {

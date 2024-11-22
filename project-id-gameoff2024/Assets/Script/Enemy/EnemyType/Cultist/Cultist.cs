@@ -63,7 +63,7 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
         OnFinishAttackTriggered -= FinishAttack;
     }
 
-    public new void Awake()
+    public override void Awake()
     {
         base.Awake();
 
@@ -77,10 +77,12 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
         enemyRoaming.MinRoamWaitTime = minRoamWaitTime;
         enemyRoaming.MaxRoamWaitTime = maxRoamWaitTime;
         enemyRoaming.RoamDetectionRadius = roamDetectionRadius;
+        enemyRoaming.MinRoamDistance = minRoamDistance;
         enemyRoaming.MaxRoamDistance = maxRoamDistance;
         enemyRoaming.RoamDirectionChangeChance = roamDirectionChangeChance;
         enemyRoaming.GroundPos = groundPos;
         enemyRoaming.NavMeshSurface = navMeshSurface;
+        enemyRoaming.RoamingRotateSpeed = roamingRotateSpeed;
 
         enemyRoaming.DetectRadius = detectRadius;
         enemyRoaming.PlayerMask = playerMask;
@@ -136,7 +138,7 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
 
     private void PerformAttack()
     {
-        Vector3 direction = (player.position + (Vector3.up * 0.3f) - projectilePos.position).normalized;
+        Vector3 direction = (player.position + (Vector3.up * 0.35f) - projectilePos.position).normalized;
 
         GameObject newProjectile = Instantiate(projectileObj, projectilePos.position, Quaternion.identity);
         newProjectile.GetComponent<EnemyProjectileBullet>().Init(direction);

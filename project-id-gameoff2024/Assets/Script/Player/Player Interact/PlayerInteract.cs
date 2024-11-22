@@ -8,13 +8,6 @@ public class SphereCastInfo
     public float sphereRadius;
     public Ray sphereRay;
     public RaycastHit hitInfo;
-
-    public SphereCastInfo(float sphereRadius, Ray sphereRay, RaycastHit hitInfo)
-    {
-        this.sphereRadius = sphereRadius;
-        this.sphereRay = sphereRay;
-        this.hitInfo = hitInfo;
-    }
 }
 
 public class PlayerInteract : MonoBehaviour
@@ -44,11 +37,9 @@ public class PlayerInteract : MonoBehaviour
 
     public void Init()
     {
-        sphereCastInfo.sphereRay = HandleCameraDirection();
-
         HandleInteract();
 
-        playerCombat.HandleAttack(sphereCastInfo, weaponHolder);
+        playerCombat.HandleAttack(weaponHolder);
     }
 
     public Ray HandleCameraDirection()
@@ -58,6 +49,8 @@ public class PlayerInteract : MonoBehaviour
 
     private void HandleInteract()
     {
+        sphereCastInfo.sphereRay = HandleCameraDirection();
+
         if (!isEquipped)
         {
             EquipTargetCast();
@@ -82,7 +75,8 @@ public class PlayerInteract : MonoBehaviour
             EqupWeapon();
             EquipItem();
 
-            GameManager.Instance.uIManager.playerGrabTxt.SetActive(!isEquipped ? true : false);
+            GameManager.Instance.uIManager.playerCrosshairLine.SetActive(!isEquipped ? true : false);
+            GameManager.Instance.uIManager.playerCrosshair.SetActive(!isEquipped ? false : true);
 
             Debug.Log("Interacting a weapon...");
         }
@@ -90,7 +84,8 @@ public class PlayerInteract : MonoBehaviour
         {
             isHit = false;
 
-            GameManager.Instance.uIManager.playerGrabTxt.SetActive(false);
+            GameManager.Instance.uIManager.playerCrosshairLine.SetActive(false);
+            GameManager.Instance.uIManager.playerCrosshair.SetActive(true);
         }
     }
 

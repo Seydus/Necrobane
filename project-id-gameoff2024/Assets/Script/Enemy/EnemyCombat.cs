@@ -57,17 +57,20 @@ public class EnemyCombat : IEnemyCombat
                     Quaternion targetRotation = Quaternion.LookRotation(directionToTargetPosition);
                     Quaternion yAxisOnlyRotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
 
-                    Enemy.transform.localRotation = Quaternion.Slerp(Enemy.transform.localRotation, yAxisOnlyRotation, enemyRoaming.RoamingRotateSpeed * Time.deltaTime);
+                    Enemy.transform.localRotation = Quaternion.Slerp(Enemy.transform.localRotation, yAxisOnlyRotation, Enemy.roamingMoveSpeed * Time.deltaTime);
 
                     navMeshAgent.SetDestination(player.position);
 
                     Vector3 velocity = navMeshAgent.desiredVelocity;
-                    Enemy.transform.position += velocity.normalized * enemyRoaming.RoamingMoveSpeed * Time.deltaTime;
+                    Enemy.transform.position += velocity.normalized * Enemy.roamingMoveSpeed * Time.deltaTime;
                 }
             }
             else
             {
-                navMeshAgent.ResetPath();
+                if(navMeshAgent)
+                {
+                    navMeshAgent.ResetPath();
+                }
             }
         }
     }

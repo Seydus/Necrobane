@@ -1,6 +1,5 @@
 using System.Collections;
 using Unity.AI.Navigation;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -70,7 +69,6 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
         enemyCombat.AttackDelay = attackDelay;
         enemyCombat.IsAttacking = isAttacking;
 
-        enemyRoaming.RoamingMoveSpeed = roamingMoveSpeed;
         enemyRoaming.MinRoamWaitTime = minRoamWaitTime;
         enemyRoaming.MaxRoamWaitTime = maxRoamWaitTime;
         enemyRoaming.RoamDetectionRadius = roamDetectionRadius;

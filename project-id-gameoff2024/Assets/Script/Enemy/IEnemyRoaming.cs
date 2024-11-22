@@ -5,7 +5,6 @@ using UnityEngine.AI;
 public interface IEnemyRoaming
 {
     public Enemy Enemy { get; set; }
-    public float RoamingMoveSpeed { get; set; }
     public float MinRoamWaitTime { get; set; }
     public float MaxRoamWaitTime { get; set; }
     public float RoamDetectionRadius { get; set; }

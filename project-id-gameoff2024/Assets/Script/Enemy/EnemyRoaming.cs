@@ -1,7 +1,5 @@
 using System.Collections;
-using TMPro.Examples;
 using Unity.AI.Navigation;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,7 +16,6 @@ public class EnemyRoaming : IEnemyRoaming
     public Enemy Enemy { get; set; }
 
     [Header("Enemy Settings")]
-    public float RoamingMoveSpeed { get; set; }
     public float MinRoamWaitTime { get; set; }
     public float MaxRoamWaitTime { get; set; }
     public float RoamDetectionRadius { get; set; }
@@ -44,6 +41,8 @@ public class EnemyRoaming : IEnemyRoaming
     public LayerMask PlayerMask { get; set; }
     public float EngageCooldownDuration { get; set; }
     public float DisengageCooldownDuration { get; set; }
+    private bool startEngage = false;
+    private bool startDisengage = false;
 
     private Transform player;
     private float engageCooldown;
@@ -64,6 +63,9 @@ public class EnemyRoaming : IEnemyRoaming
 
     public void Start()
     {
+        disengageCooldown = DisengageCooldownDuration;
+        engageCooldown = EngageCooldownDuration;
+
         roamTargetPosition = GetNewPosition();
     }
 
@@ -76,16 +78,23 @@ public class EnemyRoaming : IEnemyRoaming
     {
         DetectPlayer();
 
-        if (!Enemy.isAttacking)
+        if (isPlayerDetected)
         {
-            if (isPlayerDetected)
+            if(!startEngage)
             {
                 HandleEngagement();
             }
-            else
+
+            disengageCooldown = DisengageCooldownDuration;
+        }
+        else
+        {
+            if(startDisengage)
             {
                 HandleDisengagement();
             }
+
+            engageCooldown = EngageCooldownDuration;
         }
 
         HandleEnemyState();
@@ -182,8 +191,11 @@ public class EnemyRoaming : IEnemyRoaming
                     RoamingRotateSpeed * Time.deltaTime
                 );
 
+                Debug.Log(RoamingRotateSpeed);
+
                 Vector3 velocity = NavMeshAgent.desiredVelocity;
-                Enemy.transform.position += velocity.normalized * RoamingMoveSpeed * Time.deltaTime;
+
+                Enemy.transform.position += velocity.normalized * Enemy.roamingMoveSpeed * Time.deltaTime;
             }
             else
             {
@@ -207,30 +219,40 @@ public class EnemyRoaming : IEnemyRoaming
 
     private void HandleEngagement()
     {
-        if (engageCooldown >= EngageCooldownDuration)
+        if (engageCooldown <= 0)
         {
             enemyState = EnemyState.Attack;
             engageCooldown = 0f;
+
+            startEngage = true;
+            startDisengage = true;
         }
         else
         {
-            engageCooldown += Time.deltaTime;
+            engageCooldown -= Time.deltaTime;
         }
+
+        // Debug.Log("Engage: " + engageCooldown);
 
         disengageCooldown = 0f;
     }
 
     private void HandleDisengagement()
     {
-        if (disengageCooldown >= DisengageCooldownDuration)
+        if (disengageCooldown <= 0)
         {
             enemyState = EnemyState.Patrol;
             disengageCooldown = 0f;
+
+            startEngage = false;
+            startDisengage = false;
         }
         else
         {
-            disengageCooldown += Time.deltaTime;
+            disengageCooldown -= Time.deltaTime;
         }
+
+        Debug.Log("Disengage: " + disengageCooldown);
 
         engageCooldown = 0f;
     }
