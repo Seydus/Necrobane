@@ -28,16 +28,15 @@ public class EnemyCombat : IEnemyCombat
         {
             navMeshAgent.ResetPath();
 
-            Vector3 directionToPlayer = player.position - Enemy.transform.position;
-            directionToPlayer.Normalize();
+            Vector3 directionToTargetPosition = player.position - Enemy.transform.position;
+            directionToTargetPosition.y = 0;
+            directionToTargetPosition.Normalize();
 
-            Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
-            float angleDifference = Quaternion.Angle(Enemy.transform.localRotation, targetRotation);
+            Quaternion targetRotation = Quaternion.LookRotation(directionToTargetPosition);
+            Quaternion yAxisOnlyRotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
 
-            if (angleDifference > AngleSetDifference)
-            {
-                Enemy.transform.localRotation = Quaternion.Slerp(Enemy.transform.localRotation, targetRotation, RotateSpeed * Time.deltaTime);
-            }
+            Enemy.transform.localRotation = Quaternion.Slerp(Enemy.transform.localRotation, yAxisOnlyRotation, RotateSpeed * Time.deltaTime);
+
 
             if (!IsAttacking && Enemy is IEnemyCombat enemyCombat)
             {
@@ -57,7 +56,7 @@ public class EnemyCombat : IEnemyCombat
                     Quaternion targetRotation = Quaternion.LookRotation(directionToTargetPosition);
                     Quaternion yAxisOnlyRotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
 
-                    Enemy.transform.localRotation = Quaternion.Slerp(Enemy.transform.localRotation, yAxisOnlyRotation, Enemy.roamingMoveSpeed * Time.deltaTime);
+                    Enemy.transform.localRotation = Quaternion.Slerp(Enemy.transform.localRotation, yAxisOnlyRotation, RotateSpeed * Time.deltaTime);
 
                     navMeshAgent.SetDestination(player.position);
 

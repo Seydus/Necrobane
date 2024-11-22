@@ -677,13 +677,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   engageCooldownDuration: 0.2
-  disengageCooldownDuration: 2
-  sphereRadius: 0.4
+  disengageCooldownDuration: 3
+  sphereRadius: 0.3
   maxDistance: 2
   combatLayer:
     serializedVersion: 2
     m_Bits: 512
-  rotateSpeed: 5
+  rotateSpeed: 4
   attackDelay: 0.1
   HitPlayer:
     idInternal: 0

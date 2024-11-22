@@ -19,6 +19,9 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
     public static UnityAction OnPerformAttackTriggered;
     public static UnityAction OnFinishAttackTriggered;
 
+    private Ray sphereSkeletonRay;
+    private RaycastHit skeletonHit;
+
     #region Misc
     public float AttackSpeed { get; set; }
     public float SphereRadius { get; set; }
@@ -135,15 +138,18 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
         skeletonAnimation.SkeletonAttack(true);
     }
 
-    private void PerformAttack()
+    public void PerformAttack()
     {
-        sphereRay = GetEnemyDirection();
+        // Debug.Log("Player hit");
+        sphereSkeletonRay = GetEnemyDirection();
 
-        if (Physics.SphereCast(sphereRay, sphereRadius, out enemyHitInfo, maxDistance, combatLayer))
+        if (Physics.SphereCast(sphereSkeletonRay, sphereRadius, out skeletonHit, maxDistance, combatLayer))
         {
             EnemyHit = true;
 
-            if (enemyHitInfo.transform.TryGetComponent<PlayerManager>(out PlayerManager playerManager))
+            Debug.Log("Player hit");
+
+            if (skeletonHit.transform.TryGetComponent<PlayerManager>(out PlayerManager playerManager))
             {
                 playerManager.PlayerProfile.DeductHealth(EnemyDamage);
 
@@ -167,16 +173,16 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
     {
         Gizmos.color = EnemyHit ? Color.green : Color.red;
 
-        sphereRay = GetEnemyDirection();
+        sphereSkeletonRay = GetEnemyDirection();
 
         if (EnemyHit)
         {
-            Gizmos.DrawRay(sphereRay.origin, enemyHitInfo.point - sphereRay.origin);
-            Gizmos.DrawWireSphere(enemyHitInfo.point, sphereRadius);
+            Gizmos.DrawRay(sphereSkeletonRay.origin, skeletonHit.point - sphereSkeletonRay.origin);
+            Gizmos.DrawWireSphere(skeletonHit.point, sphereRadius);
         }
         else
         {
-            Gizmos.DrawRay(sphereRay.origin, sphereRay.direction * maxDistance);
+            Gizmos.DrawRay(sphereSkeletonRay.origin, sphereSkeletonRay.direction * maxDistance);
         }
 
         //Gizmos.DrawWireSphere(groundPos.position, enemyProfile.EnemyRange);
