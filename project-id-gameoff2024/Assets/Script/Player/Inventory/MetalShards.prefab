@@ -157,6 +157,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Objname: Metal shards
   amount: 0
+  avatar: {fileID: 1668232372, guid: 637786a35bdbe2d47810628520a8038c, type: 3}
+  inv: 0
+  Image: {fileID: 0}
+  Count: {fileID: 0}
+  Name: {fileID: 0}
 --- !u!1 &4575977785626015594
 GameObject:
   m_ObjectHideFlags: 0
