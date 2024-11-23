@@ -8,13 +8,11 @@ public class InventoryHolder : MonoBehaviour
 {
     public List<Item> Items;
 
-    public List<TextMeshProUGUI> ItemCount;
+    public List<Item> InventorySlots;
 
     public GameObject InventoryObject;
-    private void Awake()
-    {
-        StartCoroutine(UpdateInv());
-    }
+
+    public GameObject[] ItemPrefs;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -39,29 +37,44 @@ public class InventoryHolder : MonoBehaviour
     {
         if(other.GetComponent<Item>() != null)
         {
-            for(int i = 0; i < Items.Count; i++)
-            {
-                if(Items[i].Objname == other.gameObject.GetComponent<Item>().Objname)
-                {
-                    Items[i].amount += other.gameObject.GetComponent<Item>().amount;
-                    Destroy(other.gameObject);
-                    break;
-                }
-            }
+            MoreItem(other.gameObject);
         }
     }
 
-    IEnumerator UpdateInv()
+    public void MoreItem(GameObject others)
     {
-        yield return new WaitForSeconds(0.1f);
-        for(int i = 0;i < ItemCount.Count; i++)
+        for (int i = 0; i < Items.Count; i++)
         {
-            if (Items[i] != null)
+            if (Items[i] == null)
             {
-                ItemCount[i].text = Items[i].amount.ToString();
+                for (int j = 0; j < ItemPrefs.Length; j++)
+                {
+                    if (others.GetComponent<Item>().Objname == ItemPrefs[j].GetComponent<Item>().Objname)
+                    {
+                        Items[i] = ItemPrefs[j].GetComponent<Item>();
+                        Items[i].Objname = others.GetComponent<Item>().Objname;
+                        Items[i].amount = others.GetComponent<Item>().amount;
+                        Items[i].avatar = others.GetComponent<Item>().avatar;
+
+                        InventorySlots[i].amount = Items[i].amount;
+                        InventorySlots[i].avatar = Items[i].avatar;
+                        InventorySlots[i].Objname = Items[i].Objname;
+
+                        Destroy(others.gameObject);
+                    }
+                }
+                break;
             }
+
+            if (Items[i].Objname == others.gameObject.GetComponent<Item>().Objname)
+            {
+                Items[i].amount += others.gameObject.GetComponent<Item>().amount;
+                InventorySlots[i].amount = Items[i].amount;
+                Destroy(others.gameObject);
+                break;
+            }
+
         }
-        yield return new WaitForSeconds(0.1f);
-        StartCoroutine(UpdateInv());
     }
+
 }

@@ -158,6 +158,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Objname: Bones
   amount: 0
+  avatar: {fileID: -571328280, guid: 645b7408898abaf4ab52a4db1ee37b0c, type: 3}
+  inv: 0
+  Image: {fileID: 0}
+  Count: {fileID: 0}
+  Name: {fileID: 0}
 --- !u!1 &4610469252879874664
 GameObject:
   m_ObjectHideFlags: 0
