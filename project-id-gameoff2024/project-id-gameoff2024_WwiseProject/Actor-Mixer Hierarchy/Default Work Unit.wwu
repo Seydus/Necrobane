@@ -739,6 +739,44 @@
 										</Sound>
 									</ChildrenList>
 								</Folder>
+								<Folder Name="Pickup" ID="{264E2E24-B08B-40C6-AAA6-0EAE06A32D99}" ShortID="759835180">
+									<ChildrenList>
+										<Sound Name="Key_Pickup" ID="{DB395B41-FA70-4041-84F3-6643EFA6C996}" ShortID="979050002">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>15</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Key_Pickup" ID="{B649822F-FD65-4885-89AC-5A941FFA3D0D}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0449826989619377"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.149480968858132"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Key_Pickup.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="959077550"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Key_Pickup" ID="{B649822F-FD65-4885-89AC-5A941FFA3D0D}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</Folder>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>
@@ -749,8 +787,306 @@
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
 					</PropertyList>
 					<ChildrenList>
-						<Folder Name="Hit SFX" ID="{8463030E-5B41-42F5-A87D-FD5BB72F00F0}" ShortID="968055532">
+						<Folder Name="PowerFist" ID="{5AB55039-723D-42DE-8CA0-FE605A8918DF}" ShortID="268811171">
 							<ChildrenList>
+								<RandomSequenceContainer Name="FistSwing" ID="{E2A8FFCD-1275-441B-8748-23A251236B39}" ShortID="820601453">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{ACAD944E-EA27-452D-AE99-266F6BBF755B}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="227"/>
+															<Property Name="Min" Type="Real64" Value="-227"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Hit SFX" ID="{F44299FA-5275-4517-AFAE-D8B695D50FBE}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="FistSwing1" ID="{E6DCAABD-0D67-482B-BCB6-64F71F082490}" ShortID="276422402">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FistSwing1" ID="{2E2187D1-E59D-4EA3-8718-7366E896F4D8}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.300208478109798"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>FistSwing1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="361689572"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FistSwing1" ID="{2E2187D1-E59D-4EA3-8718-7366E896F4D8}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FistSwing2" ID="{61A10857-765A-46BA-90EC-DD899B46F71B}" ShortID="490925866">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FistSwing2" ID="{E2687571-A4FE-406C-8246-A11E1E0AF434}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0250173731758165"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.349895760945101"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>FistSwing2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="565521538"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FistSwing2" ID="{E2687571-A4FE-406C-8246-A11E1E0AF434}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FistSwing3" ID="{5F46116B-F7E5-4F97-825A-85300F056020}" ShortID="658481792">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FistSwing3" ID="{66482F55-697F-4156-83F6-FD09DBFA3DDD}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0208478109798471"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.300208478109799"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>FistSwing3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="266045855"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FistSwing3" ID="{66482F55-697F-4156-83F6-FD09DBFA3DDD}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<Folder Name="FistHit" ID="{50B29769-5890-41B9-8532-D22C39C3CB5E}" ShortID="779374608">
+									<ChildrenList>
+										<RandomSequenceContainer Name="HitBones" ID="{203C1A53-03AE-40D5-9F44-3E5563A60824}" ShortID="297411824">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{AF64D555-C00E-413C-ACAA-30D4A0C9CECB}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="227"/>
+																	<Property Name="Min" Type="Real64" Value="-227"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Hit SFX" ID="{F44299FA-5275-4517-AFAE-D8B695D50FBE}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="HitSkeleton2" ID="{B5980E37-B697-419C-90A9-D8CD4EF9B29B}" ShortID="151198687">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="HitSkeleton2" ID="{D0B583E7-7CEB-4B88-A4B7-D58A759907C5}">
+															<Language>SFX</Language>
+															<AudioFile>HitSkeleton2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="570984170"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="HitSkeleton2" ID="{D0B583E7-7CEB-4B88-A4B7-D58A759907C5}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="HitSkeleton3" ID="{5431A772-52F2-4BDE-9218-16B0E2878DB7}" ShortID="90355151">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="HitSkeleton3" ID="{61AF8DEC-9250-4B43-9B1E-06592E42D454}">
+															<Language>SFX</Language>
+															<AudioFile>HitSkeleton3.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="113363503"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="HitSkeleton3" ID="{61AF8DEC-9250-4B43-9B1E-06592E42D454}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="HitSkeleton" ID="{6F236F7C-0B8C-488F-84E7-C1BF4FD4F21D}" ShortID="448652586">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="HitSkeleton" ID="{7DF88AC2-41C9-4EB9-BBF0-82099E6313E7}">
+															<Language>SFX</Language>
+															<AudioFile>HitSkeleton.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="457189610"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="HitSkeleton" ID="{7DF88AC2-41C9-4EB9-BBF0-82099E6313E7}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+								</Folder>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Blades" ID="{DC3D8454-C455-4014-9E4E-FDC79777747E}" ShortID="55279557">
+							<ChildrenList>
+								<Folder Name="2Hand" ID="{D0798923-EB66-455D-9344-6DD7884E0D0A}" ShortID="1036000338">
+									<ChildrenList>
+										<RandomSequenceContainer Name="Swings" ID="{9E884B85-2F77-4C31-970D-BB95BE75CFDE}" ShortID="1073303071">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="normal" ID="{41D4C35B-5778-46DB-8FEA-8FBC4948A9D5}" WorkUnitID="{61E62009-A45E-4D12-A3F4-01EB122C29C4}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Hit SFX" ID="{F44299FA-5275-4517-AFAE-D8B695D50FBE}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="2Hand1" ID="{3914005B-9AC8-468B-95FA-B3F62175EEE5}" ShortID="310579983">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="2Hand1" ID="{8D791431-6268-48AE-80E1-18B40274BD2B}">
+															<Language>SFX</Language>
+															<AudioFile>2Hand1.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="426715762"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="2Hand1" ID="{8D791431-6268-48AE-80E1-18B40274BD2B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="2Hand2" ID="{BD5DA6D9-7424-48E3-A00C-D63CBCDD6228}" ShortID="361266672">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="2Hand2" ID="{47A2B25E-5A5B-4549-8AA3-31869ECD7E7D}">
+															<Language>SFX</Language>
+															<AudioFile>2Hand2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="205507889"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="2Hand2" ID="{47A2B25E-5A5B-4549-8AA3-31869ECD7E7D}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="2Hand3" ID="{572E9057-7FDC-4CD8-8B62-076FF91317F2}" ShortID="762411926">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="2Hand3" ID="{F794575C-1217-49A8-8430-3DD6A97AE66D}">
+															<Language>SFX</Language>
+															<AudioFile>2Hand3.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="249291889"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="2Hand3" ID="{F794575C-1217-49A8-8430-3DD6A97AE66D}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+								</Folder>
 								<RandomSequenceContainer Name="Chops" ID="{85675BD4-244A-4DCF-AC5C-E069C7D6E23F}" ShortID="55624613">
 									<PropertyList>
 										<Property Name="Pitch" Type="int32">
@@ -859,216 +1195,150 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
-								<Folder Name="PowerFist" ID="{5AB55039-723D-42DE-8CA0-FE605A8918DF}" ShortID="268811171">
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Firebolt" ID="{31F280E4-3DDD-4CC8-AE4C-1DD56B71E51B}" ShortID="1069653172">
+							<ChildrenList>
+								<Sound Name="Firebolt" ID="{1871AA0A-F768-46F3-A6B3-99F3B352A2BF}" ShortID="673945494">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Firebolt" ID="{E6F1F039-2051-4430-BFD2-5CCE39A8456D}" WorkUnitID="{61E62009-A45E-4D12-A3F4-01EB122C29C4}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+										</Reference>
+									</ReferenceList>
 									<ChildrenList>
-										<RandomSequenceContainer Name="FistSwing" ID="{E2A8FFCD-1275-441B-8748-23A251236B39}" ShortID="820601453">
-											<PropertyList>
-												<Property Name="Pitch" Type="int32">
-													<ModifierList>
-														<ModifierInfo>
-															<Modifier Name="" ID="{ACAD944E-EA27-452D-AE99-266F6BBF755B}">
-																<PropertyList>
-																	<Property Name="Enabled" Type="bool" Value="True"/>
-																	<Property Name="Max" Type="Real64" Value="227"/>
-																	<Property Name="Min" Type="Real64" Value="-227"/>
-																</PropertyList>
-															</Modifier>
-														</ModifierInfo>
-													</ModifierList>
-												</Property>
-												<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Hit SFX" ID="{F44299FA-5275-4517-AFAE-D8B695D50FBE}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="FistSwing1" ID="{E6DCAABD-0D67-482B-BCB6-64F71F082490}" ShortID="276422402">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="FistSwing1" ID="{2E2187D1-E59D-4EA3-8718-7366E896F4D8}">
-															<PropertyList>
-																<Property Name="LoopBegin" Type="Real64" Value="0"/>
-																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.300208478109798"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>FistSwing1.wav</AudioFile>
-															<MediaIDList>
-																<MediaID ID="361689572"/>
-															</MediaIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="FistSwing1" ID="{2E2187D1-E59D-4EA3-8718-7366E896F4D8}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="FistSwing2" ID="{61A10857-765A-46BA-90EC-DD899B46F71B}" ShortID="490925866">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="FistSwing2" ID="{E2687571-A4FE-406C-8246-A11E1E0AF434}">
-															<PropertyList>
-																<Property Name="FadeOutDuration" Type="Real64" Value="0.0250173731758165"/>
-																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.349895760945101"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>FistSwing2.wav</AudioFile>
-															<MediaIDList>
-																<MediaID ID="565521538"/>
-															</MediaIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="FistSwing2" ID="{E2687571-A4FE-406C-8246-A11E1E0AF434}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="FistSwing3" ID="{5F46116B-F7E5-4F97-825A-85300F056020}" ShortID="658481792">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="FistSwing3" ID="{66482F55-697F-4156-83F6-FD09DBFA3DDD}">
-															<PropertyList>
-																<Property Name="FadeOutDuration" Type="Real64" Value="0.0208478109798471"/>
-																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.300208478109799"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>FistSwing3.wav</AudioFile>
-															<MediaIDList>
-																<MediaID ID="266045855"/>
-															</MediaIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="FistSwing3" ID="{66482F55-697F-4156-83F6-FD09DBFA3DDD}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-										<Folder Name="FistHit" ID="{50B29769-5890-41B9-8532-D22C39C3CB5E}" ShortID="779374608">
-											<ChildrenList>
-												<RandomSequenceContainer Name="HitBones" ID="{203C1A53-03AE-40D5-9F44-3E5563A60824}" ShortID="297411824">
-													<PropertyList>
-														<Property Name="Pitch" Type="int32">
-															<ModifierList>
-																<ModifierInfo>
-																	<Modifier Name="" ID="{AF64D555-C00E-413C-ACAA-30D4A0C9CECB}">
-																		<PropertyList>
-																			<Property Name="Enabled" Type="bool" Value="True"/>
-																			<Property Name="Max" Type="Real64" Value="227"/>
-																			<Property Name="Min" Type="Real64" Value="-227"/>
-																		</PropertyList>
-																	</Modifier>
-																</ModifierInfo>
-															</ModifierList>
-														</Property>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Hit SFX" ID="{F44299FA-5275-4517-AFAE-D8B695D50FBE}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<Sound Name="HitSkeleton2" ID="{B5980E37-B697-419C-90A9-D8CD4EF9B29B}" ShortID="151198687">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="HitSkeleton2" ID="{D0B583E7-7CEB-4B88-A4B7-D58A759907C5}">
-																	<Language>SFX</Language>
-																	<AudioFile>HitSkeleton2.wav</AudioFile>
-																	<MediaIDList>
-																		<MediaID ID="570984170"/>
-																	</MediaIDList>
-																</AudioFileSource>
-															</ChildrenList>
-															<ActiveSourceList>
-																<ActiveSource Name="HitSkeleton2" ID="{D0B583E7-7CEB-4B88-A4B7-D58A759907C5}" Platform="Linked"/>
-															</ActiveSourceList>
-														</Sound>
-														<Sound Name="HitSkeleton3" ID="{5431A772-52F2-4BDE-9218-16B0E2878DB7}" ShortID="90355151">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="HitSkeleton3" ID="{61AF8DEC-9250-4B43-9B1E-06592E42D454}">
-																	<Language>SFX</Language>
-																	<AudioFile>HitSkeleton3.wav</AudioFile>
-																	<MediaIDList>
-																		<MediaID ID="113363503"/>
-																	</MediaIDList>
-																</AudioFileSource>
-															</ChildrenList>
-															<ActiveSourceList>
-																<ActiveSource Name="HitSkeleton3" ID="{61AF8DEC-9250-4B43-9B1E-06592E42D454}" Platform="Linked"/>
-															</ActiveSourceList>
-														</Sound>
-														<Sound Name="HitSkeleton" ID="{6F236F7C-0B8C-488F-84E7-C1BF4FD4F21D}" ShortID="448652586">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="HitSkeleton" ID="{7DF88AC2-41C9-4EB9-BBF0-82099E6313E7}">
-																	<Language>SFX</Language>
-																	<AudioFile>HitSkeleton.wav</AudioFile>
-																	<MediaIDList>
-																		<MediaID ID="457189610"/>
-																	</MediaIDList>
-																</AudioFileSource>
-															</ChildrenList>
-															<ActiveSourceList>
-																<ActiveSource Name="HitSkeleton" ID="{7DF88AC2-41C9-4EB9-BBF0-82099E6313E7}" Platform="Linked"/>
-															</ActiveSourceList>
-														</Sound>
-													</ChildrenList>
-												</RandomSequenceContainer>
-											</ChildrenList>
-										</Folder>
+										<AudioFileSource Name="Firebolt" ID="{3D6F20DA-D077-4755-85DE-A90A70A86E3F}">
+											<Language>SFX</Language>
+											<AudioFile>Firebolt.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="244195078"/>
+											</MediaIDList>
+										</AudioFileSource>
 									</ChildrenList>
-								</Folder>
+									<ActiveSourceList>
+										<ActiveSource Name="Firebolt" ID="{3D6F20DA-D077-4755-85DE-A90A70A86E3F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Firebolt_Explosion" ID="{E8681533-29B0-4530-9993-41230BC42EA6}" ShortID="864667198">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Firebolt_Explosion" ID="{6AEF2000-2A04-4458-A6A4-7BE0757DA162}">
+											<Language>SFX</Language>
+											<AudioFile>Firebolt_Explosion.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="647251812"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Firebolt_Explosion" ID="{6AEF2000-2A04-4458-A6A4-7BE0757DA162}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Environment" ID="{85980BDC-E111-4C76-83CF-9EADCE9F1127}" ShortID="438283668">
+					<ChildrenList>
+						<Folder Name="Doors and Gates" ID="{5A51E1B7-E96E-494F-8405-A40CB7714A07}" ShortID="363704998">
+							<ChildrenList>
+								<Sound Name="Open_Gate" ID="{04ACF479-8C99-435A-B0CB-C2FFF36D09B5}" ShortID="1051587601">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="normal" ID="{41D4C35B-5778-46DB-8FEA-8FBC4948A9D5}" WorkUnitID="{61E62009-A45E-4D12-A3F4-01EB122C29C4}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Environment" ID="{2F63637F-A042-4128-A9D1-86BFE5FA7BF1}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Open_Gate" ID="{254DF3DF-C483-4E16-86F3-FA7C1FCB660E}">
+											<Language>SFX</Language>
+											<AudioFile>Open_Gate.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="76519647"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Open_Gate" ID="{254DF3DF-C483-4E16-86F3-FA7C1FCB660E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Unlock_Gate" ID="{605E5D90-BA65-493D-89CF-A82C98FA27DB}" ShortID="407896402">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="normal" ID="{41D4C35B-5778-46DB-8FEA-8FBC4948A9D5}" WorkUnitID="{61E62009-A45E-4D12-A3F4-01EB122C29C4}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Environment" ID="{2F63637F-A042-4128-A9D1-86BFE5FA7BF1}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Unlock_Gate" ID="{283A7309-863B-43A2-80C3-008E53EC2C4F}">
+											<Language>SFX</Language>
+											<AudioFile>Unlock_Gate.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="522520838"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Unlock_Gate" ID="{283A7309-863B-43A2-80C3-008E53EC2C4F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Mechanisms" ID="{8917F8F7-4EAA-4976-9DBF-4DC9367D38BB}" ShortID="294356113">
+							<ChildrenList>
+								<Sound Name="Lever" ID="{AD1C60FF-DBEF-40FC-967D-E8D1D41AE9A0}" ShortID="595231374">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Lever" ID="{97B3D00E-3BDE-4E71-8AC4-EF3285629CCA}">
+											<Language>SFX</Language>
+											<AudioFile>Lever.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="392231127"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Lever" ID="{97B3D00E-3BDE-4E71-8AC4-EF3285629CCA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>

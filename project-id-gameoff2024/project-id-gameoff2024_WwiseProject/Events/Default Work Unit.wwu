@@ -3,30 +3,8 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="Play_Default_Ambient" ID="{2E253B66-159D-4A2E-9FD2-1CB3272025DA}">
-					<ChildrenList>
-						<Action Name="" ID="{D7674DA7-F6FE-44F4-A357-5C479E33C057}" ShortID="340033562">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Default_Ambient" ID="{FA52C700-7774-4E34-8B4D-0ACD14944BBF}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Folder Name="Combat" ID="{DA4015AE-6924-4474-BA79-5EC5F656FBEE}" ShortID="693924153">
 					<ChildrenList>
-						<Event Name="Play_Chops" ID="{03BA0516-35D7-44F5-A9DD-7FC55DD00984}">
-							<ChildrenList>
-								<Action Name="" ID="{7326C363-52C9-4088-9D48-EEFD5B7AB07A}" ShortID="405171130">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Chops" ID="{85675BD4-244A-4DCF-AC5C-E069C7D6E23F}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Folder Name="PowerFist" ID="{7586927C-5203-4CCC-962B-EE309801135C}" ShortID="10771192">
 							<ChildrenList>
 								<Event Name="Play_FistSwing" ID="{F896B83D-0E5D-495E-9B2F-C26BF84C377C}">
@@ -46,6 +24,72 @@
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="HitBones" ID="{203C1A53-03AE-40D5-9F44-3E5563A60824}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Blades" ID="{E9D75750-7C55-4D8A-848D-8A0C0AE142FC}" ShortID="620380477">
+							<ChildrenList>
+								<Event Name="Play_Chops" ID="{03BA0516-35D7-44F5-A9DD-7FC55DD00984}">
+									<ChildrenList>
+										<Action Name="" ID="{7326C363-52C9-4088-9D48-EEFD5B7AB07A}" ShortID="405171130">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Chops" ID="{85675BD4-244A-4DCF-AC5C-E069C7D6E23F}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Swings2H" ID="{2BA2F1B5-6E80-4EEB-90B8-7FD43648A7CB}">
+									<ChildrenList>
+										<Action Name="" ID="{A1D5F0EB-ED6B-48AD-88F8-3F3B720010D3}" ShortID="491639037">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Swings" ID="{9E884B85-2F77-4C31-970D-BB95BE75CFDE}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Firebolt" ID="{D2576D54-1DB3-435E-B6C1-C8D47B498B06}" ShortID="589746575">
+							<ChildrenList>
+								<Event Name="Play_Firebolt" ID="{705BF4A9-741C-4A78-B613-640AEACD30D4}">
+									<ChildrenList>
+										<Action Name="" ID="{91F719BA-C41B-48C1-B9DD-3E25F3995909}" ShortID="750157336">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Firebolt" ID="{1871AA0A-F768-46F3-A6B3-99F3B352A2BF}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Firebolt_Explosion" ID="{FC7390B6-D80D-449E-8EEF-4FE01D1E0DFB}">
+									<ChildrenList>
+										<Action Name="" ID="{160A6371-94C3-4219-B5A6-B9525EF161B6}" ShortID="352510208">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Firebolt_Explosion" ID="{E8681533-29B0-4530-9993-41230BC42EA6}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Stop_Firebolt" ID="{8BD36927-F6C0-4A19-BC26-A3BFC16AFACC}">
+									<ChildrenList>
+										<Action Name="" ID="{2A04CF3D-E697-470E-9208-D03F277C8373}" ShortID="984894395">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Firebolt" ID="{1871AA0A-F768-46F3-A6B3-99F3B352A2BF}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -118,10 +162,95 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Folder Name="Pickup" ID="{250D8E56-06C9-41C0-8578-4D56870FFDE2}" ShortID="882859383">
+									<ChildrenList>
+										<Event Name="Play_Key_Pickup" ID="{4437832E-6B32-4FE8-A94F-ED665EF84DE3}">
+											<ChildrenList>
+												<Action Name="" ID="{62AFA6F9-BDD2-407C-809A-6DD9B408E4DF}" ShortID="569185575">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Key_Pickup" ID="{DB395B41-FA70-4041-84F3-6643EFA6C996}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+									</ChildrenList>
+								</Folder>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>
 				</Folder>
+				<Event Name="Play_Music" ID="{141702EB-40C3-4F2F-BB1E-5F7D4DF5EBEE}">
+					<ChildrenList>
+						<Action Name="" ID="{AE164F17-7547-4971-A9FE-62420011ABF0}" ShortID="68645374">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music" ID="{F5FF7702-21D2-439D-AACE-89B8A8E0BE4E}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Folder Name="Environment" ID="{9BD9E8D7-511F-4A1D-9088-B85C0DBD3903}" ShortID="961994736">
+					<ChildrenList>
+						<Folder Name="Doors and Gates" ID="{4B97D779-46B4-414E-AFD0-9329629A6063}" ShortID="266535803">
+							<ChildrenList>
+								<Event Name="Play_Open_Gate" ID="{F8BBCAC3-5AAB-4489-9CE1-5C8702640BD0}">
+									<ChildrenList>
+										<Action Name="" ID="{2F4DB45D-6662-4CD3-8627-2E92EAF5BF16}" ShortID="271456711">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Open_Gate" ID="{04ACF479-8C99-435A-B0CB-C2FFF36D09B5}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Unlock_Gate" ID="{4B37A869-80FD-411E-9B38-BAA3E0C510AE}">
+									<ChildrenList>
+										<Action Name="" ID="{2D8E395C-C175-4D9D-A56B-29853C0C174D}" ShortID="578519950">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Unlock_Gate" ID="{605E5D90-BA65-493D-89CF-A82C98FA27DB}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Mechanisms" ID="{442070E3-E602-4612-85D8-4F2821A44F0F}" ShortID="404742501">
+							<ChildrenList>
+								<Event Name="Play_Lever" ID="{7504D633-82C6-4215-868A-385DED6DFF55}">
+									<ChildrenList>
+										<Action Name="" ID="{8A629600-F78A-41E9-B0D2-7C1C08E879B2}" ShortID="1025624916">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Lever" ID="{AD1C60FF-DBEF-40FC-967D-E8D1D41AE9A0}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
+				<Event Name="Stop_Music" ID="{89CC9419-CB30-488A-8D7D-1A7852F48365}">
+					<ChildrenList>
+						<Action Name="" ID="{CEDDDAA7-AD0C-4DE6-92CD-4B09C75E0A51}" ShortID="128181447">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music" ID="{F5FF7702-21D2-439D-AACE-89B8A8E0BE4E}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 941462bbcdf49043a0f64a9675eb7ab8
     GuidInternal: 
-    m_lastTime: -8584692008906058051
+    m_lastTime: -8584692005753803237
     List:
     - name: Combat
       guid: 881744ad62cff440b60ced41959ff75d
@@ -57,6 +57,23 @@ MonoBehaviour:
         ObjectType: 2
         guid: 881744ad62cff440b60ced41959ff75d
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Combat
+    - name: Environment
+      guid: 7f63632f42a02841a9d186bfe5fa7bf1
+      id: 1229948536
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 941462bbcdf49043a0f64a9675eb7ab8
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: Environment
+        ObjectType: 2
+        guid: 7f63632f42a02841a9d186bfe5fa7bf1
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Environment
     - name: Footsteps
       guid: f6e7da67eef82647acdcdbb052dba749
       id: 2385628198
@@ -112,6 +129,23 @@ MonoBehaviour:
         ObjectType: 2
         guid: d8a41415a61d2a41a17e75ca0c2149f3
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus
+    - name: Music
+      guid: f243002ebabbae408f37af2ca2e32fa8
+      id: 3991942870
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 941462bbcdf49043a0f64a9675eb7ab8
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: Music
+        ObjectType: 2
+        guid: f243002ebabbae408f37af2ca2e32fa8
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Music
     - name: Player
       guid: 3dda4c15e751bc428cd5fbcf9a701868
       id: 1069431850
@@ -141,7 +175,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 3808cfcbeba5d043a9389dbcef0f39f7
     GuidInternal: 
-    m_lastTime: -8584692008906038022
+    m_lastTime: -8584692005749511125
     List:
     - name: Main
       guid: 71be9a838e8f7a4e9bbaa45884ab4f12
@@ -169,8 +203,28 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: fafe2c5e31679a46a1450b34d8466393
     GuidInternal: 
-    m_lastTime: -8584692008906361731
+    m_lastTime: -8584692005754811375
     List:
+    - name: Blades
+      guid: 5057d7e9557c8a4d848d8a0c0ae142fc
+      id: 1041766312
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Combat
+        ObjectType: 4
+        guid: ae1540da24697444ba795ec5f656fbee
+      - ElementName: Blades
+        ObjectType: 4
+        guid: 5057d7e9557c8a4d848d8a0c0ae142fc
+      Path: Events\Default Work Unit\Combat\Blades
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Combat
       guid: ae1540da24697444ba795ec5f656fbee
       id: 2764240573
@@ -185,6 +239,43 @@ MonoBehaviour:
         ObjectType: 4
         guid: ae1540da24697444ba795ec5f656fbee
       Path: Events\Default Work Unit\Combat
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Doors and Gates
+      guid: 79d7974bb4464e41afd09329629a6063
+      id: 3270217355
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Environment
+        ObjectType: 4
+        guid: d7e8d99b1f511d4a9088b85c0dbd3903
+      - ElementName: Doors and Gates
+        ObjectType: 4
+        guid: 79d7974bb4464e41afd09329629a6063
+      Path: Events\Default Work Unit\Environment\Doors and Gates
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Environment
+      guid: d7e8d99b1f511d4a9088b85c0dbd3903
+      id: 1229948536
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Environment
+        ObjectType: 4
+        guid: d7e8d99b1f511d4a9088b85c0dbd3903
+      Path: Events\Default Work Unit\Environment
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -211,6 +302,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Firebolt
+      guid: 546d57d2b31d5e43b6c1c8d47b498b06
+      id: 3236324180
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Combat
+        ObjectType: 4
+        guid: ae1540da24697444ba795ec5f656fbee
+      - ElementName: Firebolt
+        ObjectType: 4
+        guid: 546d57d2b31d5e43b6c1c8d47b498b06
+      Path: Events\Default Work Unit\Combat\Firebolt
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Interaction
       guid: 9e40580bb299964082c7844532dad1f3
       id: 3900887599
@@ -231,6 +342,49 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Mechanisms
+      guid: e370204402e6124685d84f2821a44f0f
+      id: 4015094827
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Environment
+        ObjectType: 4
+        guid: d7e8d99b1f511d4a9088b85c0dbd3903
+      - ElementName: Mechanisms
+        ObjectType: 4
+        guid: e370204402e6124685d84f2821a44f0f
+      Path: Events\Default Work Unit\Environment\Mechanisms
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Pickup
+      guid: 568e0d25c906c04185784d56870ffde2
+      id: 3978245845
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Player
+        ObjectType: 4
+        guid: f551b75890fe14408f2af5b372cd1baa
+      - ElementName: Interaction
+        ObjectType: 4
+        guid: 9e40580bb299964082c7844532dad1f3
+      - ElementName: Pickup
+        ObjectType: 4
+        guid: 568e0d25c906c04185784d56870ffde2
+      Path: Events\Default Work Unit\Player\Interaction\Pickup
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_Chops
       guid: 1605ba03d735f544a9dd7fc55dd00984
       id: 3488755065
@@ -244,30 +398,16 @@ MonoBehaviour:
       - ElementName: Combat
         ObjectType: 4
         guid: ae1540da24697444ba795ec5f656fbee
+      - ElementName: Blades
+        ObjectType: 4
+        guid: 5057d7e9557c8a4d848d8a0c0ae142fc
       - ElementName: Play_Chops
         ObjectType: 3
         guid: 1605ba03d735f544a9dd7fc55dd00984
-      Path: Events\Default Work Unit\Combat\Play_Chops
+      Path: Events\Default Work Unit\Combat\Blades\Play_Chops
       maxAttenuation: 0
       maxDuration: 0.34744823
       minDuration: 0.12909532
-    - name: Play_Default_Ambient
-      guid: 663b252e9d152e4a9fd21cb3272025da
-      id: 2895830940
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: fafe2c5e31679a46a1450b34d8466393
-      - ElementName: Play_Default_Ambient
-        ObjectType: 3
-        guid: 663b252e9d152e4a9fd21cb3272025da
-      Path: Events\Default Work Unit\Play_Default_Ambient
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
     - name: Play_Drop_Item
       guid: ac0dfed60e43624c84ba3cbc9a84989d
       id: 1363530945
@@ -343,6 +483,52 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.34885338
       minDuration: 0.34885338
+    - name: Play_Firebolt
+      guid: a9f45b701c74784ab613640aeacd30d4
+      id: 79128399
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Combat
+        ObjectType: 4
+        guid: ae1540da24697444ba795ec5f656fbee
+      - ElementName: Firebolt
+        ObjectType: 4
+        guid: 546d57d2b31d5e43b6c1c8d47b498b06
+      - ElementName: Play_Firebolt
+        ObjectType: 3
+        guid: a9f45b701c74784ab613640aeacd30d4
+      Path: Events\Default Work Unit\Combat\Firebolt\Play_Firebolt
+      maxAttenuation: 20
+      maxDuration: 8
+      minDuration: 8
+    - name: Play_Firebolt_Explosion
+      guid: b69073fc0dd89e448eef4fe01d1e0dfb
+      id: 38142515
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Combat
+        ObjectType: 4
+        guid: ae1540da24697444ba795ec5f656fbee
+      - ElementName: Firebolt
+        ObjectType: 4
+        guid: 546d57d2b31d5e43b6c1c8d47b498b06
+      - ElementName: Play_Firebolt_Explosion
+        ObjectType: 3
+        guid: b69073fc0dd89e448eef4fe01d1e0dfb
+      Path: Events\Default Work Unit\Combat\Firebolt\Play_Firebolt_Explosion
+      maxAttenuation: 0
+      maxDuration: 0.75002265
+      minDuration: 0.75002265
     - name: Play_FistSwing
       guid: 3db896f85d0e5e499b2fc26bf84c377c
       id: 1452450734
@@ -429,6 +615,141 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.4515745
       minDuration: 0.23491521
+    - name: Play_Key_Pickup
+      guid: 2e833744326be84fa94fed665ef84de3
+      id: 2881789206
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Player
+        ObjectType: 4
+        guid: f551b75890fe14408f2af5b372cd1baa
+      - ElementName: Interaction
+        ObjectType: 4
+        guid: 9e40580bb299964082c7844532dad1f3
+      - ElementName: Pickup
+        ObjectType: 4
+        guid: 568e0d25c906c04185784d56870ffde2
+      - ElementName: Play_Key_Pickup
+        ObjectType: 3
+        guid: 2e833744326be84fa94fed665ef84de3
+      Path: Events\Default Work Unit\Player\Interaction\Pickup\Play_Key_Pickup
+      maxAttenuation: 0
+      maxDuration: 0.14948097
+      minDuration: 0.14948097
+    - name: Play_Lever
+      guid: 33d60475c6821542868a385ded6dff55
+      id: 3196500978
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Environment
+        ObjectType: 4
+        guid: d7e8d99b1f511d4a9088b85c0dbd3903
+      - ElementName: Mechanisms
+        ObjectType: 4
+        guid: e370204402e6124685d84f2821a44f0f
+      - ElementName: Play_Lever
+        ObjectType: 3
+        guid: 33d60475c6821542868a385ded6dff55
+      Path: Events\Default Work Unit\Environment\Mechanisms\Play_Lever
+      maxAttenuation: 0
+      maxDuration: 0.5
+      minDuration: 0.5
+    - name: Play_Music
+      guid: eb021714c3402f4fbb1e5f7d4df5ebee
+      id: 2932040671
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Play_Music
+        ObjectType: 3
+        guid: eb021714c3402f4fbb1e5f7d4df5ebee
+      Path: Events\Default Work Unit\Play_Music
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Open_Gate
+      guid: c3cabbf8ab5a89449ce15c8702640bd0
+      id: 1127904212
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Environment
+        ObjectType: 4
+        guid: d7e8d99b1f511d4a9088b85c0dbd3903
+      - ElementName: Doors and Gates
+        ObjectType: 4
+        guid: 79d7974bb4464e41afd09329629a6063
+      - ElementName: Play_Open_Gate
+        ObjectType: 3
+        guid: c3cabbf8ab5a89449ce15c8702640bd0
+      Path: Events\Default Work Unit\Environment\Doors and Gates\Play_Open_Gate
+      maxAttenuation: 40
+      maxDuration: 1.6646712
+      minDuration: 1.6646712
+    - name: Play_Swings2H
+      guid: b5f1a22b806eeb4e90b87fd43648a7cb
+      id: 1187857689
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Combat
+        ObjectType: 4
+        guid: ae1540da24697444ba795ec5f656fbee
+      - ElementName: Blades
+        ObjectType: 4
+        guid: 5057d7e9557c8a4d848d8a0c0ae142fc
+      - ElementName: Play_Swings2H
+        ObjectType: 3
+        guid: b5f1a22b806eeb4e90b87fd43648a7cb
+      Path: Events\Default Work Unit\Combat\Blades\Play_Swings2H
+      maxAttenuation: 40
+      maxDuration: 0.5
+      minDuration: 0.5
+    - name: Play_Unlock_Gate
+      guid: 69a8374bfd801e419b38baa3e0c510ae
+      id: 356987792
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Environment
+        ObjectType: 4
+        guid: d7e8d99b1f511d4a9088b85c0dbd3903
+      - ElementName: Doors and Gates
+        ObjectType: 4
+        guid: 79d7974bb4464e41afd09329629a6063
+      - ElementName: Play_Unlock_Gate
+        ObjectType: 3
+        guid: 69a8374bfd801e419b38baa3e0c510ae
+      Path: Events\Default Work Unit\Environment\Doors and Gates\Play_Unlock_Gate
+      maxAttenuation: 40
+      maxDuration: 1
+      minDuration: 1
     - name: Player
       guid: f551b75890fe14408f2af5b372cd1baa
       id: 1069431850
@@ -466,6 +787,46 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Stop_Firebolt
+      guid: 2769d38bc0f6194abc26a3bfc16afacc
+      id: 2555710829
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Combat
+        ObjectType: 4
+        guid: ae1540da24697444ba795ec5f656fbee
+      - ElementName: Firebolt
+        ObjectType: 4
+        guid: 546d57d2b31d5e43b6c1c8d47b498b06
+      - ElementName: Stop_Firebolt
+        ObjectType: 3
+        guid: 2769d38bc0f6194abc26a3bfc16afacc
+      Path: Events\Default Work Unit\Combat\Firebolt\Stop_Firebolt
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Stop_Music
+      guid: 1994cc8930cb8a488d7d1a7852f48365
+      id: 2837384057
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Stop_Music
+        ObjectType: 3
+        guid: 1994cc8930cb8a488d7d1a7852f48365
+      Path: Events\Default Work Unit\Stop_Music
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -506,7 +867,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 44fa06ed6c542b4daccf66d261f951d9
     GuidInternal: 
-    m_lastTime: -8584692008906017676
+    m_lastTime: -8584692005749488860
     List:
     - name: Material
       guid: 8679c28ede04474f852d51e83ad6ac10
@@ -555,6 +916,40 @@ MonoBehaviour:
         - ElementName: Stone
           ObjectType: 10
           guid: 4aed202ec7f7c845a41617a5f018963f
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
+    - name: Music
+      guid: bb82781b4a7ef542bcec021c8719b791
+      id: 3991942870
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 44fa06ed6c542b4daccf66d261f951d9
+      - ElementName: Music
+        ObjectType: 11
+        guid: bb82781b4a7ef542bcec021c8719b791
+      Path: Switches\Default Work Unit\Music
+      values:
+      - name: Exploration
+        guid: 5bc18e2f4050ef4ca27915848fcdce87
+        id: 2582085496
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 44fa06ed6c542b4daccf66d261f951d9
+        - ElementName: Music
+          ObjectType: 11
+          guid: bb82781b4a7ef542bcec021c8719b791
+        - ElementName: Exploration
+          ObjectType: 10
+          guid: 5bc18e2f4050ef4ca27915848fcdce87
       ValueGuids: []
       ValueIcons: []
       valuesInternal: []

@@ -20,6 +20,8 @@
 								<Bus Name="Hit SFX" ID="{F44299FA-5275-4517-AFAE-D8B695D50FBE}"/>
 							</ChildrenList>
 						</Bus>
+						<Bus Name="Music" ID="{2E0043F2-BBBA-40AE-8F37-AF2CA2E32FA8}"/>
+						<Bus Name="Environment" ID="{2F63637F-A042-4128-A9D1-86BFE5FA7BF1}"/>
 					</ChildrenList>
 				</Bus>
 			</ChildrenList>

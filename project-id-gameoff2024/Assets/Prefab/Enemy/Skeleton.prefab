@@ -1730,8 +1730,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: 2e73a579ba0aa8649bfe4acbcba24fdc, type: 2}
     - target: {fileID: 5866666021909216657, guid: c20b75654006219438e8692307e9f5be, type: 3}
-      propertyPath: m_ApplyRootMotion
+      propertyPath: m_UpdateMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: c20b75654006219438e8692307e9f5be, type: 3}
+      propertyPath: m_CullingMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: c20b75654006219438e8692307e9f5be, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6168657781906338669, guid: c20b75654006219438e8692307e9f5be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
