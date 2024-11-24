@@ -143,6 +143,7 @@ public class PlayerInteract : MonoBehaviour
                 playerCombat.WeaponHolder.SetBoxCollider(true);
                 playerCombat.WeaponHolder.SetRigidbodyKinematic(false);
                 playerCombat.WeaponHolder.SetMeshState(true);
+                playerCombat.PlayerController.maxSpeed = playerCombat.oldMaxSpeed;
 
                 AkSoundEngine.PostEvent("Play_Drop_Item", gameObject);
 
