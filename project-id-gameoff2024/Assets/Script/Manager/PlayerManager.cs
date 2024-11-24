@@ -54,6 +54,7 @@ public class PlayerManager : MonoBehaviour
         enableDrone = true;
         droneController.gameObject.SetActive(true);
         cameraHolder.SetActive(false);
-        GameManager.Instance.uIManager.playerGrabTxt.gameObject.SetActive(false);
+        GameManager.Instance.uIManager.playerCrosshairLine.gameObject.SetActive(false);
+        GameManager.Instance.uIManager.playerCrosshair.gameObject.SetActive(true);
     }
 }

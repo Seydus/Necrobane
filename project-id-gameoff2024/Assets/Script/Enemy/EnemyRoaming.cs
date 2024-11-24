@@ -1,7 +1,5 @@
 using System.Collections;
-using TMPro.Examples;
 using Unity.AI.Navigation;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -21,6 +19,9 @@ public class EnemyRoaming : IEnemyRoaming
     public float MinRoamWaitTime { get; set; }
     public float MaxRoamWaitTime { get; set; }
     public float RoamDetectionRadius { get; set; }
+    public float RoamingRotateSpeed { get; set; }
+    public float AngleSetDifference;
+    public float MinRoamDistance { get; set; }
     public float MaxRoamDistance { get; set; }
     private float randomRoamValue;
     private float currentWaitTime;
@@ -33,12 +34,15 @@ public class EnemyRoaming : IEnemyRoaming
     public Transform GroundPos { get; set; }
 
     private Vector3 roamTargetPosition;
+    private Vector3 directionToPlayer;
 
     [Header("Enemy Detection")]
     public float DetectRadius { get; set; }
     public LayerMask PlayerMask { get; set; }
     public float EngageCooldownDuration { get; set; }
     public float DisengageCooldownDuration { get; set; }
+    private bool startEngage = false;
+    private bool startDisengage = false;
 
     private Transform player;
     private float engageCooldown;
@@ -51,9 +55,17 @@ public class EnemyRoaming : IEnemyRoaming
     public NavMeshAgent NavMeshAgent { get; set; }
     private NavMeshHit navHit;
 
+    public void Awake()
+    {
+        NavMeshAgent.updatePosition = true;
+        NavMeshAgent.updateRotation = false;
+    }
 
     public void Start()
     {
+        disengageCooldown = DisengageCooldownDuration;
+        engageCooldown = EngageCooldownDuration;
+
         roamTargetPosition = GetNewPosition();
     }
 
@@ -66,16 +78,23 @@ public class EnemyRoaming : IEnemyRoaming
     {
         DetectPlayer();
 
-        if (!Enemy.isAttacking)
+        if (isPlayerDetected)
         {
-            if (isPlayerDetected)
+            if(!startEngage)
             {
                 HandleEngagement();
             }
-            else
+
+            disengageCooldown = DisengageCooldownDuration;
+        }
+        else
+        {
+            if(startDisengage)
             {
                 HandleDisengagement();
             }
+
+            engageCooldown = EngageCooldownDuration;
         }
 
         HandleEnemyState();
@@ -95,22 +114,34 @@ public class EnemyRoaming : IEnemyRoaming
     private Vector3 GetNewPosition()
     {
         Vector3 newPosition = Vector3.zero;
-
         walkable = false;
 
         for (int i = 0; i < 50 && !walkable; i++)
         {
             Vector3 randomPoint = GroundPos.position + Random.insideUnitSphere * RoamDetectionRadius;
+            randomPoint.y = GroundPos.position.y;
 
             if (NavMesh.SamplePosition(randomPoint, out navHit, MaxRoamDistance, NavMesh.AllAreas))
             {
-                newPosition = navHit.position;
-                walkable = true;
+                float distanceToOrigin = Vector3.Distance(GroundPos.position, navHit.position);
+
+                if (distanceToOrigin >= MinRoamDistance)
+                {
+                    newPosition = navHit.position;
+                    walkable = true;
+                }
             }
+        }
+
+        if (!walkable)
+        {
+            newPosition = Enemy.transform.position;
         }
 
         return newPosition;
     }
+
+
 
     private void HandleEnemyState()
     {
@@ -143,8 +174,33 @@ public class EnemyRoaming : IEnemyRoaming
                 Enemy.StartCoroutine(InitRoaming(Random.Range(MinRoamWaitTime, MaxRoamWaitTime)));
             }
 
-            //Debug.Log(Enemy.isAttacking);
+            Vector3 directionToTargetPosition = roamTargetPosition - Enemy.transform.position;
+            directionToTargetPosition.y = 0;
+            directionToTargetPosition.Normalize();
+
+            Quaternion targetRotation = Quaternion.LookRotation(directionToTargetPosition);
+            Quaternion yAxisOnlyRotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
+
             NavMeshAgent.SetDestination(roamTargetPosition);
+
+            if (Vector3.Distance(roamTargetPosition, Enemy.transform.position) > 1.21f)
+            {
+                Enemy.transform.localRotation = Quaternion.Slerp(
+                    Enemy.transform.localRotation,
+                    yAxisOnlyRotation,
+                    RoamingRotateSpeed * Time.deltaTime
+                );
+
+                Debug.Log(RoamingRotateSpeed);
+
+                Vector3 velocity = NavMeshAgent.desiredVelocity;
+
+                Enemy.transform.position += velocity.normalized * Enemy.roamingMoveSpeed * Time.deltaTime;
+            }
+            else
+            {
+                NavMeshAgent.ResetPath();
+            }
         }
         else
         {
@@ -155,37 +211,48 @@ public class EnemyRoaming : IEnemyRoaming
     private IEnumerator InitRoaming(float value)
     {
         yield return new WaitForSeconds(value);
+
         roamTargetPosition = GetNewPosition();
-        yield return null;
         isRoaming = false;
     }
 
+
     private void HandleEngagement()
     {
-        if (engageCooldown >= EngageCooldownDuration)
+        if (engageCooldown <= 0)
         {
             enemyState = EnemyState.Attack;
             engageCooldown = 0f;
+
+            startEngage = true;
+            startDisengage = true;
         }
         else
         {
-            engageCooldown += Time.deltaTime;
+            engageCooldown -= Time.deltaTime;
         }
+
+        // Debug.Log("Engage: " + engageCooldown);
 
         disengageCooldown = 0f;
     }
 
     private void HandleDisengagement()
     {
-        if (disengageCooldown >= DisengageCooldownDuration)
+        if (disengageCooldown <= 0)
         {
             enemyState = EnemyState.Patrol;
             disengageCooldown = 0f;
+
+            startEngage = false;
+            startDisengage = false;
         }
         else
         {
-            disengageCooldown += Time.deltaTime;
+            disengageCooldown -= Time.deltaTime;
         }
+
+        Debug.Log("Disengage: " + disengageCooldown);
 
         engageCooldown = 0f;
     }

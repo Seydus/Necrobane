@@ -1,6 +1,7 @@
 using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -10,13 +11,16 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected bool enableRoaming = true;
 
     [Header("Enemy Roaming")]
+    public float roamingMoveSpeed = 10f;
     [SerializeField] protected float minRoamWaitTime = 2f;
     [SerializeField] protected float maxRoamWaitTime = 3f;
     [SerializeField] protected float roamDetectionRadius = 12f;
+    [SerializeField] protected float minRoamDistance = 3f;
     [SerializeField] protected float maxRoamDistance = 5f;
     [SerializeField] protected float roamDirectionChangeChance = 0.3f;
     [SerializeField] protected Transform groundPos;
     [SerializeField] protected NavMeshSurface navMeshSurface;
+    [SerializeField] protected float roamingRotateSpeed = 1f;
 
     [Header("Enemy Detection")]
     [SerializeField] protected float detectRadius = 6f;
@@ -34,11 +38,6 @@ public class Enemy : MonoBehaviour
     public bool EnemyHit { get; set; }
     public AK.Wwise.Event HitPlayer;
 
-    private bool isTouchPlayer;
-    [SerializeField] private float enemyTouchDamageCooldown;
-    private float currentTouchDamageCooldown;
-
-
     [Header("SphereCast")]
     protected Ray sphereRay;
     protected RaycastHit enemyHitInfo;
@@ -47,6 +46,10 @@ public class Enemy : MonoBehaviour
     public string EnemyName { get; set; }
     public float EnemyHealth { get; set; }
     public float EnemyDamage { get; set; }
+
+
+    [Header("UI")]
+    [SerializeField] protected Slider healthSlider;
 
     [Header("Others")]
     protected NavMeshAgent _NavMeshAgent;
@@ -61,18 +64,19 @@ public class Enemy : MonoBehaviour
         EnemyName = enemyProfile.EnemyName;
         EnemyHealth = enemyProfile.EnemyHealth;
         EnemyDamage = enemyProfile.EnemyDamage;
+
+        healthSlider.value = EnemyHealth;
     }
 
     public virtual void Update()
     {
         EnemyStatus(gameObject);
-        UpdateTouchedEnemy();
     }
 
     public void DeductHealth(float damage)
     {
         EnemyHealth -= damage;
-        Debug.Log("Enemy (" + EnemyName + ") health: " + EnemyHealth);
+        healthSlider.value = EnemyHealth;
     }
 
     public void EnemyStatus(GameObject gameObject)
@@ -87,37 +91,5 @@ public class Enemy : MonoBehaviour
     public void SetEnemyForce(Vector3 direction, float currentForce)
     {
         Debug.Log(direction + " and " + currentForce);
-        // myBody.AddForce(direction * currentForce * Time.deltaTime, ForceMode.Impulse);
-    }
-
-    private void UpdateTouchedEnemy()
-    {
-        if (currentTouchDamageCooldown <= 0)
-        {
-            isTouchPlayer = true;
-            currentTouchDamageCooldown = enemyTouchDamageCooldown;
-        }
-        else
-        {
-            currentTouchDamageCooldown -= Time.deltaTime;
-        }
-    }
-
-    public void TouchedEnemy(Transform player)
-    {
-        if (isTouchPlayer)
-        {
-            isTouchPlayer = false;
-            player.GetComponent<PlayerProfile>().DeductHealth(EnemyDamage);
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.CompareTag("Player"))
-        {
-            Debug.Log(collision.collider);
-            TouchedEnemy(collision.transform);
-        }
     }
 }

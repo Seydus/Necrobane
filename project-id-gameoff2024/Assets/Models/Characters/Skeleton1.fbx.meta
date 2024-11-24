@@ -64,9 +64,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
@@ -151,9 +151,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
@@ -209,9 +209,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
@@ -220,7 +220,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.48216033
+      - time: 0.47621733
         functionName: TriggerPerformAttackEvent
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -259,9 +259,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
@@ -288,9 +288,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
@@ -733,7 +733,7 @@ ModelImporter:
       parentName: mixamorig:LeftToeBase
       position: {x: -0.00000023367629, y: 0.53057164, z: -0.000000046238306}
       rotation: {x: -0.00000022351742, y: -0.00000043958426, z: 0.00000008940697, w: 1}
-      scale: {x: 1.0000004, y: 1, z: 0.99999994}
+      scale: {x: 1.0000004, y: 1, z: 1}
     - name: mixamorig:LeftToe_End_end
       parentName: mixamorig:LeftToe_End
       position: {x: -0, y: 0.5305709, z: 0}
@@ -763,7 +763,7 @@ ModelImporter:
       parentName: mixamorig:RightToeBase
       position: {x: 0.000000100255015, y: 0.5373467, z: 0.000000024199487}
       rotation: {x: 0.000000029802315, y: -0.00000013783571, z: 0.00000006705521, w: 1}
-      scale: {x: 1.0000005, y: 0.9999998, z: 1.0000001}
+      scale: {x: 1.0000004, y: 0.9999998, z: 1}
     - name: mixamorig:RightToe_End_end
       parentName: mixamorig:RightToe_End
       position: {x: -0, y: 0.5373468, z: 0}
@@ -779,6 +779,11 @@ ModelImporter:
       position: {x: -0.0000000069141333, y: -0.00000000345707, z: -0.00000006136298}
       rotation: {x: 0.5000001, y: -0.49999988, z: -0.5, w: -0.49999997}
       scale: {x: 67.795685, y: 67.795685, z: 67.795685}
+    - name: Cube
+      parentName: Skeleton1(Clone)
+      position: {x: -0, y: -0.14244041, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 595.11646, y: 763.7257, z: 11.416501}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5

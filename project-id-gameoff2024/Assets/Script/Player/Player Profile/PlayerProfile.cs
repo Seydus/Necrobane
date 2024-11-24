@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerProfile : MonoBehaviour
 {
 
-    [SerializeField] private PlayerProfileSO profile;
+    public PlayerProfileSO profile;
     private PlayerCombatCamera playerCombatCam;
     public float playerHealth { get; set; }
     public float playerStamina { get; set; }
