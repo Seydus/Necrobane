@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected Slider healthSlider;
 
     [Header("Others")]
-    protected NavMeshAgent navMeshAgent;
+    [HideInInspector] public NavMeshAgent navMeshAgent;
 
     [Header("Wwise")]
     // Wwise

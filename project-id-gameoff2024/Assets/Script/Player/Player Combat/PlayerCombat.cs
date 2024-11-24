@@ -1,5 +1,8 @@
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
+using System.Collections.Generic;
+using System.Collections;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -7,6 +10,13 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private float punchResetTime = 1.5f;
     [SerializeField] private float combatDistance;
+
+    [SerializeField] private float knockbackSpeed = 5f;
+    [SerializeField] private float knockbackDuration = 2f;
+
+    private bool isKnockedBack = false;
+    private Vector3 knockbackDirection;
+
     private float timeSinceLastBasicPunch = 0f;
     private float oldMaxSpeed;
 
@@ -39,6 +49,7 @@ public class PlayerCombat : MonoBehaviour
     public static UnityAction OnInitSuperAttackTriggered;
     public static UnityAction OnPerformBasicAttackTriggered;
     public static UnityAction OnPerformSuperAttackTriggered;
+    public static UnityAction OnFinishAttackTriggered;
 
     private void OnEnable()
     {
@@ -47,6 +58,8 @@ public class PlayerCombat : MonoBehaviour
         
         OnInitSuperAttackTriggered += InitSuperAttackEvent;
         OnPerformSuperAttackTriggered += PerformSuperAttackEvent;
+
+        OnFinishAttackTriggered += FinishAttack;
     }
 
     private void OnDisable()
@@ -56,6 +69,8 @@ public class PlayerCombat : MonoBehaviour
 
         OnInitSuperAttackTriggered -= InitSuperAttackEvent;
         OnPerformSuperAttackTriggered -= PerformSuperAttackEvent;
+
+        OnFinishAttackTriggered -= FinishAttack;
     }
 
     private void Awake()
@@ -164,7 +179,6 @@ public class PlayerCombat : MonoBehaviour
     private void PerformBasicAttackEvent()
     {
         PerformBasicAttack();
-        isBasicAttack = false;
     }
 
     private void InitSuperAttackEvent()
@@ -177,8 +191,6 @@ public class PlayerCombat : MonoBehaviour
     private void PerformSuperAttackEvent()
     {
         PerformSuperAttack();
-
-        isSuperAttack = false;
     }
 
     private void PerformBasicAttack()
@@ -190,7 +202,7 @@ public class PlayerCombat : MonoBehaviour
             if (sphereCastInfo.hitInfo.transform.TryGetComponent<Enemy>(out Enemy enemy))
             {
                 HandleMeleeType(enemy, weaponHolder.weapon.WeaponBasicDamage);
-                StartCoroutine(playerCombatCam.CameraShake(new CameraCombatInfo(0.25f, 0.025f, Vector3.zero)));
+                StartCoroutine(playerCombatCam.CameraShake(new CameraCombatInfo(0.15f, 0.015f, Vector3.zero)));
                 AkSoundEngine.PostEvent("Play_HitBones", gameObject);
             }
         }
@@ -215,7 +227,7 @@ public class PlayerCombat : MonoBehaviour
             if (sphereCastInfo.hitInfo.transform.TryGetComponent<Enemy>(out Enemy enemy))
             {
                 HandleMeleeType(enemy, weaponHolder.weapon.WeaponSuperAttackDamage);
-                StartCoroutine(playerCombatCam.CameraShake(new CameraCombatInfo(0.25f, 0.025f, Vector3.zero)));
+                StartCoroutine(playerCombatCam.CameraShake(new CameraCombatInfo(0.20f, 0.020f, Vector3.zero)));
                 AkSoundEngine.PostEvent("Play_HitBones", gameObject);
             }
         }
@@ -229,6 +241,43 @@ public class PlayerCombat : MonoBehaviour
         }
 
         playerController.maxSpeed = oldMaxSpeed;
+    }
+
+    public void ApplyKnockback(Vector3 sourcePosition, NavMeshAgent agent)
+    {
+        if (!isKnockedBack)
+        {
+            isKnockedBack = true;
+
+            agent.isStopped = true;
+
+            knockbackDirection = (sourcePosition - transform.position).normalized;
+            knockbackDirection.y = 0;
+
+            StartCoroutine(KnockbackRoutine(agent));
+        }
+    }
+
+    public IEnumerator KnockbackRoutine(NavMeshAgent agent)
+    {
+        float elapsed = 0f;
+
+        while (elapsed < knockbackDuration)
+        {
+            agent.Move(knockbackDirection * knockbackSpeed * Time.deltaTime);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        agent.isStopped = false;
+        isKnockedBack = false;
+    }
+
+    private void FinishAttack()
+    {
+        isBasicAttack = false;
+        isSuperAttack = false;
     }
 
     private void HandleMeleeType(Enemy enemy, float damage)
@@ -255,6 +304,7 @@ public class PlayerCombat : MonoBehaviour
         Debug.Log("Hand Combat Triggered");
         enemy.DeductHealth(damage);
 
+        ApplyKnockback(enemy.transform.position, enemy.navMeshAgent);
         Vector3 punchDirection = isRightPunchNext ? Vector3.right : Vector3.left;
 
         GameObject hitVFX = Instantiate(hitVFXPrefab, sphereCastInfo.hitInfo.point, Quaternion.identity);
