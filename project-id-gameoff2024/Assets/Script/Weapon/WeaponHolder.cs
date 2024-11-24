@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class WeaponHolder : MonoBehaviour
 {
-    public Weapon weapon;
+    [HideInInspector] public Weapon weapon;
     private BoxCollider boxCollider;
     private Rigidbody myBody;
     private Animator anim;
@@ -14,6 +14,7 @@ public class WeaponHolder : MonoBehaviour
         boxCollider = GetComponent<BoxCollider>();
         myBody = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+        weapon = GetComponent<Weapon>();
     }
 
     public void SetMeshState(bool state)

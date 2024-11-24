@@ -140,18 +140,17 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
 
     public void PerformAttack()
     {
-        // Debug.Log("Player hit");
         sphereSkeletonRay = GetEnemyDirection();
 
         if (Physics.SphereCast(sphereSkeletonRay, sphereRadius, out skeletonHit, maxDistance, combatLayer))
         {
             EnemyHit = true;
 
-            Debug.Log("Player hit");
-
             if (skeletonHit.transform.TryGetComponent<PlayerManager>(out PlayerManager playerManager))
             {
                 playerManager.PlayerProfile.DeductHealth(EnemyDamage);
+
+                Debug.Log("Player hit");
 
                 if (playerManager.transform != null)
                 {

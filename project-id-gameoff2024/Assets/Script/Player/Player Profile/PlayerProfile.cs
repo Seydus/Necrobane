@@ -22,6 +22,7 @@ public class PlayerProfile : MonoBehaviour
     private void Update()
     {
         IncreaseStamina();
+        Init();
     }
 
     public void Init()
@@ -32,13 +33,27 @@ public class PlayerProfile : MonoBehaviour
 
     public void DeductHealth(float damage)
     {
-        playerHealth -= damage;
-        StartCoroutine(playerCombatCam.CameraShake(new CameraCombatInfo(0.25f, 0.025f, Vector3.zero)));
+        if (playerHealth >= 0)
+        {
+            playerHealth -= damage;
+            StartCoroutine(playerCombatCam.CameraShake(new CameraCombatInfo(0.25f, 0.025f, Vector3.zero)));
+        }
+        else
+        {
+            playerHealth = 0;
+        }
     }
 
     public void DeductStamina(float cost)
     {
-        playerStamina -= cost;
+        if(playerStamina >= 0)
+        {
+            playerStamina -= cost;
+        }
+        else
+        {
+            playerStamina = 0;
+        }
     }
 
     private void IncreaseStamina()

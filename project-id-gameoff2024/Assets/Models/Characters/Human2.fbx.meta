@@ -255,21 +255,21 @@ ModelImporter:
       curves: []
       events:
       - time: 0
-        functionName: TriggerInitBasicAttackEvent
+        functionName: 
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.2479692
-        functionName: TriggerPerformBasicAttackEvent
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.24799226
+      - time: 0.1930627
         functionName: TriggerPunchEvent
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.19444807
+        functionName: TriggerPerformBasicPunchAttackEvent
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -341,7 +341,7 @@ ModelImporter:
       curves: []
       events:
       - time: 0
-        functionName: TriggerInitSuperAttackEvent
+        functionName: 
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -354,8 +354,8 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.7837888
-        functionName: TriggerPerformSuperAttackEvent
+      - time: 0.78238034
+        functionName: TriggerPerformSuperPunchAttackEvent
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

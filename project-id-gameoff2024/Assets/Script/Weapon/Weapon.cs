@@ -1,26 +1,14 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "WeaponType", menuName = "ScriptableObjects/Weapon")]
-public class Weapon : ScriptableObject
+public abstract class Weapon : MonoBehaviour
 {
-    public enum Weapons
-    {
-        PowerGlove,
-        Sword,
-        Dagger,
-        Axe
-    };
+    public WeaponSO weaponSO;
 
-    public Weapons WeaponType = Weapons.PowerGlove;
-
-    [Space]
-
-    public string WeaponName;
-
-    public float WeaponBasicDamage;
-
-    public float WeaponStaminaCost;
-    public float WeaponSuperAttackDamage;
-
-    public float WeaponStunDuration;
+    public PlayerCombat PlayerCombat { get; set; }
+    public abstract void HandleAttack(Enemy enemy, float damage);
+    public abstract void HandleBasicAttack();
+    public abstract void HandleSuperAttack();
+    public abstract void PerformBasicAttack();
+    public abstract void PerformSuperAttack();
+    public abstract void FinishAttack();
 }

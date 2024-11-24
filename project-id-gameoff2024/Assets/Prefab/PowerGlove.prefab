@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2382815297382208894}
   - component: {fileID: 5282597556789775730}
   - component: {fileID: 7618016721683959336}
-  - component: {fileID: 8763907853510639244}
+  - component: {fileID: 6221846322737049035}
   m_Layer: 10
   m_Name: PowerGlove
   m_TagString: Untagged
@@ -97,31 +97,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01152cb775e16c04a8158578ab2e2ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: c082f0618680b134f83db4a5a8f0228a, type: 2}
+  weapon: {fileID: 0}
   leftGlove: {fileID: 3960819432045107640}
   rightGlove: {fileID: 3087470696084334193}
---- !u!95 &8763907853510639244
-Animator:
-  serializedVersion: 7
+--- !u!114 &6221846322737049035
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762574780661295965}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1ef02b622c7135b409f9754248b6c9e8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db126f2d5c8e7449b7fa304a5634b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSO: {fileID: 11400000, guid: d545099ae6d306a4badeec1906bb6a42, type: 2}
 --- !u!1 &5556310194307058259
 GameObject:
   m_ObjectHideFlags: 0
