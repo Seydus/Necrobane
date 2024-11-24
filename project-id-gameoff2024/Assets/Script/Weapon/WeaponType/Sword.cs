@@ -2,45 +2,37 @@ using UnityEngine;
 
 public class Sword : Weapon
 {
-    public override void HandleFirstAttack()
+    public override void HandleBasicAttack()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Attacking with sword.");
-            //PlayerCombat.IsAttacking = true;
+            PlayerCombat.IsAttacking = true;
 
-            //PlayerCombat.PlayerController.maxSpeed /= 2f;
-            //PlayerCombat.PlayerAnimation.PeformBasicSwordAttackAnim();
+            PlayerCombat.PlayerController.maxSpeed /= 2f;
+            PlayerCombat.PlayerAnimation.PeformBasicSwordAttackAnim();
         }
     }
 
-    public override void HandleSecondaryAttack()
+    public override void HandleSuperAttack()
     {
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(1))
         {
             if (PlayerCombat.PlayerProfile.playerStamina >= weaponSO.WeaponStaminaCost)
             {
-                PlayerCombat.PlayerProfile.isDefending = true;
-                //PlayerCombat.IsAttacking = true;
+                PlayerCombat.IsAttacking = true;
 
-                //PlayerCombat.PlayerController.maxSpeed /= 2;
+                PlayerCombat.PlayerController.maxSpeed /= 2;
                 PlayerCombat.PlayerProfile.DeductStamina(weaponSO.WeaponStaminaCost);
-                // PlayerCombat.PlayerAnimation.PerformDefendSwordAttackAnim();
-                Debug.Log("Defending with Sword");
+                PlayerCombat.PlayerAnimation.PerformDefendSwordAnim();
             }
             else
             {
-                PlayerCombat.PlayerProfile.isDefending = false;
                 Debug.Log("You don't have enough mana.");
             }
         }
-        else
-        {
-            PlayerCombat.PlayerProfile.isDefending = false;
-        }
     }
 
-    public override void PerformFirstAttack()
+    public override void PerformBasicAttack()
     {
         if (PlayerCombat.WeaponCheckCastInfo())
         {
@@ -65,10 +57,29 @@ public class Sword : Weapon
         PlayerCombat.PlayerController.maxSpeed = PlayerCombat.oldMaxSpeed;
     }
 
-    public override void PerformSecondaryAttack()
+    public override void PerformSuperAttack()
     {
+        if (PlayerCombat.WeaponCheckCastInfo())
+        {
+            if (PlayerCombat.sphereCastHit.transform.TryGetComponent<Enemy>(out Enemy enemy))
+            {
+                PlayerCombat.StartCoroutine(PlayerCombat.PlayerCombatCamera.CameraShake(new CameraCombatInfo(0.20f, 0.020f, Vector3.zero)));
+                PlayerCombat.InitHitVFX(PlayerCombat.sphereCastHit.point);
 
-        Debug.Log("Secondary");
+                HandleAttack(enemy, weaponSO.WeaponSuperAttackDamage);
+
+                AkSoundEngine.PostEvent("Play_HitBones", PlayerCombat.gameObject);
+            }
+        }
+        else
+        {
+            if (PlayerCombat.WeaponCheckCastInfo())
+            {
+                PlayerCombat.InitHitVFX(PlayerCombat.sphereCastHit.point);
+            }
+        }
+
+        PlayerCombat.PlayerController.maxSpeed = PlayerCombat.oldMaxSpeed;
     }
 
     public override void HandleAttack(Enemy enemy, float damage)
@@ -81,11 +92,5 @@ public class Sword : Weapon
     public override void FinishAttack()
     {
         PlayerCombat.IsAttacking = false;
-    }
-
-    public override void SetAnimationLayer()
-    {
-        PlayerCombat.PlayerAnimation.anim.SetLayerWeight(1, 0f);
-        PlayerCombat.PlayerAnimation.anim.SetLayerWeight(2, 1f);
     }
 }
