@@ -4,8 +4,8 @@ using System.Collections;
 public class PlayerManager : MonoBehaviour
 {
     public PlayerProfile PlayerProfile { get; set; }
-    public PlayerController PlayerController { get; private set; }
-    public PlayerInteract PlayerInteract { get; private set; }
+    public PlayerController PlayerController { get; set; }
+    public PlayerInteract PlayerInteract { get; set; }
 
     public GameObject cameraHolder;
     public DroneController droneController;
@@ -40,12 +40,8 @@ public class PlayerManager : MonoBehaviour
             cameraHolder.SetActive(true);
         }
 
-        if(GameManager.Instance.GameState && !enableDrone)
-        {
-            PlayerProfile.Init();
-            PlayerController.Init();
-            PlayerInteract.Init();
-        }
+        PlayerController.Init();
+        PlayerInteract.Init();
     }
 
     private IEnumerator BackToDrone()

@@ -9,20 +9,23 @@ public class PlayerAnimation : MonoBehaviour
         return anim.GetCurrentAnimatorStateInfo(0).length;
     }
 
-    public void PeformBasicAttackAnim(bool isRightPunchNext)
+    public void PeformBasicPunchAttackAnim()
     {
-        if (isRightPunchNext)
-        {
-            anim.SetTrigger("RightPunch");
-        }
-        else
-        {
-            anim.SetTrigger("LeftPunch");
-        }
+        anim.SetTrigger("LeftPunch");
     }
 
-    public void PerformSuperAttackAnim()
+    public void PerformSuperPunchAttackAnim()
     {
         anim.SetTrigger("SuperPunch");
+    }
+
+    public void PeformBasicSwordAttackAnim()
+    {
+        anim.SetTrigger("LeftSword");
+    }
+
+    public void PerformDefendSwordAnim()
+    {
+        anim.SetTrigger("DefendSword");
     }
 }

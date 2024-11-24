@@ -9,9 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d9a70f7a88b17a4b84cdf2f13edd575, type: 3}
+  m_Script: {fileID: 11500000, guid: ff773f9a220bc034a9e836690154475b, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
   WeaponType: 1
   WeaponName: Sword of the Sword
-  WeaponDamage: 10
+  WeaponBasicDamage: 20
+  WeaponStaminaCost: 20
+  WeaponSuperAttackDamage: 50
+  WeaponStunDuration: 0
+  WeaponBlockDuration: 0
