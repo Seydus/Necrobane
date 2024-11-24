@@ -22,11 +22,11 @@ public class EnemyCombat : IEnemyCombat
         enemyCombat = this;
     }
 
-    public void HandleAttack(Transform player, NavMeshAgent navMeshAgent, float range)
+    public void HandleAttack(Transform player, NavMeshAgent agent, float range)
     {
         if (Vector3.Distance(player.position, Enemy.transform.position) <= range)
         {
-            navMeshAgent.ResetPath();
+            agent.ResetPath();
 
             Vector3 directionToTargetPosition = player.position - Enemy.transform.position;
             directionToTargetPosition.y = 0;
@@ -58,21 +58,22 @@ public class EnemyCombat : IEnemyCombat
 
                     Enemy.transform.localRotation = Quaternion.Slerp(Enemy.transform.localRotation, yAxisOnlyRotation, RotateSpeed * Time.deltaTime);
 
-                    navMeshAgent.SetDestination(player.position);
+                    agent.SetDestination(player.position);
 
-                    Vector3 velocity = navMeshAgent.desiredVelocity;
+                    Vector3 velocity = agent.desiredVelocity;
                     Enemy.transform.position += velocity.normalized * Enemy.roamingMoveSpeed * Time.deltaTime;
                 }
             }
             else
             {
-                if(navMeshAgent)
+                if(agent)
                 {
-                    navMeshAgent.ResetPath();
+                    agent.ResetPath();
                 }
             }
         }
     }
+
 
     public IEnumerator InitAttack(float delay) { yield return null; }
 

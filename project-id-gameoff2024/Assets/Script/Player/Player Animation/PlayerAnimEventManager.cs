@@ -31,4 +31,9 @@ public class PlayerAnimEventManager : MonoBehaviour
     {
         PlayerCombat.OnPerformSuperAttackTriggered?.Invoke();
     }
+
+    public void TriggerFinishAttackEvent()
+    {
+        PlayerCombat.OnFinishAttackTriggered?.Invoke();
+    }
 }
