@@ -22,4 +22,6 @@ public interface IEnemyRoaming
 
     public void Start();
     public void Update();
+    public void WalkSound();
+    public void FootSteps();
 }

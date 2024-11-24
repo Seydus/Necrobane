@@ -183,6 +183,11 @@ public class EnemyRoaming : IEnemyRoaming
 
             NavMeshAgent.SetDestination(roamTargetPosition);
 
+            if(Enemy is IEnemyRoaming enemyRoaming)
+            {
+                enemyRoaming.WalkSound();
+            }
+
             if (Vector3.Distance(roamTargetPosition, Enemy.transform.position) > 1.21f)
             {
                 Enemy.transform.localRotation = Quaternion.Slerp(
@@ -190,8 +195,6 @@ public class EnemyRoaming : IEnemyRoaming
                     yAxisOnlyRotation,
                     RoamingRotateSpeed * Time.deltaTime
                 );
-
-                Debug.Log(RoamingRotateSpeed);
 
                 Vector3 velocity = NavMeshAgent.desiredVelocity;
 
@@ -232,8 +235,6 @@ public class EnemyRoaming : IEnemyRoaming
             engageCooldown -= Time.deltaTime;
         }
 
-        // Debug.Log("Engage: " + engageCooldown);
-
         disengageCooldown = 0f;
     }
 
@@ -252,8 +253,10 @@ public class EnemyRoaming : IEnemyRoaming
             disengageCooldown -= Time.deltaTime;
         }
 
-        Debug.Log("Disengage: " + disengageCooldown);
-
         engageCooldown = 0f;
     }
+    public void WalkSound() { }
+
+    public void FootSteps() { }
+
 }

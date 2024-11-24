@@ -16,6 +16,7 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
     [SerializeField] private GameObject projectileObj;
     private bool enemyShoot;
     private bool enemyAttacking;
+    private RaycastHit cultistHit;
 
     [Header("Events")]
     public static UnityAction OnPerformAttackTriggered;
@@ -88,7 +89,7 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
         enemyRoaming.PlayerMask = playerMask;
         enemyRoaming.EngageCooldownDuration = engageCooldownDuration;
         enemyRoaming.DisengageCooldownDuration = disengageCooldownDuration;
-        enemyRoaming.NavMeshAgent = base._NavMeshAgent;
+        enemyRoaming.NavMeshAgent = base.navMeshAgent;
 
         enemyCombat.Enemy = this;
         enemyRoaming.Enemy = this;
@@ -156,5 +157,43 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
     {
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, enemyProfile.EnemyRange);
+    }
+
+    public void WalkSound()
+    {
+        if (!FootstepIsPlaying && !IsJumping)
+        {
+            FootSteps();
+            LastFootstepTime = Time.time;
+            FootstepIsPlaying = true;
+        }
+        else
+        {
+            if (enemyRoaming.NavMeshAgent.velocity.sqrMagnitude > 1)
+            {
+                if (Time.time - LastFootstepTime > 2.5 / enemyRoaming.NavMeshAgent.velocity.sqrMagnitude)
+                {
+                    FootstepIsPlaying = false;
+                }
+            }
+        }
+    }
+
+    public void FootSteps()
+    {
+        if (Physics.Raycast(transform.position, -Vector3.up, out cultistHit, Mathf.Infinity))
+        {
+            PhysMat_Last = PhysMat;
+            PhysMat = cultistHit.collider.tag;
+
+            if (PhysMat != PhysMat_Last)
+            {
+                AkSoundEngine.SetSwitch("Material", PhysMat, gameObject);
+
+                print(PhysMat);
+            }
+        }
+
+        AkSoundEngine.PostEvent("Play_Footsteps", gameObject);
     }
 }

@@ -2,6 +2,7 @@ using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using AK.Wwise;
 
 public class Enemy : MonoBehaviour
 {
@@ -52,11 +53,22 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected Slider healthSlider;
 
     [Header("Others")]
-    protected NavMeshAgent _NavMeshAgent;
+    protected NavMeshAgent navMeshAgent;
+
+    [Header("Wwise")]
+    // Wwise
+    protected bool FootstepIsPlaying = false;
+    protected bool LandingIsPlaying = false;
+    protected bool IsJumping = false;
+    protected float LastFootstepTime = 0;
+    protected int _speed;
+    protected RaycastHit hit;
+    protected string PhysMat;
+    protected string PhysMat_Last;
 
     public virtual void Awake()
     {
-        _NavMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     public virtual void Start()

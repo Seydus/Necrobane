@@ -86,7 +86,7 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
         enemyRoaming.PlayerMask = playerMask;
         enemyRoaming.EngageCooldownDuration = engageCooldownDuration;
         enemyRoaming.DisengageCooldownDuration = disengageCooldownDuration;
-        enemyRoaming.NavMeshAgent = base._NavMeshAgent;
+        enemyRoaming.NavMeshAgent = base.navMeshAgent;
 
         enemyCombat.Enemy = this;
         enemyRoaming.Enemy = this;
@@ -184,7 +184,47 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
         {
             Gizmos.DrawRay(sphereSkeletonRay.origin, sphereSkeletonRay.direction * maxDistance);
         }
+    }
 
-        //Gizmos.DrawWireSphere(groundPos.position, enemyProfile.EnemyRange);
+    public void WalkSound()
+    {
+        if (!FootstepIsPlaying && !IsJumping)
+        {
+            if (Enemy is IEnemyRoaming enemyRoaming)
+            {
+                enemyRoaming.FootSteps();
+            }
+            LastFootstepTime = Time.time;
+            FootstepIsPlaying = true;
+        }
+        else
+        {
+            if (enemyRoaming.NavMeshAgent.velocity.sqrMagnitude > 1)
+            {
+                if (Time.time - LastFootstepTime > 2.5 / enemyRoaming.NavMeshAgent.velocity.sqrMagnitude)
+                {
+                    FootstepIsPlaying = false;
+                }
+            }
+        }
+    }
+
+    public void FootSteps()
+    {
+        if (Physics.Raycast(transform.position, -Vector3.up, out skeletonHit, Mathf.Infinity))
+        {
+            PhysMat_Last = PhysMat;
+
+            PhysMat = skeletonHit.collider.tag;
+
+            if (PhysMat != PhysMat_Last)
+            {
+                AkSoundEngine.SetSwitch("Material", PhysMat, gameObject);
+
+                print(PhysMat);
+            }
+        }
+
+        AkSoundEngine.PostEvent("Play_Footsteps", gameObject);
     }
 }
