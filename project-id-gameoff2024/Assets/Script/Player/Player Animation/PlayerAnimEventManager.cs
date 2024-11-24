@@ -12,26 +12,29 @@ public class PlayerAnimEventManager : MonoBehaviour
         PlayerSounds.OnJumpTriggered?.Invoke();
     }
 
-    public void TriggerInitBasicAttackEvent()
+    public void TriggerPerformBasicPunchAttackEvent()
     {
-        PlayerCombat.OnInitBasicAttackTriggered?.Invoke();
+        PlayerCombat.OnPerformBasicPunchAttackTriggered?.Invoke();
     }
 
-    public void TriggerInitSuperAttackEvent()
+    public void TriggerPerformSuperPunchAttackEvent()
     {
-        PlayerCombat.OnInitSuperAttackTriggered?.Invoke();
+        PlayerCombat.OnPerformSuperPunchAttackTriggered?.Invoke();
     }
 
-    public void TriggerPerformBasicAttackEvent()
+    // Input the name of the method on the event animation of the model
+    public void TriggerPerformBasicSwordAttackEvent()
     {
-        PlayerCombat.OnPerformBasicAttackTriggered?.Invoke();
+        PlayerCombat.OnPerformBasicSwordAttackTriggered?.Invoke();
     }
 
-    public void TriggerPerformSuperAttackEvent()
+    // Input the name of the method on the event animation of the model
+    public void TriggerPerformDefendSwordhAttackEvent()
     {
-        PlayerCombat.OnPerformSuperAttackTriggered?.Invoke();
+        PlayerCombat.OnPerformDefendSwordTriggered?.Invoke();
     }
 
+    // Input the name of the method on the event animation at the end
     public void TriggerFinishAttackEvent()
     {
         PlayerCombat.OnFinishAttackTriggered?.Invoke();

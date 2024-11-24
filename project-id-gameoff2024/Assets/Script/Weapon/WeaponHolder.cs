@@ -2,24 +2,23 @@ using UnityEngine;
 
 public class WeaponHolder : MonoBehaviour
 {
-    public Weapon weapon;
+    [HideInInspector] public Weapon weapon;
     private BoxCollider boxCollider;
     private Rigidbody myBody;
     private Animator anim;
-    [SerializeField] private MeshRenderer leftGlove;
-    [SerializeField] private MeshRenderer rightGlove;
+    [SerializeField] private GameObject weaponbObj;
     
     private void Awake()
     {
         boxCollider = GetComponent<BoxCollider>();
         myBody = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+        weapon = GetComponent<Weapon>();
     }
 
     public void SetMeshState(bool state)
     {
-        leftGlove.enabled = state;
-        rightGlove.enabled = state;
+        weaponbObj.SetActive(state);
     }
 
     public void SetBoxCollider(bool state)

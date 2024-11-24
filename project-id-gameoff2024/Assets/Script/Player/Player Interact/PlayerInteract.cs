@@ -24,7 +24,6 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private Camera cam;
 
     private PlayerCombat playerCombat;
-    private WeaponHolder weaponHolder;
     private ItemHolder itemHolder;
 
     [Header("Debugging")]
@@ -38,8 +37,26 @@ public class PlayerInteract : MonoBehaviour
     public void Init()
     {
         HandleInteract();
+        TargetUICast();
+    }
 
-        playerCombat.HandleAttack(weaponHolder);
+    public void TargetUICast()
+    {
+        if (isEquipped)
+            return;
+
+        if (Physics.SphereCast(sphereCastInfo.sphereRay, sphereCastInfo.sphereRadius, out sphereCastInfo.hitInfo, interactDistance, interactLayer))
+        {
+            GameManager.Instance.uIManager.playerCrosshairLine.SetActive(true);
+            GameManager.Instance.uIManager.playerCrosshair.SetActive(false);
+            isHit = true;
+        }
+        else
+        {
+            GameManager.Instance.uIManager.playerCrosshairLine.SetActive(false);
+            GameManager.Instance.uIManager.playerCrosshair.SetActive(true);
+            isHit = false;
+        }
     }
 
     public Ray HandleCameraDirection()
@@ -74,33 +91,26 @@ public class PlayerInteract : MonoBehaviour
 
             EqupWeapon();
             EquipItem();
-
-            GameManager.Instance.uIManager.playerCrosshairLine.SetActive(!isEquipped ? true : false);
-            GameManager.Instance.uIManager.playerCrosshair.SetActive(!isEquipped ? false : true);
-
             Debug.Log("Interacting a weapon...");
         }
         else
         {
             isHit = false;
-
-            GameManager.Instance.uIManager.playerCrosshairLine.SetActive(false);
-            GameManager.Instance.uIManager.playerCrosshair.SetActive(true);
         }
     }
 
     private void EqupWeapon()
     {
-        if ((Input.GetKeyDown(KeyCode.E)) && sphereCastInfo.hitInfo.transform.TryGetComponent<WeaponHolder>(out WeaponHolder _weaponHolder))
+        if ((Input.GetKeyDown(KeyCode.E)) && sphereCastInfo.hitInfo.transform.TryGetComponent<WeaponHolder>(out WeaponHolder weaponHolder))
         {
             isEquipped = true;
 
-            weaponHolder = _weaponHolder;
+            playerCombat.WeaponHolder = weaponHolder;
             weaponHolder.SetMeshState(false);
             weaponHolder.SetBoxCollider(false);
             weaponHolder.SetRigidbodyKinematic(true);
-            weaponHolder.transform.SetParent(playerCombat.PowerGlovesPos);
-            weaponHolder.SetPosition(playerCombat.PowerGlovesPos.position);
+            weaponHolder.transform.SetParent(playerCombat.powerGlovesPos);
+            weaponHolder.SetPosition(playerCombat.powerGlovesPos.position);
             weaponHolder.SetRotation(Vector3.zero);
 
             AkSoundEngine.PostEvent("Play_Equip_Fist", gameObject);
@@ -115,7 +125,7 @@ public class PlayerInteract : MonoBehaviour
             itemHolder = _itemHolder;
             itemHolder.SetBoxCollider(false);
             itemHolder.SetRigidbodyKinematic(true);
-            itemHolder.transform.SetParent(playerCombat.PowerGlovesPos);
+            itemHolder.transform.SetParent(playerCombat.powerGlovesPos);
             itemHolder.SetRotation(Vector3.zero);
 
             AkSoundEngine.PostEvent("Play_Equip_Fist", gameObject);
@@ -125,19 +135,20 @@ public class PlayerInteract : MonoBehaviour
 
     private void DropWeapon()
     {
-        if (weaponHolder)
+        if (playerCombat.WeaponHolder)
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 Debug.Log("Succesfully dropped a weapon");
-                weaponHolder.SetBoxCollider(true);
-                weaponHolder.SetRigidbodyKinematic(false);
-                weaponHolder.SetMeshState(true);
+                playerCombat.WeaponHolder.SetBoxCollider(true);
+                playerCombat.WeaponHolder.SetRigidbodyKinematic(false);
+                playerCombat.WeaponHolder.SetMeshState(true);
+                playerCombat.PlayerController.maxSpeed = playerCombat.oldMaxSpeed;
 
                 AkSoundEngine.PostEvent("Play_Drop_Item", gameObject);
 
-                weaponHolder.transform.SetParent(null);
-                weaponHolder = null;
+                playerCombat.WeaponHolder.transform.SetParent(null);
+                playerCombat.WeaponHolder = null;
                 isEquipped = false;
             }
         }

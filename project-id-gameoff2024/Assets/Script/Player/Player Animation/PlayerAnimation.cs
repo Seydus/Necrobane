@@ -2,27 +2,30 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    [SerializeField] private Animator anim;
+    public Animator anim;
 
     public float GetCurrentAnimationLength()
     {
         return anim.GetCurrentAnimatorStateInfo(0).length;
     }
 
-    public void PeformBasicAttackAnim(bool isRightPunchNext)
+    public void PeformBasicPunchAttackAnim()
     {
-        if (isRightPunchNext)
-        {
-            anim.SetTrigger("RightPunch");
-        }
-        else
-        {
-            anim.SetTrigger("LeftPunch");
-        }
+        anim.SetTrigger("LeftPunch");
     }
 
-    public void PerformSuperAttackAnim()
+    public void PerformSuperPunchAttackAnim()
     {
         anim.SetTrigger("SuperPunch");
+    }
+
+    public void PeformBasicSwordAttackAnim()
+    {
+        anim.SetTrigger("LeftSword");
+    }
+
+    public void PerformDefendSwordAttackAnim()
+    {
+        anim.SetTrigger("BlockSword");
     }
 }
