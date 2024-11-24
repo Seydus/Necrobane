@@ -506,7 +506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyProfile: {fileID: 11400000, guid: 48062900b67a27943ba581b293b41471, type: 2}
-  enableRoaming: 0
+  enableRoaming: 1
   roamingMoveSpeed: 2
   minRoamWaitTime: 2
   maxRoamWaitTime: 3
@@ -517,19 +517,19 @@ MonoBehaviour:
   groundPos: {fileID: 163972416812805675}
   navMeshSurface: {fileID: 0}
   roamingRotateSpeed: 5
-  detectRadius: 6
+  detectRadius: 12
   playerMask:
     serializedVersion: 2
     m_Bits: 512
   engageCooldownDuration: 0.2
-  disengageCooldownDuration: 5
-  sphereRadius: 0.4
+  disengageCooldownDuration: 8
+  sphereRadius: 0.3
   maxDistance: 2
   combatLayer:
     serializedVersion: 2
     m_Bits: 512
-  rotateSpeed: 2
-  attackDelay: 1.2
+  rotateSpeed: 4
+  attackDelay: 1
   HitPlayer:
     idInternal: 0
     valueGuidInternal: 

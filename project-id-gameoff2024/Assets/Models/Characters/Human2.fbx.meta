@@ -261,14 +261,14 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.27499622
+      - time: 0.2479692
         functionName: TriggerPerformBasicAttackEvent
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.27670848
+      - time: 0.24799226
         functionName: TriggerPunchEvent
         data: 
         objectReferenceParameter: {instanceID: 0}

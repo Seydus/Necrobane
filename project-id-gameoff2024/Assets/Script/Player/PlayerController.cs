@@ -151,11 +151,11 @@ public class PlayerController : MonoBehaviour
         {
             decelerationSpeed = airDrag;
 
-            if (Physics.SphereCast(transform.position, ceilingSphereRadius, Vector3.up, out ceilingHit, ceilingHeight))
-            {
-                hitCeiling = true;
-                Debug.Log("Hit ceilling");
-            }
+            //if (Physics.SphereCast(transform.position, ceilingSphereRadius, Vector3.up, out ceilingHit, ceilingHeight))
+            //{
+            //    hitCeiling = true;
+            //    Debug.Log("Hit ceilling");
+            //}
 
             velocity.y += gravity * (Time.deltaTime * (hitCeiling ? ceilingPullPower : 1));
         }
@@ -211,6 +211,7 @@ public class PlayerController : MonoBehaviour
             PhysMat_Last = PhysMat;
 
             PhysMat = hit.collider.tag;
+            Debug.Log(hit.collider.tag);
 
             if (PhysMat != PhysMat_Last)
             {
