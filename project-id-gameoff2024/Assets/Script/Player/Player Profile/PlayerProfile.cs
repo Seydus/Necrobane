@@ -5,6 +5,7 @@ public class PlayerProfile : MonoBehaviour
 
     public PlayerProfileSO profile;
     private PlayerCombatCamera playerCombatCam;
+    public bool isDefending { get; set; }
     public float playerHealth { get; set; }
     public float playerStamina { get; set; }
 
@@ -33,6 +34,9 @@ public class PlayerProfile : MonoBehaviour
 
     public void DeductHealth(float damage)
     {
+        if (isDefending)
+            return;
+
         if (playerHealth >= 0)
         {
             playerHealth -= damage;

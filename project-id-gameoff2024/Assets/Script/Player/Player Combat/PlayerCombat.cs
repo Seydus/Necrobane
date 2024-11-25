@@ -121,29 +121,73 @@ public class PlayerCombat : MonoBehaviour
     private void InitAttack()
     {
         if (IsAttacking || WeaponHolder == null)
-            return;
-
-        if(WeaponHolder.weapon.PlayerCombat == null)
         {
-            WeaponHolder.weapon.PlayerCombat = this;
+            Invoke("CanAttack", 2);
         }
 
-        WeaponHolder.weapon.HandleBasicAttack();
-        WeaponHolder.weapon.HandleSuperAttack();
+        if(WeaponHolder != null)
+        {
+            if (WeaponHolder.weapon.PlayerCombat == null)
+            {
+                WeaponHolder.weapon.PlayerCombat = this;
+            }
+        }
+
+        WeaponHolder.weapon.SetAnimationLayer();
+
+        //Weapon currentWeapon = null;
+
+        //switch(WeaponHolder.weapon.weaponSO.WeaponType)
+        //{
+        //    case WeaponSO.Weapons.PowerGlove:
+        //        currentWeapon = (Gloves)WeaponHolder.weapon;
+        //        break;
+        //    case WeaponSO.Weapons.Sword:
+        //        currentWeapon = (Sword)WeaponHolder.weapon;
+        //        break;
+        //    default:
+        //        break;
+        //}
+
+
+        //if (currentWeapon == null)
+        //{
+        //    Debug.LogError("Current weapon can't be found");
+        //    return;
+        //}
+
+        WeaponHolder.weapon.HandleFirstAttack();
+        WeaponHolder.weapon.HandleSecondaryAttack();
     }
 
     private void PerformBasicAttack()
     {
-        WeaponHolder.weapon.PerformBasicAttack();
+        if(WeaponHolder == null)
+        {
+            return;
+        }
+
+        WeaponHolder.weapon.PerformFirstAttack();
     }
 
     private void PerformSuperAttack()
     {
-        WeaponHolder.weapon.PerformSuperAttack();
+        if (WeaponHolder == null)
+        {
+            return;
+        }
+
+        WeaponHolder.weapon.PerformSecondaryAttack();
     }
 
     private void FinishAttack()
     {
+        if (WeaponHolder == null)
+        {
+            IsAttacking = false;
+            return;
+        }
+
         WeaponHolder.weapon.FinishAttack();
     }
 
@@ -198,5 +242,10 @@ public class PlayerCombat : MonoBehaviour
         {
             Gizmos.DrawRay(sphereRay.origin, sphereRay.direction.normalized * combatDistance);
         }
+    }
+
+    void CanAttack()
+    {
+        IsAttacking = false;
     }
 }

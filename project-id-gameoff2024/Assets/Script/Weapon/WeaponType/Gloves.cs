@@ -2,18 +2,19 @@ using UnityEngine;
 
 public class Gloves : Weapon
 {
-    public override void HandleBasicAttack()
+
+    public override void HandleFirstAttack()
     {
         if (Input.GetMouseButtonDown(0))
         {
             PlayerCombat.IsAttacking = true;
 
-            PlayerCombat.PlayerController.maxSpeed /= 2f;
+            //PlayerCombat.PlayerController.maxSpeed /= 2f;
             PlayerCombat.PlayerAnimation.PeformBasicPunchAttackAnim();
         }
     }
 
-    public override void HandleSuperAttack()
+    public override void HandleSecondaryAttack()
     {
         if (Input.GetMouseButtonDown(1))
         {
@@ -21,7 +22,7 @@ public class Gloves : Weapon
             {
                 PlayerCombat.IsAttacking = true;
 
-                PlayerCombat.PlayerController.maxSpeed /= 2;
+                //PlayerCombat.PlayerController.maxSpeed /= 2;
                 PlayerCombat.PlayerProfile.DeductStamina(weaponSO.WeaponStaminaCost);
                 PlayerCombat.PlayerAnimation.PerformSuperPunchAttackAnim();
             }
@@ -32,7 +33,7 @@ public class Gloves : Weapon
         }
     }
 
-    public override void PerformBasicAttack()
+    public override void PerformFirstAttack()
     {
         if (PlayerCombat.WeaponCheckCastInfo())
         {
@@ -57,7 +58,7 @@ public class Gloves : Weapon
         PlayerCombat.PlayerController.maxSpeed = PlayerCombat.oldMaxSpeed;
     }
 
-    public override void PerformSuperAttack()
+    public override void PerformSecondaryAttack()
     {
         if (PlayerCombat.WeaponCheckCastInfo())
         {
@@ -92,5 +93,11 @@ public class Gloves : Weapon
     public override void FinishAttack()
     {
         PlayerCombat.IsAttacking = false;
+    }
+
+    public override void SetAnimationLayer()
+    {
+        PlayerCombat.PlayerAnimation.anim.SetLayerWeight(1, 1f);
+        PlayerCombat.PlayerAnimation.anim.SetLayerWeight(2, 0f);
     }
 }

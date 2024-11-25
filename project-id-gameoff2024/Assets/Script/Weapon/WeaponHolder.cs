@@ -6,8 +6,7 @@ public class WeaponHolder : MonoBehaviour
     private BoxCollider boxCollider;
     private Rigidbody myBody;
     private Animator anim;
-    [SerializeField] private MeshRenderer leftGlove;
-    [SerializeField] private MeshRenderer rightGlove;
+    public GameObject weaponbObj;
     
     private void Awake()
     {
@@ -19,8 +18,7 @@ public class WeaponHolder : MonoBehaviour
 
     public void SetMeshState(bool state)
     {
-        leftGlove.enabled = state;
-        rightGlove.enabled = state;
+        weaponbObj.SetActive(state);
     }
 
     public void SetBoxCollider(bool state)
