@@ -22,13 +22,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Display
-    second: {fileID: 2100000, guid: f9a5ce4748e5abd4288cab387226ef27, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: Fabric
-    second: {fileID: 2100000, guid: 380f22cdd723c6340b227305fe46db67, type: 2}
+    second: {fileID: 2100000, guid: b1e207a34676791428b6624b52852cf9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -391,7 +386,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

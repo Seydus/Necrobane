@@ -15,7 +15,7 @@ MonoBehaviour:
   WeaponType: 1
   WeaponName: Sword of the Sword
   WeaponBasicDamage: 20
-  WeaponStaminaCost: 20
-  WeaponSuperAttackDamage: 50
+  WeaponStaminaCost: 0.3
+  WeaponSuperAttackDamage: 0
   WeaponStunDuration: 0
   WeaponBlockDuration: 0
