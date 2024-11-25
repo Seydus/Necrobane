@@ -122,42 +122,15 @@ public class PlayerCombat : MonoBehaviour
     {
         if (IsAttacking || WeaponHolder == null)
         {
-            Invoke("CanAttack", 2);
+            Debug.Log(IsAttacking);
+            return;
         }
 
-        if(WeaponHolder != null)
-        {
-            if (WeaponHolder.weapon.PlayerCombat == null)
-            {
-                WeaponHolder.weapon.PlayerCombat = this;
-            }
-        }
-
-        WeaponHolder.weapon.SetAnimationLayer();
-
-        //Weapon currentWeapon = null;
-
-        //switch(WeaponHolder.weapon.weaponSO.WeaponType)
-        //{
-        //    case WeaponSO.Weapons.PowerGlove:
-        //        currentWeapon = (Gloves)WeaponHolder.weapon;
-        //        break;
-        //    case WeaponSO.Weapons.Sword:
-        //        currentWeapon = (Sword)WeaponHolder.weapon;
-        //        break;
-        //    default:
-        //        break;
-        //}
-
-
-        //if (currentWeapon == null)
-        //{
-        //    Debug.LogError("Current weapon can't be found");
-        //    return;
-        //}
+        WeaponHolder.weapon.PlayerCombat = this;
 
         WeaponHolder.weapon.HandleFirstAttack();
         WeaponHolder.weapon.HandleSecondaryAttack();
+        WeaponHolder.weapon.SetAnimationLayer();
     }
 
     private void PerformBasicAttack()
