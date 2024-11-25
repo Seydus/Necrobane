@@ -187,26 +187,24 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
 
     public void WalkSound()
     {
-        if (!FootstepIsPlaying && !IsJumping)
+        if (!FootstepIsPlaying)
         {
-            if (Enemy is IEnemyRoaming enemyRoaming)
-            {
-                enemyRoaming.FootSteps();
-            }
+            FootSteps();
             LastFootstepTime = Time.time;
             FootstepIsPlaying = true;
         }
         else
         {
-            if (enemyRoaming.NavMeshAgent.velocity.sqrMagnitude > 1)
+            if (enemyRoaming.NavMeshAgent.desiredVelocity.sqrMagnitude >= 1f)
             {
-                if (Time.time - LastFootstepTime > 2.5 / enemyRoaming.NavMeshAgent.velocity.sqrMagnitude)
+                if (Time.time - LastFootstepTime > 0.7f / enemyRoaming.NavMeshAgent.desiredVelocity.sqrMagnitude)
                 {
                     FootstepIsPlaying = false;
                 }
             }
         }
     }
+
 
     public void FootSteps()
     {
