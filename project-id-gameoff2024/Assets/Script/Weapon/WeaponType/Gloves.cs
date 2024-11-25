@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Gloves : Weapon
 {
-    public override void HandleFirstAttack()
+    public override void HandleBasicAttack()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -13,7 +13,7 @@ public class Gloves : Weapon
         }
     }
 
-    public override void HandleSecondaryAttack()
+    public override void HandleSuperAttack()
     {
         if (Input.GetMouseButtonDown(1))
         {
@@ -32,7 +32,7 @@ public class Gloves : Weapon
         }
     }
 
-    public override void PerformFirstAttack()
+    public override void PerformBasicAttack()
     {
         if (PlayerCombat.WeaponCheckCastInfo())
         {
@@ -57,7 +57,7 @@ public class Gloves : Weapon
         PlayerCombat.PlayerController.maxSpeed = PlayerCombat.oldMaxSpeed;
     }
 
-    public override void PerformSecondaryAttack()
+    public override void PerformSuperAttack()
     {
         if (PlayerCombat.WeaponCheckCastInfo())
         {
@@ -92,11 +92,5 @@ public class Gloves : Weapon
     public override void FinishAttack()
     {
         PlayerCombat.IsAttacking = false;
-    }
-
-    public override void SetAnimationLayer()
-    {
-        PlayerCombat.PlayerAnimation.anim.SetLayerWeight(1, 1f);
-        PlayerCombat.PlayerAnimation.anim.SetLayerWeight(2, 0f);
     }
 }

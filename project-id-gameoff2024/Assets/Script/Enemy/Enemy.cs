@@ -59,7 +59,6 @@ public class Enemy : MonoBehaviour
     // Wwise
     protected bool FootstepIsPlaying = false;
     protected bool LandingIsPlaying = false;
-    protected bool IsJumping = false;
     protected float LastFootstepTime = 0;
     protected int _speed;
     protected RaycastHit hit;
@@ -69,6 +68,7 @@ public class Enemy : MonoBehaviour
     public virtual void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        EnemyManager.Instance.enemyList.Add(this);
     }
 
     public virtual void Start()
