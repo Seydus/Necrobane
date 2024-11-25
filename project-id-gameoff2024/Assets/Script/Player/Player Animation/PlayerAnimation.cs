@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    public Animator anim;
+    [SerializeField] private Animator anim;
 
     public float GetCurrentAnimationLength()
     {
@@ -26,11 +26,6 @@ public class PlayerAnimation : MonoBehaviour
 
     public void PerformDefendSwordAnim()
     {
-        anim.SetBool("DefendSword", true);
-    }
-
-    public void UnPerformDefendSwordAnim()
-    {
-        anim.SetBool("DefendSword", false);
+        anim.SetTrigger("DefendSword");
     }
 }
