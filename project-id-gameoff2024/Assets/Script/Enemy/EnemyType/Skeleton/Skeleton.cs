@@ -197,13 +197,14 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
         {
             if (enemyRoaming.NavMeshAgent.desiredVelocity.sqrMagnitude >= 1f)
             {
-                if (Time.time - LastFootstepTime > 2.5f / enemyRoaming.NavMeshAgent.desiredVelocity.sqrMagnitude)
+                if (Time.time - LastFootstepTime > 0.7f / enemyRoaming.NavMeshAgent.desiredVelocity.sqrMagnitude)
                 {
                     FootstepIsPlaying = false;
                 }
             }
         }
     }
+
 
     public void FootSteps()
     {
