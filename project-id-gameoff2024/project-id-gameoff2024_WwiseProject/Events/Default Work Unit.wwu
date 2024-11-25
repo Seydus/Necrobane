@@ -55,6 +55,28 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="Play_Parry" ID="{1E0E9973-0609-4A91-AD72-5900814EBCA4}">
+									<ChildrenList>
+										<Action Name="" ID="{C7051C59-9824-42D5-A7AF-EB5EFCB05DEC}" ShortID="432073101">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Parry" ID="{AD5E76FC-1435-4C3A-B67E-67C76CE9215D}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_PerfectParryStinger" ID="{51A63230-738E-4048-91A9-F1BC9BB8D704}">
+									<ChildrenList>
+										<Action Name="" ID="{A419D03E-5760-4FDA-A40B-2885AD207969}" ShortID="199432995">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="PerfectParryStinger" ID="{6921A781-BA06-49AD-9F25-7B6CB4A7C3F7}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="Firebolt" ID="{D2576D54-1DB3-435E-B6C1-C8D47B498B06}" ShortID="589746575">
@@ -235,6 +257,31 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Event Name="Play_Ambi" ID="{AEEF498C-FB63-4FFC-A52B-7250CC9FDEBA}">
+							<ChildrenList>
+								<Action Name="" ID="{845C4F66-CCD0-406A-BC9B-66C2B8516425}" ShortID="356537045">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambi" ID="{2732CFE5-1393-477C-85D2-E85C51C4EDBA}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Stop_Ambi" ID="{4E613052-4645-490F-B107-97D12197A325}">
+							<ChildrenList>
+								<Action Name="" ID="{FB4461EC-CE0A-40F9-B8ED-3BB8A1E62714}" ShortID="947757682">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambi" ID="{2732CFE5-1393-477C-85D2-E85C51C4EDBA}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Event Name="Stop_Music" ID="{89CC9419-CB30-488A-8D7D-1A7852F48365}">

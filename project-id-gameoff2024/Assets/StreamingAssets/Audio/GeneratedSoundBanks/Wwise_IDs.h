@@ -13,6 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID PLAY_AMBI = 2616876087U;
         static const AkUniqueID PLAY_CHOPS = 3488755065U;
         static const AkUniqueID PLAY_DROP_ITEM = 1363530945U;
         static const AkUniqueID PLAY_EQUIP_BLADE = 1527095013U;
@@ -27,11 +28,30 @@ namespace AK
         static const AkUniqueID PLAY_LEVER = 3196500978U;
         static const AkUniqueID PLAY_MUSIC = 2932040671U;
         static const AkUniqueID PLAY_OPEN_GATE = 1127904212U;
+        static const AkUniqueID PLAY_PARRY = 4115969904U;
+        static const AkUniqueID PLAY_PERFECTPARRYSTINGER = 2908761997U;
         static const AkUniqueID PLAY_SWINGS2H = 1187857689U;
         static const AkUniqueID PLAY_UNLOCK_GATE = 356987792U;
+        static const AkUniqueID STOP_AMBI = 1937570009U;
         static const AkUniqueID STOP_FIREBOLT = 2555710829U;
         static const AkUniqueID STOP_MUSIC = 2837384057U;
     } // namespace EVENTS
+
+    namespace STATES
+    {
+        namespace PLAYER
+        {
+            static const AkUniqueID GROUP = 1069431850U;
+
+            namespace STATE
+            {
+                static const AkUniqueID ALIVE = 655265632U;
+                static const AkUniqueID DEAD = 2044049779U;
+                static const AkUniqueID NONE = 748895195U;
+            } // namespace STATE
+        } // namespace PLAYER
+
+    } // namespace STATES
 
     namespace SWITCHES
     {
@@ -52,6 +72,8 @@ namespace AK
 
             namespace SWITCH
             {
+                static const AkUniqueID BOSSFIGHT = 580146960U;
+                static const AkUniqueID COMBAT = 2764240573U;
                 static const AkUniqueID EXPLORATION = 2582085496U;
             } // namespace SWITCH
         } // namespace MUSIC
@@ -66,12 +88,15 @@ namespace AK
 
     namespace BUSSES
     {
+        static const AkUniqueID AMBIANCE = 2981377429U;
         static const AkUniqueID COMBAT = 2764240573U;
         static const AkUniqueID ENVIRONMENT = 1229948536U;
+        static const AkUniqueID FIREBOLT = 3236324180U;
         static const AkUniqueID FOOTSTEPS = 2385628198U;
         static const AkUniqueID HIT_SFX = 3714854501U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
         static const AkUniqueID MUSIC = 3991942870U;
+        static const AkUniqueID PARRY = 3076648345U;
         static const AkUniqueID PLAYER = 1069431850U;
     } // namespace BUSSES
 

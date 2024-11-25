@@ -38,8 +38,28 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 941462bbcdf49043a0f64a9675eb7ab8
     GuidInternal: 
-    m_lastTime: -8584691245064190920
+    m_lastTime: -8584691186813626184
     List:
+    - name: Ambiance
+      guid: 7b40bdf8a69dd649b7c7352a2b57fc58
+      id: 2981377429
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 941462bbcdf49043a0f64a9675eb7ab8
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: Environment
+        ObjectType: 2
+        guid: 7f63632f42a02841a9d186bfe5fa7bf1
+      - ElementName: Ambiance
+        ObjectType: 2
+        guid: 7b40bdf8a69dd649b7c7352a2b57fc58
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Environment\Ambiance
     - name: Combat
       guid: 881744ad62cff440b60ced41959ff75d
       id: 2764240573
@@ -74,6 +94,26 @@ MonoBehaviour:
         ObjectType: 2
         guid: 7f63632f42a02841a9d186bfe5fa7bf1
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Environment
+    - name: Firebolt
+      guid: bd0011ddf2735e4bb0fcd9b75dee9164
+      id: 3236324180
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 941462bbcdf49043a0f64a9675eb7ab8
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: Combat
+        ObjectType: 2
+        guid: 881744ad62cff440b60ced41959ff75d
+      - ElementName: Firebolt
+        ObjectType: 2
+        guid: bd0011ddf2735e4bb0fcd9b75dee9164
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Combat\Firebolt
     - name: Footsteps
       guid: f6e7da67eef82647acdcdbb052dba749
       id: 2385628198
@@ -146,6 +186,26 @@ MonoBehaviour:
         ObjectType: 2
         guid: f243002ebabbae408f37af2ca2e32fa8
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Music
+    - name: Parry
+      guid: 7258aafbdf86374f93a123645ac4163c
+      id: 3076648345
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 941462bbcdf49043a0f64a9675eb7ab8
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: Combat
+        ObjectType: 2
+        guid: 881744ad62cff440b60ced41959ff75d
+      - ElementName: Parry
+        ObjectType: 2
+        guid: 7258aafbdf86374f93a123645ac4163c
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Combat\Parry
     - name: Player
       guid: 3dda4c15e751bc428cd5fbcf9a701868
       id: 1069431850
@@ -175,7 +235,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 3808cfcbeba5d043a9389dbcef0f39f7
     GuidInternal: 
-    m_lastTime: -8584691245060631321
+    m_lastTime: -8584691186806362589
     List:
     - name: Main
       guid: 71be9a838e8f7a4e9bbaa45884ab4f12
@@ -203,7 +263,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: fafe2c5e31679a46a1450b34d8466393
     GuidInternal: 
-    m_lastTime: -8584691245064823424
+    m_lastTime: -8584691186815403580
     List:
     - name: Blades
       guid: 5057d7e9557c8a4d848d8a0c0ae142fc
@@ -385,6 +445,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Play_Ambi
+      guid: 8c49efae63fbfc4fa52b7250cc9fdeba
+      id: 2616876087
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Environment
+        ObjectType: 4
+        guid: d7e8d99b1f511d4a9088b85c0dbd3903
+      - ElementName: Play_Ambi
+        ObjectType: 3
+        guid: 8c49efae63fbfc4fa52b7250cc9fdeba
+      Path: Events\Default Work Unit\Environment\Play_Ambi
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_Chops
       guid: 1605ba03d735f544a9dd7fc55dd00984
       id: 3488755065
@@ -504,8 +584,8 @@ MonoBehaviour:
         guid: a9f45b701c74784ab613640aeacd30d4
       Path: Events\Default Work Unit\Combat\Firebolt\Play_Firebolt
       maxAttenuation: 20
-      maxDuration: 8
-      minDuration: 8
+      maxDuration: 10.102684
+      minDuration: 6.33495
     - name: Play_Firebolt_Explosion
       guid: b69073fc0dd89e448eef4fe01d1e0dfb
       id: 38142515
@@ -570,8 +650,8 @@ MonoBehaviour:
         guid: a9ce29e796074f418e1d3a3bfdeee3dd
       Path: Events\Default Work Unit\Player\Play_Footsteps
       maxAttenuation: 0
-      maxDuration: 0.49257997
-      minDuration: 0.27535725
+      maxDuration: 0.451437
+      minDuration: 0.26353073
     - name: Play_HitBones
       guid: 85141b7946584542a32cb5d678128e10
       id: 372480478
@@ -704,6 +784,52 @@ MonoBehaviour:
       maxAttenuation: 40
       maxDuration: 1.6646712
       minDuration: 1.6646712
+    - name: Play_Parry
+      guid: 73990e1e0906914aad725900814ebca4
+      id: 4115969904
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Combat
+        ObjectType: 4
+        guid: ae1540da24697444ba795ec5f656fbee
+      - ElementName: Blades
+        ObjectType: 4
+        guid: 5057d7e9557c8a4d848d8a0c0ae142fc
+      - ElementName: Play_Parry
+        ObjectType: 3
+        guid: 73990e1e0906914aad725900814ebca4
+      Path: Events\Default Work Unit\Combat\Blades\Play_Parry
+      maxAttenuation: 0
+      maxDuration: 0.5700525
+      minDuration: 0.30774802
+    - name: Play_PerfectParryStinger
+      guid: 3032a6518e73484091a9f1bc9bb8d704
+      id: 2908761997
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Combat
+        ObjectType: 4
+        guid: ae1540da24697444ba795ec5f656fbee
+      - ElementName: Blades
+        ObjectType: 4
+        guid: 5057d7e9557c8a4d848d8a0c0ae142fc
+      - ElementName: Play_PerfectParryStinger
+        ObjectType: 3
+        guid: 3032a6518e73484091a9f1bc9bb8d704
+      Path: Events\Default Work Unit\Combat\Blades\Play_PerfectParryStinger
+      maxAttenuation: 0
+      maxDuration: 1.5
+      minDuration: 1.5
     - name: Play_Swings2H
       guid: b5f1a22b806eeb4e90b87fd43648a7cb
       id: 1187857689
@@ -787,6 +913,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Stop_Ambi
+      guid: 5230614e45460f49b10797d12197a325
+      id: 1937570009
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Environment
+        ObjectType: 4
+        guid: d7e8d99b1f511d4a9088b85c0dbd3903
+      - ElementName: Stop_Ambi
+        ObjectType: 3
+        guid: 5230614e45460f49b10797d12197a325
+      Path: Events\Default Work Unit\Environment\Stop_Ambi
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: Stop_Firebolt
       guid: 2769d38bc0f6194abc26a3bfc16afacc
       id: 2555710829
@@ -853,8 +999,74 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: c10c20c359e8414fab4e671e1833dd9a
     GuidInternal: 
-    m_lastTime: -8584701737193992610
-    List: []
+    m_lastTime: -8584691186806352323
+    List:
+    - name: Player
+      guid: 658a47bfcad4834c9865fdf5c931ec99
+      id: 1069431850
+      PathAndIcons:
+      - ElementName: States
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: c10c20c359e8414fab4e671e1833dd9a
+      - ElementName: Player
+        ObjectType: 9
+        guid: 658a47bfcad4834c9865fdf5c931ec99
+      Path: States\Default Work Unit\Player
+      values:
+      - name: Alive
+        guid: a6059ef9fa96b045b6fbf46f4ee2f349
+        id: 655265632
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: c10c20c359e8414fab4e671e1833dd9a
+        - ElementName: Player
+          ObjectType: 9
+          guid: 658a47bfcad4834c9865fdf5c931ec99
+        - ElementName: Alive
+          ObjectType: 8
+          guid: a6059ef9fa96b045b6fbf46f4ee2f349
+      - name: Dead
+        guid: 35f44983c0008945b085e4485b0caca3
+        id: 2044049779
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: c10c20c359e8414fab4e671e1833dd9a
+        - ElementName: Player
+          ObjectType: 9
+          guid: 658a47bfcad4834c9865fdf5c931ec99
+        - ElementName: Dead
+          ObjectType: 8
+          guid: 35f44983c0008945b085e4485b0caca3
+      - name: None
+        guid: 9b7cb00e9a698947a08b245449f2ff67
+        id: 748895195
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: c10c20c359e8414fab4e671e1833dd9a
+        - ElementName: Player
+          ObjectType: 9
+          guid: 658a47bfcad4834c9865fdf5c931ec99
+        - ElementName: None
+          ObjectType: 8
+          guid: 9b7cb00e9a698947a08b245449f2ff67
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
     PathAndIcons:
@@ -867,7 +1079,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 44fa06ed6c542b4daccf66d261f951d9
     GuidInternal: 
-    m_lastTime: -8584691245060621315
+    m_lastTime: -8584691186806341404
     List:
     - name: Material
       guid: 8679c28ede04474f852d51e83ad6ac10
@@ -934,6 +1146,38 @@ MonoBehaviour:
         guid: bb82781b4a7ef542bcec021c8719b791
       Path: Switches\Default Work Unit\Music
       values:
+      - name: Bossfight
+        guid: 6639d0a0538a8f4487c34d5416752b64
+        id: 580146960
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 44fa06ed6c542b4daccf66d261f951d9
+        - ElementName: Music
+          ObjectType: 11
+          guid: bb82781b4a7ef542bcec021c8719b791
+        - ElementName: Bossfight
+          ObjectType: 10
+          guid: 6639d0a0538a8f4487c34d5416752b64
+      - name: Combat
+        guid: 10016abfa0a0ba46b7dd35af90f86f31
+        id: 2764240573
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 44fa06ed6c542b4daccf66d261f951d9
+        - ElementName: Music
+          ObjectType: 11
+          guid: bb82781b4a7ef542bcec021c8719b791
+        - ElementName: Combat
+          ObjectType: 10
+          guid: 10016abfa0a0ba46b7dd35af90f86f31
       - name: Exploration
         guid: 5bc18e2f4050ef4ca27915848fcdce87
         id: 2582085496
@@ -968,7 +1212,7 @@ MonoBehaviour:
     m_lastTime: -8584701737193982455
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
+  ExpandedWaapiItemIds: 050000000600000007000000090000000c0000000d0000000e000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

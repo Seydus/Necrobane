@@ -1,8 +1,19 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	1069431850	Player			\Default Work Unit\Player	
+
+State	ID	Name	State Group			Notes
+	655265632	Alive	Player			
+	748895195	None	Player			
+	2044049779	Dead	Player			
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	1069431850	Player			\Default Work Unit\Master Audio Bus\Player	
 	1229948536	Environment			\Default Work Unit\Master Audio Bus\Environment	
 	2385628198	Footsteps			\Default Work Unit\Master Audio Bus\Player\Footsteps	
 	2764240573	Combat			\Default Work Unit\Master Audio Bus\Combat	
+	2981377429	Ambiance			\Default Work Unit\Master Audio Bus\Environment\Ambiance	
+	3076648345	Parry			\Default Work Unit\Master Audio Bus\Combat\Parry	
+	3236324180	Firebolt			\Default Work Unit\Master Audio Bus\Combat\Firebolt	
 	3714854501	Hit SFX			\Default Work Unit\Master Audio Bus\Combat\Hit SFX	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 	3991942870	Music			\Default Work Unit\Master Audio Bus\Music	

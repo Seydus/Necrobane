@@ -17,8 +17,21 @@
 											<Modifier Name="" ID="{9F8E1AB1-8766-4F91-8F99-CB790675A752}">
 												<PropertyList>
 													<Property Name="Enabled" Type="bool" Value="True"/>
-													<Property Name="Max" Type="Real64" Value="152"/>
-													<Property Name="Min" Type="Real64" Value="-152"/>
+													<Property Name="Max" Type="Real64" Value="228"/>
+													<Property Name="Min" Type="Real64" Value="-203"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{4D9C082A-FA49-42E2-9A47-885F0777EADE}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="2"/>
+													<Property Name="Min" Type="Real64" Value="-2"/>
 												</PropertyList>
 											</Modifier>
 										</ModifierInfo>
@@ -44,9 +57,16 @@
 									<PropertyList>
 										<Property Name="OverrideConversion" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-4</Value>
-											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{F57660DE-9074-4176-86E3-7FE66F1EF74D}">
+														<PropertyList>
+															<Property Name="Max" Type="Real64" Value="2"/>
+															<Property Name="Min" Type="Real64" Value="-2"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -59,6 +79,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="FootstepStone1" ID="{37A60CE6-EFB7-41E9-AEBF-EC1B34AC42BC}" ShortID="713733546">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-2.3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -86,6 +113,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="FootstepStone2" ID="{F773E3D0-D4E4-4A03-9805-86F327CB357D}" ShortID="1018319166">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3.3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -113,6 +147,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="FootstepStone3" ID="{6B78E2A2-2FD0-4495-BF6F-7681100B1887}" ShortID="357701716">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-2.6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -140,6 +181,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="FootstepStone4" ID="{545ED513-5EAC-4F4C-B0DE-2159558334C0}" ShortID="610215651">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-1.1</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -167,6 +215,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="FootstepStone5" ID="{75938330-573D-48FD-80E7-50D2F0529A9F}" ShortID="852435348">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-2.5</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -194,6 +249,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="FootstepStone6" ID="{D1C953A2-10EB-466D-9F7B-D46270173C9A}" ShortID="786638197">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3.3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -229,18 +291,12 @@
 												<ModifierInfo>
 													<Modifier Name="" ID="{76ECCAF5-4484-4F00-854C-6C60EFDF7238}">
 														<PropertyList>
-															<Property Name="Enabled" Type="bool" Value="True"/>
 															<Property Name="Max" Type="Real64" Value="202"/>
 															<Property Name="Min" Type="Real64" Value="-202"/>
 														</PropertyList>
 													</Modifier>
 												</ModifierInfo>
 											</ModifierList>
-										</Property>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-2</Value>
-											</ValueList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -253,6 +309,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="FootstepGravel1" ID="{523D1B8A-21FE-4973-BE92-9F270D209FB8}" ShortID="874429939">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>2.2</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -280,6 +343,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="FootstepGravel2" ID="{3FB126CC-0B35-45AD-A63A-73D6F0EB8E77}" ShortID="945061428">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>2.6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -307,6 +377,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="FootstepGravel3" ID="{D672BAAA-1D19-4309-8501-BD05D6AECE72}" ShortID="721872294">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-1.5</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -334,6 +411,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="FootstepGravel4" ID="{F947F997-857A-4132-B77B-1FB2B8E8F5E0}" ShortID="960049599">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-1.2</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -361,6 +445,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="FootstepGravel5" ID="{D8CD9FBF-D0AC-485E-91B8-E60081ED89D5}" ShortID="674461361">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>0.4</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -388,6 +479,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="FootstepGravel6" ID="{BCFCE393-5A23-4F92-B135-76381EE76155}" ShortID="1065937170">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>1.5</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -457,6 +555,19 @@
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{F1702344-0B75-4366-9816-EEA7F614C754}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="2"/>
+													<Property Name="Min" Type="Real64" Value="-2"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -504,6 +615,11 @@
 															</Modifier>
 														</ModifierInfo>
 													</ModifierList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-2.2</Value>
+													</ValueList>
 												</Property>
 											</PropertyList>
 											<ReferenceList>
@@ -562,6 +678,11 @@
 														</ModifierInfo>
 													</ModifierList>
 												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>2.3</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -590,6 +711,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="JumpGravel2" ID="{CD9FBB10-5299-4CBF-B13E-4A021107AA76}" ShortID="5411921">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-1.6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -649,12 +777,19 @@
 								<Folder Name="Equip" ID="{B015EAE0-0C45-4570-85AC-B75F9ECC0A0C}" ShortID="164993132">
 									<ChildrenList>
 										<Sound Name="Equip_Blade" ID="{3625E2BE-9EB8-4099-99DC-0D17CEFEADDB}" ShortID="868266655">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>7.2</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+													<ObjectRef Name="Player" ID="{154CDA3D-51E7-42BC-8CD5-FBCF9A701868}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -671,6 +806,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Equip_Fist" ID="{47119557-2197-43BB-A24A-8389BD7FB3B0}" ShortID="976925258">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-2.3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -715,13 +857,18 @@
 														</ModifierInfo>
 													</ModifierList>
 												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+													<ObjectRef Name="Environment" ID="{2F63637F-A042-4128-A9D1-86BFE5FA7BF1}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -745,7 +892,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>15</Value>
+														<Value>21.9</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -1018,6 +1165,13 @@
 											</ReferenceList>
 											<ChildrenList>
 												<Sound Name="2Hand1" ID="{3914005B-9AC8-468B-95FA-B3F62175EEE5}" ShortID="310579983">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>2.9</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -1040,6 +1194,13 @@
 													</ActiveSourceList>
 												</Sound>
 												<Sound Name="2Hand2" ID="{BD5DA6D9-7424-48E3-A00C-D63CBCDD6228}" ShortID="361266672">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>3.4</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -1062,6 +1223,13 @@
 													</ActiveSourceList>
 												</Sound>
 												<Sound Name="2Hand3" ID="{572E9057-7FDC-4CD8-8B62-076FF91317F2}" ShortID="762411926">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>3.1</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -1113,6 +1281,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="chop3" ID="{7B4D595E-DFCF-42F1-B121-1A8B8FA0BB3E}" ShortID="180304968">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-1.5</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -1140,6 +1315,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="chop1" ID="{08E3FC3F-4533-4F4E-B547-8F47E2F89AB5}" ShortID="779235924">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-5</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -1167,6 +1349,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="chop2" ID="{2420421D-CE6C-4F7C-AEED-FC86C9F1E617}" ShortID="36173941">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-2.7</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -1195,6 +1384,171 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
+								<Folder Name="Blocking" ID="{A8C633F2-1592-4FAE-97C8-A883C2C01800}" ShortID="29799734">
+									<ChildrenList>
+										<RandomSequenceContainer Name="Parry" ID="{AD5E76FC-1435-4C3A-B67E-67C76CE9215D}" ShortID="54989206">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{1429C478-B575-42D2-99B2-89EA37EDAF2B}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="227"/>
+																	<Property Name="Min" Type="Real64" Value="-227"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Parry" ID="{FBAA5872-86DF-4F37-93A1-23645AC4163C}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Parry1" ID="{10B30F8D-333F-44EC-AC94-683BBD4EF592}" ShortID="992995028">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{3FD5E5CE-3A51-48D2-B6C6-EEC82CCB3B2F}"/>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>2.3</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Parry1" ID="{BE48A865-F6ED-4911-B168-225EC412F967}">
+															<PropertyList>
+																<Property Name="FadeOutDuration" Type="Real64" Value="0.195501730103806"/>
+																<Property Name="LoopBegin" Type="Real64" Value="0.0107266435986159"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Parry1.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="998192457"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Parry1" ID="{BE48A865-F6ED-4911-B168-225EC412F967}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Parry2" ID="{56169F75-DD04-4530-A8D1-4699BAAA41F1}" ShortID="172038222">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>0.5</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Parry2" ID="{0B84F831-D176-4739-BFB8-FE3C7B5F58C0}">
+															<PropertyList>
+																<Property Name="FadeOutDuration" Type="Real64" Value="0.0456747404844291"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimEnd" Type="Real64" Value="0.350865051903114"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Parry2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="586886967"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Parry2" ID="{0B84F831-D176-4739-BFB8-FE3C7B5F58C0}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Parry3" ID="{676CFED9-8499-45DC-9804-D43E149D82D7}" ShortID="977233038">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>3.1</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Parry3" ID="{98DFED80-EAB2-4438-B939-E3322C30D579}">
+															<PropertyList>
+																<Property Name="FadeOutDuration" Type="Real64" Value="0.200346020761246"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Parry3.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="974454091"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Parry3" ID="{98DFED80-EAB2-4438-B939-E3322C30D579}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<Sound Name="PerfectParryStinger" ID="{6921A781-BA06-49AD-9F25-7B6CB4A7C3F7}" ShortID="174167126">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="PerfectParryStinger" ID="{11AAE484-2E1B-4143-8A8A-6B3233508EC2}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.695501730103806"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>PerfectParryStinger.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="162443735"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="PerfectParryStinger" ID="{11AAE484-2E1B-4143-8A8A-6B3233508EC2}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</Folder>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="Firebolt" ID="{31F280E4-3DDD-4CC8-AE4C-1DD56B71E51B}" ShortID="1069653172">
@@ -1202,6 +1556,24 @@
 								<Sound Name="Firebolt" ID="{1871AA0A-F768-46F3-A6B3-99F3B352A2BF}" ShortID="673945494">
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{048CFEFF-0DB2-43CA-B632-A2B9DD24F8FE}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="404"/>
+															<Property Name="Min" Type="Real64" Value="-404"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>8</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
@@ -1211,7 +1583,7 @@
 											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+											<ObjectRef Name="Firebolt" ID="{DD1100BD-73F2-4B5E-B0FC-D9B75DEE9164}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
@@ -1228,12 +1600,19 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Firebolt_Explosion" ID="{E8681533-29B0-4530-9993-41230BC42EA6}" ShortID="864667198">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>5.6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+											<ObjectRef Name="Firebolt" ID="{DD1100BD-73F2-4B5E-B0FC-D9B75DEE9164}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
@@ -1254,6 +1633,10 @@
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Environment" ID="{85980BDC-E111-4C76-83CF-9EADCE9F1127}" ShortID="438283668">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="3"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
 					<ChildrenList>
 						<Folder Name="Doors and Gates" ID="{5A51E1B7-E96E-494F-8405-A40CB7714A07}" ShortID="363704998">
 							<ChildrenList>
@@ -1337,6 +1720,61 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="Lever" ID="{97B3D00E-3BDE-4E71-8AC4-EF3285629CCA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Ambiance" ID="{5DE6A302-CBCB-43CF-A12C-19F7B8C20568}" ShortID="688964347">
+							<ChildrenList>
+								<Sound Name="Ambiance2" ID="{566673C4-75A7-4DCE-9BD5-B6A9E58659F3}" ShortID="994860640">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Ambiance2" ID="{1C42D270-F981-45C4-A271-7AD3F59CA7D4}">
+											<Language>SFX</Language>
+											<AudioFile>Ambiance2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="796647343"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Ambiance2" ID="{1C42D270-F981-45C4-A271-7AD3F59CA7D4}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Ambiance" ID="{0EBBC747-FC96-4D18-9C6A-60272DFC0382}" ShortID="37167234">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Ambiance" ID="{377DE7F3-3589-40B4-A98C-D38D70BD1F8E}">
+											<PropertyList>
+												<Property Name="LoopEnd" Type="Real64" Value="20.87"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Ambiance.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="912774099"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Ambiance" ID="{377DE7F3-3589-40B4-A98C-D38D70BD1F8E}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
