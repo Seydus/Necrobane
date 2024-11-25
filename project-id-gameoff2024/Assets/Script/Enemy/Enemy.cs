@@ -65,10 +65,13 @@ public class Enemy : MonoBehaviour
     protected string PhysMat;
     protected string PhysMat_Last;
 
+    private EnemyManager _EnemyManager;
+
     public virtual void Awake()
     {
+        _EnemyManager = FindObjectOfType<EnemyManager>();
         navMeshAgent = GetComponent<NavMeshAgent>();
-        EnemyManager.Instance.enemyList.Add(this);
+        _EnemyManager.Instance.enemyList.Add(this);
     }
 
     public virtual void Start()

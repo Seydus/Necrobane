@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class Gloves : Weapon
 {
+
     public override void HandleFirstAttack()
     {
         if (Input.GetMouseButtonDown(0))
         {
             PlayerCombat.IsAttacking = true;
 
-            PlayerCombat.PlayerController.maxSpeed /= 2f;
+            //PlayerCombat.PlayerController.maxSpeed /= 2f;
             PlayerCombat.PlayerAnimation.PeformBasicPunchAttackAnim();
         }
     }
@@ -21,7 +22,7 @@ public class Gloves : Weapon
             {
                 PlayerCombat.IsAttacking = true;
 
-                PlayerCombat.PlayerController.maxSpeed /= 2;
+                //PlayerCombat.PlayerController.maxSpeed /= 2;
                 PlayerCombat.PlayerProfile.DeductStamina(weaponSO.WeaponStaminaCost);
                 PlayerCombat.PlayerAnimation.PerformSuperPunchAttackAnim();
             }

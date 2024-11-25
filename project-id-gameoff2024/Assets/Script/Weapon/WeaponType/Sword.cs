@@ -6,6 +6,8 @@ public class Sword : Weapon
     {
         if (Input.GetMouseButtonDown(0))
         {
+            PlayerCombat.IsAttacking = true;
+            PlayerCombat.PlayerAnimation.PeformBasicSwordAttackAnim();
             Debug.Log("Attacking with sword.");
             //PlayerCombat.IsAttacking = true;
 
@@ -20,7 +22,8 @@ public class Sword : Weapon
         {
             if (PlayerCombat.PlayerProfile.playerStamina >= weaponSO.WeaponStaminaCost)
             {
-                PlayerCombat.PlayerProfile.isDefending = true;
+                PlayerCombat.PlayerAnimation.PerformDefendSwordAttackAnim();
+                    PlayerCombat.PlayerProfile.isDefending = true;
                 //PlayerCombat.IsAttacking = true;
 
                 //PlayerCombat.PlayerController.maxSpeed /= 2;
@@ -31,12 +34,14 @@ public class Sword : Weapon
             else
             {
                 PlayerCombat.PlayerProfile.isDefending = false;
+                PlayerCombat.PlayerAnimation.UnPerformDefendSwordAttackAnim();
                 Debug.Log("You don't have enough mana.");
             }
         }
         else
         {
             PlayerCombat.PlayerProfile.isDefending = false;
+            PlayerCombat.PlayerAnimation.UnPerformDefendSwordAttackAnim();
         }
     }
 

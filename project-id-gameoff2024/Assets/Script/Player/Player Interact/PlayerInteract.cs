@@ -29,6 +29,8 @@ public class PlayerInteract : MonoBehaviour
     [Header("Debugging")]
     private bool isHit;
 
+    public GameObject[] gloves;
+    public GameObject[] sword;
     private void Awake()
     {
         playerCombat = GetComponent<PlayerCombat>();
@@ -103,6 +105,8 @@ public class PlayerInteract : MonoBehaviour
     {
         if ((Input.GetKeyDown(KeyCode.E)) && sphereCastInfo.hitInfo.transform.TryGetComponent<WeaponHolder>(out WeaponHolder weaponHolder))
         {
+            
+
             isEquipped = true;
 
             playerCombat.WeaponHolder = weaponHolder;
@@ -113,6 +117,32 @@ public class PlayerInteract : MonoBehaviour
             weaponHolder.SetPosition(playerCombat.powerGlovesPos.position);
             weaponHolder.SetRotation(Vector3.zero);
 
+            if(weaponHolder.weaponbObj.name == "Gloves")
+            {
+                for(int i = 0; i < sword.Length; i++)
+                {
+                    sword[i].SetActive(false);
+                }
+
+                for (int i = 0; i < gloves.Length; i++)
+                {
+                    gloves[i].SetActive(true);
+                }
+            }
+
+            if (weaponHolder.weaponbObj.name == "LangesMesser")
+            {
+                for (int i = 0; i < gloves.Length; i++)
+                {
+                    gloves[i].SetActive(false);
+
+                }
+
+                for (int j = 0; j < sword.Length; j++)
+                {
+                    sword[j].SetActive(true);
+                }
+            }
             AkSoundEngine.PostEvent("Play_Equip_Fist", gameObject);
             Debug.Log("Succesfully equipped a weapon.");
         }
@@ -150,6 +180,16 @@ public class PlayerInteract : MonoBehaviour
                 playerCombat.WeaponHolder.transform.SetParent(null);
                 playerCombat.WeaponHolder = null;
                 isEquipped = false;
+
+                    for (int i = 0; i < sword.Length; i++)
+                    {
+                        sword[i].SetActive(false);
+                    }
+
+                    for (int i = 0; i < gloves.Length; i++)
+                    {
+                        gloves[i].SetActive(false);
+                    }
             }
         }
     }

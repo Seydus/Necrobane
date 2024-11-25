@@ -6,7 +6,7 @@ public class WeaponHolder : MonoBehaviour
     private BoxCollider boxCollider;
     private Rigidbody myBody;
     private Animator anim;
-    [SerializeField] private GameObject weaponbObj;
+    public GameObject weaponbObj;
     
     private void Awake()
     {

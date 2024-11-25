@@ -121,11 +121,16 @@ public class PlayerCombat : MonoBehaviour
     private void InitAttack()
     {
         if (IsAttacking || WeaponHolder == null)
-            return;
-
-        if(WeaponHolder.weapon.PlayerCombat == null)
         {
-            WeaponHolder.weapon.PlayerCombat = this;
+            Invoke("CanAttack", 2);
+        }
+
+        if(WeaponHolder != null)
+        {
+            if (WeaponHolder.weapon.PlayerCombat == null)
+            {
+                WeaponHolder.weapon.PlayerCombat = this;
+            }
         }
 
         WeaponHolder.weapon.SetAnimationLayer();
@@ -237,5 +242,10 @@ public class PlayerCombat : MonoBehaviour
         {
             Gizmos.DrawRay(sphereRay.origin, sphereRay.direction.normalized * combatDistance);
         }
+    }
+
+    void CanAttack()
+    {
+        IsAttacking = false;
     }
 }
