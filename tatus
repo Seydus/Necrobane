@@ -1,0 +1,270 @@
+[33mcommit 01d13c7a551c8e8bbe61d15bc1bf7815ca015305[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mArmagedon3000[m[33m, [m[1;31morigin/Armagedon3000[m[33m)[m
+Merge: 0fcfd304 704727df
+Author: GerpisPerevorker <147097764+GerpisPerevorker@users.noreply.github.com>
+Date:   Sun Nov 24 23:00:52 2024 +0200
+
+    Merge pull request #68 from Seydus/Armagedon3000
+    
+    player anims
+
+[33mcommit 704727df66aaa19035be5385d45584b4e5b63696[m
+Merge: e358b4b0 0fcfd304
+Author: GerpisPerevorker <147097764+GerpisPerevorker@users.noreply.github.com>
+Date:   Sun Nov 24 22:59:44 2024 +0200
+
+    Merge branch 'main' into Armagedon3000
+
+[33mcommit e358b4b0ba3e4a79dbabf1cca06495b6641a37d0[m
+Author: GerpisPerevorker <147097764+GerpisPerevorker@users.noreply.github.com>
+Date:   Sun Nov 24 22:59:08 2024 +0200
+
+    player anims
+
+[33mcommit 0fcfd3046e35a9216329d72f715e299b68df6d4d[m
+Merge: 170d8c23 b6e92c23
+Author: Weljohn Catanpatan <36193712+Seydus@users.noreply.github.com>
+Date:   Sun Nov 24 23:34:24 2024 +0800
+
+    Merge pull request #67 from Seydus/sai3
+    
+    added sword defend method for animation
+
+[33mcommit b6e92c23365c8ee1f2609a0127c2444575ebbef3[m[33m ([m[1;31morigin/sai3[m[33m)[m
+Author: Seydus <weljohncatanpatan@gmail.com>
+Date:   Sun Nov 24 23:34:05 2024 +0800
+
+    added sword defend method for animation
+
+[33mcommit 170d8c2392b3e2b9b066a334f7aa80dc8c24c7b5[m
+Merge: 329b66ac 575e5699
+Author: Weljohn Catanpatan <36193712+Seydus@users.noreply.github.com>
+Date:   Sun Nov 24 22:05:01 2024 +0800
+
+    Merge pull request #66 from Seydus/sai3
+    
+    updated PlayerCombat script to look cleaner and added attack/defend player animation
+
+[33mcommit 575e5699728c26ac616690b05b5113ac246a5980[m
+Author: Seydus <weljohncatanpatan@gmail.com>
+Date:   Sun Nov 24 22:03:41 2024 +0800
+
+    update PlayerCombat script to look cleaner, added attack/defend placeholder for sword animation
+
+[33mcommit 329b66ac97b7bd376baedb124ceba01042b4cd30[m
+Merge: 4dc96257 2afc4000
+Author: Weljohn Catanpatan <36193712+Seydus@users.noreply.github.com>
+Date:   Sun Nov 24 15:42:27 2024 +0800
+
+    Merge pull request #65 from Seydus/sai3
+    
+    added knockback to enemy
+
+[33mcommit 2afc40009d38b8ec3f2c915c0a99b75c0452bbbb[m
+Author: Seydus <weljohncatanpatan@gmail.com>
+Date:   Sun Nov 24 15:41:43 2024 +0800
+
+    added knockback to enemy
+
+[33mcommit 4dc96257c84cdd9572a62bb6a16d23ff014210c2[m
+Merge: 5dfabbf5 1f65b92b
+Author: Weljohn Catanpatan <36193712+Seydus@users.noreply.github.com>
+Date:   Sun Nov 24 09:21:02 2024 +0800
+
+    Merge pull request #64 from Seydus/sai3
+    
+    added sfx method for sounds
+
+[33mcommit 1f65b92b4cc0a83ea253d4643feefae55550dd0b[m
+Author: Seydus <weljohncatanpatan@gmail.com>
+Date:   Sun Nov 24 09:19:59 2024 +0800
+
+    added sfx method for sounds
+
+[33mcommit 61e0959d49d3c24e834230ac7175092cd9cb0eb2[m
+Author: Seydus <weljohncatanpatan@gmail.com>
+Date:   Sun Nov 24 08:46:40 2024 +0800
+
+    update animation walk
+
+[33mcommit 5dfabbf5234fe1a5e6b50e7a819142778c03fe57[m
+Merge: dbdde691 ae3162e2
+Author: Weljohn Catanpatan <36193712+Seydus@users.noreply.github.com>
+Date:   Sun Nov 24 08:39:14 2024 +0800
+
+    update gameplay
+    
+    update gameplay
+
+[33mcommit ae3162e269b5a1b2b056446f6fd2590b9a615ec8[m
+Merge: df502621 dbdde691
+Author: Seydus <weljohncatanpatan@gmail.com>
+Date:   Sun Nov 24 08:37:59 2024 +0800
+
+    update gameplay
+
+[33mcommit df5026219dcc1a2ae85c9e978304aff0c415a1e4[m
+Author: Seydus <weljohncatanpatan@gmail.com>
+Date:   Sun Nov 24 07:57:59 2024 +0800
+
+    removed untracked files
+
+[33mcommit dbdde691288e34c1f46cc53633f44584832e1379[m
+Author: Seydus <weljohncatanpatan@gmail.com>
+Date:   Sun Nov 24 07:52:44 2024 +0800
+
+    remove untracked files
+
+[33mcommit 16281bce6d07570700c569471fc3577ce796c6b5[m
+Merge: 554fde5d 203fdd7d
+Author: GerpisPerevorker <147097764+GerpisPerevorker@users.noreply.github.com>
+Date:   Sat Nov 23 22:18:39 2024 +0200
+
+    Merge pull request #63 from Seydus/Armagedon3000
+    
+    inventory sorting
+
+[33mcommit 203fdd7ddb2bbe4e5232e421214abef9a0ef698e[m
+Author: GerpisPerevorker <147097764+GerpisPerevorker@users.noreply.github.com>
+Date:   Sat Nov 23 22:15:49 2024 +0200
+
+    inventory sorting
+
+[33mcommit 4b35f28e3b922fcccbcf0b317f00794435774f09[m
+Author: Seydus <weljohncatanpatan@gmail.com>
+Date:   Sat Nov 23 07:14:22 2024 +0800
+
+    update script
+
+[33mcommit 554fde5d0fb7ad852bd9ae10935fa6893245a044[m
+Merge: ed0b31d9 170d4504
+Author: GerpisPerevorker <147097764+GerpisPerevorker@users.noreply.github.com>
+Date:   Fri Nov 22 23:43:22 2024 +0200
+
+    Merge pull request #61 from Seydus/Armagedon3000
+    
+    inventory
+
+[33mcommit 170d45043cfacad2dc837e99da3ff6300dc45ecb[m
+Author: GerpisPerevorker <147097764+GerpisPerevorker@users.noreply.github.com>
+Date:   Fri Nov 22 23:42:18 2024 +0200
+
+    inventory
+
+[33mcommit 6d01e36455fdbc5947cbb3bc6cb338e7a2d51919[m
+Author: Seydus <weljohncatanpatan@gmail.com>
+Date:   Sat Nov 23 00:58:59 2024 +0800
+
+    update settings
+
+[33mcommit a0408f7f14a6a0f05a1afdc9020a8255b40e0f15[m
+Author: Seydus <weljohncatanpatan@gmail.com>
+Date:   Fri Nov 22 07:50:21 2024 +0800
+
+    update enemy combat
+
+[33mcommit ed0b31d9c6c3015fa7d6423daf5833bfda0e8571[m
+Merge: 10b63fbc 4153b9fd
+Author: Zenunim666 <hillemaximilian@gmail.com>
+Date:   Fri Nov 22 00:40:58 2024 +0100
+
+    Merge pull request #60 from Seydus/zen
+    
+    Zen
+
+[33mcommit 4153b9fdde8f5dfbac4e1aed6a18c04e9e4c3825[m
+Author: Zenunim666 <hillemaximilian@gmail.com>
+Date:   Fri Nov 22 00:40:03 2024 +0100
+
+    +
+
+[33mcommit e1dd3bbde334487095dd8abf35c425cdd5dbf6c7[m
+Author: Zenunim666 <hillemaximilian@gmail.com>
+Date:   Fri Nov 22 00:29:21 2024 +0100
+
+    added swing sfx, firebolt sfx, added the gates, keys and lever to level
+
+[33mcommit 10b63fbc00c5b6e67a6d3fd4741f21a40b158808[m
+Merge: 206a8f0c eb44ec22
+Author: Zenunim666 <hillemaximilian@gmail.com>
+Date:   Thu Nov 21 21:26:58 2024 +0100
+
+    Merge pull request #59 from Seydus/zen
+    
+    addendum
+
+[33mcommit eb44ec2258fa4f5c2fd6cb1f585945ec7f3f4392[m
+Author: Zenunim666 <hillemaximilian@gmail.com>
+Date:   Thu Nov 21 21:26:39 2024 +0100
+
+    addendum
+
+[33mcommit 206a8f0cf286522c8858ed8d15a8bd98a9bd29c1[m
+Merge: 4785ac92 d8155fc5
+Author: Zenunim666 <hillemaximilian@gmail.com>
+Date:   Thu Nov 21 21:16:06 2024 +0100
+
+    Merge pull request #58 from Seydus/zen
+    
+    Zen
+
+[33mcommit d8155fc58cbf28b11fdca3e104b6881666a09f49[m
+Author: Zenunim666 <hillemaximilian@gmail.com>
+Date:   Thu Nov 21 21:15:27 2024 +0100
+
+    added sfx for gates, keys, lever
+
+[33mcommit c69192f42601197b7892a1e7f748b1bb5723f31e[m
+Merge: 43e53244 4785ac92
+Author: Zenunim666 <hillemaximilian@gmail.com>
+Date:   Thu Nov 21 19:22:17 2024 +0100
+
+    Merge branch 'main' into zen
+
+[33mcommit 4785ac924d63301bd0b31a14f6a8b62a16d8a077[m
+Merge: cf423d1b efa6a99a
+Author: GerpisPerevorker <147097764+GerpisPerevorker@users.noreply.github.com>
+Date:   Thu Nov 21 19:53:46 2024 +0200
+
+    Merge pull request #57 from Seydus/Armagedon3000
+    
+    Keys&Levers
+
+[33mcommit efa6a99ac7074d3d7e6f92cd151d143a8c039858[m
+Author: GerpisPerevorker <147097764+GerpisPerevorker@users.noreply.github.com>
+Date:   Thu Nov 21 19:53:04 2024 +0200
+
+    Keys&Levers
+
+[33mcommit 43e532446e4103aa98e0caaba9771182a4e2ee1a[m
+Author: Zenunim666 <hillemaximilian@gmail.com>
+Date:   Wed Nov 20 23:09:05 2024 +0100
+
+    added music, again?
+
+[33mcommit b55ea72baee0288f7f72755cd0eddd0ed6f6abc8[m
+Merge: d00a1dee cf423d1b
+Author: Zenunim666 <hillemaximilian@gmail.com>
+Date:   Wed Nov 20 22:47:41 2024 +0100
+
+    Merge branch 'main' into zen
+
+[33mcommit cf423d1b40795b9c2d9acd9e7a6c8e5cd52967e1[m
+Merge: 24a5fd2c 2c49a038
+Author: GerpisPerevorker <147097764+GerpisPerevorker@users.noreply.github.com>
+Date:   Wed Nov 20 22:29:16 2024 +0200
+
+    Merge pull request #56 from Seydus/Armagedon3000
+    
+    props
+
+[33mcommit 2c49a0387409665a513371fabb9bb53f075898a3[m
+Author: GerpisPerevorker <147097764+GerpisPerevorker@users.noreply.github.com>
+Date:   Wed Nov 20 22:28:41 2024 +0200
+
+    props
+
+[33mcommit 24a5fd2c60e1362d8162c093c401c94f1db4a727[m
+Author: Seydus <weljohncatanpatan@gmail.com>
+Date:   Thu Nov 21 02:34:25 2024 +0800
+
+    fixed skelet
