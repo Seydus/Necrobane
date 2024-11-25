@@ -16,14 +16,14 @@ public class Sword : Weapon
 
     public override void HandleSecondaryAttack()
     {
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(1))
         {
             if (PlayerCombat.PlayerProfile.playerStamina >= weaponSO.WeaponStaminaCost)
             {
                 PlayerCombat.PlayerProfile.isDefending = true;
-                //PlayerCombat.IsAttacking = true;
+                // PlayerCombat.IsAttacking = true;
 
-                //PlayerCombat.PlayerController.maxSpeed /= 2;
+                // PlayerCombat.PlayerController.maxSpeed /= 2;
                 PlayerCombat.PlayerProfile.DeductStamina(weaponSO.WeaponStaminaCost);
                 // PlayerCombat.PlayerAnimation.PerformDefendSwordAttackAnim();
                 Debug.Log("Defending with Sword");
