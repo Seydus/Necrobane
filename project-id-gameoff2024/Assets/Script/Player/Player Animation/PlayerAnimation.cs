@@ -24,8 +24,8 @@ public class PlayerAnimation : MonoBehaviour
         anim.SetTrigger("LeftSword");
     }
 
-    public void PerformDefendSwordAnim()
+    public void PerformDefendSwordAttackAnim()
     {
-        anim.SetTrigger("DefendSword");
+        anim.SetTrigger("BlockSword");
     }
 }
