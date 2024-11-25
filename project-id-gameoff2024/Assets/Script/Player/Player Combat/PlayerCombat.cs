@@ -128,61 +128,22 @@ public class PlayerCombat : MonoBehaviour
             WeaponHolder.weapon.PlayerCombat = this;
         }
 
-        WeaponHolder.weapon.SetAnimationLayer();
-
-        //Weapon currentWeapon = null;
-
-        //switch(WeaponHolder.weapon.weaponSO.WeaponType)
-        //{
-        //    case WeaponSO.Weapons.PowerGlove:
-        //        currentWeapon = (Gloves)WeaponHolder.weapon;
-        //        break;
-        //    case WeaponSO.Weapons.Sword:
-        //        currentWeapon = (Sword)WeaponHolder.weapon;
-        //        break;
-        //    default:
-        //        break;
-        //}
-
-
-        //if (currentWeapon == null)
-        //{
-        //    Debug.LogError("Current weapon can't be found");
-        //    return;
-        //}
-
-        WeaponHolder.weapon.HandleFirstAttack();
-        WeaponHolder.weapon.HandleSecondaryAttack();
+        WeaponHolder.weapon.HandleBasicAttack();
+        WeaponHolder.weapon.HandleSuperAttack();
     }
 
     private void PerformBasicAttack()
     {
-        if(WeaponHolder == null)
-        {
-            return;
-        }
-
-        WeaponHolder.weapon.PerformFirstAttack();
+        WeaponHolder.weapon.PerformBasicAttack();
     }
 
     private void PerformSuperAttack()
     {
-        if (WeaponHolder == null)
-        {
-            return;
-        }
-
-        WeaponHolder.weapon.PerformSecondaryAttack();
+        WeaponHolder.weapon.PerformSuperAttack();
     }
 
     private void FinishAttack()
     {
-        if (WeaponHolder == null)
-        {
-            IsAttacking = false;
-            return;
-        }
-
         WeaponHolder.weapon.FinishAttack();
     }
 
