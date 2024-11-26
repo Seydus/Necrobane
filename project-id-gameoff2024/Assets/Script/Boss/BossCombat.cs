@@ -54,7 +54,7 @@ public class BossCombat : MonoBehaviour
 
     private void Start()
     {
-        //BulletHell();
+        BulletHell();
     }
 
     private void Update()
