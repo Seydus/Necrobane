@@ -78,8 +78,6 @@ public class Enemy : MonoBehaviour
         EnemyDamage = enemyProfile.EnemyDamage;
 
         healthSlider.value = EnemyHealth;
-
-        EnemyManager.Instance.enemyList.Add(this);
     }
 
     public virtual void Update()
