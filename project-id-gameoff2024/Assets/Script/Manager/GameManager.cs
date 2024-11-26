@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
             GameState = false;
 
             playerManager.PlayerProfile.playerHealth = 0;
+            AkSoundEngine.SetState("Player", "Dead");
+            AkSoundEngine.PostEvent("Stop_Ambi", gameObject);
         }
     }
 
@@ -47,6 +49,7 @@ public class GameManager : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.R))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                
             }
         }
     }

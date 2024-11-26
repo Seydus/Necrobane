@@ -158,6 +158,7 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
                 }
 
                 Debug.Log("Player hit");
+                AkSoundEngine.PostEvent("Play_Chops", gameObject);
 
                 if (playerManager.transform != null)
                 {
@@ -229,6 +230,6 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
             }
         }
 
-        AkSoundEngine.PostEvent("Play_Footsteps", gameObject);
+        AkSoundEngine.PostEvent("Play_BoneSteps", gameObject);
     }
 }

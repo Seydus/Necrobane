@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{EE9A7053-F20F-9519-E8C5-A83A828748B5}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{E9E1325F-05FA-C105-1A40-58A39B0CBBD4}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -19,14 +19,28 @@
 				</AudioDevices>
 			</Plugins>
 			<Busses>
+				<Bus Id="181270742" Name="Interactables"/>
+				<Bus Id="393239870" Name="SFX"/>
 				<Bus Id="1069431850" Name="Player"/>
 				<Bus Id="1229948536" Name="Environment"/>
+				<Bus Id="2299321487" Name="Enemy"/>
 				<Bus Id="2385628198" Name="Footsteps"/>
 				<Bus Id="2764240573" Name="Combat"/>
-				<Bus Id="3714854501" Name="Hit SFX"/>
+				<Bus Id="2981377429" Name="Ambiance"/>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 				<Bus Id="3991942870" Name="Music"/>
+				<Bus Id="4015094827" Name="Mechanisms"/>
+				<Bus Id="4283257371" Name="PlayerSFX"/>
 			</Busses>
+			<StateGroups>
+				<StateGroup Id="1069431850" Name="Player">
+					<States>
+						<State Id="655265632" Name="Alive"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="2044049779" Name="Dead"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
 			<SwitchGroups>
 				<SwitchGroup Id="3865314626" Name="Material">
 					<Switches>
@@ -36,12 +50,14 @@
 				</SwitchGroup>
 				<SwitchGroup Id="3991942870" Name="Music">
 					<Switches>
+						<Switch Id="580146960" Name="Bossfight"/>
 						<Switch Id="2582085496" Name="Exploration"/>
+						<Switch Id="2764240573" Name="Combat"/>
 					</Switches>
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{5D259282-5781-316B-A33A-6D7A28F744E7}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{8B3811A2-078F-3BF5-E697-847B3ADA657E}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -61,9 +77,17 @@
 					<ShortName>Open_Gate.wav</ShortName>
 					<CachePath>SFX/Open_Gate_C7CBF045.wem</CachePath>
 				</File>
+				<File Id="87734365" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Combat Music.wav</ShortName>
+					<CachePath>SFX/Combat Music_F93BF523.wem</CachePath>
+				</File>
 				<File Id="113363503" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>HitSkeleton3.wav</ShortName>
 					<CachePath>SFX/HitSkeleton3_C7CBF045.wem</CachePath>
+				</File>
+				<File Id="162443735" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>PerfectParryStinger.wav</ShortName>
+					<CachePath>SFX/PerfectParryStinger_3D14C602.wem</CachePath>
 				</File>
 				<File Id="205507889" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>2Hand2.wav</ShortName>
@@ -93,6 +117,10 @@
 					<ShortName>chop3.wav</ShortName>
 					<CachePath>SFX/chop3_44B7B028.wem</CachePath>
 				</File>
+				<File Id="326772382" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BoneStep1.wav</ShortName>
+					<CachePath>SFX/BoneStep1_C7CBF045.wem</CachePath>
+				</File>
 				<File Id="330704271" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepStone1.wav</ShortName>
 					<CachePath>SFX/FootstepStone1_0EB2837D.wem</CachePath>
@@ -105,6 +133,10 @@
 					<ShortName>Lever.wav</ShortName>
 					<CachePath>SFX/Lever_C7CBF045.wem</CachePath>
 				</File>
+				<File Id="395948427" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Exploration Intro.wav</ShortName>
+					<CachePath>SFX/Exploration Intro_F93BF523.wem</CachePath>
+				</File>
 				<File Id="424456809" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepGravel2.wav</ShortName>
 					<CachePath>SFX/FootstepGravel2_4D51242E.wem</CachePath>
@@ -116,6 +148,10 @@
 				<File Id="457189610" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>HitSkeleton.wav</ShortName>
 					<CachePath>SFX/HitSkeleton_C7CBF045.wem</CachePath>
+				</File>
+				<File Id="474165601" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Exploration Main.wav</ShortName>
+					<CachePath>SFX/Exploration Main_F93BF523.wem</CachePath>
 				</File>
 				<File Id="502519958" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>chop2.wav</ShortName>
@@ -137,9 +173,9 @@
 					<ShortName>HitSkeleton2.wav</ShortName>
 					<CachePath>SFX/HitSkeleton2_C7CBF045.wem</CachePath>
 				</File>
-				<File Id="601276256" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>doomhammer exploration2.wav</ShortName>
-					<CachePath>SFX/doomhammer exploration2_F93BF523.wem</CachePath>
+				<File Id="586886967" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Parry2.wav</ShortName>
+					<CachePath>SFX/Parry2_119A3B2A.wem</CachePath>
 				</File>
 				<File Id="647251812" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Firebolt_Explosion.wav</ShortName>
@@ -169,13 +205,37 @@
 					<ShortName>FootstepStone6.wav</ShortName>
 					<CachePath>SFX/FootstepStone6_7E86A69D.wem</CachePath>
 				</File>
+				<File Id="841486209" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ambiance.wav</ShortName>
+					<CachePath>SFX/Ambiance_F93BF523.wem</CachePath>
+				</File>
+				<File Id="843067243" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BoneStep2.wav</ShortName>
+					<CachePath>SFX/BoneStep2_C7CBF045.wem</CachePath>
+				</File>
+				<File Id="878205616" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BoneStep3.wav</ShortName>
+					<CachePath>SFX/BoneStep3_C7CBF045.wem</CachePath>
+				</File>
+				<File Id="887709094" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Boss Music.wav</ShortName>
+					<CachePath>SFX/Boss Music_F93BF523.wem</CachePath>
+				</File>
 				<File Id="896910572" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepStone5.wav</ShortName>
 					<CachePath>SFX/FootstepStone5_B1E5A22B.wem</CachePath>
 				</File>
+				<File Id="948938455" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Death.wav</ShortName>
+					<CachePath>SFX/Death_F93BF523.wem</CachePath>
+				</File>
 				<File Id="959077550" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Key_Pickup.wav</ShortName>
-					<CachePath>SFX/Key_Pickup_59B0B949.wem</CachePath>
+					<CachePath>SFX/Key_Pickup_432139AC.wem</CachePath>
+				</File>
+				<File Id="974454091" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Parry3.wav</ShortName>
+					<CachePath>SFX/Parry3_438BD549.wem</CachePath>
 				</File>
 				<File Id="980383192" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepGravel3.wav</ShortName>
@@ -184,6 +244,10 @@
 				<File Id="980660262" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Equip_Fist.wav</ShortName>
 					<CachePath>SFX/Equip_Fist_D5D41D9D.wem</CachePath>
+				</File>
+				<File Id="998192457" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Parry1.wav</ShortName>
+					<CachePath>SFX/Parry1_5DA9774B.wem</CachePath>
 				</File>
 				<File Id="1002423227" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepStone4.wav</ShortName>
@@ -195,6 +259,18 @@
 				</File>
 			</Media>
 			<Events>
+				<Event Id="2616876087" Name="Play_Ambi" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="841486209"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1512643089" Name="Play_BoneSteps" MaxAttenuation="40" DurationType="OneShot" DurationMin="0.58037287" DurationMax="0.73291546">
+					<MediaRefs>
+						<MediaRef Id="326772382"/>
+						<MediaRef Id="843067243"/>
+						<MediaRef Id="878205616"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3488755065" Name="Play_Chops" DurationType="OneShot" DurationMin="0.12909532" DurationMax="0.34744823">
 					<MediaRefs>
 						<MediaRef Id="303371798"/>
@@ -217,7 +293,7 @@
 						<MediaRef Id="980660262"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="79128399" Name="Play_Firebolt" MaxAttenuation="20" DurationType="OneShot" DurationMin="8" DurationMax="8">
+				<Event Id="79128399" Name="Play_Firebolt" MaxAttenuation="20" DurationType="OneShot" DurationMin="6.33495" DurationMax="10.102684">
 					<MediaRefs>
 						<MediaRef Id="244195078"/>
 					</MediaRefs>
@@ -234,7 +310,7 @@
 						<MediaRef Id="565521538"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3854155799" Name="Play_Footsteps" DurationType="OneShot" DurationMin="0.27535725" DurationMax="0.49257997">
+				<Event Id="3854155799" Name="Play_Footsteps" MaxAttenuation="40" DurationType="OneShot" DurationMin="0.26353073" DurationMax="0.451437">
 					<SwitchContainers>
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="3865314626" Id="2185786256" Default="true"/>
@@ -297,16 +373,89 @@
 				<Event Id="2932040671" Name="Play_Music" DurationType="Infinite">
 					<SwitchContainers>
 						<SwitchContainer>
-							<SwitchValue GroupType="Switch" GroupId="3991942870" Id="2582085496"/>
-							<MediaRefs>
-								<MediaRef Id="601276256"/>
-							</MediaRefs>
+							<SwitchValue GroupType="State" GroupId="1069431850" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="Switch" GroupId="3991942870" Id="2582085496"/>
+									<MediaRefs>
+										<MediaRef Id="395948427"/>
+										<MediaRef Id="474165601"/>
+									</MediaRefs>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1069431850" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="Switch" GroupId="3991942870" Id="2764240573"/>
+									<MediaRefs>
+										<MediaRef Id="87734365"/>
+									</MediaRefs>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1069431850" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="Switch" GroupId="3991942870" Id="580146960"/>
+									<MediaRefs>
+										<MediaRef Id="887709094"/>
+									</MediaRefs>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1069431850" Id="2044049779"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="Switch" GroupId="3991942870" Id="2582085496"/>
+									<MediaRefs>
+										<MediaRef Id="948938455"/>
+									</MediaRefs>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1069431850" Id="2044049779"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="Switch" GroupId="3991942870" Id="2764240573"/>
+									<MediaRefs>
+										<MediaRef Id="948938455"/>
+									</MediaRefs>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1069431850" Id="2044049779"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="Switch" GroupId="3991942870" Id="580146960"/>
+									<MediaRefs>
+										<MediaRef Id="948938455"/>
+									</MediaRefs>
+								</SwitchContainer>
+							</Children>
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
 				<Event Id="1127904212" Name="Play_Open_Gate" MaxAttenuation="40" DurationType="OneShot" DurationMin="1.6646712" DurationMax="1.6646712">
 					<MediaRefs>
 						<MediaRef Id="76519647"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4115969904" Name="Play_Parry" DurationType="OneShot" DurationMin="0.30774802" DurationMax="0.5700525">
+					<MediaRefs>
+						<MediaRef Id="586886967"/>
+						<MediaRef Id="974454091"/>
+						<MediaRef Id="998192457"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2908761997" Name="Play_PerfectParryStinger" DurationType="OneShot" DurationMin="1.5" DurationMax="1.5">
+					<MediaRefs>
+						<MediaRef Id="162443735"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="1187857689" Name="Play_Swings2H" MaxAttenuation="40" DurationType="OneShot" DurationMin="0.5" DurationMax="0.5">
@@ -321,9 +470,19 @@
 						<MediaRef Id="522520838"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1937570009" Name="Stop_Ambi" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2555710829" Name="Stop_Firebolt" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2837384057" Name="Stop_Music" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 			</Events>
+			<StateGroups>
+				<StateGroup Id="1069431850" Name="Player">
+					<States>
+						<State Id="655265632" Name="Alive"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="2044049779" Name="Dead"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
 			<SwitchGroups>
 				<SwitchGroup Id="3865314626" Name="Material">
 					<Switches>
@@ -333,11 +492,13 @@
 				</SwitchGroup>
 				<SwitchGroup Id="3991942870" Name="Music">
 					<Switches>
+						<Switch Id="580146960" Name="Bossfight"/>
 						<Switch Id="2582085496" Name="Exploration"/>
+						<Switch Id="2764240573" Name="Combat"/>
 					</Switches>
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{8B128511-8003-6280-61AC-6ED9C8F7CB2A}</FileHash>
+	<FileHash>{C65D7DD4-67D7-584E-4CFD-3F0D6C2186CF}</FileHash>
 </SoundBanksInfo>
