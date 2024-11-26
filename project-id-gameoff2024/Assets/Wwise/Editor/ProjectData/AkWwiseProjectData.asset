@@ -752,7 +752,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: a9ce29e796074f418e1d3a3bfdeee3dd
       Path: Events\Default Work Unit\Player\Play_Footsteps
-      maxAttenuation: 0
+      maxAttenuation: 40
       maxDuration: 0.451437
       minDuration: 0.26353073
     - name: Play_HitBones
