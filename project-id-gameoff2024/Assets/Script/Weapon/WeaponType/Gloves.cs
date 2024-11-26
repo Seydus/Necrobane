@@ -9,7 +9,7 @@ public class Gloves : Weapon
         {
             PlayerCombat.IsAttacking = true;
 
-            //PlayerCombat.PlayerController.maxSpeed /= 2f;
+            PlayerCombat.PlayerController.maxSpeed /= 2f;
             PlayerCombat.PlayerAnimation.PeformBasicPunchAttackAnim();
             Debug.Log("FIRST ATTACK");
         }
@@ -23,7 +23,7 @@ public class Gloves : Weapon
             {
                 PlayerCombat.IsAttacking = true;
 
-                //PlayerCombat.PlayerController.maxSpeed /= 2;
+                PlayerCombat.PlayerController.maxSpeed /= 2;
                 PlayerCombat.PlayerProfile.DeductStamina(weaponSO.WeaponStaminaCost);
                 PlayerCombat.PlayerAnimation.PerformSuperPunchAttackAnim();
             }

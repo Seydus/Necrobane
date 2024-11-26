@@ -1,19 +1,18 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
-using System.Collections.Generic;
-using System.Collections;
 
 public class PlayerCombat : MonoBehaviour
 {
     [Header("Combat")]
-    [SerializeField] private float punchResetTime = 1.5f;
     [SerializeField] private float knockbackSpeed = 5f;
     [SerializeField] private float knockbackDuration = 2f;
     public float oldMaxSpeed { get; set; }
 
     public bool IsAttacking { get; set; }
     private bool isKnockedBack = false;
+    private bool isAnimLayer;
 
     private Vector3 knockbackDirection;
 
@@ -42,30 +41,22 @@ public class PlayerCombat : MonoBehaviour
     private bool isHit;
 
     [Header("Events")]
-    public static UnityAction OnPerformBasicPunchAttackTriggered;
-    public static UnityAction OnPerformSuperPunchAttackTriggered;
-    public static UnityAction OnPerformBasicSwordAttackTriggered;
-    public static UnityAction OnPerformDefendSwordTriggered;
+    public static UnityAction OnPerformFirstAttackTriggered;
+    public static UnityAction OnPerformSecondaryAttackTriggered;
     public static UnityAction OnFinishAttackTriggered;
 
     private void OnEnable()
     {
-        OnPerformBasicPunchAttackTriggered += PerformBasicAttack;
-        OnPerformSuperPunchAttackTriggered += PerformSuperAttack;
-
-        OnPerformBasicSwordAttackTriggered += PerformBasicAttack;
-        OnPerformDefendSwordTriggered += PerformSuperAttack;
+        OnPerformFirstAttackTriggered += PerformBasicAttack;
+        OnPerformSecondaryAttackTriggered += PerformSuperAttack;
 
         OnFinishAttackTriggered += FinishAttack;
     }
 
     private void OnDisable()
     {
-        OnPerformBasicPunchAttackTriggered -= PerformBasicAttack;
-        OnPerformSuperPunchAttackTriggered -= PerformSuperAttack;
-
-        OnPerformBasicSwordAttackTriggered -= PerformBasicAttack;
-        OnPerformDefendSwordTriggered -= PerformSuperAttack;
+        OnPerformFirstAttackTriggered -= PerformBasicAttack;
+        OnPerformSecondaryAttackTriggered -= PerformSuperAttack;
 
         OnFinishAttackTriggered -= FinishAttack;
     }
@@ -86,17 +77,17 @@ public class PlayerCombat : MonoBehaviour
 
     public Ray HandleCameraDirection()
     {
-        return new Ray(cam.transform.position, cam.transform.forward);
+        return new Ray(cam.transform.position - transform.forward * 0.25f, cam.transform.forward);
     }
 
-    public bool WeaponCheckCastInfo() => Physics.SphereCast(sphereRay, sphereRadius, out sphereCastHit, combatDistance, enemyLayer, QueryTriggerInteraction.Collide);
+    public bool WeaponCheckCastInfo() => Physics.SphereCast(HandleCameraDirection(), sphereRadius, out sphereCastHit, combatDistance, enemyLayer, QueryTriggerInteraction.Collide);
 
     public void TargetUICast()
     {
         if (!WeaponHolder)
             return;
 
-        if (Physics.SphereCast(sphereRay, sphereRadius, out sphereCastHit, combatDistance, enemyLayer, QueryTriggerInteraction.Collide))
+        if (WeaponCheckCastInfo())
         {
             GameManager.Instance.uIManager.playerCrosshairLine.SetActive(true);
             GameManager.Instance.uIManager.playerCrosshair.SetActive(false);

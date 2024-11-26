@@ -9,10 +9,10 @@ public class Sword : Weapon
             PlayerCombat.IsAttacking = true;
             PlayerCombat.PlayerAnimation.PeformBasicSwordAttackAnim();
             Debug.Log("Attacking with sword.");
-            //PlayerCombat.IsAttacking = true;
+            PlayerCombat.IsAttacking = true;
 
-            //PlayerCombat.PlayerController.maxSpeed /= 2f;
-            //PlayerCombat.PlayerAnimation.PeformBasicSwordAttackAnim();
+            PlayerCombat.PlayerController.maxSpeed /= 2f;
+            PlayerCombat.PlayerAnimation.PeformBasicSwordAttackAnim();
         }
     }
 
@@ -23,25 +23,18 @@ public class Sword : Weapon
             if (PlayerCombat.PlayerProfile.playerStamina >= weaponSO.WeaponStaminaCost)
             {
                 PlayerCombat.PlayerAnimation.PerformDefendSwordAttackAnim();
-                    PlayerCombat.PlayerProfile.isDefending = true;
-                //PlayerCombat.IsAttacking = true;
+                PlayerCombat.PlayerProfile.isDefending = true;
+                PlayerCombat.IsAttacking = true;
 
-                //PlayerCombat.PlayerController.maxSpeed /= 2;
+                PlayerCombat.PlayerController.maxSpeed /= 2;
                 PlayerCombat.PlayerProfile.DeductStamina(weaponSO.WeaponStaminaCost);
-                // PlayerCombat.PlayerAnimation.PerformDefendSwordAttackAnim();
+                PlayerCombat.PlayerAnimation.PerformDefendSwordAttackAnim();
                 Debug.Log("Defending with Sword");
             }
             else
             {
-                PlayerCombat.PlayerProfile.isDefending = false;
-                PlayerCombat.PlayerAnimation.UnPerformDefendSwordAttackAnim();
                 Debug.Log("You don't have enough mana.");
             }
-        }
-        else
-        {
-            PlayerCombat.PlayerProfile.isDefending = false;
-            PlayerCombat.PlayerAnimation.UnPerformDefendSwordAttackAnim();
         }
     }
 
@@ -72,8 +65,8 @@ public class Sword : Weapon
 
     public override void PerformSecondaryAttack()
     {
-
         Debug.Log("Secondary");
+        PlayerCombat.PlayerController.maxSpeed = PlayerCombat.oldMaxSpeed;
     }
 
     public override void HandleAttack(Enemy enemy, float damage)
@@ -85,6 +78,7 @@ public class Sword : Weapon
 
     public override void FinishAttack()
     {
+        PlayerCombat.PlayerProfile.isDefending = false;
         PlayerCombat.IsAttacking = false;
     }
 
