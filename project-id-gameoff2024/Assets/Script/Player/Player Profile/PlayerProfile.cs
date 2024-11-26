@@ -41,10 +41,11 @@ public class PlayerProfile : MonoBehaviour
         {
             playerHealth -= damage;
             StartCoroutine(playerCombatCam.CameraShake(new CameraCombatInfo(0.25f, 0.025f, Vector3.zero)));
-        }
-        else
-        {
-            playerHealth = 0;
+
+            if(playerHealth < 0)
+            {
+                playerHealth = 0;
+            }
         }
     }
 
@@ -53,15 +54,19 @@ public class PlayerProfile : MonoBehaviour
         if(playerStamina >= 0)
         {
             playerStamina -= cost;
-        }
-        else
-        {
-            playerStamina = 0;
+
+            if(playerStamina < 0)
+            {
+                playerStamina = 0;
+            }
         }
     }
 
     private void IncreaseStamina()
     {
+        if (isDefending)
+            return;
+
         if (playerStamina < profile.PlayerStamina)
         {
             playerStamina += Time.deltaTime;

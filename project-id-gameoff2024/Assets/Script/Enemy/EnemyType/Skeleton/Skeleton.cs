@@ -148,7 +148,14 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
 
             if (skeletonHit.transform.TryGetComponent<PlayerManager>(out PlayerManager playerManager))
             {
-                playerManager.PlayerProfile.DeductHealth(EnemyDamage);
+                if(playerManager.PlayerProfile.isDefending)
+                {
+                    playerManager.PlayerProfile.DeductStamina(playerManager.PlayerCombat.WeaponHolder.weapon.weaponSO.WeaponStaminaCost);
+                }
+                else
+                {
+                    playerManager.PlayerProfile.DeductHealth(EnemyDamage);
+                }
 
                 Debug.Log("Player hit");
 
