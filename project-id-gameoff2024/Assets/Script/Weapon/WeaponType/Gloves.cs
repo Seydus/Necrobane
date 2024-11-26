@@ -11,6 +11,7 @@ public class Gloves : Weapon
 
             //PlayerCombat.PlayerController.maxSpeed /= 2f;
             PlayerCombat.PlayerAnimation.PeformBasicPunchAttackAnim();
+            Debug.Log("FIRST ATTACK");
         }
     }
 
