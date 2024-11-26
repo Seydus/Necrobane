@@ -148,9 +148,17 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
 
             if (skeletonHit.transform.TryGetComponent<PlayerManager>(out PlayerManager playerManager))
             {
-                playerManager.PlayerProfile.DeductHealth(EnemyDamage);
+                if(playerManager.PlayerProfile.isDefending)
+                {
+                    playerManager.PlayerProfile.DeductStamina(playerManager.PlayerCombat.WeaponHolder.weapon.weaponSO.WeaponStaminaCost);
+                }
+                else
+                {
+                    playerManager.PlayerProfile.DeductHealth(EnemyDamage);
+                }
 
                 Debug.Log("Player hit");
+                AkSoundEngine.PostEvent("Play_Chops", gameObject);
 
                 if (playerManager.transform != null)
                 {
@@ -222,6 +230,6 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
             }
         }
 
-        AkSoundEngine.PostEvent("Play_Footsteps", gameObject);
+        AkSoundEngine.PostEvent("Play_BoneSteps", gameObject);
     }
 }

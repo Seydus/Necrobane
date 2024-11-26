@@ -8,33 +8,36 @@ public class Sword : Weapon
         {
             PlayerCombat.IsAttacking = true;
             PlayerCombat.PlayerAnimation.PeformBasicSwordAttackAnim();
-            Debug.Log("Attacking with sword.");
-            PlayerCombat.IsAttacking = true;
-
             PlayerCombat.PlayerController.maxSpeed /= 2f;
-            PlayerCombat.PlayerAnimation.PeformBasicSwordAttackAnim();
         }
     }
 
     public override void HandleSecondaryAttack()
     {
+        if (PlayerCombat.IsAttacking)
+            return;
+
         if (Input.GetMouseButton(1))
         {
             if (PlayerCombat.PlayerProfile.playerStamina >= weaponSO.WeaponStaminaCost)
             {
-                PlayerCombat.PlayerAnimation.PerformDefendSwordAttackAnim();
                 PlayerCombat.PlayerProfile.isDefending = true;
-                PlayerCombat.IsAttacking = true;
 
-                PlayerCombat.PlayerController.maxSpeed /= 2;
-                PlayerCombat.PlayerProfile.DeductStamina(weaponSO.WeaponStaminaCost);
+                PlayerCombat.PlayerController.maxSpeed = 2.5f;
                 PlayerCombat.PlayerAnimation.PerformDefendSwordAttackAnim();
                 Debug.Log("Defending with Sword");
             }
             else
             {
+                PlayerCombat.PlayerController.maxSpeed = PlayerCombat.oldMaxSpeed;
+                PlayerCombat.PlayerAnimation.UnPerformDefendSwordAttackAnim();
                 Debug.Log("You don't have enough mana.");
             }
+        }
+        else
+        {
+            PlayerCombat.PlayerController.maxSpeed = PlayerCombat.oldMaxSpeed;
+            PlayerCombat.PlayerAnimation.UnPerformDefendSwordAttackAnim();
         }
     }
 
@@ -42,14 +45,17 @@ public class Sword : Weapon
     {
         if (PlayerCombat.WeaponCheckCastInfo())
         {
-            if (PlayerCombat.sphereCastHit.transform.TryGetComponent<Enemy>(out Enemy enemy))
+            for(int i = 0; i < PlayerCombat.GetAllColliderHit().Length; i++)
             {
-                PlayerCombat.StartCoroutine(PlayerCombat.PlayerCombatCamera.CameraShake(new CameraCombatInfo(0.15f, 0.015f, Vector3.zero)));
-                PlayerCombat.InitHitVFX(PlayerCombat.sphereCastHit.point);
+                if (PlayerCombat.GetAllColliderHit()[i].transform.TryGetComponent<Enemy>(out Enemy enemy))
+                {
+                    PlayerCombat.StartCoroutine(PlayerCombat.PlayerCombatCamera.CameraShake(new CameraCombatInfo(0.15f, 0.015f, Vector3.zero)));
+                    PlayerCombat.InitHitVFX(PlayerCombat.GetAllColliderHit()[i].point);
 
-                HandleAttack(enemy, weaponSO.WeaponBasicDamage);
+                    HandleAttack(enemy, weaponSO.WeaponBasicDamage);
 
-                AkSoundEngine.PostEvent("Play_HitBones", PlayerCombat.gameObject);
+                    AkSoundEngine.PostEvent("Play_HitBones", PlayerCombat.gameObject);
+                }
             }
         }
         else

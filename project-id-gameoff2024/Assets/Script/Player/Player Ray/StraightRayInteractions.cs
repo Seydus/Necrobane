@@ -56,9 +56,9 @@ public class StraightRayInteractions : MonoBehaviour
                 if (hit.collider.tag == "Key")
                 {
                     kh.Keys.Add(hit.collider.GetComponent<KeyPurpose>().keyPupose);
+                    invHold.MoreItem(hit.collider.gameObject);
                     AkSoundEngine.PostEvent("Play_Key_Pickup", gameObject);
                     invHold.MoreItem(hit.collider.gameObject);
-                    Destroy(hit.collider.gameObject);
                 }
 
                 if(hit.collider.tag == "Door")
@@ -67,27 +67,38 @@ public class StraightRayInteractions : MonoBehaviour
                     {
                         for (int i = 0; i < kh.Keys.Count; i++)
                         {
-                            if (kh.Keys[i] == Hi.GetComponent<PropAction>().NeededKey)
+                            if (kh.Keys[i] == hit.collider.GetComponent<PropAction>().NeededKey)
                             {
-                                for(int j = 0; j < invHold.Items.Count; j++)
+                                bool open = true;
+                                if (hit.collider.GetComponent<PropAction>().anim.GetBool(hit.collider.GetComponent<PropAction>().BoolName) == false && open)
                                 {
-                                    if (invHold.Items[j].Objname == kh.Keys[i])
-                                    {
-                                        invHold.Items[j] = null;
-                                        invHold.InventorySlots[j].avatar = null;
-                                        invHold.InventorySlots[j].Objname = null;
-                                        Hi.GetComponent<PropAction>().NKey = false;
-                                    }
+                                    hit.collider.GetComponent<PropAction>().anim.SetBool(hit.collider.GetComponent<PropAction>().BoolName, true);
+                                    open = false;
+                                }
+                                if (hit.collider.GetComponent<PropAction>().anim.GetBool(hit.collider.GetComponent<PropAction>().BoolName) && open)
+                                {
+                                    hit.collider.GetComponent<PropAction>().anim.SetBool(hit.collider.GetComponent<PropAction>().BoolName, false);
+                                    open = false;
                                 }
                             }
+
+                           // for (int j = 0; j < invHold.Items.Count; j++)
+                           // {
+                           ///     if (invHold.Items[j].Objname == kh.Keys[i])
+                           ////    {
+                           //             invHold.InventorySlots[j].avatar = null;
+                           ///             invHold.InventorySlots[j].Objname = null;
+                            //            invHold.Items[j] = null;
+                            //    }
+                           // }
                         }
                     }
 
-                    if (!Hi.GetComponent<PropAction>().NKey)
+                    if (!hit.collider.GetComponent<PropAction>().NKey)
                     {
                         bool open = true;
-                        if(!Hi.GetComponent<PropAction>().anim.GetBool(Hi.GetComponent<PropAction>().BoolName)) Hi.GetComponent<PropAction>().anim.SetBool(Hi.GetComponent<PropAction>().BoolName, true); open = false;
-                        if(Hi.GetComponent<PropAction>().anim.GetBool(Hi.GetComponent<PropAction>().BoolName)) Hi.GetComponent<PropAction>().anim.SetBool(Hi.GetComponent<PropAction>().BoolName, false); open = false;
+                        if(hit.collider.GetComponent<PropAction>().anim.GetBool(hit.collider.GetComponent<PropAction>().BoolName) == false && open) hit.collider.GetComponent<PropAction>().anim.SetBool(hit.collider.GetComponent<PropAction>().BoolName, true); open = false;
+                        if(hit.collider.GetComponent<PropAction>().anim.GetBool(hit.collider.GetComponent<PropAction>().BoolName) && open) hit.collider.GetComponent<PropAction>().anim.SetBool(hit.collider.GetComponent<PropAction>().BoolName, false); open = false;
                     }
 
                 }
