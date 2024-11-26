@@ -25,8 +25,8 @@ public class StraightRayInteractions : MonoBehaviour
         ray.origin = cam.position;
         ray.direction = cam.forward;
 
-        //Draw ray
-        Debug.DrawRay(cam.position, cam.forward * 100, Color.red);
+        ////Draw ray
+        //Debug.DrawRay(cam.position, cam.forward * 100, Color.red);
 
         //Rey colides
 

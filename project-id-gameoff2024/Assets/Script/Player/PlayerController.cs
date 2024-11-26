@@ -21,10 +21,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float ceilingPullPower = 2f;
     [SerializeField] private float ceilingHeight = 2f;
     [SerializeField] private float ceilingSphereRadius = 2f;
-    private bool hitCeiling;
 
     private Vector3 velocity = Vector3.zero;
-    private RaycastHit ceilingHit;
 
     [Header("Camera Settings")]
     [SerializeField] private Transform cameraHolder;
@@ -145,7 +143,6 @@ public class PlayerController : MonoBehaviour
             }
 
             decelerationSpeed = setDecelerationSpeed;
-            hitCeiling = false;
         }
         else
         {
@@ -157,7 +154,7 @@ public class PlayerController : MonoBehaviour
             //    Debug.Log("Hit ceilling");
             //}
 
-            velocity.y += gravity * (Time.deltaTime * (hitCeiling ? ceilingPullPower : 1));
+            velocity.y += gravity * Time.deltaTime;
         }
 
         return velocity;
@@ -248,21 +245,5 @@ public class PlayerController : MonoBehaviour
         }
 
         AkSoundEngine.PostEvent("Play_Footsteps", gameObject);
-    }
-
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = hitCeiling ? Color.green : Color.red;
-
-        if (hitCeiling)
-        {
-            Gizmos.DrawRay(transform.position, Vector3.up * ceilingHeight);
-            Gizmos.DrawWireSphere(ceilingHit.point, ceilingSphereRadius);
-        }
-        else
-        {
-            Gizmos.DrawRay(transform.position, Vector3.up * ceilingHeight);
-        }
     }
 }
