@@ -3,7 +3,12 @@ guid: 4566b603eac1d814cb27fb82b0edfb9c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bonepile
+    second: {fileID: 2100000, guid: 57abbee533516954b92891c4c9bead62, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

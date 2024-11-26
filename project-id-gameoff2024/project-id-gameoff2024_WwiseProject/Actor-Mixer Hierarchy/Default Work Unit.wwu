@@ -11,6 +11,7 @@
 					<ChildrenList>
 						<SwitchContainer Name="Footsteps" ID="{A26679A2-C10B-48D8-87D8-066E4ABAB041}" ShortID="344332616">
 							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
 										<ModifierInfo>
@@ -39,6 +40,9 @@
 								</Property>
 							</PropertyList>
 							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="normal" ID="{41D4C35B-5778-46DB-8FEA-8FBC4948A9D5}" WorkUnitID="{61E62009-A45E-4D12-A3F4-01EB122C29C4}"/>
+								</Reference>
 								<Reference Name="Conversion">
 									<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
 								</Reference>
