@@ -522,7 +522,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   engageCooldownDuration: 0.2
-  disengageCooldownDuration: 8
+  disengageCooldownDuration: 5
   sphereRadius: 0.3
   maxDistance: 2
   combatLayer:
@@ -535,6 +535,7 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 0}
   healthSlider: {fileID: 4914573642178056943}
+  navMeshAgent: {fileID: 0}
   projectilePos: {fileID: 2768699981532868774}
   projectileObj: {fileID: 2439430410376026776, guid: c317f2feb0f5bda4daa68dd6ed1021e9, type: 3}
 --- !u!114 &3501411082236126996

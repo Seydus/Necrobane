@@ -225,6 +225,7 @@ public class EnemyRoaming : IEnemyRoaming
         if (engageCooldown <= 0)
         {
             enemyState = EnemyState.Attack;
+            EnemyManager.Instance.enemyAttackingList.Add(this.Enemy);
             engageCooldown = 0f;
 
             startEngage = true;
@@ -243,6 +244,7 @@ public class EnemyRoaming : IEnemyRoaming
         if (disengageCooldown <= 0)
         {
             enemyState = EnemyState.Patrol;
+            EnemyManager.Instance.enemyAttackingList.Remove(this.Enemy);
             disengageCooldown = 0f;
 
             startEngage = false;
