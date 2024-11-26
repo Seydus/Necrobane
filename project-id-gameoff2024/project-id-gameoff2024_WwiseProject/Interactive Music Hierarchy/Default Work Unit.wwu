@@ -26,7 +26,7 @@
 							<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Music" ID="{2E0043F2-BBBA-40AE-8F37-AF2CA2E32FA8}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
 						</Reference>
 						<Reference Name="TransitionRoot">
 							<Custom>
@@ -198,7 +198,7 @@
 									<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
 								</Reference>
 								<Reference Name="PlaylistRoot">
 									<Custom>
@@ -258,14 +258,14 @@
 											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
 										<MusicTrack Name="Exploration Main" ID="{3C3B21C1-9BA4-4CEA-A0CE-0564A32F73F9}" ShortID="439099251">
 											<ReferenceList>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
 												</Reference>
 												<Reference Name="TransitionRoot">
 													<Custom>
@@ -344,14 +344,14 @@
 											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
 										<MusicTrack Name="Exploration Intro" ID="{14BF4AB5-7DD3-479A-90DC-1F4B1A1BB4C0}" ShortID="734979333">
 											<ReferenceList>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
 												</Reference>
 												<Reference Name="TransitionRoot">
 													<Custom>
@@ -438,7 +438,7 @@
 									<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
 								</Reference>
 								<Reference Name="PlaylistRoot">
 									<Custom>
@@ -485,14 +485,14 @@
 											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
 										<MusicTrack Name="Combat Music" ID="{6BACA30E-1715-48A5-89FD-AFA06B3CC0D0}" ShortID="5158596">
 											<ReferenceList>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
 												</Reference>
 												<Reference Name="TransitionRoot">
 													<Custom>
@@ -586,7 +586,7 @@
 									<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
 								</Reference>
 								<Reference Name="PlaylistRoot">
 									<Custom>
@@ -633,14 +633,14 @@
 											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
 										<MusicTrack Name="Death" ID="{3EBBBD17-C4A9-4367-8CB8-5D218401C88F}" ShortID="325277836">
 											<ReferenceList>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
 												</Reference>
 												<Reference Name="TransitionRoot">
 													<Custom>
@@ -722,7 +722,7 @@
 									<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
 								</Reference>
 								<Reference Name="PlaylistRoot">
 									<Custom>
@@ -755,14 +755,14 @@
 											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
 										<MusicTrack Name="Boss Music" ID="{A5923793-FB61-46F2-9B70-857144B16739}" ShortID="538069587">
 											<ReferenceList>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
 												</Reference>
 												<Reference Name="TransitionRoot">
 													<Custom>
@@ -995,7 +995,7 @@
 									<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Ambiance" ID="{F8BD407B-9DA6-49D6-B7C7-352A2B57FC58}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
 								</Reference>
 								<Reference Name="PlaylistRoot">
 									<Custom>
@@ -1042,7 +1042,7 @@
 											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
@@ -1056,7 +1056,7 @@
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
 												</Reference>
 												<Reference Name="TransitionRoot">
 													<Custom>

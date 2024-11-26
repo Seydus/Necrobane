@@ -222,6 +222,6 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
             }
         }
 
-        AkSoundEngine.PostEvent("Play_Footsteps", gameObject);
+        AkSoundEngine.PostEvent("Play_BoneSteps", gameObject);
     }
 }

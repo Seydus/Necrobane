@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}" SchemaVersion="119">
+<WwiseDocument Type="WorkUnit" ID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}" SchemaVersion="119">
 	<Busses>
-		<WorkUnit Name="Default Work Unit" ID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}" PersistMode="Standalone">
+		<WorkUnit Name="Default Work Unit" ID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}" PersistMode="Standalone">
 			<ChildrenList>
 				<Bus Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}">
 					<ReferenceList>
@@ -10,29 +10,27 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Bus Name="Player" ID="{154CDA3D-51E7-42BC-8CD5-FBCF9A701868}">
+						<Bus Name="Music" ID="{748D65B9-1DFF-4D05-88DF-94671C2E4396}"/>
+						<Bus Name="SFX" ID="{C51F7AD6-AD07-49F3-B7D4-B6049F192FF5}">
 							<ChildrenList>
-								<Bus Name="Footsteps" ID="{67DAE7F6-F8EE-4726-ACDC-DBB052DBA749}"/>
-							</ChildrenList>
-						</Bus>
-						<Bus Name="Combat" ID="{AD441788-CF62-40F4-B60C-ED41959FF75D}">
-							<ChildrenList>
-								<Bus Name="Hit SFX" ID="{F44299FA-5275-4517-AFAE-D8B695D50FBE}"/>
-								<Bus Name="Parry" ID="{FBAA5872-86DF-4F37-93A1-23645AC4163C}"/>
-								<Bus Name="Firebolt" ID="{DD1100BD-73F2-4B5E-B0FC-D9B75DEE9164}"/>
-							</ChildrenList>
-						</Bus>
-						<Bus Name="Music" ID="{2E0043F2-BBBA-40AE-8F37-AF2CA2E32FA8}"/>
-<<<<<<< Updated upstream
-						<Bus Name="Environment" ID="{2F63637F-A042-4128-A9D1-86BFE5FA7BF1}">
-							<ChildrenList>
-								<Bus Name="Ambiance" ID="{F8BD407B-9DA6-49D6-B7C7-352A2B57FC58}"/>
-=======
-						<Bus Name="Environment" ID="{2F63637F-A042-4128-A9D1-86BFE5FA7BF1}"/>
-						<Bus Name="Enemy" ID="{A8ED73CD-0E89-4B37-B644-7592B096068D}">
-							<ChildrenList>
-								<Bus Name="EnemySteps" ID="{85CA0B9F-3464-49D5-8C48-37013D4393B4}"/>
->>>>>>> Stashed changes
+								<Bus Name="Environment" ID="{29A4CED5-34F1-4DAA-80D4-EF8F873A7415}">
+									<ChildrenList>
+										<Bus Name="Ambiance" ID="{DC246FE5-845E-4C88-B04C-6930BAB876FB}"/>
+										<Bus Name="Interactables" ID="{E4067FA2-2083-4C8D-A7EB-504B5BD29BBE}">
+											<ChildrenList>
+												<Bus Name="Mechanisms" ID="{AE507C46-0CF5-42B5-BF02-CDB435661EC5}"/>
+											</ChildrenList>
+										</Bus>
+									</ChildrenList>
+								</Bus>
+								<Bus Name="Enemy" ID="{AD915688-93D3-45A0-951F-65CA711E2A21}"/>
+								<Bus Name="Combat" ID="{A9E46F65-F4DE-4E12-A987-50B523BC3464}"/>
+								<Bus Name="Player" ID="{166E0850-3604-4C25-AA90-AFBFE5AEAFA6}">
+									<ChildrenList>
+										<Bus Name="Footsteps" ID="{1B9FDAF6-2C7E-4F65-AE13-2E1FB9F72496}"/>
+										<Bus Name="PlayerSFX" ID="{C481D9DC-64BA-4CC3-86BD-32EB26A584A8}"/>
+									</ChildrenList>
+								</Bus>
 							</ChildrenList>
 						</Bus>
 					</ChildrenList>
