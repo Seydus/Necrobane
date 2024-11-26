@@ -26,11 +26,6 @@ public class PlayerAnimation : MonoBehaviour
 
     public void PerformDefendSwordAttackAnim()
     {
-        anim.SetBool("BlockSword", true);
-    }
-
-    public void UnPerformDefendSwordAttackAnim()
-    {
-        anim.SetBool("BlockSword", false);
+        anim.SetTrigger("isBlockSword");
     }
 }

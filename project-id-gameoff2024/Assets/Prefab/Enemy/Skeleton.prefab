@@ -622,10 +622,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4.2478848
-  m_Height: 18.604208
+  m_Radius: 4.3873777
+  m_Height: 16.837887
   m_Direction: 1
-  m_Center: {x: 0, y: 0.14367746, z: 1.3848082}
+  m_Center: {x: 0, y: -0.7394825, z: 1.5243013}
 --- !u!195 &4470378412146303567
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -690,6 +690,7 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 854053a34810b164e8882b96e9b03c4d, type: 2}
   healthSlider: {fileID: 1268416536412788781}
+  navMeshAgent: {fileID: 0}
   weaponPos: {fileID: 25284451673860988}
 --- !u!114 &6150039531935992032
 MonoBehaviour:

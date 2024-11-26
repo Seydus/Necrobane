@@ -18,7 +18,7 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private LayerMask interactLayer;
     [SerializeField] private float interactDistance;
 
-    private bool isEquipped;
+    public bool isEquipped { get; set; }
 
     [Header("Others")]
     [SerializeField] private Camera cam;
@@ -63,7 +63,7 @@ public class PlayerInteract : MonoBehaviour
 
     public Ray HandleCameraDirection()
     {
-        return new Ray(cam.transform.position, cam.transform.forward);
+        return new Ray(cam.transform.position - transform.forward * 0.25f, cam.transform.forward);
     }
 
     private void HandleInteract()
