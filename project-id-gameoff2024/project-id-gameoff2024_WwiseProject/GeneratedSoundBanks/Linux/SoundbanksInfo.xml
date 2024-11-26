@@ -9,7 +9,11 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
+<<<<<<< Updated upstream
 		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{F4BA79A8-43B5-185B-B575-42AEDB394A92}">
+=======
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{B4EF703C-E1FF-B5C3-39D9-FE8595678AE6}">
+>>>>>>> Stashed changes
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -21,6 +25,8 @@
 			<Busses>
 				<Bus Id="1069431850" Name="Player"/>
 				<Bus Id="1229948536" Name="Environment"/>
+				<Bus Id="2201709940" Name="EnemySteps"/>
+				<Bus Id="2299321487" Name="Enemy"/>
 				<Bus Id="2385628198" Name="Footsteps"/>
 				<Bus Id="2764240573" Name="Combat"/>
 				<Bus Id="2981377429" Name="Ambiance"/>
@@ -55,7 +61,11 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
+<<<<<<< Updated upstream
 		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{B701D800-38BA-E8BF-2862-A94240FAB77A}">
+=======
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{2CFCB6DE-B8B5-D9AA-0C5B-B8B9C7BD61D4}">
+>>>>>>> Stashed changes
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -114,6 +124,10 @@
 				<File Id="303371798" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>chop3.wav</ShortName>
 					<CachePath>SFX/chop3_44B7B028.wem</CachePath>
+				</File>
+				<File Id="326772382" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BoneStep1.wav</ShortName>
+					<CachePath>SFX/BoneStep1_C7CBF045.wem</CachePath>
 				</File>
 				<File Id="330704271" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepStone1.wav</ShortName>
@@ -199,6 +213,7 @@
 					<ShortName>FootstepStone6.wav</ShortName>
 					<CachePath>SFX/FootstepStone6_7E86A69D.wem</CachePath>
 				</File>
+<<<<<<< Updated upstream
 				<File Id="841486209" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Ambiance.wav</ShortName>
 					<CachePath>SFX/Ambiance_F93BF523.wem</CachePath>
@@ -206,6 +221,15 @@
 				<File Id="887709094" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Boss Music.wav</ShortName>
 					<CachePath>SFX/Boss Music_F93BF523.wem</CachePath>
+=======
+				<File Id="843067243" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BoneStep2.wav</ShortName>
+					<CachePath>SFX/BoneStep2_C7CBF045.wem</CachePath>
+				</File>
+				<File Id="878205616" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BoneStep3.wav</ShortName>
+					<CachePath>SFX/BoneStep3_C7CBF045.wem</CachePath>
+>>>>>>> Stashed changes
 				</File>
 				<File Id="896910572" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepStone5.wav</ShortName>
@@ -218,10 +242,13 @@
 				<File Id="959077550" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Key_Pickup.wav</ShortName>
 					<CachePath>SFX/Key_Pickup_432139AC.wem</CachePath>
+<<<<<<< Updated upstream
 				</File>
 				<File Id="974454091" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Parry3.wav</ShortName>
 					<CachePath>SFX/Parry3_2EBAEA30.wem</CachePath>
+=======
+>>>>>>> Stashed changes
 				</File>
 				<File Id="980383192" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepGravel3.wav</ShortName>
@@ -245,9 +272,17 @@
 				</File>
 			</Media>
 			<Events>
+<<<<<<< Updated upstream
 				<Event Id="2616876087" Name="Play_Ambi" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="841486209"/>
+=======
+				<Event Id="1512643089" Name="Play_BoneSteps" MaxAttenuation="40" DurationType="OneShot" DurationMin="0.58037287" DurationMax="0.73291546">
+					<MediaRefs>
+						<MediaRef Id="326772382"/>
+						<MediaRef Id="843067243"/>
+						<MediaRef Id="878205616"/>
+>>>>>>> Stashed changes
 					</MediaRefs>
 				</Event>
 				<Event Id="3488755065" Name="Play_Chops" DurationType="OneShot" DurationMin="0.12909532" DurationMax="0.34744823">
@@ -479,5 +514,9 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
+<<<<<<< Updated upstream
 	<FileHash>{CB0D9C56-076B-33BA-976A-2D316971957A}</FileHash>
+=======
+	<FileHash>{BDAA695F-DD7B-4491-B16E-5F78C96C809F}</FileHash>
+>>>>>>> Stashed changes
 </SoundBanksInfo>

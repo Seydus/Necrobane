@@ -1781,6 +1781,115 @@
 						</Folder>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="Enemy" ID="{BFBE1239-95B2-4891-A32A-92F94C65B3FC}" ShortID="185107206">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="23"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Folder Name="Skeleton" ID="{0D821321-A1C0-41DE-A280-E7C2576DDBCF}" ShortID="403635064">
+							<ChildrenList>
+								<RandomSequenceContainer Name="BoneSteps" ID="{FA6AD452-C4F0-4FF2-AD31-1DBC5762190C}" ShortID="560424887">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{097A6B50-4AE6-416A-A261-99ECB12A1E80}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="202"/>
+															<Property Name="Min" Type="Real64" Value="-202"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="normal" ID="{41D4C35B-5778-46DB-8FEA-8FBC4948A9D5}" WorkUnitID="{61E62009-A45E-4D12-A3F4-01EB122C29C4}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="EnemySteps" ID="{85CA0B9F-3464-49D5-8C48-37013D4393B4}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="BoneStep1" ID="{F9C238F3-C31E-473A-A94D-697C8C9BD7BF}" ShortID="771008285">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="BoneStep1" ID="{B07CF26E-C614-440F-BA74-0457DC5AD976}">
+													<Language>SFX</Language>
+													<AudioFile>BoneStep1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="326772382"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="BoneStep1" ID="{B07CF26E-C614-440F-BA74-0457DC5AD976}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="BoneStep2" ID="{9DDA6600-D12A-4A73-81FE-137B41B0A28D}" ShortID="13019050">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="BoneStep2" ID="{3C9BBEAC-6530-418D-A845-243B9A476532}">
+													<Language>SFX</Language>
+													<AudioFile>BoneStep2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="843067243"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="BoneStep2" ID="{3C9BBEAC-6530-418D-A845-243B9A476532}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="BoneStep3" ID="{2FA518E8-6115-4252-B35F-4E7DBA67F52E}" ShortID="783184345">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BB621494-F4CD-4390-A0F6-4A9675EB7AB8}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="BoneStep3" ID="{3A33B5F3-94A6-4A4E-81BB-99B70A8A75CB}">
+													<Language>SFX</Language>
+													<AudioFile>BoneStep3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="878205616"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="BoneStep3" ID="{3A33B5F3-94A6-4A4E-81BB-99B70A8A75CB}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

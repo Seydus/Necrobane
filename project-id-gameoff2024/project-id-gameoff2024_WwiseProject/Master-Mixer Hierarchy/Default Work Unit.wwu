@@ -23,9 +23,16 @@
 							</ChildrenList>
 						</Bus>
 						<Bus Name="Music" ID="{2E0043F2-BBBA-40AE-8F37-AF2CA2E32FA8}"/>
+<<<<<<< Updated upstream
 						<Bus Name="Environment" ID="{2F63637F-A042-4128-A9D1-86BFE5FA7BF1}">
 							<ChildrenList>
 								<Bus Name="Ambiance" ID="{F8BD407B-9DA6-49D6-B7C7-352A2B57FC58}"/>
+=======
+						<Bus Name="Environment" ID="{2F63637F-A042-4128-A9D1-86BFE5FA7BF1}"/>
+						<Bus Name="Enemy" ID="{A8ED73CD-0E89-4B37-B644-7592B096068D}">
+							<ChildrenList>
+								<Bus Name="EnemySteps" ID="{85CA0B9F-3464-49D5-8C48-37013D4393B4}"/>
+>>>>>>> Stashed changes
 							</ChildrenList>
 						</Bus>
 					</ChildrenList>

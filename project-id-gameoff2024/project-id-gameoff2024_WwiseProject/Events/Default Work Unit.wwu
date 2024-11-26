@@ -298,6 +298,25 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Folder Name="Enemy" ID="{46BFD16A-F510-45F9-9052-E4484A98FDEC}" ShortID="982768189">
+					<ChildrenList>
+						<Folder Name="Skeleton" ID="{A7AA2644-047C-40CB-8D72-29D4F7A0BA4F}" ShortID="177833333">
+							<ChildrenList>
+								<Event Name="Play_BoneSteps" ID="{745F888F-4B17-4EEC-96C9-612737D3B303}">
+									<ChildrenList>
+										<Action Name="" ID="{185F25C7-21AB-4413-98C7-3B5A37C61AF1}" ShortID="275089683">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="BoneSteps" ID="{FA6AD452-C4F0-4FF2-AD31-1DBC5762190C}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

@@ -13,7 +13,11 @@ namespace AK
 {
     namespace EVENTS
     {
+<<<<<<< Updated upstream
         static const AkUniqueID PLAY_AMBI = 2616876087U;
+=======
+        static const AkUniqueID PLAY_BONESTEPS = 1512643089U;
+>>>>>>> Stashed changes
         static const AkUniqueID PLAY_CHOPS = 3488755065U;
         static const AkUniqueID PLAY_DROP_ITEM = 1363530945U;
         static const AkUniqueID PLAY_EQUIP_BLADE = 1527095013U;
@@ -90,6 +94,8 @@ namespace AK
     {
         static const AkUniqueID AMBIANCE = 2981377429U;
         static const AkUniqueID COMBAT = 2764240573U;
+        static const AkUniqueID ENEMY = 2299321487U;
+        static const AkUniqueID ENEMYSTEPS = 2201709940U;
         static const AkUniqueID ENVIRONMENT = 1229948536U;
         static const AkUniqueID FIREBOLT = 3236324180U;
         static const AkUniqueID FOOTSTEPS = 2385628198U;

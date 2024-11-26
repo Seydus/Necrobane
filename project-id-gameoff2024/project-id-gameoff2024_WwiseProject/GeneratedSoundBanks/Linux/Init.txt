@@ -9,6 +9,8 @@ State	ID	Name	State Group			Notes
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	1069431850	Player			\Default Work Unit\Master Audio Bus\Player	
 	1229948536	Environment			\Default Work Unit\Master Audio Bus\Environment	
+	2201709940	EnemySteps			\Default Work Unit\Master Audio Bus\Enemy\EnemySteps	
+	2299321487	Enemy			\Default Work Unit\Master Audio Bus\Enemy	
 	2385628198	Footsteps			\Default Work Unit\Master Audio Bus\Player\Footsteps	
 	2764240573	Combat			\Default Work Unit\Master Audio Bus\Combat	
 	2981377429	Ambiance			\Default Work Unit\Master Audio Bus\Environment\Ambiance	
