@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 6473537929827992484}
   m_Layer: 0
   m_Name: MetalShards
-  m_TagString: Untagged
+  m_TagString: MetalShards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objname: Metal shards
-  amount: 0
+  amount: 20
   avatar: {fileID: 1668232372, guid: 637786a35bdbe2d47810628520a8038c, type: 3}
   inv: 0
   Image: {fileID: 0}
