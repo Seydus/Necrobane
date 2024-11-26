@@ -26,6 +26,8 @@ public class PlayerCombat : MonoBehaviour
     public LayerMask enemyLayer;
     [SerializeField] private Camera cam;
 
+    private RaycastHit[] sphereCastHits;
+
     [Header("VFX")]
     [SerializeField] private GameObject hitVFXPrefab;
 
@@ -77,10 +79,15 @@ public class PlayerCombat : MonoBehaviour
 
     public Ray HandleCameraDirection()
     {
-        return new Ray(cam.transform.position - transform.forward * 0.25f, cam.transform.forward);
+        return new Ray(cam.transform.position - transform.forward * 0.5f, cam.transform.forward);
     }
 
     public bool WeaponCheckCastInfo() => Physics.SphereCast(HandleCameraDirection(), sphereRadius, out sphereCastHit, combatDistance, enemyLayer, QueryTriggerInteraction.Collide);
+
+    public RaycastHit[] GetAllColliderHit()
+    {
+        return Physics.SphereCastAll(HandleCameraDirection().origin, sphereRadius, HandleCameraDirection().direction, combatDistance, enemyLayer);
+    }
 
     public void TargetUICast()
     {

@@ -6,6 +6,7 @@ public class PlayerManager : MonoBehaviour
     public PlayerProfile PlayerProfile { get; set; }
     public PlayerController PlayerController { get; set; }
     public PlayerInteract PlayerInteract { get; set; }
+    public PlayerCombat PlayerCombat { get; set; }
 
     public GameObject cameraHolder;
     public DroneController droneController;
@@ -19,6 +20,7 @@ public class PlayerManager : MonoBehaviour
         PlayerProfile = GetComponent<PlayerProfile>();
         PlayerController = GetComponent<PlayerController>();
         PlayerInteract = GetComponent<PlayerInteract>();
+        PlayerCombat = GetComponent<PlayerCombat>();
     }
 
     private void Start()
