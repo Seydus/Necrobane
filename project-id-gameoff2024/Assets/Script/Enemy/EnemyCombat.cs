@@ -24,6 +24,9 @@ public class EnemyCombat : IEnemyCombat
 
     public void HandleAttack(Transform player, NavMeshAgent agent, float range)
     {
+        if (!agent)
+            return;
+
         if (Vector3.Distance(player.position, Enemy.transform.position) <= range)
         {
             agent.ResetPath();
@@ -66,10 +69,7 @@ public class EnemyCombat : IEnemyCombat
             }
             else
             {
-                if(agent)
-                {
-                    agent.ResetPath();
-                }
+                agent.ResetPath();
             }
         }
     }
