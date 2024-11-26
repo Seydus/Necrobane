@@ -15,18 +15,13 @@
 						</Property>
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
 						<Property Name="Tempo" Type="Real64" Value="116"/>
-						<Property Name="UseMaxSoundPerInstance" Type="bool">
-							<ValueList>
-								<Value>True</Value>
-							</ValueList>
-						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
+							<ObjectRef Name="Music" ID="{748D65B9-1DFF-4D05-88DF-94671C2E4396}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
 						</Reference>
 						<Reference Name="TransitionRoot">
 							<Custom>
@@ -726,7 +721,21 @@
 								</Reference>
 								<Reference Name="PlaylistRoot">
 									<Custom>
-										<MusicPlaylistItem Name="" ID="{383A3568-218A-41F7-A246-C7E834E94B61}" ShortID="368869658"/>
+										<MusicPlaylistItem Name="" ID="{383A3568-218A-41F7-A246-C7E834E94B61}" ShortID="368869658">
+											<ChildrenList>
+												<MusicPlaylistItem Name="" ID="{3EA2E7A5-5815-495A-AD3D-9F983521E96A}" ShortID="315855815">
+													<PropertyList>
+														<Property Name="LoopCount" Type="int16" Value="0"/>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Segment">
+															<ObjectRef Name="Bossfight1" ID="{16C7DDCD-6B38-4FA7-A777-30546F933E29}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
+														</Reference>
+													</ReferenceList>
+												</MusicPlaylistItem>
+											</ChildrenList>
+										</MusicPlaylistItem>
 									</Custom>
 								</Reference>
 								<Reference Name="TransitionRoot">
@@ -835,6 +844,23 @@
 							</ChildrenList>
 						</MusicPlaylistContainer>
 					</ChildrenList>
+					<StateInfo>
+						<StateGroupList>
+							<StateGroupInfo>
+								<StateGroupRef Name="Player" ID="{BF478A65-D4CA-4C83-9865-FDF5C931EC99}"/>
+							</StateGroupInfo>
+						</StateGroupList>
+						<CustomStateList>
+							<CustomState>
+								<StateRef Name="Dead" ID="{8349F435-00C0-4589-B085-E4485B0CACA3}"/>
+								<CustomState Name="" ID="{6F40FA5F-007F-4BA9-B731-2BBCABB47888}" ShortID="1038979607"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Alive" ID="{F99E05A6-96FA-45B0-B6FB-F46F4EE2F349}"/>
+								<CustomState Name="" ID="{2213ABAE-7DE6-400F-B956-AC28482A6E95}" ShortID="47702861"/>
+							</CustomState>
+						</CustomStateList>
+					</StateInfo>
 					<ObjectLists>
 						<ObjectList Name="Arguments">
 							<Reference>
