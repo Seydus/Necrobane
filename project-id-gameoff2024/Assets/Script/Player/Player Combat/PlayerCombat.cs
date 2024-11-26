@@ -120,7 +120,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (IsAttacking || WeaponHolder == null)
         {
-            Debug.Log(IsAttacking);
+            //Debug.Log(IsAttacking);
             return;
         }
 

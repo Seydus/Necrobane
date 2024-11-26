@@ -272,7 +272,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.5269184
+      - time: 0.5010574
         functionName: TriggerPerformFirstAttackEvent
         data: 
         objectReferenceParameter: {instanceID: 0}

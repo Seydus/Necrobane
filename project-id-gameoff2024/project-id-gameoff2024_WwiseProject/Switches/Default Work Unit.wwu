@@ -12,6 +12,8 @@
 				<SwitchGroup Name="Music" ID="{1B7882BB-7E4A-42F5-BCEC-021C8719B791}">
 					<ChildrenList>
 						<Switch Name="Exploration" ID="{2F8EC15B-5040-4CEF-A279-15848FCDCE87}"/>
+						<Switch Name="Combat" ID="{BF6A0110-A0A0-46BA-B7DD-35AF90F86F31}"/>
+						<Switch Name="Bossfight" ID="{A0D03966-8A53-448F-87C3-4D5416752B64}"/>
 					</ChildrenList>
 				</SwitchGroup>
 			</ChildrenList>
