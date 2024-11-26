@@ -25,10 +25,12 @@ public class EnemyManager : MonoBehaviour
         if(enemyAttackingList.Count > 0)
         {
             Debug.Log("Combat Music");
+            AkSoundEngine.SetSwitch("Music","Combat", gameObject);
         }
         else
         {
             Debug.Log("Normal Music");
+            AkSoundEngine.SetSwitch("Music", "Exploration", gameObject);
         }
     }
 }
