@@ -158,6 +158,7 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
                 }
 
                 Debug.Log("Player hit");
+                AkSoundEngine.PostEvent("Play_Chops", gameObject);
 
                 if (playerManager.transform != null)
                 {
