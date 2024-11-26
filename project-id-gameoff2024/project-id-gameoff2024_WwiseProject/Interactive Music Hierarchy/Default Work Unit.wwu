@@ -252,11 +252,6 @@
 								<MusicSegment Name="Loop" ID="{99CDF28A-6B38-4EA8-B8DA-081D2F1219EC}" ShortID="552817051">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="174782.630385488"/>
-										<Property Name="PlaybackSpeed" Type="Real64">
-											<ValueList>
-												<Value>0.8</Value>
-											</ValueList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
