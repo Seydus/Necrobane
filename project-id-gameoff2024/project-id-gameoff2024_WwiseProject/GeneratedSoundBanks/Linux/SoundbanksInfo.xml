@@ -9,11 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-<<<<<<< Updated upstream
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{F4BA79A8-43B5-185B-B575-42AEDB394A92}">
-=======
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{B4EF703C-E1FF-B5C3-39D9-FE8595678AE6}">
->>>>>>> Stashed changes
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{BD4E3142-CE2B-4373-EE58-31F93DEBD045}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -23,18 +19,18 @@
 				</AudioDevices>
 			</Plugins>
 			<Busses>
+				<Bus Id="181270742" Name="Interactables"/>
+				<Bus Id="393239870" Name="SFX"/>
 				<Bus Id="1069431850" Name="Player"/>
 				<Bus Id="1229948536" Name="Environment"/>
-				<Bus Id="2201709940" Name="EnemySteps"/>
 				<Bus Id="2299321487" Name="Enemy"/>
 				<Bus Id="2385628198" Name="Footsteps"/>
 				<Bus Id="2764240573" Name="Combat"/>
 				<Bus Id="2981377429" Name="Ambiance"/>
-				<Bus Id="3076648345" Name="Parry"/>
-				<Bus Id="3236324180" Name="Firebolt"/>
-				<Bus Id="3714854501" Name="Hit SFX"/>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 				<Bus Id="3991942870" Name="Music"/>
+				<Bus Id="4015094827" Name="Mechanisms"/>
+				<Bus Id="4283257371" Name="PlayerSFX"/>
 			</Busses>
 			<StateGroups>
 				<StateGroup Id="1069431850" Name="Player">
@@ -61,11 +57,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-<<<<<<< Updated upstream
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{B701D800-38BA-E8BF-2862-A94240FAB77A}">
-=======
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{2CFCB6DE-B8B5-D9AA-0C5B-B8B9C7BD61D4}">
->>>>>>> Stashed changes
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{C8324412-E4B6-3C25-37EB-7B8A24F3A39B}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -95,7 +87,7 @@
 				</File>
 				<File Id="162443735" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>PerfectParryStinger.wav</ShortName>
-					<CachePath>SFX/PerfectParryStinger_04BAF99D.wem</CachePath>
+					<CachePath>SFX/PerfectParryStinger_3D14C602.wem</CachePath>
 				</File>
 				<File Id="205507889" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>2Hand2.wav</ShortName>
@@ -183,7 +175,7 @@
 				</File>
 				<File Id="586886967" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Parry2.wav</ShortName>
-					<CachePath>SFX/Parry2_3910D62E.wem</CachePath>
+					<CachePath>SFX/Parry2_119A3B2A.wem</CachePath>
 				</File>
 				<File Id="647251812" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Firebolt_Explosion.wav</ShortName>
@@ -213,15 +205,10 @@
 					<ShortName>FootstepStone6.wav</ShortName>
 					<CachePath>SFX/FootstepStone6_7E86A69D.wem</CachePath>
 				</File>
-<<<<<<< Updated upstream
 				<File Id="841486209" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Ambiance.wav</ShortName>
 					<CachePath>SFX/Ambiance_F93BF523.wem</CachePath>
 				</File>
-				<File Id="887709094" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Boss Music.wav</ShortName>
-					<CachePath>SFX/Boss Music_F93BF523.wem</CachePath>
-=======
 				<File Id="843067243" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BoneStep2.wav</ShortName>
 					<CachePath>SFX/BoneStep2_C7CBF045.wem</CachePath>
@@ -229,7 +216,10 @@
 				<File Id="878205616" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BoneStep3.wav</ShortName>
 					<CachePath>SFX/BoneStep3_C7CBF045.wem</CachePath>
->>>>>>> Stashed changes
+				</File>
+				<File Id="887709094" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Boss Music.wav</ShortName>
+					<CachePath>SFX/Boss Music_F93BF523.wem</CachePath>
 				</File>
 				<File Id="896910572" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepStone5.wav</ShortName>
@@ -242,13 +232,10 @@
 				<File Id="959077550" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Key_Pickup.wav</ShortName>
 					<CachePath>SFX/Key_Pickup_432139AC.wem</CachePath>
-<<<<<<< Updated upstream
 				</File>
 				<File Id="974454091" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Parry3.wav</ShortName>
-					<CachePath>SFX/Parry3_2EBAEA30.wem</CachePath>
-=======
->>>>>>> Stashed changes
+					<CachePath>SFX/Parry3_438BD549.wem</CachePath>
 				</File>
 				<File Id="980383192" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepGravel3.wav</ShortName>
@@ -260,7 +247,7 @@
 				</File>
 				<File Id="998192457" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Parry1.wav</ShortName>
-					<CachePath>SFX/Parry1_6EF995F3.wem</CachePath>
+					<CachePath>SFX/Parry1_5DA9774B.wem</CachePath>
 				</File>
 				<File Id="1002423227" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepStone4.wav</ShortName>
@@ -272,17 +259,16 @@
 				</File>
 			</Media>
 			<Events>
-<<<<<<< Updated upstream
 				<Event Id="2616876087" Name="Play_Ambi" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="841486209"/>
-=======
+					</MediaRefs>
+				</Event>
 				<Event Id="1512643089" Name="Play_BoneSteps" MaxAttenuation="40" DurationType="OneShot" DurationMin="0.58037287" DurationMax="0.73291546">
 					<MediaRefs>
 						<MediaRef Id="326772382"/>
 						<MediaRef Id="843067243"/>
 						<MediaRef Id="878205616"/>
->>>>>>> Stashed changes
 					</MediaRefs>
 				</Event>
 				<Event Id="3488755065" Name="Play_Chops" DurationType="OneShot" DurationMin="0.12909532" DurationMax="0.34744823">
@@ -514,9 +500,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-<<<<<<< Updated upstream
-	<FileHash>{CB0D9C56-076B-33BA-976A-2D316971957A}</FileHash>
-=======
-	<FileHash>{BDAA695F-DD7B-4491-B16E-5F78C96C809F}</FileHash>
->>>>>>> Stashed changes
+	<FileHash>{58E4C26A-47C4-8FFF-0D60-0AA5DB976135}</FileHash>
 </SoundBanksInfo>

@@ -23,6 +23,7 @@
 						<ObjectRef Name="Play_Parry" ID="{1E0E9973-0609-4A91-AD72-5900814EBCA4}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Drop_Item" ID="{D6FE0DAC-430E-4C62-84BA-3CBC9A84989D}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Swings2H" ID="{2BA2F1B5-6E80-4EEB-90B8-7FD43648A7CB}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_BoneSteps" ID="{745F888F-4B17-4EEC-96C9-612737D3B303}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Music" ID="{141702EB-40C3-4F2F-BB1E-5F7D4DF5EBEE}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Key_Pickup" ID="{4437832E-6B32-4FE8-A94F-ED665EF84DE3}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Ambi" ID="{AEEF498C-FB63-4FFC-A52B-7250CC9FDEBA}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>

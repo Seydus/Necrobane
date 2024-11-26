@@ -1819,6 +1819,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="BoneStep1" ID="{F9C238F3-C31E-473A-A94D-697C8C9BD7BF}" ShortID="771008285">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-4</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -1841,6 +1848,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="BoneStep2" ID="{9DDA6600-D12A-4A73-81FE-137B41B0A28D}" ShortID="13019050">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-10.8</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -1863,6 +1877,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="BoneStep3" ID="{2FA518E8-6115-4252-B35F-4E7DBA67F52E}" ShortID="783184345">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-9.8</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>

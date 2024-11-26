@@ -34,14 +34,14 @@ MonoBehaviour:
       guid: 00000000000000000000000000000000
     - ElementName: Default Work Unit
       ObjectType: 12
-      guid: 941462bbcdf49043a0f64a9675eb7ab8
+      guid: ec4a2688f100da46ab460e630d8da3c3
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
-    guid: 941462bbcdf49043a0f64a9675eb7ab8
+    guid: ec4a2688f100da46ab460e630d8da3c3
     GuidInternal: 
-    m_lastTime: -8584691186813626184
+    m_lastTime: -8584689737590920409
     List:
     - name: Ambiance
-      guid: 7b40bdf8a69dd649b7c7352a2b57fc58
+      guid: e56f24dc5e84884cb04c6930bab876fb
       id: 2981377429
       PathAndIcons:
       - ElementName: Master-Mixer Hierarchy
@@ -49,19 +49,22 @@ MonoBehaviour:
         guid: 00000000000000000000000000000000
       - ElementName: Default Work Unit
         ObjectType: 12
-        guid: 941462bbcdf49043a0f64a9675eb7ab8
+        guid: ec4a2688f100da46ab460e630d8da3c3
       - ElementName: Master Audio Bus
         ObjectType: 2
         guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX
+        ObjectType: 2
+        guid: d67a1fc507adf349b7d4b6049f192ff5
       - ElementName: Environment
         ObjectType: 2
-        guid: 7f63632f42a02841a9d186bfe5fa7bf1
+        guid: d5cea429f134aa4d80d4ef8f873a7415
       - ElementName: Ambiance
         ObjectType: 2
-        guid: 7b40bdf8a69dd649b7c7352a2b57fc58
-      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Environment\Ambiance
+        guid: e56f24dc5e84884cb04c6930bab876fb
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX\Environment\Ambiance
     - name: Combat
-      guid: 881744ad62cff440b60ced41959ff75d
+      guid: 656fe4a9def4124ea98750b523bc3464
       id: 2764240573
       PathAndIcons:
       - ElementName: Master-Mixer Hierarchy
@@ -69,16 +72,39 @@ MonoBehaviour:
         guid: 00000000000000000000000000000000
       - ElementName: Default Work Unit
         ObjectType: 12
-        guid: 941462bbcdf49043a0f64a9675eb7ab8
+        guid: ec4a2688f100da46ab460e630d8da3c3
       - ElementName: Master Audio Bus
         ObjectType: 2
         guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX
+        ObjectType: 2
+        guid: d67a1fc507adf349b7d4b6049f192ff5
       - ElementName: Combat
         ObjectType: 2
-        guid: 881744ad62cff440b60ced41959ff75d
-      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Combat
+        guid: 656fe4a9def4124ea98750b523bc3464
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX\Combat
+    - name: Enemy
+      guid: 885691add393a045951f65ca711e2a21
+      id: 2299321487
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ec4a2688f100da46ab460e630d8da3c3
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX
+        ObjectType: 2
+        guid: d67a1fc507adf349b7d4b6049f192ff5
+      - ElementName: Enemy
+        ObjectType: 2
+        guid: 885691add393a045951f65ca711e2a21
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX\Enemy
     - name: Environment
-      guid: 7f63632f42a02841a9d186bfe5fa7bf1
+      guid: d5cea429f134aa4d80d4ef8f873a7415
       id: 1229948536
       PathAndIcons:
       - ElementName: Master-Mixer Hierarchy
@@ -86,36 +112,19 @@ MonoBehaviour:
         guid: 00000000000000000000000000000000
       - ElementName: Default Work Unit
         ObjectType: 12
-        guid: 941462bbcdf49043a0f64a9675eb7ab8
+        guid: ec4a2688f100da46ab460e630d8da3c3
       - ElementName: Master Audio Bus
         ObjectType: 2
         guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX
+        ObjectType: 2
+        guid: d67a1fc507adf349b7d4b6049f192ff5
       - ElementName: Environment
         ObjectType: 2
-        guid: 7f63632f42a02841a9d186bfe5fa7bf1
-      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Environment
-    - name: Firebolt
-      guid: bd0011ddf2735e4bb0fcd9b75dee9164
-      id: 3236324180
-      PathAndIcons:
-      - ElementName: Master-Mixer Hierarchy
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 941462bbcdf49043a0f64a9675eb7ab8
-      - ElementName: Master Audio Bus
-        ObjectType: 2
-        guid: d8a41415a61d2a41a17e75ca0c2149f3
-      - ElementName: Combat
-        ObjectType: 2
-        guid: 881744ad62cff440b60ced41959ff75d
-      - ElementName: Firebolt
-        ObjectType: 2
-        guid: bd0011ddf2735e4bb0fcd9b75dee9164
-      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Combat\Firebolt
+        guid: d5cea429f134aa4d80d4ef8f873a7415
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX\Environment
     - name: Footsteps
-      guid: f6e7da67eef82647acdcdbb052dba749
+      guid: f6da9f1b7e2c654fae132e1fb9f72496
       id: 2385628198
       PathAndIcons:
       - ElementName: Master-Mixer Hierarchy
@@ -123,38 +132,43 @@ MonoBehaviour:
         guid: 00000000000000000000000000000000
       - ElementName: Default Work Unit
         ObjectType: 12
-        guid: 941462bbcdf49043a0f64a9675eb7ab8
+        guid: ec4a2688f100da46ab460e630d8da3c3
       - ElementName: Master Audio Bus
         ObjectType: 2
         guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX
+        ObjectType: 2
+        guid: d67a1fc507adf349b7d4b6049f192ff5
       - ElementName: Player
         ObjectType: 2
-        guid: 3dda4c15e751bc428cd5fbcf9a701868
+        guid: 50086e160436254caa90afbfe5aeafa6
       - ElementName: Footsteps
         ObjectType: 2
-        guid: f6e7da67eef82647acdcdbb052dba749
-      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Player\Footsteps
-    - name: Hit SFX
-      guid: fa9942f475521745afaed8b695d50fbe
-      id: 3714854501
+        guid: f6da9f1b7e2c654fae132e1fb9f72496
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX\Player\Footsteps
+    - name: Interactables
+      guid: a27f06e483208d4ca7eb504b5bd29bbe
+      id: 181270742
       PathAndIcons:
       - ElementName: Master-Mixer Hierarchy
         ObjectType: 5
         guid: 00000000000000000000000000000000
       - ElementName: Default Work Unit
         ObjectType: 12
-        guid: 941462bbcdf49043a0f64a9675eb7ab8
+        guid: ec4a2688f100da46ab460e630d8da3c3
       - ElementName: Master Audio Bus
         ObjectType: 2
         guid: d8a41415a61d2a41a17e75ca0c2149f3
-      - ElementName: Combat
+      - ElementName: SFX
         ObjectType: 2
-        guid: 881744ad62cff440b60ced41959ff75d
-      - ElementName: Hit SFX
+        guid: d67a1fc507adf349b7d4b6049f192ff5
+      - ElementName: Environment
         ObjectType: 2
-        guid: fa9942f475521745afaed8b695d50fbe
-      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Combat\Hit
-        SFX
+        guid: d5cea429f134aa4d80d4ef8f873a7415
+      - ElementName: Interactables
+        ObjectType: 2
+        guid: a27f06e483208d4ca7eb504b5bd29bbe
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX\Environment\Interactables
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
       id: 3803692087
@@ -164,13 +178,39 @@ MonoBehaviour:
         guid: 00000000000000000000000000000000
       - ElementName: Default Work Unit
         ObjectType: 12
-        guid: 941462bbcdf49043a0f64a9675eb7ab8
+        guid: ec4a2688f100da46ab460e630d8da3c3
       - ElementName: Master Audio Bus
         ObjectType: 2
         guid: d8a41415a61d2a41a17e75ca0c2149f3
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus
+    - name: Mechanisms
+      guid: 467c50aef50cb542bf02cdb435661ec5
+      id: 4015094827
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ec4a2688f100da46ab460e630d8da3c3
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX
+        ObjectType: 2
+        guid: d67a1fc507adf349b7d4b6049f192ff5
+      - ElementName: Environment
+        ObjectType: 2
+        guid: d5cea429f134aa4d80d4ef8f873a7415
+      - ElementName: Interactables
+        ObjectType: 2
+        guid: a27f06e483208d4ca7eb504b5bd29bbe
+      - ElementName: Mechanisms
+        ObjectType: 2
+        guid: 467c50aef50cb542bf02cdb435661ec5
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX\Environment\Interactables\Mechanisms
     - name: Music
-      guid: f243002ebabbae408f37af2ca2e32fa8
+      guid: b9658d74ff1d054d88df94671c2e4396
       id: 3991942870
       PathAndIcons:
       - ElementName: Master-Mixer Hierarchy
@@ -178,36 +218,16 @@ MonoBehaviour:
         guid: 00000000000000000000000000000000
       - ElementName: Default Work Unit
         ObjectType: 12
-        guid: 941462bbcdf49043a0f64a9675eb7ab8
+        guid: ec4a2688f100da46ab460e630d8da3c3
       - ElementName: Master Audio Bus
         ObjectType: 2
         guid: d8a41415a61d2a41a17e75ca0c2149f3
       - ElementName: Music
         ObjectType: 2
-        guid: f243002ebabbae408f37af2ca2e32fa8
+        guid: b9658d74ff1d054d88df94671c2e4396
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Music
-    - name: Parry
-      guid: 7258aafbdf86374f93a123645ac4163c
-      id: 3076648345
-      PathAndIcons:
-      - ElementName: Master-Mixer Hierarchy
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 941462bbcdf49043a0f64a9675eb7ab8
-      - ElementName: Master Audio Bus
-        ObjectType: 2
-        guid: d8a41415a61d2a41a17e75ca0c2149f3
-      - ElementName: Combat
-        ObjectType: 2
-        guid: 881744ad62cff440b60ced41959ff75d
-      - ElementName: Parry
-        ObjectType: 2
-        guid: 7258aafbdf86374f93a123645ac4163c
-      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Combat\Parry
     - name: Player
-      guid: 3dda4c15e751bc428cd5fbcf9a701868
+      guid: 50086e160436254caa90afbfe5aeafa6
       id: 1069431850
       PathAndIcons:
       - ElementName: Master-Mixer Hierarchy
@@ -215,14 +235,57 @@ MonoBehaviour:
         guid: 00000000000000000000000000000000
       - ElementName: Default Work Unit
         ObjectType: 12
-        guid: 941462bbcdf49043a0f64a9675eb7ab8
+        guid: ec4a2688f100da46ab460e630d8da3c3
       - ElementName: Master Audio Bus
         ObjectType: 2
         guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX
+        ObjectType: 2
+        guid: d67a1fc507adf349b7d4b6049f192ff5
       - ElementName: Player
         ObjectType: 2
-        guid: 3dda4c15e751bc428cd5fbcf9a701868
-      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Player
+        guid: 50086e160436254caa90afbfe5aeafa6
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX\Player
+    - name: PlayerSFX
+      guid: dcd981c4ba64c34c86bd32eb26a584a8
+      id: 4283257371
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ec4a2688f100da46ab460e630d8da3c3
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX
+        ObjectType: 2
+        guid: d67a1fc507adf349b7d4b6049f192ff5
+      - ElementName: Player
+        ObjectType: 2
+        guid: 50086e160436254caa90afbfe5aeafa6
+      - ElementName: PlayerSFX
+        ObjectType: 2
+        guid: dcd981c4ba64c34c86bd32eb26a584a8
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX\Player\PlayerSFX
+    - name: SFX
+      guid: d67a1fc507adf349b7d4b6049f192ff5
+      id: 393239870
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ec4a2688f100da46ab460e630d8da3c3
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX
+        ObjectType: 2
+        guid: d67a1fc507adf349b7d4b6049f192ff5
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     PathAndIcons:
@@ -235,7 +298,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 3808cfcbeba5d043a9389dbcef0f39f7
     GuidInternal: 
-    m_lastTime: -8584691186806362589
+    m_lastTime: -8584689720821392731
     List:
     - name: Main
       guid: 71be9a838e8f7a4e9bbaa45884ab4f12
@@ -263,7 +326,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: fafe2c5e31679a46a1450b34d8466393
     GuidInternal: 
-    m_lastTime: -8584691186815403580
+    m_lastTime: -8584689737592979234
     List:
     - name: Blades
       guid: 5057d7e9557c8a4d848d8a0c0ae142fc
@@ -319,6 +382,23 @@ MonoBehaviour:
         ObjectType: 4
         guid: 79d7974bb4464e41afd09329629a6063
       Path: Events\Default Work Unit\Environment\Doors and Gates
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Enemy
+      guid: 6ad1bf4610f5f9459052e4484a98fdec
+      id: 2299321487
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Enemy
+        ObjectType: 4
+        guid: 6ad1bf4610f5f9459052e4484a98fdec
+      Path: Events\Default Work Unit\Enemy
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -465,6 +545,29 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Play_BoneSteps
+      guid: 8f885f74174bec4e96c9612737d3b303
+      id: 1512643089
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Enemy
+        ObjectType: 4
+        guid: 6ad1bf4610f5f9459052e4484a98fdec
+      - ElementName: Skeleton
+        ObjectType: 4
+        guid: 4426aaa77c04cb408d7229d4f7a0ba4f
+      - ElementName: Play_BoneSteps
+        ObjectType: 3
+        guid: 8f885f74174bec4e96c9612737d3b303
+      Path: Events\Default Work Unit\Enemy\Skeleton\Play_BoneSteps
+      maxAttenuation: 40
+      maxDuration: 0.73291546
+      minDuration: 0.58037287
     - name: Play_Chops
       guid: 1605ba03d735f544a9dd7fc55dd00984
       id: 3488755065
@@ -913,6 +1016,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Skeleton
+      guid: 4426aaa77c04cb408d7229d4f7a0ba4f
+      id: 3478279848
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Enemy
+        ObjectType: 4
+        guid: 6ad1bf4610f5f9459052e4484a98fdec
+      - ElementName: Skeleton
+        ObjectType: 4
+        guid: 4426aaa77c04cb408d7229d4f7a0ba4f
+      Path: Events\Default Work Unit\Enemy\Skeleton
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Stop_Ambi
       guid: 5230614e45460f49b10797d12197a325
       id: 1937570009
@@ -999,7 +1122,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: c10c20c359e8414fab4e671e1833dd9a
     GuidInternal: 
-    m_lastTime: -8584691186806352323
+    m_lastTime: -8584689737580221791
     List:
     - name: Player
       guid: 658a47bfcad4834c9865fdf5c931ec99
@@ -1079,7 +1202,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 44fa06ed6c542b4daccf66d261f951d9
     GuidInternal: 
-    m_lastTime: -8584691186806341404
+    m_lastTime: -8584689737580211462
     List:
     - name: Material
       guid: 8679c28ede04474f852d51e83ad6ac10
@@ -1212,7 +1335,7 @@ MonoBehaviour:
     m_lastTime: -8584701737193982455
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 050000000600000007000000090000000c0000000d0000000e000000
+  ExpandedWaapiItemIds: 050000000600000007000000090000000c0000000d0000000e0000000f000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

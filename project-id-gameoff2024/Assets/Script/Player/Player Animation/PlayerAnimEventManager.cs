@@ -15,6 +15,7 @@ public class PlayerAnimEventManager : MonoBehaviour
     public void TriggerPerformFirstAttackEvent()
     {
         PlayerCombat.OnPerformFirstAttackTriggered?.Invoke();
+        AkSoundEngine.PostEvent("Play_Swings2H", gameObject);
     }
 
     public void TriggerPerformSecondaryAttackEvent()

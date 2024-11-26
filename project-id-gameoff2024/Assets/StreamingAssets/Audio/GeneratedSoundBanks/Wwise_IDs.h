@@ -13,11 +13,8 @@ namespace AK
 {
     namespace EVENTS
     {
-<<<<<<< Updated upstream
         static const AkUniqueID PLAY_AMBI = 2616876087U;
-=======
         static const AkUniqueID PLAY_BONESTEPS = 1512643089U;
->>>>>>> Stashed changes
         static const AkUniqueID PLAY_CHOPS = 3488755065U;
         static const AkUniqueID PLAY_DROP_ITEM = 1363530945U;
         static const AkUniqueID PLAY_EQUIP_BLADE = 1527095013U;
@@ -95,15 +92,15 @@ namespace AK
         static const AkUniqueID AMBIANCE = 2981377429U;
         static const AkUniqueID COMBAT = 2764240573U;
         static const AkUniqueID ENEMY = 2299321487U;
-        static const AkUniqueID ENEMYSTEPS = 2201709940U;
         static const AkUniqueID ENVIRONMENT = 1229948536U;
-        static const AkUniqueID FIREBOLT = 3236324180U;
         static const AkUniqueID FOOTSTEPS = 2385628198U;
-        static const AkUniqueID HIT_SFX = 3714854501U;
+        static const AkUniqueID INTERACTABLES = 181270742U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
+        static const AkUniqueID MECHANISMS = 4015094827U;
         static const AkUniqueID MUSIC = 3991942870U;
-        static const AkUniqueID PARRY = 3076648345U;
         static const AkUniqueID PLAYER = 1069431850U;
+        static const AkUniqueID PLAYERSFX = 4283257371U;
+        static const AkUniqueID SFX = 393239870U;
     } // namespace BUSSES
 
     namespace AUDIO_DEVICES
