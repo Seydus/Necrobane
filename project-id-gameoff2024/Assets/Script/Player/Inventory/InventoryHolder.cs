@@ -49,7 +49,7 @@ public class InventoryHolder : MonoBehaviour
             {
                 for (int j = 0; j < ItemPrefs.Length; j++)
                 {
-                    if (others.GetComponent<Item>().Objname == ItemPrefs[j].GetComponent<Item>().Objname)
+                    if (others.tag == ItemPrefs[j].tag)
                     {
                         Items[i] = ItemPrefs[j].GetComponent<Item>();
                         Items[i].Objname = others.GetComponent<Item>().Objname;

@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 5665904263639555978}
   m_Layer: 0
   m_Name: Bones
-  m_TagString: Untagged
+  m_TagString: Bones
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objname: Bones
-  amount: 0
+  amount: 10
   avatar: {fileID: -571328280, guid: 645b7408898abaf4ab52a4db1ee37b0c, type: 3}
   inv: 0
   Image: {fileID: 0}
