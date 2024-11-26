@@ -150,6 +150,9 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
             {
                 if(playerManager.PlayerProfile.isDefending)
                 {
+                    if (playerManager.PlayerCombat.WeaponHolder.weapon == null)
+                        return;
+
                     playerManager.PlayerProfile.DeductStamina(playerManager.PlayerCombat.WeaponHolder.weapon.weaponSO.WeaponStaminaCost);
                 }
                 else

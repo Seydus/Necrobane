@@ -179,18 +179,23 @@ public class PlayerCombat : MonoBehaviour
 
     public IEnumerator KnockbackRoutine(NavMeshAgent agent)
     {
-        float elapsed = 0f;
-
-        while (elapsed < knockbackDuration)
+        if (agent)
         {
-            agent.Move(knockbackDirection * knockbackSpeed * Time.deltaTime);
+            float elapsed = 0f;
 
-            elapsed += Time.deltaTime;
-            yield return null;
+            while (elapsed < knockbackDuration)
+            {
+                agent.Move(knockbackDirection * knockbackSpeed * Time.deltaTime);
+
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            agent.isStopped = false;
+            isKnockedBack = false;
         }
 
-        agent.isStopped = false;
-        isKnockedBack = false;
+        yield return null;
     }
 
     public void InitHitVFX(Vector3 point)
