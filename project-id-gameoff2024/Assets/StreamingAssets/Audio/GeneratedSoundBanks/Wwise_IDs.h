@@ -31,6 +31,7 @@ namespace AK
         static const AkUniqueID PLAY_OPEN_GATE = 1127904212U;
         static const AkUniqueID PLAY_PARRY = 4115969904U;
         static const AkUniqueID PLAY_PERFECTPARRYSTINGER = 2908761997U;
+        static const AkUniqueID PLAY_SW = 2078302632U;
         static const AkUniqueID PLAY_SWINGS2H = 1187857689U;
         static const AkUniqueID PLAY_UNLOCK_GATE = 356987792U;
         static const AkUniqueID STOP_AMBI = 1937570009U;
@@ -81,6 +82,11 @@ namespace AK
 
     } // namespace SWITCHES
 
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID SECRETWALL = 876875105U;
+    } // namespace GAME_PARAMETERS
+
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
@@ -100,8 +106,14 @@ namespace AK
         static const AkUniqueID MUSIC = 3991942870U;
         static const AkUniqueID PLAYER = 1069431850U;
         static const AkUniqueID PLAYERSFX = 4283257371U;
+        static const AkUniqueID REVERBS = 3545700988U;
         static const AkUniqueID SFX = 393239870U;
     } // namespace BUSSES
+
+    namespace AUX_BUSSES
+    {
+        static const AkUniqueID BIGROOM = 1495464960U;
+    } // namespace AUX_BUSSES
 
     namespace AUDIO_DEVICES
     {

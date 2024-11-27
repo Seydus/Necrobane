@@ -282,6 +282,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_SW" ID="{CE2828C4-1E47-44E0-BCA9-BBEA47377483}">
+							<ChildrenList>
+								<Action Name="" ID="{CF6CC691-BD67-4A73-9536-AF391AC7F4AE}" ShortID="685034903">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SW" ID="{B20B6F44-152A-427A-ABCE-2F8E30518E4B}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Event Name="Stop_Music" ID="{89CC9419-CB30-488A-8D7D-1A7852F48365}">
@@ -317,6 +328,17 @@
 						</Folder>
 					</ChildrenList>
 				</Folder>
+				<Event Name="Play_Ambi_01" ID="{30E89CA5-33BB-409E-9A85-B31CC21BC4A3}">
+					<ChildrenList>
+						<Action Name="" ID="{D7742157-F019-47EE-8FFA-A2650E13DCEC}" ShortID="536751060">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Ambi" ID="{2732CFE5-1393-477C-85D2-E85C51C4EDBA}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
