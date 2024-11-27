@@ -10,11 +10,16 @@
 						<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 						<Property Name="MaxSoundPerInstance" Type="int16">
 							<ValueList>
-								<Value>1</Value>
+								<Value>2</Value>
 							</ValueList>
 						</Property>
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
 						<Property Name="Tempo" Type="Real64" Value="116"/>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -32,6 +37,8 @@
 									<ChildrenList>
 										<MusicTransition Name="Transition" ID="{387F2A04-0CE6-485C-8AC7-AB3A63604B11}">
 											<PropertyList>
+												<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
+												<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
 												<Property Name="ExitSourceAt" Type="int16" Value="3"/>
 											</PropertyList>
 											<TransitionInfo>
@@ -39,11 +46,19 @@
 													<MusicFade Name="Source Fade-out" ID="{7BFAACC1-94BB-4A65-91B7-9758E9351452}">
 														<PropertyList>
 															<Property Name="FadeCurve" Type="int16" Value="6"/>
-															<Property Name="FadeTime" Type="Real64" Value="2.5"/>
+															<Property Name="FadeOffset" Type="Real64" Value="2.5"/>
+															<Property Name="FadeTime" Type="Real64" Value="5"/>
 															<Property Name="FadeType" Type="int16" Value="1"/>
 														</PropertyList>
 													</MusicFade>
 												</SourceFadeOut>
+												<DestinationFadeIn>
+													<MusicFade Name="Destination Fade-in" ID="{46640413-9E83-4DB6-BCA6-2E4807C06B5B}">
+														<PropertyList>
+															<Property Name="FadeTime" Type="Real64" Value="5"/>
+														</PropertyList>
+													</MusicFade>
+												</DestinationFadeIn>
 											</TransitionInfo>
 										</MusicTransition>
 										<MusicTransition Name="Transition" ID="{7F200071-9C4D-4AC0-960F-D077B430FC42}">
@@ -52,7 +67,7 @@
 												<Property Name="DestinationJumpPositionPreset" Type="int16" Value="1"/>
 												<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
 												<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
-												<Property Name="ExitSourceAt" Type="int16" Value="0"/>
+												<Property Name="ExitSourceAt" Type="int16" Value="2"/>
 												<Property Name="SourceContextType" Type="int16" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
@@ -844,23 +859,6 @@
 							</ChildrenList>
 						</MusicPlaylistContainer>
 					</ChildrenList>
-					<StateInfo>
-						<StateGroupList>
-							<StateGroupInfo>
-								<StateGroupRef Name="Player" ID="{BF478A65-D4CA-4C83-9865-FDF5C931EC99}"/>
-							</StateGroupInfo>
-						</StateGroupList>
-						<CustomStateList>
-							<CustomState>
-								<StateRef Name="Dead" ID="{8349F435-00C0-4589-B085-E4485B0CACA3}"/>
-								<CustomState Name="" ID="{6F40FA5F-007F-4BA9-B731-2BBCABB47888}" ShortID="1038979607"/>
-							</CustomState>
-							<CustomState>
-								<StateRef Name="Alive" ID="{F99E05A6-96FA-45B0-B6FB-F46F4EE2F349}"/>
-								<CustomState Name="" ID="{2213ABAE-7DE6-400F-B956-AC28482A6E95}" ShortID="47702861"/>
-							</CustomState>
-						</CustomStateList>
-					</StateInfo>
 					<ObjectLists>
 						<ObjectList Name="Arguments">
 							<Reference>
