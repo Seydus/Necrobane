@@ -576,6 +576,8 @@ GameObject:
   - component: {fileID: 4470378412146303567}
   - component: {fileID: 8263005057883747209}
   - component: {fileID: 6150039531935992032}
+  - component: {fileID: 9128301445190246032}
+  - component: {fileID: 1370190162072058302}
   m_Layer: 6
   m_Name: Skeleton
   m_TagString: Enemy
@@ -705,6 +707,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 6718694777888320307}
+--- !u!114 &9128301445190246032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6217938565619059121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e1bf5528777654c83c4101ffba3933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
+--- !u!114 &1370190162072058302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6217938565619059121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42021fcd594a1504c92f0bea95bd8d51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 0.5
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  maxDistance: -1
+  refreshInterval: 1
 --- !u!1 &7108805147195454284
 GameObject:
   m_ObjectHideFlags: 0
