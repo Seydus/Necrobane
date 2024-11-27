@@ -141,8 +141,6 @@ public class EnemyRoaming : IEnemyRoaming
         return newPosition;
     }
 
-
-
     private void HandleEnemyState()
     {
         switch (enemyState)

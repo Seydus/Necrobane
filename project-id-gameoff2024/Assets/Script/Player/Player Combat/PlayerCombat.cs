@@ -185,6 +185,9 @@ public class PlayerCombat : MonoBehaviour
 
             while (elapsed < knockbackDuration)
             {
+                if (!agent)
+                    yield break;
+
                 agent.Move(knockbackDirection * knockbackSpeed * Time.deltaTime);
 
                 elapsed += Time.deltaTime;

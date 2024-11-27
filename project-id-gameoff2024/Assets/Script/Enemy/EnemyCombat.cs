@@ -17,6 +17,8 @@ public class EnemyCombat : IEnemyCombat
     protected float AngleSetDifference;
     public bool IsAttacking { get; set; }
 
+    private bool isResetPath;
+
     public void Awake()
     {
         enemyCombat = this;
@@ -29,7 +31,11 @@ public class EnemyCombat : IEnemyCombat
 
         if (Vector3.Distance(player.position, Enemy.transform.position) <= range)
         {
-            agent.ResetPath();
+            if(!isResetPath)
+            {
+                agent.ResetPath();
+                isResetPath = true;
+            }
 
             Vector3 directionToTargetPosition = player.position - Enemy.transform.position;
             directionToTargetPosition.y = 0;
@@ -71,6 +77,8 @@ public class EnemyCombat : IEnemyCombat
             {
                 agent.ResetPath();
             }
+
+            isResetPath = false;
         }
     }
 
