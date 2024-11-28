@@ -14,6 +14,11 @@ public class CultistAnimation : MonoBehaviour
         anim.SetBool("isAttack", state);
     }
 
+    public void CultistSummon()
+    {
+        anim.SetTrigger("isSummon");
+    }
+
     public float GetCurrentAnimationLength()
     {
         return anim.GetCurrentAnimatorStateInfo(0).length;

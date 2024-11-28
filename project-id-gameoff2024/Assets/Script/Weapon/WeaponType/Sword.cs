@@ -6,6 +6,9 @@ public class Sword : Weapon
     {
         if (Input.GetMouseButtonDown(0))
         {
+            PlayerCombat.PlayerProfile.isDefending = false;
+            PlayerCombat.PlayerAnimation.SetSwordDefendState(false);
+
             PlayerCombat.IsAttacking = true;
             PlayerCombat.PlayerAnimation.PeformBasicSwordAttackAnim();
             PlayerCombat.PlayerController.maxSpeed /= 2f;
@@ -14,6 +17,9 @@ public class Sword : Weapon
 
     public override void HandleSecondaryAttack()
     {
+        if (PlayerCombat.IsAttacking)
+            return;
+
         if (Input.GetMouseButton(1))
         {
             if (PlayerCombat.PlayerProfile.playerStamina >= weaponSO.WeaponStaminaCost)

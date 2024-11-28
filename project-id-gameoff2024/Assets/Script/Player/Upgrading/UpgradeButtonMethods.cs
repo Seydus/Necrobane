@@ -8,6 +8,9 @@ public class UpgradeButtonMethods : MonoBehaviour
 
     private void Update()
     {
+        if (weaponSO == null)
+            return;
+
         weaponSO = pc.WeaponHolder.weapon.weaponSO;
 
         if (Input.GetKeyDown(KeyCode.Y))
