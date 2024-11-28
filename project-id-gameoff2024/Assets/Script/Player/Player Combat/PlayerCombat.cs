@@ -118,9 +118,9 @@ public class PlayerCombat : MonoBehaviour
 
     private void InitAttack()
     {
-        if (IsAttacking || WeaponHolder == null)
+        if (WeaponHolder == null)
         {
-            //Debug.Log(IsAttacking);
+            Debug.LogError("No weapon holder!");
             return;
         }
 
@@ -185,6 +185,9 @@ public class PlayerCombat : MonoBehaviour
 
             while (elapsed < knockbackDuration)
             {
+                if (!agent)
+                    yield break;
+
                 agent.Move(knockbackDirection * knockbackSpeed * Time.deltaTime);
 
                 elapsed += Time.deltaTime;
