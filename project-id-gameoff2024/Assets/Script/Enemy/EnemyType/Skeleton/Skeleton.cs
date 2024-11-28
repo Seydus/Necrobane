@@ -16,8 +16,8 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
     [SerializeField] private Transform weaponPos;
 
     [Header("Events")]
-    public static UnityAction OnPerformAttackTriggered;
-    public static UnityAction OnFinishAttackTriggered;
+    public UnityEvent OnPerformAttackTriggered = new UnityEvent();
+    public UnityEvent OnFinishAttackTriggered = new UnityEvent();
 
     private Ray sphereSkeletonRay;
     private RaycastHit skeletonHit;
@@ -47,19 +47,8 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
     public float AttackDelay { get; set; }
     public float RoamingRotateSpeed { get; set; }
     public float RoamingMoveSpeed { get; set; }
+    public bool isBlockedByWall { get; set; }
     #endregion
-
-    private void OnEnable()
-    {
-        OnPerformAttackTriggered += PerformAttack;
-        OnFinishAttackTriggered += FinishAttack;
-    }
-
-    private void OnDisable()
-    {
-        OnPerformAttackTriggered -= PerformAttack;
-        OnFinishAttackTriggered -= FinishAttack;
-    }
 
     public override void Awake()
     {
@@ -94,6 +83,15 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
         enemyCombat.Awake();
 
         skeletonAnimation = GetComponent<SkeletonAnimation>();
+
+        OnPerformAttackTriggered.AddListener(PerformAttack);
+        OnFinishAttackTriggered.AddListener(FinishAttack);
+    }
+
+    private void OnDestroy()
+    {
+        OnPerformAttackTriggered.RemoveListener(PerformAttack);
+        OnFinishAttackTriggered.RemoveListener(FinishAttack);
     }
 
     public override void Start()
@@ -123,9 +121,9 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
         return new Ray(weaponPos.position + transform.forward * -0.3f, transform.forward);
     }
 
-    public void HandleAttack(Transform player, NavMeshAgent agent, float range)
+    public void HandleAttack(NavMeshAgent agent, float range)
     {
-        enemyCombat.HandleAttack(player, agent, range);
+        enemyCombat.HandleAttack(agent, range);
     }
 
     public IEnumerator InitAttack(float delay)

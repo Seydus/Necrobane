@@ -2,13 +2,20 @@ using UnityEngine;
 
 public class CulltistAnimEventManager : MonoBehaviour
 {
+    private Cultist cultist;
+
+    private void Awake()
+    {
+        cultist = GetComponentInParent<Cultist>();
+    }
+
     public void TriggerPerformAttackEvent()
     {
-        Cultist.OnPerformAttackTriggered?.Invoke();
+        cultist?.OnPerformAttackTriggered?.Invoke();
     }
 
     public void TriggerFinishAttackEvent()
     {
-        Cultist.OnFinishAttackTriggered?.Invoke();
+        cultist?.OnFinishAttackTriggered?.Invoke();
     }
 }

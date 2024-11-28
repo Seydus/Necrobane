@@ -665,7 +665,7 @@ MonoBehaviour:
   roamingMoveSpeed: 1.75
   minRoamWaitTime: 2
   maxRoamWaitTime: 3
-  roamDetectionRadius: 5
+  roamDetectionRadius: 2
   minRoamDistance: 3
   maxRoamDistance: 5
   roamDirectionChangeChance: 0.3

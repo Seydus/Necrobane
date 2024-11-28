@@ -38,15 +38,17 @@ public class EnemyRoaming : IEnemyRoaming
 
     [Header("Enemy Detection")]
     public float DetectRadius { get; set; }
+    private RaycastHit enemyHit;
     public LayerMask PlayerMask { get; set; }
+    public LayerMask WallMask { get; set; }
     public float EngageCooldownDuration { get; set; }
     public float DisengageCooldownDuration { get; set; }
     private bool startEngage = false;
     private bool startDisengage = false;
 
-    private Transform player;
     private float engageCooldown;
     private float disengageCooldown;
+ 
     private bool isPlayerDetected;
 
     [Header("Others")]
@@ -103,11 +105,29 @@ public class EnemyRoaming : IEnemyRoaming
     private void DetectPlayer()
     {
         Collider[] hitColliders = Physics.OverlapSphere(Enemy.transform.position, DetectRadius, PlayerMask);
-        isPlayerDetected = hitColliders.Length > 0;
-
-        if (isPlayerDetected)
+      
+        if (hitColliders.Length > 0)
         {
-            player = hitColliders[0].transform;
+            Vector3 direction = hitColliders[0].transform.position - Enemy.transform.position;
+            direction.Normalize();
+
+            if (Physics.SphereCast(Enemy.transform.position, 0.1f, direction, out enemyHit, DetectRadius))
+            {
+                if(enemyHit.collider.GetComponent<PlayerManager>() != null)
+                {
+                    // No wall detected, player is visible
+                    Debug.Log($"Player detected: {hitColliders[0].transform.gameObject.name}");
+                    isPlayerDetected = true;
+                    Enemy.player = hitColliders[0].transform;
+                }
+                else
+                {
+                    // If a wall is hit, the player is not detected
+                    Debug.Log($"Wall detected: {enemyHit.collider.gameObject.name}");
+                    isPlayerDetected = false;
+                }
+
+            }
         }
     }
 
@@ -158,7 +178,7 @@ public class EnemyRoaming : IEnemyRoaming
     {
         if (Enemy is IEnemyCombat enemyCombat)
         {
-            enemyCombat.HandleAttack(player, NavMeshAgent, Enemy.enemyProfile.EnemyRange);
+            enemyCombat.HandleAttack(NavMeshAgent, Enemy.enemyProfile.EnemyRange);
         }
     }
 

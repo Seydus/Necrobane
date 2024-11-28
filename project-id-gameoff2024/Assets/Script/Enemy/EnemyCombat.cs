@@ -24,20 +24,16 @@ public class EnemyCombat : IEnemyCombat
         enemyCombat = this;
     }
 
-    public void HandleAttack(Transform player, NavMeshAgent agent, float range)
+    public void HandleAttack(NavMeshAgent agent, float range)
     {
         if (!agent)
             return;
 
-        if (Vector3.Distance(player.position, Enemy.transform.position) <= range)
+        if (Vector3.Distance(Enemy.player.position, Enemy.transform.position) <= range)
         {
-            if(!isResetPath)
-            {
-                agent.ResetPath();
-                isResetPath = true;
-            }
+            agent.ResetPath();
 
-            Vector3 directionToTargetPosition = player.position - Enemy.transform.position;
+            Vector3 directionToTargetPosition = Enemy.player.position - Enemy.transform.position;
             directionToTargetPosition.y = 0;
             directionToTargetPosition.Normalize();
 
@@ -58,7 +54,7 @@ public class EnemyCombat : IEnemyCombat
             {
                 if (Enemy is IEnemyRoaming enemyRoaming)
                 {
-                    Vector3 directionToTargetPosition = player.position - Enemy.transform.position;
+                    Vector3 directionToTargetPosition = Enemy.player.position - Enemy.transform.position;
                     directionToTargetPosition.y = 0;
                     directionToTargetPosition.Normalize();
 
@@ -67,7 +63,7 @@ public class EnemyCombat : IEnemyCombat
 
                     Enemy.transform.localRotation = Quaternion.Slerp(Enemy.transform.localRotation, yAxisOnlyRotation, RotateSpeed * Time.deltaTime);
 
-                    agent.SetDestination(player.position);
+                    agent.SetDestination(Enemy.player.position);
 
                     Vector3 velocity = agent.desiredVelocity;
                     Enemy.transform.position += velocity.normalized * Enemy.roamingMoveSpeed * Time.deltaTime;
@@ -86,7 +82,4 @@ public class EnemyCombat : IEnemyCombat
     public IEnumerator InitAttack(float delay) { yield return null; }
 
     public Ray GetEnemyDirection() { return new Ray(); }
-
-
-    public IEnumerator InitAttack(Transform player, float delay) { Debug.Log("Enemy Attack is coming from the EnemyCombat"); yield return null; }
 }

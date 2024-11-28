@@ -19,11 +19,8 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
     private RaycastHit cultistHit;
 
     [Header("Events")]
-    public static UnityAction OnPerformAttackTriggered;
-    public static UnityAction OnFinishAttackTriggered;
-
-    // can be improved
-    private Transform player;
+    public UnityEvent OnPerformAttackTriggered = new UnityEvent();
+    public UnityEvent OnFinishAttackTriggered = new UnityEvent();
 
     #region Misc
     public float AttackSpeed { get; set; }
@@ -50,19 +47,8 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
     public float AttackDelay { get; set; }
     public float RoamingRotateSpeed { get; set; }
     public float RoamingMoveSpeed { get; set; }
+    public bool isBlockedByWall { get; set; }
     #endregion
-
-    public void OnEnable()
-    {
-        OnPerformAttackTriggered += PerformAttack;
-        OnFinishAttackTriggered += FinishAttack;
-    }
-
-    public void OnDisable()
-    {
-        OnPerformAttackTriggered -= PerformAttack;
-        OnFinishAttackTriggered -= FinishAttack;
-    }
 
     public override void Awake()
     {
@@ -97,6 +83,15 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
         enemyCombat.Awake();
 
         cultistAnimation = GetComponent<CultistAnimation>();
+
+        OnPerformAttackTriggered.AddListener(PerformAttack);
+        OnFinishAttackTriggered.AddListener(FinishAttack);
+    }
+
+    private void OnDestroy()
+    {
+        OnPerformAttackTriggered.RemoveListener(PerformAttack);
+        OnFinishAttackTriggered.RemoveListener(FinishAttack);
     }
 
     public new void Start()
@@ -122,10 +117,9 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
         return new Ray(transform.position, transform.forward);
     }
 
-    public void HandleAttack(Transform player, NavMeshAgent navMeshAgent, float range)
+    public void HandleAttack(NavMeshAgent navMeshAgent, float range)
     {
-        this.player = player;
-        enemyCombat.HandleAttack(player, navMeshAgent, range);
+        enemyCombat.HandleAttack(navMeshAgent, range);
     }
 
     public IEnumerator InitAttack(float delay)
@@ -139,10 +133,14 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
 
     private void PerformAttack()
     {
-        Vector3 direction = (player.position + (Vector3.up * 0.35f) - projectilePos.position).normalized;
+        if(player && projectilePos)
+        {
+            Vector3 direction = player.position + (Vector3.up * 0.35f) - projectilePos.position;
+            direction.Normalize();
 
-        GameObject newProjectile = Instantiate(projectileObj, projectilePos.position, Quaternion.identity);
-        newProjectile.GetComponent<EnemyProjectileBullet>().Init(direction);
+            GameObject newProjectile = Instantiate(projectileObj, projectilePos.position, Quaternion.identity);
+            newProjectile.GetComponent<EnemyProjectileBullet>().Init(direction);
+        }
     }
 
     private void FinishAttack()
