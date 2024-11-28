@@ -3,7 +3,27 @@ guid: a2a33868891feb24cb82457df0b29506
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bricks
+    second: {fileID: 2100000, guid: 38e2f73825cc6ad4ead8b1bc064e2adf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coals
+    second: {fileID: 2100000, guid: 6d60a956d7de9e94eb4c219d07f4c62d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Furnace
+    second: {fileID: 2100000, guid: 2c9db7ba33dd9514db3d0d95b544e168, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalBar
+    second: {fileID: 2100000, guid: 0866e0adeb51b2e4c9ca0c8b29552337, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
