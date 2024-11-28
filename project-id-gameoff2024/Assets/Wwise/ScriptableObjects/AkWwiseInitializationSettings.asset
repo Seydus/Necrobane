@@ -27,7 +27,7 @@ MonoBehaviour:
     m_EngineLogging: 1
     m_DefaultScalingFactor: 1
     m_MaximumNumberOfPositioningPaths: 255
-    m_CommandQueueSize: 262144
+    m_CommandQueueSize: 393216
     m_SamplesPerFrame: 512
     m_MainOutputSettings:
       m_AudioDeviceShareset: 

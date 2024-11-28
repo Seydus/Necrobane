@@ -1002,24 +1002,21 @@
 					<ChildrenList>
 						<MusicPlaylistContainer Name="Ambi" ID="{2732CFE5-1393-477C-85D2-E85C51C4EDBA}" ShortID="374656939">
 							<PropertyList>
+								<Property Name="ListenerRelativeRouting" Type="bool" Value="False"/>
 								<Property Name="MaxSoundPerInstance" Type="int16">
 									<ValueList>
-										<Value>1</Value>
+										<Value>2</Value>
 									</ValueList>
 								</Property>
 								<Property Name="Tempo" Type="Real64" Value="92"/>
-								<Property Name="UseMaxSoundPerInstance" Type="bool">
-									<ValueList>
-										<Value>True</Value>
-									</ValueList>
-								</Property>
+								<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
+									<ObjectRef Name="SFX" ID="{C51F7AD6-AD07-49F3-B7D4-B6049F192FF5}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
 								</Reference>
 								<Reference Name="PlaylistRoot">
 									<Custom>
@@ -1151,6 +1148,194 @@
 									</ObjectLists>
 								</MusicSegment>
 							</ChildrenList>
+						</MusicPlaylistContainer>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="SecretWall" ID="{D711A59F-9914-4B7F-A478-B6DD01B9EF23}" ShortID="70907360">
+					<ChildrenList>
+						<MusicPlaylistContainer Name="SW" ID="{B20B6F44-152A-427A-ABCE-2F8E30518E4B}" ShortID="780290092">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+								<Property Name="PlaybackSpeed" Type="Real64">
+									<ValueList>
+										<Value>1.5</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Tempo" Type="Real64" Value="92"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="SecretWall" ID="{9C952AC2-096C-46CF-A782-0098EC0D5436}" WorkUnitID="{61E62009-A45E-4D12-A3F4-01EB122C29C4}"/>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Ambiance" ID="{DC246FE5-845E-4C88-B04C-6930BAB876FB}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
+								</Reference>
+								<Reference Name="PlaylistRoot">
+									<Custom>
+										<MusicPlaylistItem Name="" ID="{2689D591-AEC4-49F8-BE7A-3A42955D830E}" ShortID="182872912">
+											<ChildrenList>
+												<MusicPlaylistItem Name="" ID="{EEB74CB6-C1F0-4E46-9379-B3481F83A2BD}" ShortID="676723053">
+													<PropertyList>
+														<Property Name="LoopCount" Type="int16" Value="0"/>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Segment">
+															<ObjectRef Name="SecretWall" ID="{7920D3AB-348D-4802-8008-2FC046DA76C2}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
+														</Reference>
+													</ReferenceList>
+												</MusicPlaylistItem>
+											</ChildrenList>
+										</MusicPlaylistItem>
+									</Custom>
+								</Reference>
+								<Reference Name="TransitionRoot">
+									<Custom>
+										<MusicTransition Name="Root" ID="{C7F73C3C-FD0A-4DCA-B621-F13FCBA02E70}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicTransition Name="Transition" ID="{695DD141-F7E6-4227-BFF5-4B59A3BE96F1}">
+													<TransitionInfo/>
+												</MusicTransition>
+											</ChildrenList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</Custom>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="SecretWall" ID="{7920D3AB-348D-4802-8008-2FC046DA76C2}" ShortID="1046553169">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="6929.16851954119"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="SecretWall" ID="{FDF137D8-3B7A-4154-B01E-0663EE1BBE2E}" ShortID="605676055">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
+												</Reference>
+												<Reference Name="TransitionRoot">
+													<Custom>
+														<MusicTransition Name="Root" ID="{6F6B9330-052B-4B75-9E24-AD7498FEA614}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="SecretWall" ID="{8E47920E-496E-46BD-8229-572B685DBF29}">
+													<Language>SFX</Language>
+													<AudioFile>SecretWall.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="893033890"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<Reference>
+														<Local>
+															<MusicTrackSequence Name="" ID="{2377E65D-B1FC-430C-8A16-605F39C28443}">
+																<ObjectLists>
+																	<ObjectList Name="Clips">
+																		<Reference>
+																			<Local>
+																				<MusicClip Name="SecretWall" ID="{72E9AE13-BD83-4326-9BBB-04F09C5C387A}">
+																					<PropertyList>
+																						<Property Name="EndTrimOffset" Type="Real64" Value="6521.76870748299"/>
+																						<Property Name="FadeInMode" Type="int16" Value="0"/>
+																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																					</PropertyList>
+																					<AudioSourceRef Name="SecretWall" ID="{8E47920E-496E-46BD-8229-572B685DBF29}"/>
+																				</MusicClip>
+																			</Local>
+																		</Reference>
+																	</ObjectList>
+																</ObjectLists>
+															</MusicTrackSequence>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<Reference>
+												<Local>
+													<MusicCue Name="Entry Cue" ID="{4F22DC62-BFC5-4EAC-AB37-07D951D15591}"/>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<MusicCue Name="Exit Cue" ID="{91491F0A-6D45-485C-9A45-6C0AC230D21B}">
+														<PropertyList>
+															<Property Name="CueType" Type="int16" Value="1"/>
+															<Property Name="TimeMs" Type="Real64" Value="5217.39130434783"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{33B865DC-A57A-4F8C-A3D3-6186FFB1E789}" ShortID="346422756">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="PlaybackSpeed"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="SecretWall" ID="{C632EFB7-8A9F-4775-A0E2-371D607F0C37}" WorkUnitID="{4F740154-E163-4BED-8940-45EACCE7D766}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{AE8860BA-7070-4472-ACA9-765D82CF4DE5}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="1"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>3.98725</YPos>
+																		<Flags>5</Flags>
+																		<SegmentShape>Log2</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>15</XPos>
+																		<YPos>0.25</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
 						</MusicPlaylistContainer>
 					</ChildrenList>
 				</Folder>

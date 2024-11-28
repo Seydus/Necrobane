@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{4F740154-E163-4BED-8940-45EACCE7D766}" SchemaVersion="119">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{4F740154-E163-4BED-8940-45EACCE7D766}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{4F740154-E163-4BED-8940-45EACCE7D766}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="SecretWall" ID="{C632EFB7-8A9F-4775-A0E2-371D607F0C37}">
+					<PropertyList>
+						<Property Name="BindToBuiltInParam" Type="int16" Value="1"/>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+						<Property Name="Max" Type="Real64" Value="15"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>

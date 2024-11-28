@@ -12,6 +12,7 @@
 						<SwitchContainer Name="Footsteps" ID="{A26679A2-C10B-48D8-87D8-066E4ABAB041}" ShortID="344332616">
 							<PropertyList>
 								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+								<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
 										<ModifierInfo>
@@ -25,6 +26,7 @@
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
+								<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ModifierList>
 										<ModifierInfo>
@@ -546,6 +548,7 @@
 						</SwitchContainer>
 						<SwitchContainer Name="Jump" ID="{D207C039-6F2E-4AA4-946E-727356306FAC}" ShortID="295218995">
 							<PropertyList>
+								<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
 										<ModifierInfo>
@@ -559,6 +562,7 @@
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
+								<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ModifierList>
 										<ModifierInfo>
@@ -782,6 +786,7 @@
 									<ChildrenList>
 										<Sound Name="Equip_Blade" ID="{3625E2BE-9EB8-4099-99DC-0D17CEFEADDB}" ShortID="868266655">
 											<PropertyList>
+												<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>7.2</Value>
@@ -811,6 +816,7 @@
 										</Sound>
 										<Sound Name="Equip_Fist" ID="{47119557-2197-43BB-A24A-8389BD7FB3B0}" ShortID="976925258">
 											<PropertyList>
+												<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-2.3</Value>
@@ -848,6 +854,7 @@
 									<ChildrenList>
 										<Sound Name="Drop_Item" ID="{751DCF73-C710-41A3-80B8-5BF55290EB27}" ShortID="491095146">
 											<PropertyList>
+												<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
@@ -894,6 +901,7 @@
 									<ChildrenList>
 										<Sound Name="Key_Pickup" ID="{DB395B41-FA70-4041-84F3-6643EFA6C996}" ShortID="979050002">
 											<PropertyList>
+												<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>21.9</Value>
@@ -942,6 +950,7 @@
 							<ChildrenList>
 								<RandomSequenceContainer Name="FistSwing" ID="{E2A8FFCD-1275-441B-8748-23A251236B39}" ShortID="820601453">
 									<PropertyList>
+										<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 										<Property Name="Pitch" Type="int32">
 											<ModifierList>
 												<ModifierInfo>
@@ -1053,6 +1062,7 @@
 									<ChildrenList>
 										<RandomSequenceContainer Name="HitBones" ID="{203C1A53-03AE-40D5-9F44-3E5563A60824}" ShortID="297411824">
 											<PropertyList>
+												<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
@@ -1155,6 +1165,7 @@
 										<RandomSequenceContainer Name="Swings" ID="{9E884B85-2F77-4C31-970D-BB95BE75CFDE}" ShortID="1073303071">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Attenuation">
@@ -1261,6 +1272,7 @@
 								</Folder>
 								<RandomSequenceContainer Name="Chops" ID="{85675BD4-244A-4DCF-AC5C-E069C7D6E23F}" ShortID="55624613">
 									<PropertyList>
+										<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 										<Property Name="Pitch" Type="int32">
 											<ModifierList>
 												<ModifierInfo>
@@ -1392,6 +1404,7 @@
 									<ChildrenList>
 										<RandomSequenceContainer Name="Parry" ID="{AD5E76FC-1435-4C3A-B67E-67C76CE9215D}" ShortID="54989206">
 											<PropertyList>
+												<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
@@ -1526,6 +1539,9 @@
 											</ChildrenList>
 										</RandomSequenceContainer>
 										<Sound Name="PerfectParryStinger" ID="{6921A781-BA06-49AD-9F25-7B6CB4A7C3F7}" ShortID="174167126">
+											<PropertyList>
+												<Property Name="EnableDiffraction" Type="bool" Value="True"/>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -1560,6 +1576,7 @@
 								<Sound Name="Firebolt" ID="{1871AA0A-F768-46F3-A6B3-99F3B352A2BF}" ShortID="673945494">
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 										<Property Name="Pitch" Type="int32">
 											<ModifierList>
 												<ModifierInfo>
@@ -1605,6 +1622,7 @@
 								</Sound>
 								<Sound Name="Firebolt_Explosion" ID="{E8681533-29B0-4530-9993-41230BC42EA6}" ShortID="864667198">
 									<PropertyList>
+										<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>5.6</Value>
@@ -1647,6 +1665,7 @@
 								<Sound Name="Open_Gate" ID="{04ACF479-8C99-435A-B0CB-C2FFF36D09B5}" ShortID="1051587601">
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
@@ -1675,6 +1694,7 @@
 								<Sound Name="Unlock_Gate" ID="{605E5D90-BA65-493D-89CF-A82C98FA27DB}" ShortID="407896402">
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
@@ -1705,6 +1725,9 @@
 						<Folder Name="Mechanisms" ID="{8917F8F7-4EAA-4976-9DBF-4DC9367D38BB}" ShortID="294356113">
 							<ChildrenList>
 								<Sound Name="Lever" ID="{AD1C60FF-DBEF-40FC-967D-E8D1D41AE9A0}" ShortID="595231374">
+									<PropertyList>
+										<Property Name="EnableDiffraction" Type="bool" Value="True"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -1728,61 +1751,6 @@
 								</Sound>
 							</ChildrenList>
 						</Folder>
-						<Folder Name="Ambiance" ID="{5DE6A302-CBCB-43CF-A12C-19F7B8C20568}" ShortID="688964347">
-							<ChildrenList>
-								<Sound Name="Ambiance2" ID="{566673C4-75A7-4DCE-9BD5-B6A9E58659F3}" ShortID="994860640">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Ambiance2" ID="{1C42D270-F981-45C4-A271-7AD3F59CA7D4}">
-											<Language>SFX</Language>
-											<AudioFile>Ambiance2.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="796647343"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Ambiance2" ID="{1C42D270-F981-45C4-A271-7AD3F59CA7D4}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Ambiance" ID="{0EBBC747-FC96-4D18-9C6A-60272DFC0382}" ShortID="37167234">
-									<PropertyList>
-										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Ambiance" ID="{DC246FE5-845E-4C88-B04C-6930BAB876FB}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Ambiance" ID="{377DE7F3-3589-40B4-A98C-D38D70BD1F8E}">
-											<PropertyList>
-												<Property Name="LoopEnd" Type="Real64" Value="20.87"/>
-												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-											</PropertyList>
-											<Language>SFX</Language>
-											<AudioFile>Ambiance.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="912774099"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Ambiance" ID="{377DE7F3-3589-40B4-A98C-D38D70BD1F8E}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-							</ChildrenList>
-						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Enemy" ID="{BFBE1239-95B2-4891-A32A-92F94C65B3FC}" ShortID="185107206">
@@ -1796,6 +1764,7 @@
 								<RandomSequenceContainer Name="BoneSteps" ID="{FA6AD452-C4F0-4FF2-AD31-1DBC5762190C}" ShortID="560424887">
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 										<Property Name="Pitch" Type="int32">
 											<ModifierList>
 												<ModifierInfo>
