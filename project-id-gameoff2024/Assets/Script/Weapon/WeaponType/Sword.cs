@@ -22,7 +22,7 @@ public class Sword : Weapon
 
         if (Input.GetMouseButton(1))
         {
-            if (PlayerCombat.PlayerProfile.playerStamina >= weaponSO.WeaponStaminaCost)
+            if (PlayerCombat.PlayerProfile.playerStamina >= weaponData.WeaponStaminaCost)
             {
                 PlayerCombat.PlayerProfile.isDefending = true;
 
@@ -55,7 +55,7 @@ public class Sword : Weapon
                     PlayerCombat.StartCoroutine(PlayerCombat.PlayerCombatCamera.CameraShake(new CameraCombatInfo(0.15f, 0.015f, Vector3.zero)));
                     PlayerCombat.InitHitVFX(PlayerCombat.GetAllColliderHit()[i].point);
 
-                    HandleAttack(enemy, weaponSO.WeaponBasicDamage);
+                    HandleAttack(enemy, weaponData.WeaponBasicDamage);
 
                     AkSoundEngine.PostEvent("Play_HitBones", PlayerCombat.gameObject);
                 }
