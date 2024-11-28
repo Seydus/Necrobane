@@ -262,7 +262,7 @@ ModelImporter:
       name: slash
       takeName: slash
       internalID: -9165874271108281182
-      firstFrame: 0
+      firstFrame: 10
       lastFrame: 54
       wrapMode: 0
       orientationOffsetY: 0
@@ -283,14 +283,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.45841312
+      - time: 0.2972757
         functionName: TriggerPerformFirstAttackEvent
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.92307645
+      - time: 0.80103856
         functionName: TriggerFinishAttackEvent
         data: 
         objectReferenceParameter: {instanceID: 0}

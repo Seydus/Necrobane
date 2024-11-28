@@ -11,6 +11,7 @@ public interface IEnemyCombat
 
     public void Awake();
     public Ray GetEnemyDirection();
-    public void HandleAttack(NavMeshAgent agent, float range);
+    public void EnemySummonAttack();
+    public void HandleAttack();
     public IEnumerator InitAttack(float delay);
 }

@@ -49,10 +49,9 @@ public class EnemyRoaming : IEnemyRoaming
     private float engageCooldown;
     private float disengageCooldown;
  
-    private bool isPlayerDetected;
+    public bool isPlayerDetected { get; set; }
 
     [Header("Others")]
-    // can be better
     public NavMeshSurface NavMeshSurface { get; set; }
     public NavMeshAgent NavMeshAgent { get; set; }
     private NavMeshHit navHit;
@@ -105,28 +104,28 @@ public class EnemyRoaming : IEnemyRoaming
     private void DetectPlayer()
     {
         Collider[] hitColliders = Physics.OverlapSphere(Enemy.transform.position, DetectRadius, PlayerMask);
-      
+
         if (hitColliders.Length > 0)
         {
-            Vector3 direction = hitColliders[0].transform.position - Enemy.transform.position;
-            direction.Normalize();
+            Transform playerTransform = hitColliders[0].transform;
+            Vector3 direction = (playerTransform.position - Enemy.transform.position).normalized;
+            float distance = Vector3.Distance(Enemy.transform.position, playerTransform.position);
 
-            if (Physics.SphereCast(Enemy.transform.position, 0.1f, direction, out enemyHit, DetectRadius))
+            Debug.Log(hitColliders[0].transform.gameObject.name);
+
+            if (Physics.SphereCast(Enemy.transform.position, 0.1f, direction, out enemyHit, 10f, PlayerMask))
             {
-                if(enemyHit.collider.GetComponent<PlayerManager>() != null)
+                if (enemyHit.collider.CompareTag("Player"))
                 {
-                    // No wall detected, player is visible
-                    Debug.Log($"Player detected: {hitColliders[0].transform.gameObject.name}");
                     isPlayerDetected = true;
-                    Enemy.player = hitColliders[0].transform;
+                    Enemy.isDetected = true;
+                    Enemy.player = playerTransform;
                 }
                 else
                 {
-                    // If a wall is hit, the player is not detected
-                    Debug.Log($"Wall detected: {enemyHit.collider.gameObject.name}");
                     isPlayerDetected = false;
+                    Enemy.isDetected = false;
                 }
-
             }
         }
     }
@@ -178,7 +177,7 @@ public class EnemyRoaming : IEnemyRoaming
     {
         if (Enemy is IEnemyCombat enemyCombat)
         {
-            enemyCombat.HandleAttack(NavMeshAgent, Enemy.enemyProfile.EnemyRange);
+            enemyCombat.HandleAttack();
         }
     }
 
@@ -192,13 +191,11 @@ public class EnemyRoaming : IEnemyRoaming
                 Enemy.StartCoroutine(InitRoaming(Random.Range(MinRoamWaitTime, MaxRoamWaitTime)));
             }
 
-            Vector3 directionToTargetPosition = roamTargetPosition - Enemy.transform.position;
+            Vector3 directionToTargetPosition = (NavMeshAgent.desiredVelocity).normalized;
             directionToTargetPosition.y = 0;
-            directionToTargetPosition.Normalize();
-
+ 
             Quaternion targetRotation = Quaternion.LookRotation(directionToTargetPosition);
             Quaternion yAxisOnlyRotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
-
             NavMeshAgent.SetDestination(roamTargetPosition);
 
             if(Enemy is IEnemyRoaming enemyRoaming)

@@ -509,7 +509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyProfile: {fileID: 11400000, guid: 48062900b67a27943ba581b293b41471, type: 2}
   enableRoaming: 1
-  roamingMoveSpeed: 2
+  roamingMoveSpeed: 2.3
   minRoamWaitTime: 2
   maxRoamWaitTime: 3
   roamDetectionRadius: 12
@@ -522,24 +522,34 @@ MonoBehaviour:
   detectRadius: 12
   playerMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 640
   engageCooldownDuration: 0.2
-  disengageCooldownDuration: 5
+  disengageCooldownDuration: 6
   sphereRadius: 0.3
-  maxDistance: 2
+  maxDistance: 3
   combatLayer:
     serializedVersion: 2
     m_Bits: 512
   rotateSpeed: 4
   attackDelay: 1
-  HitPlayer:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
   healthSlider: {fileID: 4914573642178056943}
   navMeshAgent: {fileID: 0}
   projectilePos: {fileID: 2768699981532868774}
   projectileObj: {fileID: 2439430410376026776, guid: c317f2feb0f5bda4daa68dd6ed1021e9, type: 3}
+  setSummonCooldown: 5
+  numberOfEnemySummon: 3
+  enemySummonRadius: 12
+  minEnemyDistanceSummon: 4
+  enemySummonGroundPos: {fileID: 163972416812805675}
+  enemySummonPosition: []
+  skeletonPrefab: {fileID: 6217938565619059121, guid: c72b58e9af135854183614700a80e458, type: 3}
+  skeletonSummonSurface: {fileID: 0}
+  OnPerformAttackTriggered:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFinishAttackTriggered:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3501411082236126996
 MonoBehaviour:
   m_ObjectHideFlags: 0

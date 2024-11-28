@@ -33,4 +33,9 @@ public class PlayerAnimation : MonoBehaviour
     {
         anim.SetBool("isBlockSword", false);
     }
+
+    public void SetSwordDefendState(bool state)
+    {
+        anim.SetBool("isBlockSword", state);
+    }
 }

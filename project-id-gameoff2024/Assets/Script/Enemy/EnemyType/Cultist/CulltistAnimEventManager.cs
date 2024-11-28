@@ -18,4 +18,9 @@ public class CulltistAnimEventManager : MonoBehaviour
     {
         cultist?.OnFinishAttackTriggered?.Invoke();
     }
+
+    public void TriggerPerformSummonEvent()
+    {
+        cultist?.OnPerformSummonTriggered?.Invoke();
+    }
 }
