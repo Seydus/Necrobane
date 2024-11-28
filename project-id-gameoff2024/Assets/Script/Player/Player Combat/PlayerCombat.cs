@@ -108,7 +108,7 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void Init()
     {
         sphereRay = HandleCameraDirection();
 
