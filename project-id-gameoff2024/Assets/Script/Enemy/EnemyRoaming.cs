@@ -38,19 +38,20 @@ public class EnemyRoaming : IEnemyRoaming
 
     [Header("Enemy Detection")]
     public float DetectRadius { get; set; }
+    private RaycastHit enemyHit;
     public LayerMask PlayerMask { get; set; }
+    public LayerMask WallMask { get; set; }
     public float EngageCooldownDuration { get; set; }
     public float DisengageCooldownDuration { get; set; }
     private bool startEngage = false;
     private bool startDisengage = false;
 
-    private Transform player;
     private float engageCooldown;
     private float disengageCooldown;
-    private bool isPlayerDetected;
+ 
+    public bool isPlayerDetected { get; set; }
 
     [Header("Others")]
-    // can be better
     public NavMeshSurface NavMeshSurface { get; set; }
     public NavMeshAgent NavMeshAgent { get; set; }
     private NavMeshHit navHit;
@@ -103,11 +104,29 @@ public class EnemyRoaming : IEnemyRoaming
     private void DetectPlayer()
     {
         Collider[] hitColliders = Physics.OverlapSphere(Enemy.transform.position, DetectRadius, PlayerMask);
-        isPlayerDetected = hitColliders.Length > 0;
 
-        if (isPlayerDetected)
+        if (hitColliders.Length > 0)
         {
-            player = hitColliders[0].transform;
+            Transform playerTransform = hitColliders[0].transform;
+            Vector3 direction = (playerTransform.position - Enemy.transform.position).normalized;
+            float distance = Vector3.Distance(Enemy.transform.position, playerTransform.position);
+
+            Debug.Log(hitColliders[0].transform.gameObject.name);
+
+            if (Physics.SphereCast(Enemy.transform.position, 0.1f, direction, out enemyHit, 10f, PlayerMask))
+            {
+                if (enemyHit.collider.CompareTag("Player"))
+                {
+                    isPlayerDetected = true;
+                    Enemy.isDetected = true;
+                    Enemy.player = playerTransform;
+                }
+                else
+                {
+                    isPlayerDetected = false;
+                    Enemy.isDetected = false;
+                }
+            }
         }
     }
 
@@ -141,8 +160,6 @@ public class EnemyRoaming : IEnemyRoaming
         return newPosition;
     }
 
-
-
     private void HandleEnemyState()
     {
         switch (enemyState)
@@ -160,7 +177,7 @@ public class EnemyRoaming : IEnemyRoaming
     {
         if (Enemy is IEnemyCombat enemyCombat)
         {
-            enemyCombat.HandleAttack(player, NavMeshAgent, Enemy.enemyProfile.EnemyRange);
+            enemyCombat.HandleAttack();
         }
     }
 
@@ -174,13 +191,11 @@ public class EnemyRoaming : IEnemyRoaming
                 Enemy.StartCoroutine(InitRoaming(Random.Range(MinRoamWaitTime, MaxRoamWaitTime)));
             }
 
-            Vector3 directionToTargetPosition = roamTargetPosition - Enemy.transform.position;
+            Vector3 directionToTargetPosition = (NavMeshAgent.desiredVelocity).normalized;
             directionToTargetPosition.y = 0;
-            directionToTargetPosition.Normalize();
-
+ 
             Quaternion targetRotation = Quaternion.LookRotation(directionToTargetPosition);
             Quaternion yAxisOnlyRotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
-
             NavMeshAgent.SetDestination(roamTargetPosition);
 
             if(Enemy is IEnemyRoaming enemyRoaming)

@@ -36,10 +36,9 @@ public class EnemyProjectileBullet : MonoBehaviour
     {
         this.direction = direction;
     }
-
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if(other.tag == "Player")
         {
             if (other.transform.GetComponent<PlayerManager>().PlayerProfile.isDefending)
             {
@@ -51,11 +50,6 @@ public class EnemyProjectileBullet : MonoBehaviour
             }
 
             AkSoundEngine.PostEvent("Play_Firebolt_Explosion", gameObject);
-        }
-
-        if(other.CompareTag("Enemy") == false)
-        {
-            Destroy(gameObject);
         }
     }
 }
