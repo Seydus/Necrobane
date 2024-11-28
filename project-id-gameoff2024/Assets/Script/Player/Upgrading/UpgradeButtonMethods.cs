@@ -2,16 +2,19 @@ using UnityEngine;
 
 public class UpgradeButtonMethods : MonoBehaviour
 {
-    public WeaponSO weaponSO;
-    public UiUpgradingNeeds uun;
-    public PlayerCombat pc;
+    private UiUpgradingNeeds uun;
+    private PlayerCombat playerCombat;
+
+    private void Awake()
+    {
+        uun = GetComponent<UiUpgradingNeeds>();
+        playerCombat = GetComponent<PlayerCombat>();
+    }
 
     private void Update()
     {
-        if (weaponSO == null)
+        if (playerCombat.WeaponHolder == null)
             return;
-
-        weaponSO = pc.WeaponHolder.weapon.weaponSO;
 
         if (Input.GetKeyDown(KeyCode.Y))
         {
@@ -31,7 +34,7 @@ public class UpgradeButtonMethods : MonoBehaviour
                     {
                         if(uun.inv.Items[i].amount == NeededItemCost)
                         {
-                            weaponSO.WeaponBasicDamage += addingDammage;
+                            playerCombat.WeaponHolder.weapon.weaponSO.WeaponBasicDamage += addingDammage;
                             uun.inv.Items[i].amount -= NeededItemCost;
                         }
                     }
@@ -50,7 +53,7 @@ public class UpgradeButtonMethods : MonoBehaviour
                             {
                                 if (uun.inv.Items[i].amount == NeededItemCost && uun.inv.Items[j].amount == ExtraNeededItemCost)
                                 {
-                                    weaponSO.WeaponBasicDamage += addingDammage;
+                                    playerCombat.WeaponHolder.weapon.weaponSO.WeaponBasicDamage += addingDammage;
                                     uun.inv.Items[i].amount -= NeededItemCost;
                                     uun.inv.Items[j].amount -= ExtraNeededItemCost;
                                 }
@@ -76,7 +79,7 @@ public class UpgradeButtonMethods : MonoBehaviour
                     {
                         if (uun.inv.Items[i].amount == NeededItemCost)
                         {
-                            weaponSO.WeaponStaminaCost -= decreasingStamina;
+                            playerCombat.WeaponHolder.weapon.weaponSO.WeaponStaminaCost -= decreasingStamina;
                             uun.inv.Items[i].amount -= NeededItemCost;
                         }
                     }
@@ -95,7 +98,7 @@ public class UpgradeButtonMethods : MonoBehaviour
                             {
                                 if (uun.inv.Items[i].amount == NeededItemCost && uun.inv.Items[j].amount == ExtraNeededItemCost)
                                 {
-                                    weaponSO.WeaponStaminaCost -= decreasingStamina;
+                                    playerCombat.WeaponHolder.weapon.weaponSO.WeaponStaminaCost -= decreasingStamina;
                                     uun.inv.Items[i].amount -= NeededItemCost;
                                     uun.inv.Items[j].amount -= ExtraNeededItemCost;
                                 }
@@ -120,7 +123,7 @@ public class UpgradeButtonMethods : MonoBehaviour
                     {
                         if (uun.inv.Items[i].amount == NeededItemCost)
                         {
-                            weaponSO.WeaponSuperAttackDamage += increaseDammage;
+                            playerCombat.WeaponHolder.weapon.weaponSO.WeaponSuperAttackDamage += increaseDammage;
                             uun.inv.Items[i].amount -= NeededItemCost;
                         }
                     }
@@ -139,7 +142,7 @@ public class UpgradeButtonMethods : MonoBehaviour
                             {
                                 if (uun.inv.Items[i].amount == NeededItemCost && uun.inv.Items[j].amount == ExtraNeededItemCost)
                                 {
-                                    weaponSO.WeaponSuperAttackDamage += increaseDammage;
+                                    playerCombat.WeaponHolder.weapon.weaponSO.WeaponSuperAttackDamage += increaseDammage;
                                     uun.inv.Items[i].amount -= NeededItemCost;
                                     uun.inv.Items[j].amount -= ExtraNeededItemCost;
                                 }

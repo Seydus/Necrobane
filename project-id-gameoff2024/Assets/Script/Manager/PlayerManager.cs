@@ -42,8 +42,12 @@ public class PlayerManager : MonoBehaviour
             cameraHolder.SetActive(true);
         }
 
+        if (!GameManager.Instance.GameState)
+            return;
+
         PlayerController.Init();
         PlayerInteract.Init();
+        PlayerCombat.Init();
     }
 
     private IEnumerator BackToDrone()
