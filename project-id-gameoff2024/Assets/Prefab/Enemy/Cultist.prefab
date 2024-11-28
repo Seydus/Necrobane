@@ -522,7 +522,7 @@ MonoBehaviour:
   detectRadius: 12
   playerMask:
     serializedVersion: 2
-    m_Bits: 640
+    m_Bits: 17024
   engageCooldownDuration: 0.2
   disengageCooldownDuration: 6
   sphereRadius: 0.3
@@ -548,6 +548,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnFinishAttackTriggered:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPerformSummonTriggered:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &3501411082236126996
@@ -600,7 +603,7 @@ MonoBehaviour:
   fadeTime: 0.5
   LayerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 16384
   maxDistance: -1
   refreshInterval: 1
 --- !u!1 &8916247049496593607

@@ -169,14 +169,16 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
                         return;
 
                     playerManager.PlayerProfile.DeductStamina(playerManager.PlayerCombat.WeaponHolder.weapon.weaponSO.WeaponStaminaCost);
+                    AkSoundEngine.PostEvent("Play_Parry", gameObject);
                 }
                 else
                 {
                     playerManager.PlayerProfile.DeductHealth(EnemyDamage);
+                    AkSoundEngine.PostEvent("Play_Chops", gameObject);
                 }
 
                 Debug.Log("Player hit");
-                AkSoundEngine.PostEvent("Play_Chops", gameObject);
+                
             }
         }
     }

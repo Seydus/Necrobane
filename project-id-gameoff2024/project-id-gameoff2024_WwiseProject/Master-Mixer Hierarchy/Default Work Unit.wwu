@@ -12,13 +12,13 @@
 					<ChildrenList>
 						<Bus Name="Music" ID="{748D65B9-1DFF-4D05-88DF-94671C2E4396}"/>
 						<Bus Name="SFX" ID="{C51F7AD6-AD07-49F3-B7D4-B6049F192FF5}">
-							<PropertyList>
-								<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
-							</PropertyList>
-							<ReferenceList/>
+							<ReferenceList>
+								<Reference Name="UserAuxSend0">
+									<ObjectRef Name="BigRoom" ID="{28ACAE08-F631-4E94-9BBC-E0EFF214882B}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
+								</Reference>
+							</ReferenceList>
 							<ChildrenList>
 								<Bus Name="Environment" ID="{29A4CED5-34F1-4DAA-80D4-EF8F873A7415}">
-									<ReferenceList/>
 									<ChildrenList>
 										<Bus Name="Ambiance" ID="{DC246FE5-845E-4C88-B04C-6930BAB876FB}"/>
 										<Bus Name="Interactables" ID="{E4067FA2-2083-4C8D-A7EB-504B5BD29BBE}">
@@ -28,14 +28,9 @@
 										</Bus>
 									</ChildrenList>
 								</Bus>
-								<Bus Name="Enemy" ID="{AD915688-93D3-45A0-951F-65CA711E2A21}">
-									<ReferenceList/>
-								</Bus>
-								<Bus Name="Combat" ID="{A9E46F65-F4DE-4E12-A987-50B523BC3464}">
-									<ReferenceList/>
-								</Bus>
+								<Bus Name="Enemy" ID="{AD915688-93D3-45A0-951F-65CA711E2A21}"/>
+								<Bus Name="Combat" ID="{A9E46F65-F4DE-4E12-A987-50B523BC3464}"/>
 								<Bus Name="Player" ID="{166E0850-3604-4C25-AA90-AFBFE5AEAFA6}">
-									<ReferenceList/>
 									<ChildrenList>
 										<Bus Name="Footsteps" ID="{1B9FDAF6-2C7E-4F65-AE13-2E1FB9F72496}"/>
 										<Bus Name="PlayerSFX" ID="{C481D9DC-64BA-4CC3-86BD-32EB26A584A8}"/>
@@ -60,7 +55,13 @@
 														<ReferenceList>
 															<Reference Name="Effect">
 																<Custom>
-																	<Effect Name="Wwise_RoomVerb_(Custom)" ID="{A42F074C-1635-40F5-9953-999D7AC2F55E}" ShortID="355353540" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3"/>
+																	<Effect Name="Wwise_RoomVerb_(Custom)" ID="{A42F074C-1635-40F5-9953-999D7AC2F55E}" ShortID="355353540" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+																		<PropertyList>
+																			<Property Name="DecayTime" Type="Real32" Value="1.6"/>
+																			<Property Name="ERPattern" Type="int32" Value="11"/>
+																			<Property Name="Quality" Type="int32" Value="2"/>
+																		</PropertyList>
+																	</Effect>
 																</Custom>
 															</Reference>
 														</ReferenceList>

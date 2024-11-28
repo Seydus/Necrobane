@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{93BE11E8-B960-7D75-403D-8BD63A7F2225}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{087479D8-38A0-73CD-E3B7-CF1A4EC96654}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -23,7 +23,11 @@
 			</Plugins>
 			<Busses>
 				<Bus Id="181270742" Name="Interactables"/>
-				<Bus Id="393239870" Name="SFX"/>
+				<Bus Id="393239870" Name="SFX">
+					<AuxBusRefs>
+						<AuxBusRef Id="1495464960" Name="BigRoom"/>
+					</AuxBusRefs>
+				</Bus>
 				<Bus Id="1069431850" Name="Player"/>
 				<Bus Id="1229948536" Name="Environment"/>
 				<Bus Id="2299321487" Name="Enemy"/>
@@ -201,7 +205,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{F8120E14-B207-6798-34BC-E78908C05919}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{B4687923-D3EB-9CD9-5682-799066366F48}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -412,7 +416,7 @@
 						<MediaRef Id="841486209"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1512643089" Name="Play_BoneSteps" MaxAttenuation="15" DurationType="OneShot" DurationMin="0.58037287" DurationMax="0.73291546">
+				<Event Id="1512643089" Name="Play_BoneSteps" MaxAttenuation="20" DurationType="OneShot" DurationMin="0.58037287" DurationMax="0.73291546">
 					<MediaRefs>
 						<MediaRef Id="326772382"/>
 						<MediaRef Id="843067243"/>
@@ -458,7 +462,7 @@
 						<MediaRef Id="565521538"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3854155799" Name="Play_Footsteps" MaxAttenuation="15" DurationType="OneShot" DurationMin="0.26353073" DurationMax="0.451437">
+				<Event Id="3854155799" Name="Play_Footsteps" MaxAttenuation="20" DurationType="OneShot" DurationMin="0.26353073" DurationMax="0.451437">
 					<SwitchContainers>
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="3865314626" Id="2185786256" Default="true"/>
@@ -589,7 +593,7 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="1127904212" Name="Play_Open_Gate" MaxAttenuation="15" DurationType="OneShot" DurationMin="1.6646712" DurationMax="1.6646712">
+				<Event Id="1127904212" Name="Play_Open_Gate" MaxAttenuation="20" DurationType="OneShot" DurationMin="1.6646712" DurationMax="1.6646712">
 					<MediaRefs>
 						<MediaRef Id="76519647"/>
 					</MediaRefs>
@@ -611,14 +615,14 @@
 						<MediaRef Id="893033890"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1187857689" Name="Play_Swings2H" MaxAttenuation="15" DurationType="OneShot" DurationMin="0.5" DurationMax="0.5">
+				<Event Id="1187857689" Name="Play_Swings2H" MaxAttenuation="20" DurationType="OneShot" DurationMin="0.5" DurationMax="0.5">
 					<MediaRefs>
 						<MediaRef Id="205507889"/>
 						<MediaRef Id="249291889"/>
 						<MediaRef Id="426715762"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="356987792" Name="Play_Unlock_Gate" MaxAttenuation="15" DurationType="OneShot" DurationMin="1" DurationMax="1">
+				<Event Id="356987792" Name="Play_Unlock_Gate" MaxAttenuation="20" DurationType="OneShot" DurationMin="1" DurationMax="1">
 					<MediaRefs>
 						<MediaRef Id="522520838"/>
 					</MediaRefs>
@@ -656,5 +660,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{C532542D-FB90-C5CE-64A6-CFD0C596F100}</FileHash>
+	<FileHash>{66A4FC07-5C5B-BCEE-DAFE-1E7D1C15D598}</FileHash>
 </SoundBanksInfo>
