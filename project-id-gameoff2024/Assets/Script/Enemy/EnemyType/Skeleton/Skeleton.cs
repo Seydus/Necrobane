@@ -14,10 +14,11 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
 
     private SkeletonAnimation skeletonAnimation;
     [SerializeField] private Transform weaponPos;
+    public bool skeletonIsSummoned { get; set; }
 
     [Header("Events")]
-    public static UnityAction OnPerformAttackTriggered;
-    public static UnityAction OnFinishAttackTriggered;
+    [HideInInspector] public UnityEvent OnPerformAttackTriggered = new UnityEvent();
+    [HideInInspector] public UnityEvent OnFinishAttackTriggered = new UnityEvent();
 
     private Ray sphereSkeletonRay;
     private RaycastHit skeletonHit;
@@ -47,19 +48,8 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
     public float AttackDelay { get; set; }
     public float RoamingRotateSpeed { get; set; }
     public float RoamingMoveSpeed { get; set; }
+    public bool isBlockedByWall { get; set; }
     #endregion
-
-    private void OnEnable()
-    {
-        OnPerformAttackTriggered += PerformAttack;
-        OnFinishAttackTriggered += FinishAttack;
-    }
-
-    private void OnDisable()
-    {
-        OnPerformAttackTriggered -= PerformAttack;
-        OnFinishAttackTriggered -= FinishAttack;
-    }
 
     public override void Awake()
     {
@@ -94,6 +84,15 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
         enemyCombat.Awake();
 
         skeletonAnimation = GetComponent<SkeletonAnimation>();
+
+        OnPerformAttackTriggered.AddListener(PerformAttack);
+        OnFinishAttackTriggered.AddListener(FinishAttack);
+    }
+
+    private void OnDestroy()
+    {
+        OnPerformAttackTriggered.RemoveListener(PerformAttack);
+        OnFinishAttackTriggered.RemoveListener(FinishAttack);
     }
 
     public override void Start()
@@ -107,10 +106,14 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
         base.Update();
 
         EnemyRoaming();
+        EnemySummonAttack();
     }
 
     private void EnemyRoaming()
     {
+        if (skeletonIsSummoned)
+            return;
+
         if (enableRoaming)
         {
             enemyRoaming.Update();
@@ -120,12 +123,24 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
 
     public Ray GetEnemyDirection()
     {
-        return new Ray(weaponPos.position + transform.forward * -0.3f, transform.forward);
+        return new Ray(weaponPos.position + transform.forward * -0.5f, transform.forward);
     }
 
-    public void HandleAttack(Transform player, NavMeshAgent agent, float range)
+    public void EnemySummonAttack()
     {
-        enemyCombat.HandleAttack(player, agent, range);
+        if (!skeletonIsSummoned)
+            return;
+
+        enemyCombat.EnemySummonAttack();
+        skeletonAnimation.SkeletonWalking(enemyRoaming.NavMeshAgent.desiredVelocity.magnitude);
+    }
+
+    public void HandleAttack()
+    {
+        if (skeletonIsSummoned)
+            return;
+
+        enemyCombat.HandleAttack();
     }
 
     public IEnumerator InitAttack(float delay)
@@ -162,11 +177,6 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
 
                 Debug.Log("Player hit");
                 AkSoundEngine.PostEvent("Play_Chops", gameObject);
-
-                if (playerManager.transform != null)
-                {
-                    // _HitPlayer.Post(playerManager.transform.gameObject);
-                }
             }
         }
     }

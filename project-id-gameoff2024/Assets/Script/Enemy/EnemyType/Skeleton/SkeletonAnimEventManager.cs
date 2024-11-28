@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class SkeletonAnimEventManager : MonoBehaviour
 {
+    private Skeleton skeleton;
+
+    private void Awake()
+    {
+        skeleton = GetComponentInParent<Skeleton>();
+    }
+
     public void TriggerSwingSFX()
     {
         AkSoundEngine.PostEvent("Play_Swings2H", gameObject);
@@ -9,11 +16,11 @@ public class SkeletonAnimEventManager : MonoBehaviour
 
     public void TriggerPerformAttackEvent()
     {
-        Skeleton.OnPerformAttackTriggered?.Invoke();
+        skeleton?.OnPerformAttackTriggered?.Invoke();
     }
 
     public void TriggerFinishAttackEvent()
     {
-        Skeleton.OnFinishAttackTriggered?.Invoke();
+        skeleton?.OnFinishAttackTriggered?.Invoke();
     }
 }

@@ -17,42 +17,44 @@ public class EnemyCombat : IEnemyCombat
     protected float AngleSetDifference;
     public bool IsAttacking { get; set; }
 
+    private bool isResetPath;
+
     public void Awake()
     {
         enemyCombat = this;
     }
-
-    public void HandleAttack(Transform player, NavMeshAgent agent, float range)
+    
+    public void EnemySummonAttack()
     {
-        if (!agent)
+        if (!Enemy.navMeshAgent)
             return;
 
-        if (Vector3.Distance(player.position, Enemy.transform.position) <= range)
+        if (Enemy is IEnemyRoaming enemyRoaming)
         {
-            agent.ResetPath();
-
-            Vector3 directionToTargetPosition = player.position - Enemy.transform.position;
-            directionToTargetPosition.y = 0;
-            directionToTargetPosition.Normalize();
-
-            Quaternion targetRotation = Quaternion.LookRotation(directionToTargetPosition);
-            Quaternion yAxisOnlyRotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
-
-            Enemy.transform.localRotation = Quaternion.Slerp(Enemy.transform.localRotation, yAxisOnlyRotation, RotateSpeed * Time.deltaTime);
-
-
-            if (!IsAttacking && Enemy is IEnemyCombat enemyCombat)
+            if (Vector3.Distance(Enemy.player.position, Enemy.transform.position) <= Enemy.enemyProfile.EnemyRange)
             {
-                Enemy.StartCoroutine(enemyCombat.InitAttack(AttackDelay));
-            }
-        }
-        else
-        {
-            if (!IsAttacking)
-            {
-                if (Enemy is IEnemyRoaming enemyRoaming)
+                Enemy.navMeshAgent.ResetPath();
+
+                Vector3 directionToTargetPosition = Enemy.player.position - Enemy.transform.position;
+                directionToTargetPosition.y = 0;
+                directionToTargetPosition.Normalize();
+
+                Quaternion targetRotation = Quaternion.LookRotation(directionToTargetPosition);
+                Quaternion yAxisOnlyRotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
+
+                Enemy.transform.localRotation = Quaternion.Slerp(Enemy.transform.localRotation, yAxisOnlyRotation, RotateSpeed * Time.deltaTime);
+
+
+                if (!IsAttacking && Enemy is IEnemyCombat enemyCombat)
                 {
-                    Vector3 directionToTargetPosition = player.position - Enemy.transform.position;
+                    Enemy.StartCoroutine(enemyCombat.InitAttack(AttackDelay));
+                }
+            }
+            else
+            {
+                if (!IsAttacking)
+                {
+                    Vector3 directionToTargetPosition = Enemy.player.position - Enemy.transform.position;
                     directionToTargetPosition.y = 0;
                     directionToTargetPosition.Normalize();
 
@@ -61,15 +63,75 @@ public class EnemyCombat : IEnemyCombat
 
                     Enemy.transform.localRotation = Quaternion.Slerp(Enemy.transform.localRotation, yAxisOnlyRotation, RotateSpeed * Time.deltaTime);
 
-                    agent.SetDestination(player.position);
+                    Enemy.navMeshAgent.SetDestination(Enemy.player.position);
 
-                    Vector3 velocity = agent.desiredVelocity;
+                    enemyRoaming.WalkSound();
+
+                    Vector3 velocity = Enemy.navMeshAgent.desiredVelocity;
                     Enemy.transform.position += velocity.normalized * Enemy.roamingMoveSpeed * Time.deltaTime;
+                }
+                else
+                {
+                    Enemy.navMeshAgent.ResetPath();
+                }
+
+                isResetPath = false;
+            }
+        }
+    }
+
+    public void HandleAttack()
+    {
+        if (!Enemy.navMeshAgent)
+            return;
+
+        if (Enemy is IEnemyRoaming enemyRoaming)
+        {
+            if (Vector3.Distance(Enemy.player.position, Enemy.transform.position) <= Enemy.enemyProfile.EnemyRange && Enemy.isDetected)
+            {
+                Enemy.navMeshAgent.ResetPath();
+
+                Vector3 directionToTargetPosition = Enemy.player.position - Enemy.transform.position;
+                directionToTargetPosition.y = 0;
+                directionToTargetPosition.Normalize();
+
+                Quaternion targetRotation = Quaternion.LookRotation(directionToTargetPosition);
+                Quaternion yAxisOnlyRotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
+
+                Enemy.transform.localRotation = Quaternion.Slerp(Enemy.transform.localRotation, yAxisOnlyRotation, RotateSpeed * Time.deltaTime);
+
+
+                if (!IsAttacking && Enemy is IEnemyCombat enemyCombat)
+                {
+                    Enemy.StartCoroutine(enemyCombat.InitAttack(AttackDelay));
                 }
             }
             else
             {
-                agent.ResetPath();
+                if (!IsAttacking)
+                {
+                    Vector3 directionToTargetPosition = Enemy.player.position - Enemy.transform.position;
+                    directionToTargetPosition.y = 0;
+                    directionToTargetPosition.Normalize();
+
+                    Quaternion targetRotation = Quaternion.LookRotation(directionToTargetPosition);
+                    Quaternion yAxisOnlyRotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
+
+                    Enemy.transform.localRotation = Quaternion.Slerp(Enemy.transform.localRotation, yAxisOnlyRotation, RotateSpeed * Time.deltaTime);
+
+                    Enemy.navMeshAgent.SetDestination(Enemy.player.position);
+
+                    enemyRoaming.WalkSound();
+
+                    Vector3 velocity = Enemy.navMeshAgent.desiredVelocity;
+                    Enemy.transform.position += velocity.normalized * Enemy.roamingMoveSpeed * Time.deltaTime;
+                }
+                else
+                {
+                    Enemy.navMeshAgent.ResetPath();
+                }
+
+                isResetPath = false;
             }
         }
     }
@@ -78,7 +140,4 @@ public class EnemyCombat : IEnemyCombat
     public IEnumerator InitAttack(float delay) { yield return null; }
 
     public Ray GetEnemyDirection() { return new Ray(); }
-
-
-    public IEnumerator InitAttack(Transform player, float delay) { Debug.Log("Enemy Attack is coming from the EnemyCombat"); yield return null; }
 }

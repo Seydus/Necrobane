@@ -22,7 +22,7 @@ public class EnemyManager : MonoBehaviour
 
     private void SwtichToCombatMode()
     {
-        if(enemyAttackingList.Count > 0)
+        if(enemyAttackingList.Count >= 1)
         {
             Debug.Log("Combat Music");
             AkSoundEngine.SetSwitch("Music","Combat", gameObject);

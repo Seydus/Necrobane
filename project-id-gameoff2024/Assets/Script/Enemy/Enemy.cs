@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float maxRoamDistance = 5f;
     [SerializeField] protected float roamDirectionChangeChance = 0.3f;
     [SerializeField] protected Transform groundPos;
-    [SerializeField] protected NavMeshSurface navMeshSurface;
+    public NavMeshSurface navMeshSurface;
     [SerializeField] protected float roamingRotateSpeed = 1f;
 
     [Header("Enemy Detection")]
@@ -36,9 +36,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float rotateSpeed = 0.7f;
     [SerializeField] protected float attackDelay = 0.5f;
     public bool isAttacking { get; set; }
+    public bool isDetected { get; set; }
     public bool EnemyHit { get; set; }
-    public AK.Wwise.Event HitPlayer;
-
+ 
     [Header("SphereCast")]
     protected Ray sphereRay;
     protected RaycastHit enemyHitInfo;
@@ -54,6 +54,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Others")]
     [HideInInspector] public NavMeshAgent navMeshAgent;
+    public Transform player { get; set; }
 
     [Header("Wwise")]
     // Wwise
