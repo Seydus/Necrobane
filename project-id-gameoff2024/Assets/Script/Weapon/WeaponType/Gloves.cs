@@ -22,12 +22,12 @@ public class Gloves : Weapon
 
         if (Input.GetMouseButtonDown(1))
         {
-            if (PlayerCombat.PlayerProfile.playerStamina >= weaponSO.WeaponStaminaCost)
+            if (PlayerCombat.PlayerProfile.playerStamina >= weaponData.WeaponStaminaCost)
             {
                 PlayerCombat.IsAttacking = true;
 
                 PlayerCombat.PlayerController.maxSpeed /= 2;
-                PlayerCombat.PlayerProfile.DeductStamina(weaponSO.WeaponStaminaCost);
+                PlayerCombat.PlayerProfile.DeductStamina(weaponData.WeaponStaminaCost);
                 PlayerCombat.PlayerAnimation.PerformSuperPunchAttackAnim();
             }
             else
@@ -46,7 +46,7 @@ public class Gloves : Weapon
                 PlayerCombat.StartCoroutine(PlayerCombat.PlayerCombatCamera.CameraShake(new CameraCombatInfo(0.15f, 0.015f, Vector3.zero)));
                 PlayerCombat.InitHitVFX(PlayerCombat.sphereCastHit.point);
 
-                HandleAttack(enemy, weaponSO.WeaponBasicDamage);
+                HandleAttack(enemy, weaponData.WeaponBasicDamage);
                 
                 AkSoundEngine.PostEvent("Play_HitBones", PlayerCombat.gameObject);
             }
@@ -71,7 +71,7 @@ public class Gloves : Weapon
                 PlayerCombat.StartCoroutine(PlayerCombat.PlayerCombatCamera.CameraShake(new CameraCombatInfo(0.20f, 0.020f, Vector3.zero)));
                 PlayerCombat.InitHitVFX(PlayerCombat.sphereCastHit.point);
 
-                HandleAttack(enemy, weaponSO.WeaponSuperAttackDamage);
+                HandleAttack(enemy, weaponData.WeaponSuperAttackDamage);
 
                 AkSoundEngine.PostEvent("Play_HitBones", PlayerCombat.gameObject);
             }

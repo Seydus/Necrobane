@@ -42,7 +42,7 @@ public class EnemyProjectileBullet : MonoBehaviour
         {
             if (other.transform.GetComponent<PlayerManager>().PlayerProfile.isDefending)
             {
-                other.transform.GetComponent<PlayerManager>().PlayerProfile.DeductStamina(other.transform.GetComponent<PlayerManager>().PlayerCombat.WeaponHolder.weapon.weaponSO.WeaponStaminaCost);
+                other.transform.GetComponent<PlayerManager>().PlayerProfile.DeductStamina(other.transform.GetComponent<PlayerManager>().PlayerCombat.WeaponHolder.weapon.weaponData.WeaponStaminaCost);
             }
             else
             {
