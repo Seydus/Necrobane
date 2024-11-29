@@ -303,7 +303,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: ec4a2688f100da46ab460e630d8da3c3
     GuidInternal: 
-    m_lastTime: -8584688171610469060
+    m_lastTime: -8584687693850486295
     List:
     - name: Ambiance
       guid: e56f24dc5e84884cb04c6930bab876fb
@@ -884,7 +884,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: 8f885f74174bec4e96c9612737d3b303
       Path: Events\Default Work Unit\Enemy\Skeleton\Play_BoneSteps
-      maxAttenuation: 15
+      maxAttenuation: 20
       maxDuration: 0.73291546
       minDuration: 0.58037287
     - name: Play_Chops
@@ -1071,7 +1071,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: a9ce29e796074f418e1d3a3bfdeee3dd
       Path: Events\Default Work Unit\Player\Play_Footsteps
-      maxAttenuation: 15
+      maxAttenuation: 20
       maxDuration: 0.451437
       minDuration: 0.26353073
     - name: Play_HitBones
@@ -1203,7 +1203,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: c3cabbf8ab5a89449ce15c8702640bd0
       Path: Events\Default Work Unit\Environment\Doors and Gates\Play_Open_Gate
-      maxAttenuation: 15
+      maxAttenuation: 20
       maxDuration: 1.6646712
       minDuration: 1.6646712
     - name: Play_Parry
@@ -1292,7 +1292,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: b5f1a22b806eeb4e90b87fd43648a7cb
       Path: Events\Default Work Unit\Combat\Blades\Play_Swings2H
-      maxAttenuation: 15
+      maxAttenuation: 20
       maxDuration: 0.5
       minDuration: 0.5
     - name: Play_Unlock_Gate
@@ -1315,7 +1315,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: 69a8374bfd801e419b38baa3e0c510ae
       Path: Events\Default Work Unit\Environment\Doors and Gates\Play_Unlock_Gate
-      maxAttenuation: 15
+      maxAttenuation: 20
       maxDuration: 1
       minDuration: 1
     - name: Player
@@ -1688,7 +1688,7 @@ MonoBehaviour:
     m_lastTime: -8584701737193982455
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 020000000300000004000000050000000600000007000000090000000a0000000c0000000d0000000e0000000f000000190000001b0000001c00000023000000
+  ExpandedWaapiItemIds: 020000000300000004000000050000000600000007000000080000000a0000000c0000000d0000000e0000000f00000018000000190000001a0000001b0000001c0000002300000026000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

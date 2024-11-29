@@ -1156,6 +1156,7 @@
 						<MusicPlaylistContainer Name="SW" ID="{B20B6F44-152A-427A-ABCE-2F8E30518E4B}" ShortID="780290092">
 							<PropertyList>
 								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+								<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 								<Property Name="PlaybackSpeed" Type="Real64">
 									<ValueList>
 										<Value>1.5</Value>
