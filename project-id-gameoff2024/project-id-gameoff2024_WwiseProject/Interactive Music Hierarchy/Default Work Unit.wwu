@@ -454,14 +454,14 @@
 									<Custom>
 										<MusicPlaylistItem Name="" ID="{84698DB2-4B55-45BD-B732-5796B74A9178}" ShortID="566787463">
 											<ChildrenList>
-												<MusicPlaylistItem Name="" ID="{02ACBAE8-94C5-4944-AAB7-7081D93E0904}" ShortID="829969843">
+												<MusicPlaylistItem Name="" ID="{95118BE5-7D91-4A7D-8F1D-89675EE123B4}" ShortID="959682165">
 													<PropertyList>
 														<Property Name="LoopCount" Type="int16" Value="0"/>
 														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Segment">
-															<ObjectRef Name="Combat1" ID="{21C8F0BA-3CFA-4641-AA27-9578CFAAA0D5}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
+															<ObjectRef Name="CombatMusic" ID="{1EF35863-F403-412F-A4DE-118538F74B28}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
 														</Reference>
 													</ReferenceList>
 												</MusicPlaylistItem>
@@ -486,9 +486,9 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<MusicSegment Name="Combat1" ID="{21C8F0BA-3CFA-4641-AA27-9578CFAAA0D5}" ShortID="991510366">
+								<MusicSegment Name="CombatMusic" ID="{1EF35863-F403-412F-A4DE-118538F74B28}" ShortID="190496729">
 									<PropertyList>
-										<Property Name="EndPosition" Type="Real64" Value="142364.995987958"/>
+										<Property Name="EndPosition" Type="Real64" Value="137586.213151927"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -499,14 +499,14 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<MusicTrack Name="Combat Music" ID="{6BACA30E-1715-48A5-89FD-AFA06B3CC0D0}" ShortID="5158596">
+										<MusicTrack Name="Combat Music" ID="{AB21B147-4B77-4269-8AD7-1A727BDA4850}" ShortID="894426188">
 											<ReferenceList>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
 												</Reference>
 												<Reference Name="TransitionRoot">
 													<Custom>
-														<MusicTransition Name="Root" ID="{1AD98322-CC25-4B21-9D3B-FF127A887672}">
+														<MusicTransition Name="Root" ID="{EDA66DFB-A204-462D-A17E-D6E2965E041C}">
 															<PropertyList>
 																<Property Name="IsFolder" Type="bool" Value="True"/>
 															</PropertyList>
@@ -516,7 +516,7 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Combat Music" ID="{B858AC97-C12D-45A9-BA18-56EC37EE11A7}">
+												<AudioFileSource Name="Combat Music" ID="{C15A666A-7DC1-4F8D-95AF-D42C0D0805A3}">
 													<Language>SFX</Language>
 													<AudioFile>Combat Music.wav</AudioFile>
 													<MediaIDList>
@@ -528,18 +528,18 @@
 												<ObjectList Name="Sequences">
 													<Reference>
 														<Local>
-															<MusicTrackSequence Name="" ID="{887DD626-09A8-495E-9B8C-1F1D5A76E009}">
+															<MusicTrackSequence Name="" ID="{F396E1EC-EA62-4B0C-828A-18AC9D831910}">
 																<ObjectLists>
 																	<ObjectList Name="Clips">
 																		<Reference>
 																			<Local>
-																				<MusicClip Name="Combat Music" ID="{1DB5DBDD-A4DC-4EA3-9921-9AF151B462CC}">
+																				<MusicClip Name="Combat Music" ID="{F877A1B2-CD2C-482A-B75D-6B9BFE7BDFCC}">
 																					<PropertyList>
 																						<Property Name="EndTrimOffset" Type="Real64" Value="137586.213151927"/>
 																						<Property Name="FadeInMode" Type="int16" Value="0"/>
 																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
 																					</PropertyList>
-																					<AudioSourceRef Name="Combat Music" ID="{B858AC97-C12D-45A9-BA18-56EC37EE11A7}"/>
+																					<AudioSourceRef Name="Combat Music" ID="{C15A666A-7DC1-4F8D-95AF-D42C0D0805A3}"/>
 																				</MusicClip>
 																			</Local>
 																		</Reference>
@@ -556,12 +556,12 @@
 										<ObjectList Name="Cues">
 											<Reference>
 												<Local>
-													<MusicCue Name="Entry Cue" ID="{D5C09702-7061-43F5-BC97-21D9C69C3222}"/>
+													<MusicCue Name="Entry Cue" ID="{E171DE94-43FE-406C-A05C-40B91A8A07A9}"/>
 												</Local>
 											</Reference>
 											<Reference>
 												<Local>
-													<MusicCue Name="Exit Cue" ID="{8F48A2FC-A8C5-4880-AF9F-13CDD697A0F4}">
+													<MusicCue Name="Exit Cue" ID="{77B7425A-7E4A-4216-857F-7B4237F2971F}">
 														<PropertyList>
 															<Property Name="CueType" Type="int16" Value="1"/>
 															<Property Name="TimeMs" Type="Real64" Value="132413.793103448"/>

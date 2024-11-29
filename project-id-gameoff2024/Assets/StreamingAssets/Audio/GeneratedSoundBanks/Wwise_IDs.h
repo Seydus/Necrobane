@@ -31,6 +31,7 @@ namespace AK
         static const AkUniqueID PLAY_OPEN_GATE = 1127904212U;
         static const AkUniqueID PLAY_PARRY = 4115969904U;
         static const AkUniqueID PLAY_PERFECTPARRYSTINGER = 2908761997U;
+        static const AkUniqueID PLAY_SKELETONDEATH = 2507006415U;
         static const AkUniqueID PLAY_SW = 2078302632U;
         static const AkUniqueID PLAY_SWINGS2H = 1187857689U;
         static const AkUniqueID PLAY_UNLOCK_GATE = 356987792U;
@@ -84,7 +85,10 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID BGM = 412724365U;
+        static const AkUniqueID MASTER = 4056684167U;
         static const AkUniqueID SECRETWALL = 876875105U;
+        static const AkUniqueID SFX = 393239870U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS

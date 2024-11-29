@@ -98,6 +98,7 @@ public class Enemy : MonoBehaviour
         {
             Instantiate(enemyProfile.itemDrop, transform.position, Quaternion.identity);
             gameObject.SetActive(false);
+            AkSoundEngine.PostEvent("Play_SkeletonDeath", gameObject);
         }
     }
 

@@ -10,6 +10,25 @@
 						<Property Name="Max" Type="Real64" Value="15"/>
 					</PropertyList>
 				</GameParameter>
+				<Folder Name="Audio Control" ID="{0DBCA34C-D606-4BF1-ACF4-E6A637DF2C74}" ShortID="21770207">
+					<ChildrenList>
+						<GameParameter Name="Master" ID="{32E9DC70-89B5-40E3-A4B8-E08D14F52D3D}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="75"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="SFX" ID="{7433472D-E7E2-4B83-A98B-BBF7309ED0BF}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="75"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="BGM" ID="{14E2AD02-B007-4DF0-93EE-EC0CAF71ACAF}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="75"/>
+							</PropertyList>
+						</GameParameter>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>
