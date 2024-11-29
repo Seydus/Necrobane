@@ -93,8 +93,8 @@
 													<MusicFade Name="Destination Fade-in" ID="{0AE25437-A866-4286-BCD7-D854FB7BDE5C}">
 														<PropertyList>
 															<Property Name="FadeCurve" Type="int16" Value="6"/>
-															<Property Name="FadeOffset" Type="Real64" Value="-2.5"/>
-															<Property Name="FadeTime" Type="Real64" Value="2.5"/>
+															<Property Name="FadeOffset" Type="Real64" Value="-1.5"/>
+															<Property Name="FadeTime" Type="Real64" Value="1.5"/>
 														</PropertyList>
 													</MusicFade>
 												</DestinationFadeIn>
@@ -773,6 +773,11 @@
 								<MusicSegment Name="Bossfight1" ID="{16C7DDCD-6B38-4FA7-A777-30546F933E29}" ShortID="933446330">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="137586.213151927"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
