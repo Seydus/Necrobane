@@ -1880,6 +1880,278 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="SkeletonDeath" ID="{A1F488AD-DC16-42C7-9134-EEFE9C271620}" ShortID="431977367">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="EnableDiffraction" Type="bool" Value="True"/>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>30</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{DFDF3840-BB92-476E-9E70-AB8A2C37CA0C}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="303"/>
+															<Property Name="Min" Type="Real64" Value="-328"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="normal" ID="{41D4C35B-5778-46DB-8FEA-8FBC4948A9D5}" WorkUnitID="{61E62009-A45E-4D12-A3F4-01EB122C29C4}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{C51F7AD6-AD07-49F3-B7D4-B6049F192FF5}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="Skeleton_Death2" ID="{273B9A37-9428-4333-BFFC-7EAA8CE56274}" ShortID="1073586926">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>15.9</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Skeleton_Death2" ID="{A29FB814-5D11-4C8C-836E-795079F899CB}">
+													<Language>SFX</Language>
+													<AudioFile>Skeleton_Death2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="62161624"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Skeleton_Death2" ID="{A29FB814-5D11-4C8C-836E-795079F899CB}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Skeleton_Death3" ID="{0C4708C0-B678-4EAD-A9A3-ED67C85FD940}" ShortID="206128507">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>11</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Skeleton_Death3" ID="{12D65198-B297-4E4F-B5ED-E9E4DE0337F7}">
+													<Language>SFX</Language>
+													<AudioFile>Skeleton_Death3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="314159650"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Skeleton_Death3" ID="{12D65198-B297-4E4F-B5ED-E9E4DE0337F7}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Skeleton_Death4" ID="{BE01266C-B7A9-48CC-93BE-0F329653623B}" ShortID="471774672">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>10.5</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Skeleton_Death4" ID="{DB0A1D7E-1A3B-46AE-8F02-DD32C42657B7}">
+													<Language>SFX</Language>
+													<AudioFile>Skeleton_Death4.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="45162129"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Skeleton_Death4" ID="{DB0A1D7E-1A3B-46AE-8F02-DD32C42657B7}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Skeleton_Death" ID="{6526650C-4DFF-4171-B02D-BF57BF7D4E3F}" ShortID="109148065">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>13.9</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Skeleton_Death" ID="{2ABBCB69-132B-4E69-AC03-BF5ABFC81269}">
+													<Language>SFX</Language>
+													<AudioFile>Skeleton_Death.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="132964094"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Skeleton_Death" ID="{2ABBCB69-132B-4E69-AC03-BF5ABFC81269}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Teeth" ID="{509FCA0B-57E6-42D3-89FE-E5945B21AD1B}" ShortID="702783841">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="EnableDiffraction" Type="bool" Value="True"/>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{85E22EF8-B90E-4781-A4D3-9AF69BE42B30}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="227"/>
+															<Property Name="Min" Type="Real64" Value="-253"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="normal" ID="{41D4C35B-5778-46DB-8FEA-8FBC4948A9D5}" WorkUnitID="{61E62009-A45E-4D12-A3F4-01EB122C29C4}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{C51F7AD6-AD07-49F3-B7D4-B6049F192FF5}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="Teeth1" ID="{C895D8D2-6E35-480A-B1BC-857D29D5024C}" ShortID="876827780">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>14</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Teeth1" ID="{E219485E-38AF-436A-904C-F6744887F99D}">
+													<Language>SFX</Language>
+													<AudioFile>Teeth1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="326900688"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Teeth1" ID="{E219485E-38AF-436A-904C-F6744887F99D}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Teeth2" ID="{B7290C56-208F-47C2-847E-0760823C838A}" ShortID="950225106">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>11.7</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Teeth2" ID="{4F514618-EE5E-4A6D-97AF-3A0D2B62E8CC}">
+													<Language>SFX</Language>
+													<AudioFile>Teeth2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1010580535"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Teeth2" ID="{4F514618-EE5E-4A6D-97AF-3A0D2B62E8CC}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Teeth3" ID="{CE1EFCBC-881F-4CEF-84BA-290AD747E488}" ShortID="914582030">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>15</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Teeth3" ID="{3DABEC8C-2AD8-4830-9027-F77AB6643CBE}">
+													<Language>SFX</Language>
+													<AudioFile>Teeth3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="732391202"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Teeth3" ID="{3DABEC8C-2AD8-4830-9027-F77AB6643CBE}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>

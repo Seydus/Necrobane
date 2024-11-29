@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{F10143AA-55B4-EA98-7E3E-455A34708F90}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{8BF40529-7EAA-3760-E71C-DCC3B78A0199}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -50,7 +50,10 @@
 				</AuxBus>
 			</AuxBusses>
 			<GameParameters>
+				<GameParameter Id="393239870" Name="SFX"/>
+				<GameParameter Id="412724365" Name="BGM"/>
 				<GameParameter Id="876875105" Name="SecretWall"/>
+				<GameParameter Id="4056684167" Name="Master"/>
 			</GameParameters>
 			<StateGroups>
 				<StateGroup Id="1069431850" Name="Player">
@@ -205,7 +208,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{B4687923-D3EB-9CD9-5682-799066366F48}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{C3A8249F-196A-4B58-E033-483F476E4211}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -216,6 +219,14 @@
 				<File Id="31399390" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Equip_Blade.wav</ShortName>
 					<CachePath>SFX/Equip_Blade_C7CBF045.wem</CachePath>
+				</File>
+				<File Id="45162129" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Skeleton_Death4.wav</ShortName>
+					<CachePath>SFX/Skeleton_Death4_C7CBF045.wem</CachePath>
+				</File>
+				<File Id="62161624" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Skeleton_Death2.wav</ShortName>
+					<CachePath>SFX/Skeleton_Death2_C7CBF045.wem</CachePath>
 				</File>
 				<File Id="66535431" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepStone3.wav</ShortName>
@@ -232,6 +243,10 @@
 				<File Id="113363503" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>HitSkeleton3.wav</ShortName>
 					<CachePath>SFX/HitSkeleton3_C7CBF045.wem</CachePath>
+				</File>
+				<File Id="132964094" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Skeleton_Death.wav</ShortName>
+					<CachePath>SFX/Skeleton_Death_C7CBF045.wem</CachePath>
 				</File>
 				<File Id="162443735" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>PerfectParryStinger.wav</ShortName>
@@ -264,6 +279,10 @@
 				<File Id="303371798" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>chop3.wav</ShortName>
 					<CachePath>SFX/chop3_44B7B028.wem</CachePath>
+				</File>
+				<File Id="314159650" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Skeleton_Death3.wav</ShortName>
+					<CachePath>SFX/Skeleton_Death3_C7CBF045.wem</CachePath>
 				</File>
 				<File Id="326772382" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BoneStep1.wav</ShortName>
@@ -610,6 +629,14 @@
 						<MediaRef Id="162443735"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="2507006415" Name="Play_SkeletonDeath" MaxAttenuation="20" DurationType="OneShot" DurationMin="0.5474827" DurationMax="1.0099049">
+					<MediaRefs>
+						<MediaRef Id="45162129"/>
+						<MediaRef Id="62161624"/>
+						<MediaRef Id="132964094"/>
+						<MediaRef Id="314159650"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="2078302632" Name="Play_SW" MaxAttenuation="15" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="893033890"/>
@@ -660,5 +687,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{E9BC0B48-01EC-7EA4-1568-5E08D996F0AE}</FileHash>
+	<FileHash>{59CE4C31-C2F8-1B42-D38F-EED61C87E95C}</FileHash>
 </SoundBanksInfo>
