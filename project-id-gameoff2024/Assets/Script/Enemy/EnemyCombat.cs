@@ -110,7 +110,7 @@ public class EnemyCombat : IEnemyCombat
             {
                 if (!IsAttacking)
                 {
-                    Vector3 directionToTargetPosition = Enemy.player.position - Enemy.transform.position;
+                    Vector3 directionToTargetPosition = Enemy.navMeshAgent.desiredVelocity.normalized;
                     directionToTargetPosition.y = 0;
                     directionToTargetPosition.Normalize();
 

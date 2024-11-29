@@ -2,26 +2,33 @@ using UnityEngine;
 
 public class UpgradeButtonMethods : MonoBehaviour
 {
-    public WeaponSO weaponSO;
-    public UiUpgradingNeeds uun;
-    public PlayerCombat pc;
+    private UiUpgradingNeeds uun;
+    private PlayerCombat playerCombat;
+
+    private void Awake()
+    {
+        uun = GetComponent<UiUpgradingNeeds>();
+        playerCombat = GetComponent<PlayerCombat>();
+    }
 
     private void Update()
     {
-        if (weaponSO == null)
+        if (playerCombat.WeaponHolder == null)
             return;
-
-        weaponSO = pc.WeaponHolder.weapon.weaponSO;
 
         if (Input.GetKeyDown(KeyCode.Y))
         {
             IncreaseDammage("Metal shards", null, 1, 0, false, 20);
         }
+
+        Debug.LogError(playerCombat.WeaponHolder.weapon.weaponData.WeaponBasicDamage);
     }
 
     public void IncreaseDammage(string NeededItem, string ExtraNeededItem, int NeededItemCost, int ExtraNeededItemCost, bool NeedExtra, int addingDammage)
     {
-        for(int i = 0; i < uun.inv.Items.Count; i++)
+        Debug.Log("Damage Increased: " + addingDammage);
+
+        for (int i = 0; i < uun.inv.Items.Count; i++)
         {
             if (!NeedExtra)
             {
@@ -31,7 +38,8 @@ public class UpgradeButtonMethods : MonoBehaviour
                     {
                         if(uun.inv.Items[i].amount == NeededItemCost)
                         {
-                            weaponSO.WeaponBasicDamage += addingDammage;
+
+                            playerCombat.WeaponHolder.weapon.weaponData.WeaponBasicDamage += addingDammage;
                             uun.inv.Items[i].amount -= NeededItemCost;
                         }
                     }
@@ -50,7 +58,8 @@ public class UpgradeButtonMethods : MonoBehaviour
                             {
                                 if (uun.inv.Items[i].amount == NeededItemCost && uun.inv.Items[j].amount == ExtraNeededItemCost)
                                 {
-                                    weaponSO.WeaponBasicDamage += addingDammage;
+     
+                                    playerCombat.WeaponHolder.weapon.weaponData.WeaponBasicDamage += addingDammage;
                                     uun.inv.Items[i].amount -= NeededItemCost;
                                     uun.inv.Items[j].amount -= ExtraNeededItemCost;
                                 }
@@ -76,7 +85,7 @@ public class UpgradeButtonMethods : MonoBehaviour
                     {
                         if (uun.inv.Items[i].amount == NeededItemCost)
                         {
-                            weaponSO.WeaponStaminaCost -= decreasingStamina;
+                            playerCombat.WeaponHolder.weapon.weaponData.WeaponStaminaCost -= decreasingStamina;
                             uun.inv.Items[i].amount -= NeededItemCost;
                         }
                     }
@@ -95,7 +104,7 @@ public class UpgradeButtonMethods : MonoBehaviour
                             {
                                 if (uun.inv.Items[i].amount == NeededItemCost && uun.inv.Items[j].amount == ExtraNeededItemCost)
                                 {
-                                    weaponSO.WeaponStaminaCost -= decreasingStamina;
+                                    playerCombat.WeaponHolder.weapon.weaponData.WeaponStaminaCost -= decreasingStamina;
                                     uun.inv.Items[i].amount -= NeededItemCost;
                                     uun.inv.Items[j].amount -= ExtraNeededItemCost;
                                 }
@@ -120,7 +129,7 @@ public class UpgradeButtonMethods : MonoBehaviour
                     {
                         if (uun.inv.Items[i].amount == NeededItemCost)
                         {
-                            weaponSO.WeaponSuperAttackDamage += increaseDammage;
+                            playerCombat.WeaponHolder.weapon.weaponData.WeaponSuperAttackDamage += increaseDammage;
                             uun.inv.Items[i].amount -= NeededItemCost;
                         }
                     }
@@ -139,7 +148,7 @@ public class UpgradeButtonMethods : MonoBehaviour
                             {
                                 if (uun.inv.Items[i].amount == NeededItemCost && uun.inv.Items[j].amount == ExtraNeededItemCost)
                                 {
-                                    weaponSO.WeaponSuperAttackDamage += increaseDammage;
+                                    playerCombat.WeaponHolder.weapon.weaponData.WeaponSuperAttackDamage += increaseDammage;
                                     uun.inv.Items[i].amount -= NeededItemCost;
                                     uun.inv.Items[j].amount -= ExtraNeededItemCost;
                                 }
