@@ -303,7 +303,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: ec4a2688f100da46ab460e630d8da3c3
     GuidInternal: 
-    m_lastTime: -8584687686169380966
+    m_lastTime: -8584687167712210727
     List:
     - name: Ambiance
       guid: e56f24dc5e84884cb04c6930bab876fb
@@ -1447,8 +1447,56 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 5401744f63e1ed4b894045eacce7d766
     GuidInternal: 
-    m_lastTime: -8584688171611367946
+    m_lastTime: -8584687168684905242
     List:
+    - name: Audio Control
+      guid: 4ca3bc0d06d6f14bacf4e6a637df2c74
+      id: 2523461582
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 5401744f63e1ed4b894045eacce7d766
+      - ElementName: Audio Control
+        ObjectType: 4
+        guid: 4ca3bc0d06d6f14bacf4e6a637df2c74
+      Path: Game Parameters\Default Work Unit\Audio Control
+    - name: BGM
+      guid: 02ade21407b0f04d93eeec0caf71acaf
+      id: 412724365
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 5401744f63e1ed4b894045eacce7d766
+      - ElementName: Audio Control
+        ObjectType: 4
+        guid: 4ca3bc0d06d6f14bacf4e6a637df2c74
+      - ElementName: BGM
+        ObjectType: 13
+        guid: 02ade21407b0f04d93eeec0caf71acaf
+      Path: Game Parameters\Default Work Unit\Audio Control\BGM
+    - name: Master
+      guid: 70dce932b589e340a4b8e08d14f52d3d
+      id: 4056684167
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 5401744f63e1ed4b894045eacce7d766
+      - ElementName: Audio Control
+        ObjectType: 4
+        guid: 4ca3bc0d06d6f14bacf4e6a637df2c74
+      - ElementName: Master
+        ObjectType: 13
+        guid: 70dce932b589e340a4b8e08d14f52d3d
+      Path: Game Parameters\Default Work Unit\Audio Control\Master
     - name: SecretWall
       guid: b7ef32c69f8a7547a0e2371d607f0c37
       id: 876875105
@@ -1463,6 +1511,23 @@ MonoBehaviour:
         ObjectType: 13
         guid: b7ef32c69f8a7547a0e2371d607f0c37
       Path: Game Parameters\Default Work Unit\SecretWall
+    - name: SFX
+      guid: 2d473374e2e7834ba98bbbf7309ed0bf
+      id: 393239870
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 5401744f63e1ed4b894045eacce7d766
+      - ElementName: Audio Control
+        ObjectType: 4
+        guid: 4ca3bc0d06d6f14bacf4e6a637df2c74
+      - ElementName: SFX
+        ObjectType: 13
+        guid: 2d473374e2e7834ba98bbbf7309ed0bf
+      Path: Game Parameters\Default Work Unit\Audio Control\SFX
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:
