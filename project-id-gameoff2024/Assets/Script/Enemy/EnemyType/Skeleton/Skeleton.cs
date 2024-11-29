@@ -168,7 +168,7 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
                     if (playerManager.PlayerCombat.WeaponHolder.weapon == null)
                         return;
 
-                    playerManager.PlayerProfile.DeductStamina(playerManager.PlayerCombat.WeaponHolder.weapon.weaponSO.WeaponStaminaCost);
+                    playerManager.PlayerProfile.DeductStamina(playerManager.PlayerCombat.WeaponHolder.weapon.weaponData.WeaponStaminaCost);
                     AkSoundEngine.PostEvent("Play_Parry", gameObject);
                 }
                 else
