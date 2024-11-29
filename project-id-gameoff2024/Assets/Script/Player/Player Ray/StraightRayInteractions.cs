@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,10 +13,15 @@ public class StraightRayInteractions : MonoBehaviour
 
     private InventoryHolder invHold;
 
+    public GameObject UpgradingPanel;
+
+    private PlayerManager playerManager;
+
     private void Start()
     {
         kh = GetComponent<KeyHold>();
         invHold = GetComponent<InventoryHolder>();
+        playerManager = gameObject.GetComponent<PlayerManager>();
     }
 
     void Update()
@@ -29,6 +35,16 @@ public class StraightRayInteractions : MonoBehaviour
         //Debug.DrawRay(cam.position, cam.forward * 100, Color.red);
 
         //Rey colides
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (UpgradingPanel.active)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                playerManager.enabled = true;
+                UpgradingPanel.SetActive(false);
+            }
+        }
 
         if (Physics.Raycast(ray, out hit))
         {
@@ -101,6 +117,27 @@ public class StraightRayInteractions : MonoBehaviour
                         if(hit.collider.GetComponent<PropAction>().anim.GetBool(hit.collider.GetComponent<PropAction>().BoolName) && open) hit.collider.GetComponent<PropAction>().anim.SetBool(hit.collider.GetComponent<PropAction>().BoolName, false); open = false;
                     }
 
+                }
+
+                if(hit.collider.tag == "Anvil")
+                {
+                    bool open = true;
+
+                    if (UpgradingPanel.active && open)
+                    {
+                        Cursor.lockState = CursorLockMode.Locked;
+                        playerManager.enabled = true;
+                        UpgradingPanel.SetActive(false);
+                        open = false;
+                    }
+
+                    if (!UpgradingPanel.active && open)
+                    {
+                        Cursor.lockState = CursorLockMode.None;
+                        playerManager.enabled = false;
+                        UpgradingPanel.SetActive(true);
+                        open = false;
+                    }
                 }
             }
         }
