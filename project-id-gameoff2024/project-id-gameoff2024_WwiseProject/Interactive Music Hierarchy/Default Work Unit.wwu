@@ -499,14 +499,14 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<MusicTrack Name="Combat" ID="{E06B9A39-2188-4AE1-96AB-4B78C9BA3045}" ShortID="95748087">
+										<MusicTrack Name="Combat Music" ID="{AB21B147-4B77-4269-8AD7-1A727BDA4850}" ShortID="894426188">
 											<ReferenceList>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
 												</Reference>
 												<Reference Name="TransitionRoot">
 													<Custom>
-														<MusicTransition Name="Root" ID="{BF29529C-38FE-4491-87DA-E97F74E10FBF}">
+														<MusicTransition Name="Root" ID="{EDA66DFB-A204-462D-A17E-D6E2965E041C}">
 															<PropertyList>
 																<Property Name="IsFolder" Type="bool" Value="True"/>
 															</PropertyList>
@@ -516,11 +516,11 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Combat" ID="{4D0F651C-E434-4B61-9957-4B490D4CBFCB}">
+												<AudioFileSource Name="Combat Music" ID="{C15A666A-7DC1-4F8D-95AF-D42C0D0805A3}">
 													<Language>SFX</Language>
-													<AudioFile>Combat.wav</AudioFile>
+													<AudioFile>Combat Music.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="109531570"/>
+														<MediaID ID="87734365"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
@@ -528,18 +528,18 @@
 												<ObjectList Name="Sequences">
 													<Reference>
 														<Local>
-															<MusicTrackSequence Name="" ID="{A3F69BAE-EC34-44C8-ABF3-B83D337AEAA4}">
+															<MusicTrackSequence Name="" ID="{F396E1EC-EA62-4B0C-828A-18AC9D831910}">
 																<ObjectLists>
 																	<ObjectList Name="Clips">
 																		<Reference>
 																			<Local>
-																				<MusicClip Name="Combat" ID="{1425A5CD-B485-4739-845A-24D1B16ECA4B}">
+																				<MusicClip Name="Combat Music" ID="{F877A1B2-CD2C-482A-B75D-6B9BFE7BDFCC}">
 																					<PropertyList>
 																						<Property Name="EndTrimOffset" Type="Real64" Value="137586.213151927"/>
 																						<Property Name="FadeInMode" Type="int16" Value="0"/>
 																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
 																					</PropertyList>
-																					<AudioSourceRef Name="Combat" ID="{4D0F651C-E434-4B61-9957-4B490D4CBFCB}"/>
+																					<AudioSourceRef Name="Combat Music" ID="{C15A666A-7DC1-4F8D-95AF-D42C0D0805A3}"/>
 																				</MusicClip>
 																			</Local>
 																		</Reference>

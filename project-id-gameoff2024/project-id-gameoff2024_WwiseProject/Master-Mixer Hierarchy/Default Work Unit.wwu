@@ -136,9 +136,10 @@
 																<Custom>
 																	<Effect Name="Wwise_RoomVerb_(Custom)" ID="{A42F074C-1635-40F5-9953-999D7AC2F55E}" ShortID="355353540" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
 																		<PropertyList>
-																			<Property Name="DecayTime" Type="Real32" Value="1.6"/>
+																			<Property Name="DecayTime" Type="Real32" Value="1.3"/>
 																			<Property Name="ERPattern" Type="int32" Value="11"/>
 																			<Property Name="Quality" Type="int32" Value="2"/>
+																			<Property Name="ReverbLevel" Type="Real32" Value="-25"/>
 																		</PropertyList>
 																	</Effect>
 																</Custom>
