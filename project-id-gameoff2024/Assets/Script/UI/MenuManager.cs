@@ -25,10 +25,18 @@ public class MenuManager : MonoBehaviour
     {
         UIMenuManager.settingsObj.SetActive(true);
         UIMenuManager.mainObj.SetActive(false);
+        UIMenuManager.creditsObj.SetActive(false);
     }
 
     public void QuitBtn()
     {
-        
+        Application.Quit();
+    }
+
+    public void CreditsBtn()
+    {
+        UIMenuManager.settingsObj.SetActive(false);
+        UIMenuManager.mainObj.SetActive(false);
+        UIMenuManager.creditsObj.SetActive(true);
     }
 }

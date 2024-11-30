@@ -46,6 +46,11 @@ public class UiUpgradingNeeds : MonoBehaviour
             ExtraNeededItemAvatar.gameObject.SetActive(true);
             ExtraItemCost.gameObject.SetActive(true);
         }
+    else
+        {
+            ExtraNeededItemAvatar.gameObject.SetActive(false);
+            ExtraItemCost.gameObject.SetActive(false);
+        }
 
     }
 
