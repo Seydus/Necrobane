@@ -12,6 +12,7 @@ TagManager:
   - Door
   - Bones
   - MetalShards
+  - Anvil
   layers:
   - Default
   - TransparentFX
@@ -27,8 +28,8 @@ TagManager:
   - Item
   - Head
   - WeaponHand
-  - Door
-  - 
+  - Wall
+  - Gate
   - 
   - 
   - 

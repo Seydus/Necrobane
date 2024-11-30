@@ -576,12 +576,8 @@ GameObject:
   - component: {fileID: 4470378412146303567}
   - component: {fileID: 8263005057883747209}
   - component: {fileID: 6150039531935992032}
-  - component: {fileID: 1370190162072058302}
-  - component: {fileID: 3659513923526879553}
-  - component: {fileID: 1815907520455945067}
-  - component: {fileID: 2374013557676132576}
-  - component: {fileID: 3403624304321174330}
-  - component: {fileID: 3942425612351269194}
+  - component: {fileID: -8709118996041996882}
+  - component: {fileID: -3884301542227670997}
   m_Layer: 6
   m_Name: Skeleton
   m_TagString: Enemy
@@ -680,7 +676,7 @@ MonoBehaviour:
   detectRadius: 5
   playerMask:
     serializedVersion: 2
-    m_Bits: 640
+    m_Bits: 512
   engageCooldownDuration: 0.2
   disengageCooldownDuration: 3
   sphereRadius: 1
@@ -712,43 +708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 6718694777888320307}
---- !u!114 &1370190162072058302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6217938565619059121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42021fcd594a1504c92f0bea95bd8d51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeTime: 0.5
-  LayerMask:
-    serializedVersion: 2
-    m_Bits: 128
-  maxDistance: -1
-  refreshInterval: 1
---- !u!114 &3659513923526879553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6217938565619059121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42021fcd594a1504c92f0bea95bd8d51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeTime: 0.5
-  LayerMask:
-    serializedVersion: 2
-    m_Bits: 128
-  maxDistance: -1
-  refreshInterval: 1
---- !u!114 &1815907520455945067
+--- !u!114 &-8709118996041996882
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -763,54 +723,14 @@ MonoBehaviour:
   m_listeners:
     initialListenerList: []
     useDefaultListeners: 1
-  isEnvironmentAware: 0
+  isEnvironmentAware: 1
   isStaticObject: 0
   m_positionOffsetData:
     KeepMe: 0
-    positionOffset: {x: 43.63352, y: 26.12131, z: -19.761662}
+    positionOffset: {x: 0, y: 0, z: 0}
   m_posOffsetData: {fileID: 0}
   listenerMask: 1
---- !u!114 &2374013557676132576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6217938565619059121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afe5249a84181394c9c1df8da7b340fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Collider: {fileID: 0}
---- !u!54 &3403624304321174330
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6217938565619059121}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &3942425612351269194
+--- !u!114 &-3884301542227670997
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -825,7 +745,7 @@ MonoBehaviour:
   fadeTime: 0.5
   LayerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 16384
   maxDistance: -1
   refreshInterval: 1
 --- !u!1 &7108805147195454284

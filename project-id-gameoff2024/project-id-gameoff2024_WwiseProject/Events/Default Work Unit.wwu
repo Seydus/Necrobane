@@ -324,21 +324,21 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="Play_SkeletonDeath" ID="{2B688C72-DE22-4543-8925-C6BF475B50B2}">
+									<ChildrenList>
+										<Action Name="" ID="{CEF64EA9-10CB-404F-A61C-6747CF9964E2}" ShortID="942004726">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="SkeletonDeath" ID="{A1F488AD-DC16-42C7-9134-EEFE9C271620}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>
 				</Folder>
-				<Event Name="Play_Ambi_01" ID="{30E89CA5-33BB-409E-9A85-B31CC21BC4A3}">
-					<ChildrenList>
-						<Action Name="" ID="{D7742157-F019-47EE-8FFA-A2650E13DCEC}" ShortID="536751060">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Ambi" ID="{2732CFE5-1393-477C-85D2-E85C51C4EDBA}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

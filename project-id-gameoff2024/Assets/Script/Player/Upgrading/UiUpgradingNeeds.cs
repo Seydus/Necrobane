@@ -9,38 +9,44 @@ public class UiUpgradingNeeds : MonoBehaviour
 
     public InventoryHolder inv;
 
-    public string Name;
-
-    public Sprite Avatar;
     public Sprite NeededItem;
     public Sprite ExtraNeededItem;
 
-    public string Description;
     public int lvl;
 
     public TextMeshProUGUI ItemCost;
     public TextMeshProUGUI ExtraItemCost;
-    public TextMeshProUGUI ItemName;
-    public TextMeshProUGUI ItemDescription;
     public TextMeshProUGUI ItemLvl;
 
-    public Image ItemAvatar;
     public Image ExtraNeededItemAvatar;
     public Image NeededItemAvatar;
 
-   //private void Update()
-  //  {
-    //    ItemCost.text = cost.ToString();
-    //  /  ItemName.text = Name;
-    ///    ItemDescription.text = Description;
-    //    ItemLvl.text = lvl.ToString();
-    //    ItemAvatar.sprite = Avatar;
-    //    NeededItemAvatar.sprite = NeededItem;
+    public bool IsExtra;
 
-    //    if (ExtraNeededItem != null)
-    //    {
-    //        ExtraItemCost.text = Extracost.ToString();
-    //        ExtraNeededItemAvatar.sprite = ExtraNeededItem;
-    //    }
-   // }
+    private void Update()
+    {
+        ItemCost.text = cost.ToString();
+        ItemLvl.text = "Level " + lvl.ToString();
+        NeededItemAvatar.sprite = NeededItem;
+
+        if (ExtraNeededItem != null)
+        {
+            ExtraItemCost.text = Extracost.ToString();
+            ExtraNeededItemAvatar.sprite = ExtraNeededItem;
+        }
+
+        if(lvl >= 3)
+        {
+            Extracost = 1;
+            IsExtra = true;
+        }
+
+        if(IsExtra)
+        {
+            ExtraNeededItemAvatar.gameObject.SetActive(true);
+            ExtraItemCost.gameObject.SetActive(true);
+        }
+
+    }
+
 }

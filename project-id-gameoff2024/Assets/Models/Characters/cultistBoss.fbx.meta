@@ -1,9 +1,24 @@
 fileFormatVersion: 2
-guid: a62265500ae7b7746a4143131f6497e1
+guid: a5635af9d7c323f449a01d392ef1229a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cord
+    second: {fileID: 2100000, guid: d22127099ef388848af8c933cb359474, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mask
+    second: {fileID: 2100000, guid: 0866e0adeb51b2e4c9ca0c8b29552337, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Robe
+    second: {fileID: 2100000, guid: 380f22cdd723c6340b227305fe46db67, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

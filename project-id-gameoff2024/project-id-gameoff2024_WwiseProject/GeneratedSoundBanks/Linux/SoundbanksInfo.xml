@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{C61BCC00-908B-2328-684F-138D41AC53AC}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{8BF40529-7EAA-3760-E71C-DCC3B78A0199}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -23,7 +23,11 @@
 			</Plugins>
 			<Busses>
 				<Bus Id="181270742" Name="Interactables"/>
-				<Bus Id="393239870" Name="SFX"/>
+				<Bus Id="393239870" Name="SFX">
+					<AuxBusRefs>
+						<AuxBusRef Id="1495464960" Name="BigRoom"/>
+					</AuxBusRefs>
+				</Bus>
 				<Bus Id="1069431850" Name="Player"/>
 				<Bus Id="1229948536" Name="Environment"/>
 				<Bus Id="2299321487" Name="Enemy"/>
@@ -46,7 +50,10 @@
 				</AuxBus>
 			</AuxBusses>
 			<GameParameters>
+				<GameParameter Id="393239870" Name="SFX"/>
+				<GameParameter Id="412724365" Name="BGM"/>
 				<GameParameter Id="876875105" Name="SecretWall"/>
+				<GameParameter Id="4056684167" Name="Master"/>
 			</GameParameters>
 			<StateGroups>
 				<StateGroup Id="1069431850" Name="Player">
@@ -201,7 +208,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{F8120E14-B207-6798-34BC-E78908C05919}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{C3A8249F-196A-4B58-E033-483F476E4211}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -212,6 +219,14 @@
 				<File Id="31399390" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Equip_Blade.wav</ShortName>
 					<CachePath>SFX/Equip_Blade_C7CBF045.wem</CachePath>
+				</File>
+				<File Id="45162129" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Skeleton_Death4.wav</ShortName>
+					<CachePath>SFX/Skeleton_Death4_C7CBF045.wem</CachePath>
+				</File>
+				<File Id="62161624" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Skeleton_Death2.wav</ShortName>
+					<CachePath>SFX/Skeleton_Death2_C7CBF045.wem</CachePath>
 				</File>
 				<File Id="66535431" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepStone3.wav</ShortName>
@@ -228,6 +243,10 @@
 				<File Id="113363503" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>HitSkeleton3.wav</ShortName>
 					<CachePath>SFX/HitSkeleton3_C7CBF045.wem</CachePath>
+				</File>
+				<File Id="132964094" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Skeleton_Death.wav</ShortName>
+					<CachePath>SFX/Skeleton_Death_C7CBF045.wem</CachePath>
 				</File>
 				<File Id="162443735" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>PerfectParryStinger.wav</ShortName>
@@ -260,6 +279,10 @@
 				<File Id="303371798" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>chop3.wav</ShortName>
 					<CachePath>SFX/chop3_44B7B028.wem</CachePath>
+				</File>
+				<File Id="314159650" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Skeleton_Death3.wav</ShortName>
+					<CachePath>SFX/Skeleton_Death3_C7CBF045.wem</CachePath>
 				</File>
 				<File Id="326772382" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BoneStep1.wav</ShortName>
@@ -412,7 +435,7 @@
 						<MediaRef Id="841486209"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1512643089" Name="Play_BoneSteps" MaxAttenuation="15" DurationType="OneShot" DurationMin="0.58037287" DurationMax="0.73291546">
+				<Event Id="1512643089" Name="Play_BoneSteps" MaxAttenuation="20" DurationType="OneShot" DurationMin="0.58037287" DurationMax="0.73291546">
 					<MediaRefs>
 						<MediaRef Id="326772382"/>
 						<MediaRef Id="843067243"/>
@@ -458,7 +481,7 @@
 						<MediaRef Id="565521538"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3854155799" Name="Play_Footsteps" MaxAttenuation="15" DurationType="OneShot" DurationMin="0.26353073" DurationMax="0.451437">
+				<Event Id="3854155799" Name="Play_Footsteps" MaxAttenuation="20" DurationType="OneShot" DurationMin="0.26353073" DurationMax="0.451437">
 					<SwitchContainers>
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="3865314626" Id="2185786256" Default="true"/>
@@ -589,7 +612,7 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="1127904212" Name="Play_Open_Gate" MaxAttenuation="15" DurationType="OneShot" DurationMin="1.6646712" DurationMax="1.6646712">
+				<Event Id="1127904212" Name="Play_Open_Gate" MaxAttenuation="20" DurationType="OneShot" DurationMin="1.6646712" DurationMax="1.6646712">
 					<MediaRefs>
 						<MediaRef Id="76519647"/>
 					</MediaRefs>
@@ -606,19 +629,27 @@
 						<MediaRef Id="162443735"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="2507006415" Name="Play_SkeletonDeath" MaxAttenuation="20" DurationType="OneShot" DurationMin="0.5474827" DurationMax="1.0099049">
+					<MediaRefs>
+						<MediaRef Id="45162129"/>
+						<MediaRef Id="62161624"/>
+						<MediaRef Id="132964094"/>
+						<MediaRef Id="314159650"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="2078302632" Name="Play_SW" MaxAttenuation="15" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="893033890"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1187857689" Name="Play_Swings2H" MaxAttenuation="15" DurationType="OneShot" DurationMin="0.5" DurationMax="0.5">
+				<Event Id="1187857689" Name="Play_Swings2H" MaxAttenuation="20" DurationType="OneShot" DurationMin="0.5" DurationMax="0.5">
 					<MediaRefs>
 						<MediaRef Id="205507889"/>
 						<MediaRef Id="249291889"/>
 						<MediaRef Id="426715762"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="356987792" Name="Play_Unlock_Gate" MaxAttenuation="15" DurationType="OneShot" DurationMin="1" DurationMax="1">
+				<Event Id="356987792" Name="Play_Unlock_Gate" MaxAttenuation="20" DurationType="OneShot" DurationMin="1" DurationMax="1">
 					<MediaRefs>
 						<MediaRef Id="522520838"/>
 					</MediaRefs>
@@ -656,5 +687,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{AFEF7D99-AD31-2D46-82D5-3CA431B3D92C}</FileHash>
+	<FileHash>{59CE4C31-C2F8-1B42-D38F-EED61C87E95C}</FileHash>
 </SoundBanksInfo>

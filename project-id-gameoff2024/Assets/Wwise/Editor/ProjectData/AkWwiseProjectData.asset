@@ -303,7 +303,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: ec4a2688f100da46ab460e630d8da3c3
     GuidInternal: 
-    m_lastTime: -8584688171610469060
+    m_lastTime: -8584686764115402118
     List:
     - name: Ambiance
       guid: e56f24dc5e84884cb04c6930bab876fb
@@ -600,7 +600,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 3808cfcbeba5d043a9389dbcef0f39f7
     GuidInternal: 
-    m_lastTime: -8584688171610423714
+    m_lastTime: -8584686764112539290
     List:
     - name: Main
       guid: 71be9a838e8f7a4e9bbaa45884ab4f12
@@ -628,7 +628,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: fafe2c5e31679a46a1450b34d8466393
     GuidInternal: 
-    m_lastTime: -8584688171611367946
+    m_lastTime: -8584686764116909057
     List:
     - name: Blades
       guid: 5057d7e9557c8a4d848d8a0c0ae142fc
@@ -847,23 +847,6 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: Play_Ambi_01
-      guid: a59ce830bb339e409a85b31cc21bc4a3
-      id: 2596308347
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: fafe2c5e31679a46a1450b34d8466393
-      - ElementName: Play_Ambi_01
-        ObjectType: 3
-        guid: a59ce830bb339e409a85b31cc21bc4a3
-      Path: Events\Default Work Unit\Play_Ambi_01
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
     - name: Play_BoneSteps
       guid: 8f885f74174bec4e96c9612737d3b303
       id: 1512643089
@@ -884,7 +867,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: 8f885f74174bec4e96c9612737d3b303
       Path: Events\Default Work Unit\Enemy\Skeleton\Play_BoneSteps
-      maxAttenuation: 15
+      maxAttenuation: 20
       maxDuration: 0.73291546
       minDuration: 0.58037287
     - name: Play_Chops
@@ -1071,7 +1054,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: a9ce29e796074f418e1d3a3bfdeee3dd
       Path: Events\Default Work Unit\Player\Play_Footsteps
-      maxAttenuation: 15
+      maxAttenuation: 20
       maxDuration: 0.451437
       minDuration: 0.26353073
     - name: Play_HitBones
@@ -1203,7 +1186,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: c3cabbf8ab5a89449ce15c8702640bd0
       Path: Events\Default Work Unit\Environment\Doors and Gates\Play_Open_Gate
-      maxAttenuation: 15
+      maxAttenuation: 20
       maxDuration: 1.6646712
       minDuration: 1.6646712
     - name: Play_Parry
@@ -1252,6 +1235,29 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.5
       minDuration: 1.5
+    - name: Play_SkeletonDeath
+      guid: 728c682b22de43458925c6bf475b50b2
+      id: 2507006415
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Enemy
+        ObjectType: 4
+        guid: 6ad1bf4610f5f9459052e4484a98fdec
+      - ElementName: Skeleton
+        ObjectType: 4
+        guid: 4426aaa77c04cb408d7229d4f7a0ba4f
+      - ElementName: Play_SkeletonDeath
+        ObjectType: 3
+        guid: 728c682b22de43458925c6bf475b50b2
+      Path: Events\Default Work Unit\Enemy\Skeleton\Play_SkeletonDeath
+      maxAttenuation: 20
+      maxDuration: 1.0099049
+      minDuration: 0.5474827
     - name: Play_SW
       guid: c42828ce471ee044bca9bbea47377483
       id: 2078302632
@@ -1292,7 +1298,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: b5f1a22b806eeb4e90b87fd43648a7cb
       Path: Events\Default Work Unit\Combat\Blades\Play_Swings2H
-      maxAttenuation: 15
+      maxAttenuation: 20
       maxDuration: 0.5
       minDuration: 0.5
     - name: Play_Unlock_Gate
@@ -1315,7 +1321,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: 69a8374bfd801e419b38baa3e0c510ae
       Path: Events\Default Work Unit\Environment\Doors and Gates\Play_Unlock_Gate
-      maxAttenuation: 15
+      maxAttenuation: 20
       maxDuration: 1
       minDuration: 1
     - name: Player
@@ -1447,8 +1453,56 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 5401744f63e1ed4b894045eacce7d766
     GuidInternal: 
-    m_lastTime: -8584688171611367946
+    m_lastTime: -8584686764116895781
     List:
+    - name: Audio Control
+      guid: 4ca3bc0d06d6f14bacf4e6a637df2c74
+      id: 2523461582
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 5401744f63e1ed4b894045eacce7d766
+      - ElementName: Audio Control
+        ObjectType: 4
+        guid: 4ca3bc0d06d6f14bacf4e6a637df2c74
+      Path: Game Parameters\Default Work Unit\Audio Control
+    - name: BGM
+      guid: 02ade21407b0f04d93eeec0caf71acaf
+      id: 412724365
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 5401744f63e1ed4b894045eacce7d766
+      - ElementName: Audio Control
+        ObjectType: 4
+        guid: 4ca3bc0d06d6f14bacf4e6a637df2c74
+      - ElementName: BGM
+        ObjectType: 13
+        guid: 02ade21407b0f04d93eeec0caf71acaf
+      Path: Game Parameters\Default Work Unit\Audio Control\BGM
+    - name: Master
+      guid: 70dce932b589e340a4b8e08d14f52d3d
+      id: 4056684167
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 5401744f63e1ed4b894045eacce7d766
+      - ElementName: Audio Control
+        ObjectType: 4
+        guid: 4ca3bc0d06d6f14bacf4e6a637df2c74
+      - ElementName: Master
+        ObjectType: 13
+        guid: 70dce932b589e340a4b8e08d14f52d3d
+      Path: Game Parameters\Default Work Unit\Audio Control\Master
     - name: SecretWall
       guid: b7ef32c69f8a7547a0e2371d607f0c37
       id: 876875105
@@ -1463,6 +1517,23 @@ MonoBehaviour:
         ObjectType: 13
         guid: b7ef32c69f8a7547a0e2371d607f0c37
       Path: Game Parameters\Default Work Unit\SecretWall
+    - name: SFX
+      guid: 2d473374e2e7834ba98bbbf7309ed0bf
+      id: 393239870
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 5401744f63e1ed4b894045eacce7d766
+      - ElementName: Audio Control
+        ObjectType: 4
+        guid: 4ca3bc0d06d6f14bacf4e6a637df2c74
+      - ElementName: SFX
+        ObjectType: 13
+        guid: 2d473374e2e7834ba98bbbf7309ed0bf
+      Path: Game Parameters\Default Work Unit\Audio Control\SFX
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:
@@ -1688,7 +1759,7 @@ MonoBehaviour:
     m_lastTime: -8584701737193982455
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 020000000300000004000000050000000600000007000000090000000a0000000c0000000d0000000e0000000f000000190000001b0000001c00000023000000
+  ExpandedWaapiItemIds: 02000000030000000400000005000000060000000700000008000000090000000a0000000c0000000d0000000e0000000f00000013000000140000001600000018000000190000001a0000001b0000001c00000023000000260000002e000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

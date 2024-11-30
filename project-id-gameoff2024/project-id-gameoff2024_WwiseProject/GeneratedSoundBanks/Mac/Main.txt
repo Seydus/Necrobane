@@ -12,6 +12,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1554763031	Play_Equip_Fist			\Default Work Unit\Player\Interaction\Equip\Play_Equip_Fist	
 	1937570009	Stop_Ambi			\Default Work Unit\Environment\Stop_Ambi	
 	2078302632	Play_SW			\Default Work Unit\Environment\Play_SW	
+	2507006415	Play_SkeletonDeath			\Default Work Unit\Enemy\Skeleton\Play_SkeletonDeath	
 	2555710829	Stop_Firebolt			\Default Work Unit\Combat\Firebolt\Stop_Firebolt	
 	2616876087	Play_Ambi			\Default Work Unit\Environment\Play_Ambi	
 	2837384057	Stop_Music			\Default Work Unit\Stop_Music	
@@ -49,10 +50,13 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	21450614	JumpGravel1	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\JumpGravel1_CD6D7486.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Jump\Gravel\JumpGravel1		5116
 	31399390	Equip_Blade	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\Equip_Blade_C7CBF045.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Interaction\Equip\Equip_Blade		6340
+	45162129	Skeleton_Death4	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\Skeleton_Death4_C7CBF045.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemy\Skeleton\SkeletonDeath\Skeleton_Death4		9976
+	62161624	Skeleton_Death2	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\Skeleton_Death2_C7CBF045.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemy\Skeleton\SkeletonDeath\Skeleton_Death2		8212
 	66535431	FootstepStone3	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\FootstepStone3_B1E5A22B.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\Stone\FootstepStone3		3856
 	76519647	Open_Gate	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\Open_Gate_C7CBF045.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Doors and Gates\Open_Gate		20776
-	87734365	Combat Music	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\Combat Music_F93BF523.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Combat\Combat1\Combat Music		1706620
+	87734365	Combat Music	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\Combat Music_F93BF523.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Combat\CombatMusic\Combat Music		1706620
 	113363503	HitSkeleton3	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\HitSkeleton3_C7CBF045.wem		\Actor-Mixer Hierarchy\Default Work Unit\Combat\PowerFist\FistHit\HitBones\HitSkeleton3		6340
+	132964094	Skeleton_Death	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\Skeleton_Death_C7CBF045.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemy\Skeleton\SkeletonDeath\Skeleton_Death		8212
 	162443735	PerfectParryStinger	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\PerfectParryStinger_3D14C602.wem		\Actor-Mixer Hierarchy\Default Work Unit\Combat\Blades\Blocking\PerfectParryStinger		18724
 	205507889	2Hand2	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\2Hand2_C7CBF045.wem		\Actor-Mixer Hierarchy\Default Work Unit\Combat\Blades\2Hand\Swings\2Hand2		6340
 	218368169	JumpStone	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\JumpStone_50CC79CB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Jump\Stone\JumpStone		3856
@@ -61,6 +65,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	266045855	FistSwing3	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\FistSwing3_07CC845F.wem		\Actor-Mixer Hierarchy\Default Work Unit\Combat\PowerFist\FistSwing\FistSwing3		3856
 	277656132	FootstepGravel6	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\FootstepGravel6_CD6D7486.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\Gravel\FootstepGravel6		5116
 	303371798	chop3	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\chop3_44B7B028.wem		\Actor-Mixer Hierarchy\Default Work Unit\Combat\Blades\Chops\chop3		3856
+	314159650	Skeleton_Death3	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\Skeleton_Death3_C7CBF045.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemy\Skeleton\SkeletonDeath\Skeleton_Death3		10480
 	326772382	BoneStep1	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\BoneStep1_C7CBF045.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemy\Skeleton\BoneSteps\BoneStep1		8212
 	330704271	FootstepStone1	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\FootstepStone1_0EB2837D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\Stone\FootstepStone1		3856
 	361689572	FistSwing1	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\FistSwing1_72CB0EFF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Combat\PowerFist\FistSwing\FistSwing1		3856
