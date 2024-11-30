@@ -70,13 +70,13 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
         enemyRoaming.RoamDirectionChangeChance = roamDirectionChangeChance;
         enemyRoaming.GroundPos = groundPos;
         enemyRoaming.NavMeshSurface = navMeshSurface;
+        enemyRoaming.NavMeshAgent = navMeshAgent;
         enemyRoaming.RoamingRotateSpeed = roamingRotateSpeed;
 
         enemyRoaming.DetectRadius = detectRadius;
         enemyRoaming.EnvironmentMask = playerMask;
         enemyRoaming.EngageCooldownDuration = engageCooldownDuration;
         enemyRoaming.DisengageCooldownDuration = disengageCooldownDuration;
-        enemyRoaming.NavMeshAgent = base.navMeshAgent;
 
         enemyCombat.Enemy = this;
         enemyRoaming.Enemy = this;

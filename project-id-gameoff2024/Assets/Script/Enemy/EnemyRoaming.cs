@@ -100,7 +100,7 @@ public class EnemyRoaming : IEnemyRoaming
 
         HandleEnemyState();
     }
-   
+    
     private void DetectPlayer()
     {
         Collider[] hitColliders = Physics.OverlapSphere(Enemy.transform.position, DetectRadius, EnvironmentMask);
