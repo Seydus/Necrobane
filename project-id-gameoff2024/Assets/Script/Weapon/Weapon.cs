@@ -33,7 +33,7 @@ public abstract class Weapon : MonoBehaviour
                 AkSoundEngine.PostEvent("Play_HitBones", PlayerCombat.gameObject);
                 break;
             case Cultist:
-                AkSoundEngine.PostEvent("Play_HitBones", PlayerCombat.gameObject);
+                AkSoundEngine.PostEvent("Play_Chops", PlayerCombat.gameObject);
                 break;
         }
     }
