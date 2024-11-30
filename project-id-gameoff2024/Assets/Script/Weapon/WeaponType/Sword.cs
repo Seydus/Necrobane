@@ -34,6 +34,7 @@ public class Sword : Weapon
             {
                 PlayerCombat.PlayerController.maxSpeed = PlayerCombat.oldMaxSpeed;
                 PlayerCombat.PlayerAnimation.UnPerformDefendSwordAttackAnim();
+                PlayerCombat.PlayerProfile.isDefending = false;
                 Debug.Log("You don't have enough mana.");
             }
         }
@@ -41,6 +42,7 @@ public class Sword : Weapon
         {
             PlayerCombat.PlayerController.maxSpeed = PlayerCombat.oldMaxSpeed;
             PlayerCombat.PlayerAnimation.UnPerformDefendSwordAttackAnim();
+            PlayerCombat.PlayerProfile.isDefending = false;
         }
     }
 
@@ -56,8 +58,7 @@ public class Sword : Weapon
                     PlayerCombat.InitHitVFX(PlayerCombat.GetAllColliderHit()[i].point);
 
                     HandleAttack(enemy, weaponData.WeaponBasicDamage);
-
-                    AkSoundEngine.PostEvent("Play_HitBones", PlayerCombat.gameObject);
+                    PlayHitSFX(enemy);
                 }
             }
         }

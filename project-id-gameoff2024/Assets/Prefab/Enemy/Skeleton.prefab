@@ -680,7 +680,7 @@ MonoBehaviour:
   engageCooldownDuration: 0.2
   disengageCooldownDuration: 3
   sphereRadius: 1
-  maxDistance: 3
+  maxDistance: 2
   combatLayer:
     serializedVersion: 2
     m_Bits: 512

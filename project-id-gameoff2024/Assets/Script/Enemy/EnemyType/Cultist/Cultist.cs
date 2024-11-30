@@ -52,7 +52,7 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
     public float RoamDirectionChangeChance { get; set; }
     public Transform GroundPos { get; set; }
     public float DetectRadius { get; set; }
-    public LayerMask PlayerMask { get; set; }
+    public LayerMask EnvironmentMask { get; set; }
     public float EngageCooldownDuration { get; set; }
     public float DisengageCooldownDuration { get; set; }
     public NavMeshSurface NavMeshSurface { get; set; }
@@ -87,7 +87,7 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
         enemyRoaming.RoamingRotateSpeed = roamingRotateSpeed;
 
         enemyRoaming.DetectRadius = detectRadius;
-        enemyRoaming.PlayerMask = playerMask;
+        enemyRoaming.EnvironmentMask = playerMask;
         enemyRoaming.EngageCooldownDuration = engageCooldownDuration;
         enemyRoaming.DisengageCooldownDuration = disengageCooldownDuration;
         enemyRoaming.NavMeshAgent = base.navMeshAgent;
@@ -232,7 +232,7 @@ public class Cultist : Enemy, IEnemyRoaming, IEnemyCombat
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, enemyProfile.EnemyRange);
 
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, DetectRadius, PlayerMask);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, DetectRadius, EnvironmentMask);
 
         if (hitColliders.Length > 0)
         {
