@@ -111,8 +111,6 @@ public class EnemyRoaming : IEnemyRoaming
             Vector3 direction = (playerTransform.position - Enemy.transform.position).normalized;
             float distance = Vector3.Distance(Enemy.transform.position, playerTransform.position);
 
-            Debug.Log(hitColliders[0].transform.gameObject.name);
-
             // EnvironmentMask: Obstacle, Player
             if (Physics.SphereCast(Enemy.transform.position, 0.1f, direction, out enemyHit, 10f, EnvironmentMask))
             {
@@ -128,6 +126,10 @@ public class EnemyRoaming : IEnemyRoaming
                     Enemy.isDetected = false;
                 }
             }
+        }
+        else
+        {
+            isPlayerDetected = false;
         }
     }
 
@@ -268,6 +270,7 @@ public class EnemyRoaming : IEnemyRoaming
         {
             enemyState = EnemyState.Patrol;
             EnemyManager.Instance.enemyAttackingList.Remove(this.Enemy);
+            Debug.LogError("ENEMY PATROLLING");
             disengageCooldown = 0f;
 
             startEngage = false;
