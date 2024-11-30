@@ -13,6 +13,7 @@ TagManager:
   - Bones
   - MetalShards
   - Anvil
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -30,8 +31,8 @@ TagManager:
   - WeaponHand
   - Wall
   - Gate
-  - 
-  - 
+  - BossAIGround
+  - Boss
   - 
   - 
   - 

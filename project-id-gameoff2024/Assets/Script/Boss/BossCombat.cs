@@ -2,16 +2,19 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.Events;
+using UnityEngine.AI;
+using Unity.AI.Navigation;
 
 public class BossCombat : MonoBehaviour
 {
     [Header("Bullet Hell")]
+    [SerializeField] private Transform bulletHellPos;
     [SerializeField] private float bulletHellAttackSpeed;
-    [SerializeField] private float bulletHellGap;
+    private const float BULLET_HELL_GAP = 20f;
     [SerializeField] private float bulletHellDelaySpawn;
     [SerializeField] private GameObject bulletHellPrefab;
 
-    [SerializeField] private List<Vector3> bulletHellDirection = new List<Vector3>();
+    private List<Vector3> bulletHellDirection = new List<Vector3>();
 
     [Header("Spike Attack")]
     [SerializeField] private Animator animSpike;
@@ -25,9 +28,17 @@ public class BossCombat : MonoBehaviour
     private bool isSpikeAttack;
     private RaycastHit hitInfo;
 
-    private GameObject player;
+    public GameObject player;
 
-    private int i;
+    [Header("NavMesh Settings")]
+    [SerializeField] private float bossMoveSpeed;
+    [SerializeField] private float bossRotationSpeed;
+    [SerializeField] private float bossStoppingDistance;
+    private NavMeshAgent navMeshAgent;
+    [SerializeField] private NavMeshSurface navMeshSurface;
+    private NavMeshPath navMeshPath;
+    private int currentCornerIndex;
+    private Vector3 lastCornerPosition;
 
     [Header("Events")]
     public static UnityAction OnPerformSpikeAttackTriggered;
@@ -47,31 +58,50 @@ public class BossCombat : MonoBehaviour
 
     private void Awake()
     {
-        GetBulletHellDirection();
+        // player = GameObject.FindGameObjectWithTag("Player");
 
-        player = GameObject.FindGameObjectWithTag("Player");
+        navMeshPath = new NavMeshPath();
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.updatePosition = true; 
+        navMeshAgent.updateRotation = false;
     }
 
     private void Start()
     {
-        BulletHell();
+        GetBulletHellDirection();
+        lastCornerPosition = transform.position;
+        // BulletHell();
     }
 
     private void Update()
     {
-        SpikeAttack();
+        // SpikeAttack();
+        Move();
+        Rotation();
+    }
+
+    private void Move()
+    {
+        navMeshAgent.SetDestination(player.transform.position);
+        Vector3 velocity = navMeshAgent.desiredVelocity;
+        transform.position += velocity.normalized * bossMoveSpeed * Time.deltaTime;
+    }
+
+    private void Rotation()
+    {
+        Quaternion targetRotation = Quaternion.LookRotation(navMeshAgent.desiredVelocity.normalized);
+        Quaternion yAxisOnlyRotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, yAxisOnlyRotation, bossRotationSpeed * Time.deltaTime);
     }
 
     private void GetBulletHellDirection()
     {
-        if (bulletHellGap <= 0)
-            return;
-
         float rotationY = 0;
 
         while(rotationY <= 360)
         {
-            rotationY += bulletHellGap;
+            rotationY += BULLET_HELL_GAP;
             bulletHellDirection.Add(new Vector3(0f, rotationY, 0f));
         }
     }
@@ -177,8 +207,8 @@ public class BossCombat : MonoBehaviour
     {
         for (int i = 0; i < bulletHellDirection.Count; i++)
         {
-            GameObject bulletHellObj = Instantiate(bulletHellPrefab, transform.position, Quaternion.Euler(bulletHellDirection[i]));
-            GameObject bulletHellObjTwo = Instantiate(bulletHellPrefab, transform.position, Quaternion.Euler(bulletHellDirection[(bulletHellDirection.Count - 1) - i]));
+            GameObject bulletHellObj = Instantiate(bulletHellPrefab, bulletHellPos.position, Quaternion.Euler(bulletHellDirection[i]));
+            GameObject bulletHellObjTwo = Instantiate(bulletHellPrefab, bulletHellPos.position, Quaternion.Euler(bulletHellDirection[(bulletHellDirection.Count - 1) - i]));
             yield return new WaitForSeconds(bulletHellDelaySpawn);
         }
     }
@@ -187,7 +217,7 @@ public class BossCombat : MonoBehaviour
     {
         for(int i = 0; i < bulletHellDirection.Count; i++)
         {
-            GameObject bulletHellObj = Instantiate(bulletHellPrefab, transform.position, Quaternion.Euler(bulletHellDirection[i]));
+            GameObject bulletHellObj = Instantiate(bulletHellPrefab, bulletHellPos.position, Quaternion.Euler(bulletHellDirection[i]));
             yield return new WaitForSeconds(bulletHellDelaySpawn);
             //if (i + 1 >= bulletHellDirection.Count)
             //    i = 0;
@@ -198,7 +228,7 @@ public class BossCombat : MonoBehaviour
     {
         for (int i = bulletHellDirection.Count - 1; i >= 0; i--)
         {
-            GameObject bulletHellObj = Instantiate(bulletHellPrefab, transform.position, Quaternion.Euler(bulletHellDirection[i]));
+            GameObject bulletHellObj = Instantiate(bulletHellPrefab, bulletHellPos.position, Quaternion.Euler(bulletHellDirection[i]));
             yield return new WaitForSeconds(bulletHellDelaySpawn);
             //if (i + 1 >= bulletHellDirection.Count)
             //    i = 0;
@@ -209,7 +239,7 @@ public class BossCombat : MonoBehaviour
     {
         for (int i = 0; i < bulletHellDirection.Count; i++)
         {
-            GameObject bulletHellObj = Instantiate(bulletHellPrefab, transform.position, Quaternion.Euler(bulletHellDirection[i]));
+            GameObject bulletHellObj = Instantiate(bulletHellPrefab, bulletHellPos.position, Quaternion.Euler(bulletHellDirection[i]));
         }
     }
 
@@ -219,12 +249,12 @@ public class BossCombat : MonoBehaviour
 
         if (isHit)
         {
-            Gizmos.DrawRay(new Ray(transform.position, transform.forward).origin, hitInfo.point - new Ray(transform.position, transform.forward).origin);
+            Gizmos.DrawRay(new Ray(bulletHellPos.position, bulletHellPos.forward).origin, hitInfo.point - new Ray(bulletHellPos.position, bulletHellPos.forward).origin);
             Gizmos.DrawWireSphere(hitInfo.point, sphereRadius);
         }
         else
         {
-            Gizmos.DrawRay(new Ray(transform.position, transform.forward).origin, new Ray(transform.position, transform.forward).direction.normalized * bossDistance);
+            Gizmos.DrawRay(new Ray(bulletHellPos.position, bulletHellPos.forward).origin, new Ray(bulletHellPos.position, bulletHellPos.forward).direction.normalized * bossDistance);
         }
     }
 }
