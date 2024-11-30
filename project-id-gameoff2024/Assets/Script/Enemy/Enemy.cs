@@ -83,7 +83,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void Update()
     {
-        EnemyStatus(gameObject);
+        EnemyStatus();
     }
 
     public void DeductHealth(float damage)
@@ -92,12 +92,13 @@ public class Enemy : MonoBehaviour
         healthSlider.value = EnemyHealth;
     }
 
-    public void EnemyStatus(GameObject gameObject)
+    public void EnemyStatus()
     {
         if (EnemyHealth <= 0)
         {
             Instantiate(enemyProfile.itemDrop, transform.position, Quaternion.identity);
             gameObject.SetActive(false);
+            EnemyManager.Instance.enemyAttackingList.Remove(gameObject.GetComponent<Enemy>());
             AkSoundEngine.PostEvent("Play_SkeletonDeath", gameObject);
         }
     }
