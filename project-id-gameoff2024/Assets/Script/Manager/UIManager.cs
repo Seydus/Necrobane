@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -16,4 +17,8 @@ public class UIManager : MonoBehaviour
 
     [Header("Game UI")]
     public GameObject gameOverUI;
+
+    [Header("Boss UI")]
+    public GameObject bossUIObj;
+    public Slider bossHealthSlider;
 }

@@ -351,6 +351,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1900509695739861791}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2502867425472807529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6918470352026144244}
+  m_Layer: 17
+  m_Name: EnemySummonPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6918470352026144244
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2502867425472807529}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5102681755558461164}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3055105853091464124
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,7 +469,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3239064354841990260}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: -0.5}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
@@ -448,7 +479,7 @@ Transform:
   - {fileID: 752444614126079287}
   - {fileID: 4678892658315746860}
   m_Father: {fileID: 6901005100230807690}
-  m_LocalEulerAnglesHint: {x: 270, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
 --- !u!1 &3349141228127418597
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,6 +490,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1243613838569693736}
   - component: {fileID: 1303737163261170923}
+  - component: {fileID: 3964547782791413195}
   m_Layer: 17
   m_Name: CultistBossBody
   m_TagString: Boss
@@ -474,15 +506,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3349141228127418597}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: -1.2, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.001, z: 0}
   m_LocalScale: {x: 0.13000005, y: 0.13, z: 0.13000005}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6901005100230807690}
-  - {fileID: 8363676360055862294}
   m_Father: {fileID: 5102681755558461164}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1303737163261170923
 Animator:
   serializedVersion: 7
@@ -505,6 +536,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3964547782791413195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3349141228127418597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a77ea13019a3bac48b10caf897f73383, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3775669030014821974
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,10 +826,13 @@ GameObject:
   - component: {fileID: 5102681755558461164}
   - component: {fileID: 1488886941978934056}
   - component: {fileID: 9183588858509286355}
+  - component: {fileID: 3618690656905968439}
   - component: {fileID: 1512121487051674367}
-  m_Layer: 9
+  - component: {fileID: 8880984901131658253}
+  - component: {fileID: 5377862578547283747}
+  m_Layer: 17
   m_Name: CultistBoss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -801,10 +847,13 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.0944939, y: -0.6669998, z: 152.841}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 0.75, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1243613838569693736}
+  - {fileID: 8363676360055862294}
+  - {fileID: 8054445448745869506}
+  - {fileID: 6918470352026144244}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1488886941978934056
@@ -829,7 +878,7 @@ CapsuleCollider:
   m_Radius: 0.79750884
   m_Height: 3.5495756
   m_Direction: 1
-  m_Center: {x: 0.0035017729, y: 0.5799998, z: 0}
+  m_Center: {x: 0, y: 1.77, z: 0}
 --- !u!195 &9183588858509286355
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -838,8 +887,8 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5791608225034213449}
   m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.82
+  m_AgentTypeID: 1479372276
+  m_Radius: 1.36
   m_Speed: 1
   m_Acceleration: 0
   avoidancePriority: 50
@@ -849,9 +898,22 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 3.56
-  m_BaseOffset: 1.2
+  m_BaseOffset: -0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3618690656905968439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5791608225034213449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dfb464f115624346a432c2d454ab934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossProfileSO: {fileID: 11400000, guid: dc0367e0e51301249bd755490423bae9, type: 2}
 --- !u!114 &1512121487051674367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -864,10 +926,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1536dd8703b0552479190083f260a35d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletHellPos: {fileID: 8363676360055862294}
-  bulletHellAttackSpeed: 1
-  bulletHellDelaySpawn: 0.1
-  bulletHellPrefab: {fileID: 5131727004973861351, guid: eaa50a5aabdf6084ab719ac0e63c612b, type: 3}
+  setDistanceBulletHellTrigger: 10
+  setSummonValue: 0
+  numberOfEnemySummon: 0
+  enemySummonRadius: 0
+  enemySummonGroundPos: {fileID: 6918470352026144244}
+  projectileDelayStart: 0.5
+  projectilePos: {fileID: 8054445448745869506}
+  bossProjectilePrefab: {fileID: 5131727004973861351, guid: eaa50a5aabdf6084ab719ac0e63c612b, type: 3}
   animSpike: {fileID: 0}
   spikeAttackSpeed: 0
   sphereRadius: 0
@@ -877,11 +943,41 @@ MonoBehaviour:
     m_Bits: 0
   spikeAnimCollider: {fileID: 0}
   rotationSpeed: 1
+  skeletonPrefab: {fileID: 0}
   player: {fileID: 0}
-  bossMoveSpeed: 2
-  bossRotationSpeed: 2
-  bossStoppingDistance: 2
+  bossMoveSpeed: 3
+  bossRotationSpeed: 4
+  bossStoppingDistance: 8
   navMeshSurface: {fileID: 0}
+--- !u!114 &8880984901131658253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5791608225034213449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce88d8b33c90db4abb82c482f9c18fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHellPos: {fileID: 8363676360055862294}
+  bulletHellGap: 5
+  bulletHellDelaySpawn: 0.1
+  bulletHellPrefab: {fileID: 5131727004973861351, guid: eaa50a5aabdf6084ab719ac0e63c612b, type: 3}
+--- !u!114 &5377862578547283747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5791608225034213449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47eaf9d17bfccfd4c9bff8a82b081789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossAnimator: {fileID: 1303737163261170923}
 --- !u!1 &6631596511239162149
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,6 +1010,37 @@ Transform:
   - {fileID: 6405439463652121512}
   m_Father: {fileID: 7462689344289173203}
   m_LocalEulerAnglesHint: {x: 89.98021, y: 0, z: 0}
+--- !u!1 &7237061254210309744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8054445448745869506}
+  m_Layer: 17
+  m_Name: ProjectileBulletPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8054445448745869506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7237061254210309744}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.371, y: 2.69, z: 1.179}
+  m_LocalScale: {x: 0.13000005, y: 0.13, z: 0.13000005}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5102681755558461164}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7954273764123762675
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,7 +1065,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7954273764123762675}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -946,7 +1073,7 @@ Transform:
   - {fileID: 7462689344289173203}
   - {fileID: 9068607037126794683}
   m_Father: {fileID: 1243613838569693736}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &8049928426734185992
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,13 +1098,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8049928426734185992}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 12, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0.42261827, z: 0, w: 0.9063079}
+  m_LocalPosition: {x: 0, y: 1.9300001, z: 0}
+  m_LocalScale: {x: 0.13000005, y: 0.13, z: 0.13000005}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1243613838569693736}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 5102681755558461164}
+  m_LocalEulerAnglesHint: {x: 0, y: 50, z: 0}
 --- !u!1 &8778985901671271710
 GameObject:
   m_ObjectHideFlags: 0

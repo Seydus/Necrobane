@@ -18,7 +18,12 @@ public class BossBulletHellProjectile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        myBody.AddRelativeForce(transform.localPosition * projectileSpeed, ForceMode.Acceleration);
+        myBody.AddRelativeForce(direction * projectileSpeed, ForceMode.Acceleration);
+    }
+
+    public void Init(Vector3 direction)
+    {
+        this.direction = direction;
     }
 
     private void Update()

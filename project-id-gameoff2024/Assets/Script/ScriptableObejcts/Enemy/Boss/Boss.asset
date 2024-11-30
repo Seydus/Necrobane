@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7ee573fb071793499764becd46a8385, type: 3}
+  m_Name: Boss
+  m_EditorClassIdentifier: 
+  bossName: Cultist of the Doom
+  bossHealth: 2000
+  projectileDamage: 20
+  bulletHellDamage: 10
+  bossSpikeDamage: 15
+  numberOfSpawns: 4
+  entityPrefab: {fileID: 6217938565619059121, guid: c72b58e9af135854183614700a80e458, type: 3}
