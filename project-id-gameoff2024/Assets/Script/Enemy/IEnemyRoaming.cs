@@ -14,7 +14,7 @@ public interface IEnemyRoaming
     public float RoamingRotateSpeed { get; set; }
     public Transform GroundPos { get; set; }
     public float DetectRadius { get; set; }
-    public LayerMask PlayerMask { get; set; }
+    public LayerMask EnvironmentMask { get; set; }
     public float EngageCooldownDuration { get; set; }
     public float DisengageCooldownDuration { get; set; }
     public NavMeshSurface NavMeshSurface { get; set; }

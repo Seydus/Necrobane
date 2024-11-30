@@ -38,7 +38,7 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
     public float RoamDirectionChangeChance { get; set; }
     public Transform GroundPos { get; set; }
     public float DetectRadius { get; set; }
-    public LayerMask PlayerMask { get; set; }
+    public LayerMask EnvironmentMask { get; set; }
     public float EngageCooldownDuration { get; set; }
     public float DisengageCooldownDuration { get; set; }
     public NavMeshSurface NavMeshSurface { get; set; }
@@ -73,7 +73,7 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
         enemyRoaming.RoamingRotateSpeed = roamingRotateSpeed;
 
         enemyRoaming.DetectRadius = detectRadius;
-        enemyRoaming.PlayerMask = playerMask;
+        enemyRoaming.EnvironmentMask = playerMask;
         enemyRoaming.EngageCooldownDuration = engageCooldownDuration;
         enemyRoaming.DisengageCooldownDuration = disengageCooldownDuration;
         enemyRoaming.NavMeshAgent = base.navMeshAgent;
@@ -175,7 +175,6 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
                     playerManager.PlayerProfile.DeductHealth(EnemyDamage);
                 }
 
-                Debug.Log("Player hit");
                 AkSoundEngine.PostEvent("Play_Chops", gameObject);
             }
         }

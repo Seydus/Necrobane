@@ -120,7 +120,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (WeaponHolder == null)
         {
-            Debug.LogError("No weapon holder!");
+            //Debug.LogError("No weapon holder!");
             return;
         }
 

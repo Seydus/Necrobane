@@ -39,7 +39,7 @@ public class EnemyRoaming : IEnemyRoaming
     [Header("Enemy Detection")]
     public float DetectRadius { get; set; }
     private RaycastHit enemyHit;
-    public LayerMask PlayerMask { get; set; }
+    public LayerMask EnvironmentMask { get; set; }
     public LayerMask WallMask { get; set; }
     public float EngageCooldownDuration { get; set; }
     public float DisengageCooldownDuration { get; set; }
@@ -48,7 +48,7 @@ public class EnemyRoaming : IEnemyRoaming
 
     private float engageCooldown;
     private float disengageCooldown;
- 
+
     public bool isPlayerDetected { get; set; }
 
     [Header("Others")]
@@ -100,10 +100,10 @@ public class EnemyRoaming : IEnemyRoaming
 
         HandleEnemyState();
     }
-
+   
     private void DetectPlayer()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(Enemy.transform.position, DetectRadius, PlayerMask);
+        Collider[] hitColliders = Physics.OverlapSphere(Enemy.transform.position, DetectRadius, EnvironmentMask);
 
         if (hitColliders.Length > 0)
         {
@@ -113,7 +113,8 @@ public class EnemyRoaming : IEnemyRoaming
 
             Debug.Log(hitColliders[0].transform.gameObject.name);
 
-            if (Physics.SphereCast(Enemy.transform.position, 0.1f, direction, out enemyHit, 10f, PlayerMask))
+            // EnvironmentMask: Obstacle, Player
+            if (Physics.SphereCast(Enemy.transform.position, 0.1f, direction, out enemyHit, 10f, EnvironmentMask))
             {
                 if (enemyHit.collider.CompareTag("Player"))
                 {
@@ -196,6 +197,7 @@ public class EnemyRoaming : IEnemyRoaming
  
             Quaternion targetRotation = Quaternion.LookRotation(directionToTargetPosition);
             Quaternion yAxisOnlyRotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
+
             NavMeshAgent.SetDestination(roamTargetPosition);
 
             if(Enemy is IEnemyRoaming enemyRoaming)
@@ -228,12 +230,18 @@ public class EnemyRoaming : IEnemyRoaming
 
     private IEnumerator InitRoaming(float value)
     {
+        NavMeshPath navMeshPath = new NavMeshPath();
+
         yield return new WaitForSeconds(value);
 
-        roamTargetPosition = GetNewPosition();
+        for(int i = 0; i < 100 && navMeshPath.status != NavMeshPathStatus.PathComplete; i++)
+        {
+            roamTargetPosition = GetNewPosition();
+            NavMeshAgent.CalculatePath(roamTargetPosition, navMeshPath);
+        }
+
         isRoaming = false;
     }
-
 
     private void HandleEngagement()
     {

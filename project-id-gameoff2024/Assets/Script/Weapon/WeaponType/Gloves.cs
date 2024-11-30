@@ -47,8 +47,7 @@ public class Gloves : Weapon
                 PlayerCombat.InitHitVFX(PlayerCombat.sphereCastHit.point);
 
                 HandleAttack(enemy, weaponData.WeaponBasicDamage);
-                
-                AkSoundEngine.PostEvent("Play_HitBones", PlayerCombat.gameObject);
+                PlayHitSFX(enemy);
             }
         }
         else
@@ -72,8 +71,6 @@ public class Gloves : Weapon
                 PlayerCombat.InitHitVFX(PlayerCombat.sphereCastHit.point);
 
                 HandleAttack(enemy, weaponData.WeaponSuperAttackDamage);
-
-                AkSoundEngine.PostEvent("Play_HitBones", PlayerCombat.gameObject);
             }
         }
         else

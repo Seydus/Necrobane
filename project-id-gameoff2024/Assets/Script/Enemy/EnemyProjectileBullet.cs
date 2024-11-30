@@ -43,13 +43,20 @@ public class EnemyProjectileBullet : MonoBehaviour
             if (other.transform.GetComponent<PlayerManager>().PlayerProfile.isDefending)
             {
                 other.transform.GetComponent<PlayerManager>().PlayerProfile.DeductStamina(other.transform.GetComponent<PlayerManager>().PlayerCombat.WeaponHolder.weapon.weaponData.WeaponStaminaCost);
+                Destroy(gameObject);
             }
             else
             {
+                Destroy(gameObject);
                 other.transform.GetComponent<PlayerManager>().PlayerProfile.DeductHealth(projectileDamage);
             }
 
             AkSoundEngine.PostEvent("Play_Firebolt_Explosion", gameObject);
+        }
+
+        if(other.tag == "Obstacle" || other.tag == "Door")
+        {
+            Destroy(gameObject);
         }
     }
 }

@@ -20,15 +20,11 @@ public class UpgradeButtonMethods : MonoBehaviour
         {
             IncreaseDammage("Metal shards", null, 1, 0, false, 20);
         }
-
-        Debug.LogError(playerCombat.WeaponHolder.weapon.weaponData.WeaponBasicDamage);
     }
 
     public void IncreaseDammage(string NeededItem, string ExtraNeededItem, int NeededItemCost, int ExtraNeededItemCost, bool NeedExtra, int addingDammage)
     {
-        Debug.Log("Damage Increased: " + addingDammage);
-
-        for (int i = 0; i < uun.inv.Items.Count; i++)
+        for(int i = 0; i < uun.inv.Items.Count; i++)
         {
             if (!NeedExtra)
             {
@@ -38,7 +34,6 @@ public class UpgradeButtonMethods : MonoBehaviour
                     {
                         if(uun.inv.Items[i].amount == NeededItemCost)
                         {
-
                             playerCombat.WeaponHolder.weapon.weaponData.WeaponBasicDamage += addingDammage;
                             uun.inv.Items[i].amount -= NeededItemCost;
                         }
@@ -58,7 +53,6 @@ public class UpgradeButtonMethods : MonoBehaviour
                             {
                                 if (uun.inv.Items[i].amount == NeededItemCost && uun.inv.Items[j].amount == ExtraNeededItemCost)
                                 {
-     
                                     playerCombat.WeaponHolder.weapon.weaponData.WeaponBasicDamage += addingDammage;
                                     uun.inv.Items[i].amount -= NeededItemCost;
                                     uun.inv.Items[j].amount -= ExtraNeededItemCost;
