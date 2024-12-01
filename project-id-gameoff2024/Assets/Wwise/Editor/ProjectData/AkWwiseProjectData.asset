@@ -600,7 +600,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 3808cfcbeba5d043a9389dbcef0f39f7
     GuidInternal: 
-    m_lastTime: -8584685318728316949
+    m_lastTime: -8584685252437548699
     List:
     - name: Main
       guid: 71be9a838e8f7a4e9bbaa45884ab4f12
@@ -628,7 +628,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: fafe2c5e31679a46a1450b34d8466393
     GuidInternal: 
-    m_lastTime: -8584685318728398711
+    m_lastTime: -8584685252450568369
     List:
     - name: Blades
       guid: 5057d7e9557c8a4d848d8a0c0ae142fc
@@ -870,6 +870,23 @@ MonoBehaviour:
       maxAttenuation: 20
       maxDuration: 0.73291546
       minDuration: 0.58037287
+    - name: Play_Boss
+      guid: 2428f1132cfae645b29d82e83c1bafc2
+      id: 1693071901
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Play_Boss
+        ObjectType: 3
+        guid: 2428f1132cfae645b29d82e83c1bafc2
+      Path: Events\Default Work Unit\Play_Boss
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_ButtonSFX
       guid: 4cdcfd629142bd41ba555a1803224f59
       id: 1875815139
@@ -1031,6 +1048,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.75002265
       minDuration: 0.75002265
+    - name: Play_Firewall
+      guid: 023f76665923ca42b06f27f21c43509c
+      id: 4110807830
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Combat
+        ObjectType: 4
+        guid: ae1540da24697444ba795ec5f656fbee
+      - ElementName: Play_Firewall
+        ObjectType: 3
+        guid: 023f76665923ca42b06f27f21c43509c
+      Path: Events\Default Work Unit\Combat\Play_Firewall
+      maxAttenuation: 0
+      maxDuration: 5.217415
+      minDuration: 5.217415
     - name: Play_FistSwing
       guid: 3db896f85d0e5e499b2fc26bf84c377c
       id: 1452450734
@@ -1435,6 +1472,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: Stop_Boss
+      guid: 403376988c347740846b93b896af8014
+      id: 3511702883
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Stop_Boss
+        ObjectType: 3
+        guid: 403376988c347740846b93b896af8014
+      Path: Events\Default Work Unit\Stop_Boss
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: Stop_Firebolt
       guid: 2769d38bc0f6194abc26a3bfc16afacc
       id: 2555710829
@@ -1597,7 +1651,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: c10c20c359e8414fab4e671e1833dd9a
     GuidInternal: 
-    m_lastTime: -8584688273141226983
+    m_lastTime: -8584685263353430790
     List:
     - name: Player
       guid: 658a47bfcad4834c9865fdf5c931ec99
@@ -1630,6 +1684,22 @@ MonoBehaviour:
         - ElementName: Alive
           ObjectType: 8
           guid: a6059ef9fa96b045b6fbf46f4ee2f349
+      - name: Boss
+        guid: d34871f9151810459106c5d079f26f3f
+        id: 1560169506
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: c10c20c359e8414fab4e671e1833dd9a
+        - ElementName: Player
+          ObjectType: 9
+          guid: 658a47bfcad4834c9865fdf5c931ec99
+        - ElementName: Boss
+          ObjectType: 8
+          guid: d34871f9151810459106c5d079f26f3f
       - name: Dead
         guid: 35f44983c0008945b085e4485b0caca3
         id: 2044049779
@@ -1810,7 +1880,7 @@ MonoBehaviour:
     m_lastTime: -8584701737193982455
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 02000000030000000400000005000000060000000700000008000000090000000a0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c00000023000000260000002e000000
+  ExpandedWaapiItemIds: 02000000030000000400000005000000060000000700000008000000090000000a0000000c0000000d0000000e0000000f0000001000000011000000120000001300000014000000150000001600000017000000190000001a0000001b0000001c00000023000000260000002e000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
