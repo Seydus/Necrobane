@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Boss
   m_EditorClassIdentifier: 
   bossName: Cultist of the Doom
-  bossHealth: 200
+  bossHealth: 2
   projectileDamage: 20
   bulletHellDamage: 10
   bossSpikeDamage: 15

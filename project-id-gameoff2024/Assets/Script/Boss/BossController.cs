@@ -249,7 +249,11 @@ public class BossController : MonoBehaviour
     {
         while (currentPhase == 1)
         {
-            yield return FirstPhaseAttackPattern();
+            if(GameManager.Instance.isBossFight)
+            {
+                yield return FirstPhaseAttackPattern();
+            }
+
             yield return null;
         }
     }
