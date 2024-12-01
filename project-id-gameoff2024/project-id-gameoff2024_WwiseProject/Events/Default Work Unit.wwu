@@ -119,6 +119,17 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Event Name="Play_Firewall" ID="{66763F02-2359-42CA-B06F-27F21C43509C}">
+							<ChildrenList>
+								<Action Name="" ID="{3E5E17AC-8122-4229-80B9-CE46781AFABB}" ShortID="397778873">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Firewall" ID="{A2C587F7-F58D-46EE-93E3-3501ECE55CAD}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Player" ID="{58B751F5-FE90-4014-8F2A-F5B372CD1BAA}" ShortID="963908562">

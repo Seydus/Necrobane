@@ -209,7 +209,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{0575342B-71DD-AB0C-D18A-13AF21344272}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{918678E9-B744-64D7-CD86-92BE281DB5FC}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -409,6 +409,10 @@
 					<ShortName>Death.wav</ShortName>
 					<CachePath>SFX/Death_F93BF523.wem</CachePath>
 				</File>
+				<File Id="957006871" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Firewall.wav</ShortName>
+					<CachePath>SFX/Firewall_C7CBF045.wem</CachePath>
+				</File>
 				<File Id="959077550" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Key_Pickup.wav</ShortName>
 					<CachePath>SFX/Key_Pickup_432139AC.wem</CachePath>
@@ -491,6 +495,11 @@
 				<Event Id="38142515" Name="Play_Firebolt_Explosion" DurationType="OneShot" DurationMin="0.75002265" DurationMax="0.75002265">
 					<MediaRefs>
 						<MediaRef Id="647251812"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4110807830" Name="Play_Firewall" DurationType="OneShot" DurationMin="5.217415" DurationMax="5.217415">
+					<MediaRefs>
+						<MediaRef Id="957006871"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="1452450734" Name="Play_FistSwing" DurationType="OneShot" DurationMin="0.2633165" DurationMax="0.3989179">
@@ -747,5 +756,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{ACA722C9-7FA6-CAF6-248F-2378B7B57197}</FileHash>
+	<FileHash>{12186340-DAB5-C72B-55F2-7B7A5AB311D6}</FileHash>
 </SoundBanksInfo>

@@ -12,6 +12,7 @@
 						<ObjectRef Name="Play_Footsteps" ID="{E729CEA9-0796-414F-8E1D-3A3BFDEEE3DD}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Lever" ID="{7504D633-82C6-4215-868A-385DED6DFF55}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_HitBones" ID="{791B1485-5846-4245-A32C-B5D678128E10}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Firewall" ID="{66763F02-2359-42CA-B06F-27F21C43509C}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Firebolt" ID="{D2576D54-1DB3-435E-B6C1-C8D47B498B06}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Equip_Fist" ID="{BA2C55C4-4943-4460-BEF0-E844C7FFEC43}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Open_Gate" ID="{F8BBCAC3-5AAB-4489-9CE1-5C8702640BD0}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
