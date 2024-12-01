@@ -26,8 +26,22 @@ public class EnemyCombat : IEnemyCombat
     
     public void EnemySummonAttack()
     {
-        if (!Enemy.navMeshAgent)
+        if(Enemy == null)
+        {
+            Debug.LogError("Enemy is null.");
             return;
+        }
+
+        if (Enemy.navMeshAgent == null)
+        {
+            Debug.LogError("NavMeshAgent is null.");
+            return;
+        }
+
+        if (Enemy.navMeshAgent.isOnNavMesh == false)
+        {
+            return;
+        }
 
         if (Enemy is IEnemyRoaming enemyRoaming)
         {
@@ -82,8 +96,17 @@ public class EnemyCombat : IEnemyCombat
 
     public void HandleAttack()
     {
-        if (!Enemy.navMeshAgent)
+        if (Enemy == null)
+        {
+            Debug.LogError("Enemy is null.");
             return;
+        }
+
+        if (Enemy.navMeshAgent == null)
+        {
+            Debug.LogError("NavMeshAgent is null.");
+            return;
+        }
 
         if (Enemy is IEnemyRoaming enemyRoaming)
         {

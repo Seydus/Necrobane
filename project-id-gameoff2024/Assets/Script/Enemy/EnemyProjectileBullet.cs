@@ -54,7 +54,7 @@ public class EnemyProjectileBullet : MonoBehaviour
             AkSoundEngine.PostEvent("Play_Firebolt_Explosion", gameObject);
         }
 
-        if(other.tag == "Obstacle" || other.tag == "Door")
+        if(other.tag == "Obstacle" || other.tag == "Door" || other.tag == "Wall")
         {
             Destroy(gameObject);
         }

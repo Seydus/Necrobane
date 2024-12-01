@@ -1,16 +1,17 @@
 using UnityEngine;
 
-public class BossProfileSO : MonoBehaviour
+[CreateAssetMenu(fileName = "Boss", menuName = "ScriptableObjects/Boss")]
+public class BossProfileSO : ScriptableObject
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public string bossName;
+    public float bossHealth;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("Attack Settings")]
+    public float projectileDamage;
+    public float bulletHellDamage;
+    public float bossSpikeDamage;
+
+    [Header("Summoning")]
+    public float numberOfSpawns;
+    public GameObject entityPrefab;
 }
