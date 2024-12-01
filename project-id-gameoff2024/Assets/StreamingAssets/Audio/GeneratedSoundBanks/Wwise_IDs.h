@@ -15,6 +15,7 @@ namespace AK
     {
         static const AkUniqueID PLAY_AMBI = 2616876087U;
         static const AkUniqueID PLAY_BONESTEPS = 1512643089U;
+        static const AkUniqueID PLAY_BOSS = 1693071901U;
         static const AkUniqueID PLAY_BUTTONSFX = 1875815139U;
         static const AkUniqueID PLAY_CHOPS = 3488755065U;
         static const AkUniqueID PLAY_DROP_ITEM = 1363530945U;
@@ -38,6 +39,7 @@ namespace AK
         static const AkUniqueID PLAY_SWINGS2H = 1187857689U;
         static const AkUniqueID PLAY_UNLOCK_GATE = 356987792U;
         static const AkUniqueID STOP_AMBI = 1937570009U;
+        static const AkUniqueID STOP_BOSS = 3511702883U;
         static const AkUniqueID STOP_FIREBOLT = 2555710829U;
         static const AkUniqueID STOP_MENU = 2914981333U;
         static const AkUniqueID STOP_MUSIC = 2837384057U;
@@ -52,6 +54,7 @@ namespace AK
             namespace STATE
             {
                 static const AkUniqueID ALIVE = 655265632U;
+                static const AkUniqueID BOSS = 1560169506U;
                 static const AkUniqueID DEAD = 2044049779U;
                 static const AkUniqueID NONE = 748895195U;
             } // namespace STATE

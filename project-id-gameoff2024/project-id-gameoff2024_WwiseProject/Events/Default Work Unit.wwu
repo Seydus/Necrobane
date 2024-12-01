@@ -375,6 +375,31 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Boss" ID="{13F12824-FA2C-45E6-B29D-82E83C1BAFC2}">
+					<ChildrenList>
+						<Action Name="" ID="{2287289D-D2A5-4309-8C26-16B411222AE5}" ShortID="851118645">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Boss" ID="{0C0E0E23-DDA3-4242-B70A-BB29B2741FFF}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Boss" ID="{98763340-348C-4077-846B-93B896AF8014}">
+					<ChildrenList>
+						<Action Name="" ID="{23A5E9D8-E035-4133-89B2-67055DC1F0E4}" ShortID="911108529">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Boss" ID="{0C0E0E23-DDA3-4242-B70A-BB29B2741FFF}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

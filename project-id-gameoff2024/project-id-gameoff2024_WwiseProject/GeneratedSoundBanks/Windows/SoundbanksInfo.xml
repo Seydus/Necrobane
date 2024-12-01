@@ -60,6 +60,7 @@
 					<States>
 						<State Id="655265632" Name="Alive"/>
 						<State Id="748895195" Name="None"/>
+						<State Id="1560169506" Name="Boss"/>
 						<State Id="2044049779" Name="Dead"/>
 					</States>
 				</StateGroup>
@@ -208,7 +209,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{AEF72788-A40B-06F2-F7CD-1EC54F51355D}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{0575342B-71DD-AB0C-D18A-13AF21344272}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -450,6 +451,11 @@
 						<MediaRef Id="878205616"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1693071901" Name="Play_Boss" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="887709094"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1875815139" Name="Play_ButtonSFX" DurationType="OneShot" DurationMin="0.82172" DurationMax="0.82172">
 					<MediaRefs>
 						<MediaRef Id="489363982"/>
@@ -628,6 +634,39 @@
 								</SwitchContainer>
 							</Children>
 						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1069431850" Id="1560169506"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="Switch" GroupId="3991942870" Id="2764240573"/>
+									<MediaRefs>
+										<MediaRef Id="887709094"/>
+									</MediaRefs>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1069431850" Id="1560169506"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="Switch" GroupId="3991942870" Id="2582085496"/>
+									<MediaRefs>
+										<MediaRef Id="887709094"/>
+									</MediaRefs>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1069431850" Id="1560169506"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="Switch" GroupId="3991942870" Id="580146960"/>
+									<MediaRefs>
+										<MediaRef Id="887709094"/>
+									</MediaRefs>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
 				<Event Id="1127904212" Name="Play_Open_Gate" MaxAttenuation="20" DurationType="OneShot" DurationMin="1.6646712" DurationMax="1.6646712">
@@ -673,6 +712,7 @@
 					</MediaRefs>
 				</Event>
 				<Event Id="1937570009" Name="Stop_Ambi" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="3511702883" Name="Stop_Boss" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2555710829" Name="Stop_Firebolt" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2914981333" Name="Stop_Menu" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2837384057" Name="Stop_Music" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
@@ -685,6 +725,7 @@
 					<States>
 						<State Id="655265632" Name="Alive"/>
 						<State Id="748895195" Name="None"/>
+						<State Id="1560169506" Name="Boss"/>
 						<State Id="2044049779" Name="Dead"/>
 					</States>
 				</StateGroup>
@@ -706,5 +747,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{1FFDEB10-BA88-640E-D825-B67B7DE99CE4}</FileHash>
+	<FileHash>{76930A3F-4D03-EF5A-6E2D-44E72B05060D}</FileHash>
 </SoundBanksInfo>
