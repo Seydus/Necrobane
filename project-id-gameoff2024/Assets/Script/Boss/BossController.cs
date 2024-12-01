@@ -503,6 +503,7 @@ public class BossController : MonoBehaviour
     {
         spikeObj.GetComponentInChildren<BoxCollider>().enabled = true;
         spikeCooldown = setSpikeCooldown;
+        AkSoundEngine.PostEvent("Play_Firewall", gameObject);
     }
 
     private void FinishSpikeAttack()
