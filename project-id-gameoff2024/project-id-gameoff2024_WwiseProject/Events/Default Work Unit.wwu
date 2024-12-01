@@ -350,6 +350,31 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Menu" ID="{462DC4BF-A0BB-4EC2-BFF7-EF7C448C2617}">
+					<ChildrenList>
+						<Action Name="" ID="{A280A1D1-4C29-4B97-981F-2499CE0306B7}" ShortID="869850979">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Menu" ID="{3C43322F-573F-4A5D-9072-D8D661B97768}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Menu" ID="{2EB315BB-F95E-4F04-A620-52805D1101A8}">
+					<ChildrenList>
+						<Action Name="" ID="{DF9F4F89-F59B-488F-90ED-81106D8DAE16}" ShortID="641990895">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Menu" ID="{3C43322F-573F-4A5D-9072-D8D661B97768}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

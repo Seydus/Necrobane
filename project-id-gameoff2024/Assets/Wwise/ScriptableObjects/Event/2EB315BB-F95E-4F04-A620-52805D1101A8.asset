@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7029640471b0f2c4a8144313d2dcf6f7, type: 3}
+  m_Name: 2EB315BB-F95E-4F04-A620-52805D1101A8
+  m_EditorClassIdentifier: 
+  objectName: Stop_Menu
+  id: 2914981333
+  guid: 2EB315BB-F95E-4F04-A620-52805D1101A8

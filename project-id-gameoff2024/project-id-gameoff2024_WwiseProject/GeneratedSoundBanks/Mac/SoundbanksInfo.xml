@@ -208,7 +208,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{D90F275E-2F4E-CAAB-8292-4E5C9379F10E}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{AEF72788-A40B-06F2-F7CD-1EC54F51355D}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -291,6 +291,10 @@
 				<File Id="330704271" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepStone1.wav</ShortName>
 					<CachePath>SFX/FootstepStone1_0EB2837D.wem</CachePath>
+				</File>
+				<File Id="331740130" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Necrobane Title Track.wav</ShortName>
+					<CachePath>SFX/Necrobane Title Track_F93BF523.wem</CachePath>
 				</File>
 				<File Id="361689572" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FistSwing1.wav</ShortName>
@@ -550,6 +554,11 @@
 						<MediaRef Id="392231127"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1278378707" Name="Play_Menu" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="331740130"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="2932040671" Name="Play_Music" DurationType="Infinite">
 					<SwitchContainers>
 						<SwitchContainer>
@@ -665,6 +674,7 @@
 				</Event>
 				<Event Id="1937570009" Name="Stop_Ambi" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2555710829" Name="Stop_Firebolt" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="2914981333" Name="Stop_Menu" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2837384057" Name="Stop_Music" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 			</Events>
 			<GameParameters>
@@ -696,5 +706,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{69CB3B78-AF36-4D75-C22B-53D34DE7B0A5}</FileHash>
+	<FileHash>{3FCFC55E-A1B5-D1C6-74C3-19FD669B0013}</FileHash>
 </SoundBanksInfo>
