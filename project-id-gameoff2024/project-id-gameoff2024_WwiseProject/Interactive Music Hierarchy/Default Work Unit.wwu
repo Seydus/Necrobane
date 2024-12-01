@@ -199,7 +199,7 @@
 								<Property Name="Tempo" Type="Real64" Value="92"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-7</Value>
+										<Value>3</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -439,7 +439,7 @@
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-4</Value>
+										<Value>8</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -587,7 +587,7 @@
 								<Property Name="Tempo" Type="Real64" Value="92"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-4</Value>
+										<Value>6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -726,6 +726,11 @@
 							<PropertyList>
 								<Property Name="Color" Type="int16" Value="10"/>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>10</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -863,6 +868,138 @@
 								</MusicSegment>
 							</ChildrenList>
 						</MusicPlaylistContainer>
+						<MusicPlaylistContainer Name="Menu" ID="{3C43322F-573F-4A5D-9072-D8D661B97768}" ShortID="251923651">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
+								</Reference>
+								<Reference Name="PlaylistRoot">
+									<Custom>
+										<MusicPlaylistItem Name="" ID="{5B1AB0CD-36EB-4FB3-81B1-E1B911A6EC7C}" ShortID="98700849">
+											<ChildrenList>
+												<MusicPlaylistItem Name="" ID="{031B60D9-3621-4618-A076-E8295E0DB462}" ShortID="257382018">
+													<PropertyList>
+														<Property Name="LoopCount" Type="int16" Value="0"/>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Segment">
+															<ObjectRef Name="Necrobane Title Track" ID="{102AAE8A-B338-4600-8148-3E5FF2791AC0}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
+														</Reference>
+													</ReferenceList>
+												</MusicPlaylistItem>
+											</ChildrenList>
+										</MusicPlaylistItem>
+									</Custom>
+								</Reference>
+								<Reference Name="TransitionRoot">
+									<Custom>
+										<MusicTransition Name="Root" ID="{08BFCA5D-1448-4A7D-AE93-AB1C9E72D11B}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicTransition Name="Transition" ID="{8742CF36-4102-48FF-BE1C-7F35E37F45F0}">
+													<TransitionInfo/>
+												</MusicTransition>
+											</ChildrenList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</Custom>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="Necrobane Title Track" ID="{102AAE8A-B338-4600-8148-3E5FF2791AC0}" ShortID="443570164">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="221379.319727891"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="Necrobane Title Track" ID="{E5649BB1-E5FA-40B2-883E-49FC97D97C58}" ShortID="980681992">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
+												</Reference>
+												<Reference Name="TransitionRoot">
+													<Custom>
+														<MusicTransition Name="Root" ID="{9F95BD27-9BE8-4558-A854-FA93C59DD219}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Necrobane Title Track" ID="{7CE7AA08-E089-4D30-87DD-A8294F7A8BC2}">
+													<Language>SFX</Language>
+													<AudioFile>Necrobane Title Track.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="331740130"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<Reference>
+														<Local>
+															<MusicTrackSequence Name="" ID="{523CC808-9770-417F-9AB7-592BF92B1213}">
+																<ObjectLists>
+																	<ObjectList Name="Clips">
+																		<Reference>
+																			<Local>
+																				<MusicClip Name="Necrobane Title Track" ID="{37926AEB-2C51-41D0-86B6-D0CEE88165CB}">
+																					<PropertyList>
+																						<Property Name="EndTrimOffset" Type="Real64" Value="221379.319727891"/>
+																						<Property Name="FadeInMode" Type="int16" Value="0"/>
+																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																					</PropertyList>
+																					<AudioSourceRef Name="Necrobane Title Track" ID="{7CE7AA08-E089-4D30-87DD-A8294F7A8BC2}"/>
+																				</MusicClip>
+																			</Local>
+																		</Reference>
+																	</ObjectList>
+																</ObjectLists>
+															</MusicTrackSequence>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<Reference>
+												<Local>
+													<MusicCue Name="Entry Cue" ID="{E52091A6-C354-4A50-A85B-BEF89441CB01}"/>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<MusicCue Name="Exit Cue" ID="{8AB4227E-4CFB-4063-8E57-96D0E21E5B34}">
+														<PropertyList>
+															<Property Name="CueType" Type="int16" Value="1"/>
+															<Property Name="TimeMs" Type="Real64" Value="219310.344827586"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+							</ChildrenList>
+						</MusicPlaylistContainer>
 					</ChildrenList>
 					<ObjectLists>
 						<ObjectList Name="Arguments">
@@ -991,6 +1128,69 @@
 											<ObjectList Name="EntryPath">
 												<Reference>
 													<ObjectRef Name="Dead" ID="{8349F435-00C0-4589-B085-E4485B0CACA3}" WorkUnitID="{C3200CC1-E859-4F41-AB4E-671E1833DD9A}"/>
+												</Reference>
+												<Reference>
+													<ObjectRef Name="Bossfight" ID="{A0D03966-8A53-448F-87C3-4D5416752B64}" WorkUnitID="{ED06FA44-546C-4D2B-ACCF-66D261F951D9}"/>
+												</Reference>
+											</ObjectList>
+										</ObjectLists>
+									</MultiSwitchEntry>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MultiSwitchEntry Name="" ID="{96345905-C875-4E24-B74C-94D64DFBB1DD}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="Boss" ID="{0C0E0E23-DDA3-4242-B70A-BB29B2741FFF}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
+											</Reference>
+										</ReferenceList>
+										<ObjectLists>
+											<ObjectList Name="EntryPath">
+												<Reference>
+													<ObjectRef Name="Boss" ID="{F97148D3-1815-4510-9106-C5D079F26F3F}" WorkUnitID="{C3200CC1-E859-4F41-AB4E-671E1833DD9A}"/>
+												</Reference>
+												<Reference>
+													<ObjectRef Name="Combat" ID="{BF6A0110-A0A0-46BA-B7DD-35AF90F86F31}" WorkUnitID="{ED06FA44-546C-4D2B-ACCF-66D261F951D9}"/>
+												</Reference>
+											</ObjectList>
+										</ObjectLists>
+									</MultiSwitchEntry>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MultiSwitchEntry Name="" ID="{A59D8E64-95BE-46DA-BFBF-9C51FA74F2D5}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="Boss" ID="{0C0E0E23-DDA3-4242-B70A-BB29B2741FFF}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
+											</Reference>
+										</ReferenceList>
+										<ObjectLists>
+											<ObjectList Name="EntryPath">
+												<Reference>
+													<ObjectRef Name="Boss" ID="{F97148D3-1815-4510-9106-C5D079F26F3F}" WorkUnitID="{C3200CC1-E859-4F41-AB4E-671E1833DD9A}"/>
+												</Reference>
+												<Reference>
+													<ObjectRef Name="Exploration" ID="{2F8EC15B-5040-4CEF-A279-15848FCDCE87}" WorkUnitID="{ED06FA44-546C-4D2B-ACCF-66D261F951D9}"/>
+												</Reference>
+											</ObjectList>
+										</ObjectLists>
+									</MultiSwitchEntry>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MultiSwitchEntry Name="" ID="{B5B739E7-3C83-4A74-8304-5F36E1BE6E6C}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="Boss" ID="{0C0E0E23-DDA3-4242-B70A-BB29B2741FFF}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
+											</Reference>
+										</ReferenceList>
+										<ObjectLists>
+											<ObjectList Name="EntryPath">
+												<Reference>
+													<ObjectRef Name="Boss" ID="{F97148D3-1815-4510-9106-C5D079F26F3F}" WorkUnitID="{C3200CC1-E859-4F41-AB4E-671E1833DD9A}"/>
 												</Reference>
 												<Reference>
 													<ObjectRef Name="Bossfight" ID="{A0D03966-8A53-448F-87C3-4D5416752B64}" WorkUnitID="{ED06FA44-546C-4D2B-ACCF-66D261F951D9}"/>

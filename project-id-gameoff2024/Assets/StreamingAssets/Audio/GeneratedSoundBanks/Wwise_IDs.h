@@ -15,18 +15,22 @@ namespace AK
     {
         static const AkUniqueID PLAY_AMBI = 2616876087U;
         static const AkUniqueID PLAY_BONESTEPS = 1512643089U;
+        static const AkUniqueID PLAY_BOSS = 1693071901U;
+        static const AkUniqueID PLAY_BUTTONSFX = 1875815139U;
         static const AkUniqueID PLAY_CHOPS = 3488755065U;
         static const AkUniqueID PLAY_DROP_ITEM = 1363530945U;
         static const AkUniqueID PLAY_EQUIP_BLADE = 1527095013U;
         static const AkUniqueID PLAY_EQUIP_FIST = 1554763031U;
         static const AkUniqueID PLAY_FIREBOLT = 79128399U;
         static const AkUniqueID PLAY_FIREBOLT_EXPLOSION = 38142515U;
+        static const AkUniqueID PLAY_FIREWALL = 4110807830U;
         static const AkUniqueID PLAY_FISTSWING = 1452450734U;
         static const AkUniqueID PLAY_FOOTSTEPS = 3854155799U;
         static const AkUniqueID PLAY_HITBONES = 372480478U;
         static const AkUniqueID PLAY_JUMP = 3689126666U;
         static const AkUniqueID PLAY_KEY_PICKUP = 2881789206U;
         static const AkUniqueID PLAY_LEVER = 3196500978U;
+        static const AkUniqueID PLAY_MENU = 1278378707U;
         static const AkUniqueID PLAY_MUSIC = 2932040671U;
         static const AkUniqueID PLAY_OPEN_GATE = 1127904212U;
         static const AkUniqueID PLAY_PARRY = 4115969904U;
@@ -36,7 +40,9 @@ namespace AK
         static const AkUniqueID PLAY_SWINGS2H = 1187857689U;
         static const AkUniqueID PLAY_UNLOCK_GATE = 356987792U;
         static const AkUniqueID STOP_AMBI = 1937570009U;
+        static const AkUniqueID STOP_BOSS = 3511702883U;
         static const AkUniqueID STOP_FIREBOLT = 2555710829U;
+        static const AkUniqueID STOP_MENU = 2914981333U;
         static const AkUniqueID STOP_MUSIC = 2837384057U;
     } // namespace EVENTS
 
@@ -49,6 +55,7 @@ namespace AK
             namespace STATE
             {
                 static const AkUniqueID ALIVE = 655265632U;
+                static const AkUniqueID BOSS = 1560169506U;
                 static const AkUniqueID DEAD = 2044049779U;
                 static const AkUniqueID NONE = 748895195U;
             } // namespace STATE

@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{D831EEDD-28C4-97C2-B4E0-264308566654}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{B7F0494B-B75F-9889-566C-A5E3454FC9F6}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -60,6 +60,7 @@
 					<States>
 						<State Id="655265632" Name="Alive"/>
 						<State Id="748895195" Name="None"/>
+						<State Id="1560169506" Name="Boss"/>
 						<State Id="2044049779" Name="Dead"/>
 					</States>
 				</StateGroup>
@@ -208,7 +209,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{C3A8249F-196A-4B58-E033-483F476E4211}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{918678E9-B744-64D7-CD86-92BE281DB5FC}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -292,6 +293,10 @@
 					<ShortName>FootstepStone1.wav</ShortName>
 					<CachePath>SFX/FootstepStone1_0EB2837D.wem</CachePath>
 				</File>
+				<File Id="331740130" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Necrobane Title Track.wav</ShortName>
+					<CachePath>SFX/Necrobane Title Track_F93BF523.wem</CachePath>
+				</File>
 				<File Id="361689572" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FistSwing1.wav</ShortName>
 					<CachePath>SFX/FistSwing1_72CB0EFF.wem</CachePath>
@@ -319,6 +324,10 @@
 				<File Id="474165601" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Exploration Main.wav</ShortName>
 					<CachePath>SFX/Exploration Main_F93BF523.wem</CachePath>
+				</File>
+				<File Id="489363982" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ButtonSFX.wav</ShortName>
+					<CachePath>SFX/ButtonSFX_C7CBF045.wem</CachePath>
 				</File>
 				<File Id="502519958" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>chop2.wav</ShortName>
@@ -400,6 +409,10 @@
 					<ShortName>Death.wav</ShortName>
 					<CachePath>SFX/Death_F93BF523.wem</CachePath>
 				</File>
+				<File Id="957006871" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Firewall.wav</ShortName>
+					<CachePath>SFX/Firewall_C7CBF045.wem</CachePath>
+				</File>
 				<File Id="959077550" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Key_Pickup.wav</ShortName>
 					<CachePath>SFX/Key_Pickup_432139AC.wem</CachePath>
@@ -442,6 +455,16 @@
 						<MediaRef Id="878205616"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1693071901" Name="Play_Boss" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="887709094"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1875815139" Name="Play_ButtonSFX" DurationType="OneShot" DurationMin="0.82172" DurationMax="0.82172">
+					<MediaRefs>
+						<MediaRef Id="489363982"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3488755065" Name="Play_Chops" DurationType="OneShot" DurationMin="0.12909532" DurationMax="0.34744823">
 					<MediaRefs>
 						<MediaRef Id="303371798"/>
@@ -472,6 +495,11 @@
 				<Event Id="38142515" Name="Play_Firebolt_Explosion" DurationType="OneShot" DurationMin="0.75002265" DurationMax="0.75002265">
 					<MediaRefs>
 						<MediaRef Id="647251812"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4110807830" Name="Play_Firewall" DurationType="OneShot" DurationMin="5.217415" DurationMax="5.217415">
+					<MediaRefs>
+						<MediaRef Id="957006871"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="1452450734" Name="Play_FistSwing" DurationType="OneShot" DurationMin="0.2633165" DurationMax="0.3989179">
@@ -539,6 +567,11 @@
 				<Event Id="3196500978" Name="Play_Lever" DurationType="OneShot" DurationMin="0.5" DurationMax="0.5">
 					<MediaRefs>
 						<MediaRef Id="392231127"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1278378707" Name="Play_Menu" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="331740130"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="2932040671" Name="Play_Music" DurationType="Infinite">
@@ -610,6 +643,39 @@
 								</SwitchContainer>
 							</Children>
 						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1069431850" Id="1560169506"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="Switch" GroupId="3991942870" Id="2764240573"/>
+									<MediaRefs>
+										<MediaRef Id="887709094"/>
+									</MediaRefs>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1069431850" Id="1560169506"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="Switch" GroupId="3991942870" Id="2582085496"/>
+									<MediaRefs>
+										<MediaRef Id="887709094"/>
+									</MediaRefs>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1069431850" Id="1560169506"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="Switch" GroupId="3991942870" Id="580146960"/>
+									<MediaRefs>
+										<MediaRef Id="887709094"/>
+									</MediaRefs>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
 				<Event Id="1127904212" Name="Play_Open_Gate" MaxAttenuation="20" DurationType="OneShot" DurationMin="1.6646712" DurationMax="1.6646712">
@@ -655,7 +721,9 @@
 					</MediaRefs>
 				</Event>
 				<Event Id="1937570009" Name="Stop_Ambi" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="3511702883" Name="Stop_Boss" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2555710829" Name="Stop_Firebolt" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="2914981333" Name="Stop_Menu" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2837384057" Name="Stop_Music" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 			</Events>
 			<GameParameters>
@@ -666,6 +734,7 @@
 					<States>
 						<State Id="655265632" Name="Alive"/>
 						<State Id="748895195" Name="None"/>
+						<State Id="1560169506" Name="Boss"/>
 						<State Id="2044049779" Name="Dead"/>
 					</States>
 				</StateGroup>
@@ -687,5 +756,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{A46364FF-12D6-137B-67C7-921487CE8CE9}</FileHash>
+	<FileHash>{B8767484-A6E6-728B-5208-32FF420CF131}</FileHash>
 </SoundBanksInfo>

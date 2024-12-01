@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objname: Bones
-  amount: 10
+  amount: 1
   avatar: {fileID: -571328280, guid: 645b7408898abaf4ab52a4db1ee37b0c, type: 3}
   inv: 0
   Image: {fileID: 0}

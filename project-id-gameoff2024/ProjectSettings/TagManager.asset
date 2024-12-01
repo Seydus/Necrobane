@@ -15,6 +15,7 @@ TagManager:
   - Anvil
   - Boss
   - Wall
+  - save
   layers:
   - Default
   - TransparentFX
