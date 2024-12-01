@@ -303,7 +303,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: ec4a2688f100da46ab460e630d8da3c3
     GuidInternal: 
-    m_lastTime: -8584685363669584333
+    m_lastTime: -8584685318728429594
     List:
     - name: Ambiance
       guid: e56f24dc5e84884cb04c6930bab876fb
@@ -600,7 +600,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 3808cfcbeba5d043a9389dbcef0f39f7
     GuidInternal: 
-    m_lastTime: -8584685363669558625
+    m_lastTime: -8584685318728316949
     List:
     - name: Main
       guid: 71be9a838e8f7a4e9bbaa45884ab4f12
@@ -628,7 +628,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: fafe2c5e31679a46a1450b34d8466393
     GuidInternal: 
-    m_lastTime: -8584685363671616896
+    m_lastTime: -8584685318728398711
     List:
     - name: Blades
       guid: 5057d7e9557c8a4d848d8a0c0ae142fc
@@ -1166,6 +1166,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.5
       minDuration: 0.5
+    - name: Play_Menu
+      guid: bfc42d46bba0c24ebff7ef7c448c2617
+      id: 1278378707
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Play_Menu
+        ObjectType: 3
+        guid: bfc42d46bba0c24ebff7ef7c448c2617
+      Path: Events\Default Work Unit\Play_Menu
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_Music
       guid: eb021714c3402f4fbb1e5f7d4df5ebee
       id: 2932040671
@@ -1441,6 +1458,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: Stop_Menu
+      guid: bb15b32e5ef9044fa62052805d1101a8
+      id: 2914981333
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fafe2c5e31679a46a1450b34d8466393
+      - ElementName: Stop_Menu
+        ObjectType: 3
+        guid: bb15b32e5ef9044fa62052805d1101a8
+      Path: Events\Default Work Unit\Stop_Menu
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: Stop_Music
       guid: 1994cc8930cb8a488d7d1a7852f48365
       id: 2837384057
@@ -1470,7 +1504,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 5401744f63e1ed4b894045eacce7d766
     GuidInternal: 
-    m_lastTime: -8584686762872585170
+    m_lastTime: -8584685318728244088
     List:
     - name: Audio Control
       guid: 4ca3bc0d06d6f14bacf4e6a637df2c74

@@ -5,6 +5,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	372480478	Play_HitBones			\Default Work Unit\Combat\PowerFist\Play_HitBones	
 	1127904212	Play_Open_Gate			\Default Work Unit\Environment\Doors and Gates\Play_Open_Gate	
 	1187857689	Play_Swings2H			\Default Work Unit\Combat\Blades\Play_Swings2H	
+	1278378707	Play_Menu			\Default Work Unit\Play_Menu	
 	1363530945	Play_Drop_Item			\Default Work Unit\Player\Interaction\Play_Drop_Item	
 	1452450734	Play_FistSwing			\Default Work Unit\Combat\PowerFist\Play_FistSwing	
 	1512643089	Play_BoneSteps			\Default Work Unit\Enemy\Skeleton\Play_BoneSteps	
@@ -19,6 +20,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2837384057	Stop_Music			\Default Work Unit\Stop_Music	
 	2881789206	Play_Key_Pickup			\Default Work Unit\Player\Interaction\Pickup\Play_Key_Pickup	
 	2908761997	Play_PerfectParryStinger			\Default Work Unit\Combat\Blades\Play_PerfectParryStinger	
+	2914981333	Stop_Menu			\Default Work Unit\Stop_Menu	
 	2932040671	Play_Music			\Default Work Unit\Play_Music	
 	3196500978	Play_Lever			\Default Work Unit\Environment\Mechanisms\Play_Lever	
 	3488755065	Play_Chops			\Default Work Unit\Combat\Blades\Play_Chops	
@@ -69,6 +71,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	314159650	Skeleton_Death3	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\Skeleton_Death3_C7CBF045.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemy\Skeleton\SkeletonDeath\Skeleton_Death3		10480
 	326772382	BoneStep1	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\BoneStep1_C7CBF045.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemy\Skeleton\BoneSteps\BoneStep1		8212
 	330704271	FootstepStone1	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\FootstepStone1_0EB2837D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\Stone\FootstepStone1		3856
+	331740130	Necrobane Title Track	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\Necrobane Title Track_F93BF523.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Menu\Necrobane Title Track\Necrobane Title Track		2745904
 	361689572	FistSwing1	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\FistSwing1_72CB0EFF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Combat\PowerFist\FistSwing\FistSwing1		3856
 	392231127	Lever	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\Lever_C7CBF045.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Mechanisms\Lever		6340
 	395948427	Exploration Intro	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Linux\SFX\Exploration Intro_F93BF523.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Exploration\Intro\Exploration Intro		614884
