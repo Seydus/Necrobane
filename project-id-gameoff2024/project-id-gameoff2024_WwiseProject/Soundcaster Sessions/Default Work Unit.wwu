@@ -1,60 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{D4953FC3-AFCC-425B-B0D8-1C7714933D32}" SchemaVersion="119">
 	<SoundcasterSessions>
-		<WorkUnit Name="Default Work Unit" ID="{D4953FC3-AFCC-425B-B0D8-1C7714933D32}" PersistMode="Standalone">
-			<ChildrenList>
-				<SoundcasterSession Name="New Soundcaster Session" ID="{232B6C65-6AC2-4265-B1E6-988B95BB0433}">
-					<ModuleList>
-						<Module>
-							<ObjectRef Name="Music" ID="{F5FF7702-21D2-439D-AACE-89B8A8E0BE4E}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
-							<Position X="0" Y="0"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="Lever" ID="{AD1C60FF-DBEF-40FC-967D-E8D1D41AE9A0}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
-							<Position X="0" Y="1"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="Chops" ID="{85675BD4-244A-4DCF-AC5C-E069C7D6E23F}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
-							<Position X="1" Y="0"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="Equip_Blade" ID="{3625E2BE-9EB8-4099-99DC-0D17CEFEADDB}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
-							<Position X="1" Y="1"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="Firebolt" ID="{1871AA0A-F768-46F3-A6B3-99F3B352A2BF}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
-							<Position X="2" Y="0"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="Equip_Fist" ID="{47119557-2197-43BB-A24A-8389BD7FB3B0}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
-							<Position X="2" Y="1"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="Firebolt_Explosion" ID="{E8681533-29B0-4530-9993-41230BC42EA6}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
-							<Position X="3" Y="0"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="Footsteps" ID="{A26679A2-C10B-48D8-87D8-066E4ABAB041}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
-							<Position X="3" Y="1"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="HitBones" ID="{203C1A53-03AE-40D5-9F44-3E5563A60824}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
-							<Position X="4" Y="0"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="FistSwing" ID="{E2A8FFCD-1275-441B-8748-23A251236B39}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
-							<Position X="5" Y="0"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="Open_Gate" ID="{04ACF479-8C99-435A-B0CB-C2FFF36D09B5}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
-							<Position X="6" Y="0"/>
-						</Module>
-					</ModuleList>
-					<RTPCValueList ShowAll="true"/>
-					<CurrentStateList ShowAll="true"/>
-					<CurrentSwitchList ShowAll="true"/>
-				</SoundcasterSession>
-			</ChildrenList>
-		</WorkUnit>
+		<WorkUnit Name="Default Work Unit" ID="{D4953FC3-AFCC-425B-B0D8-1C7714933D32}" PersistMode="Standalone"/>
 	</SoundcasterSessions>
 </WwiseDocument>

@@ -13,11 +13,6 @@
 								<Value>2</Value>
 							</ValueList>
 						</Property>
-						<Property Name="OutputBusVolume" Type="Real64">
-							<ValueList>
-								<Value>3</Value>
-							</ValueList>
-						</Property>
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
 						<Property Name="Tempo" Type="Real64" Value="116"/>
 						<Property Name="UseMaxSoundPerInstance" Type="bool">
@@ -204,11 +199,7 @@
 								<Property Name="Tempo" Type="Real64" Value="92"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-<<<<<<< Updated upstream
 										<Value>3</Value>
-=======
-										<Value>-3</Value>
->>>>>>> Stashed changes
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -596,11 +587,7 @@
 								<Property Name="Tempo" Type="Real64" Value="92"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-<<<<<<< Updated upstream
 										<Value>6</Value>
-=======
-										<Value>1</Value>
->>>>>>> Stashed changes
 									</ValueList>
 								</Property>
 							</PropertyList>

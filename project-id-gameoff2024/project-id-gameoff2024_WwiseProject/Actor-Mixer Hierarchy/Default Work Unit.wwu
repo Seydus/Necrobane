@@ -607,6 +607,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<RandomSequenceContainer Name="Stone" ID="{E32A816F-6291-42D0-8D2A-681E3C9E6B64}" ShortID="286923592">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
@@ -673,11 +680,6 @@
 													<Modifier Name="" ID="{028038F3-C463-4264-B11E-340A9905740A}"/>
 												</ModifierInfo>
 											</ModifierList>
-										</Property>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>4</Value>
-											</ValueList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -801,11 +803,7 @@
 												<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-<<<<<<< Updated upstream
 														<Value>19</Value>
-=======
-														<Value>14.2</Value>
->>>>>>> Stashed changes
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -835,11 +833,7 @@
 												<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-<<<<<<< Updated upstream
 														<Value>10</Value>
-=======
-														<Value>4.7</Value>
->>>>>>> Stashed changes
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -890,11 +884,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-<<<<<<< Updated upstream
 														<Value>9</Value>
-=======
-														<Value>9.2</Value>
->>>>>>> Stashed changes
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -928,11 +918,7 @@
 												<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-<<<<<<< Updated upstream
 														<Value>33</Value>
-=======
-														<Value>33.8</Value>
->>>>>>> Stashed changes
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -993,11 +979,6 @@
 											</ModifierList>
 										</Property>
 										<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>2</Value>
-											</ValueList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -1201,11 +1182,7 @@
 												<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-<<<<<<< Updated upstream
 														<Value>4</Value>
-=======
-														<Value>2</Value>
->>>>>>> Stashed changes
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -1347,7 +1324,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>0.5</Value>
+														<Value>-1.5</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -1381,7 +1358,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-4</Value>
+														<Value>-5</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -1415,7 +1392,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-0.7</Value>
+														<Value>-2.7</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -1467,11 +1444,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-<<<<<<< Updated upstream
 														<Value>6.6</Value>
-=======
-														<Value>2</Value>
->>>>>>> Stashed changes
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -1648,11 +1621,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-<<<<<<< Updated upstream
 												<Value>17</Value>
-=======
-												<Value>10</Value>
->>>>>>> Stashed changes
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -1685,11 +1654,7 @@
 										<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-<<<<<<< Updated upstream
 												<Value>10</Value>
-=======
-												<Value>10.6</Value>
->>>>>>> Stashed changes
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -1732,11 +1697,7 @@
 										<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-<<<<<<< Updated upstream
 												<Value>17</Value>
-=======
-												<Value>12</Value>
->>>>>>> Stashed changes
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -1802,11 +1763,7 @@
 										<Property Name="EnableDiffraction" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-<<<<<<< Updated upstream
 												<Value>14</Value>
-=======
-												<Value>9</Value>
->>>>>>> Stashed changes
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -1862,11 +1819,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-<<<<<<< Updated upstream
 												<Value>16.9</Value>
-=======
-												<Value>14</Value>
->>>>>>> Stashed changes
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -2247,7 +2200,6 @@
 						</Folder>
 					</ChildrenList>
 				</Folder>
-<<<<<<< Updated upstream
 				<Folder Name="UI" ID="{8DCA1B29-79EE-4C85-86C1-EAC9AC909F80}" ShortID="124840238">
 					<ChildrenList>
 						<Sound Name="ButtonSFX" ID="{0B010303-37B4-45CD-A1F9-17AAF41B430D}" ShortID="1029307510">
@@ -2265,16 +2217,6 @@
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>7</Value>
-=======
-				<Folder Name="UI" ID="{E0170995-EDBF-4931-A156-CE92E6ECFA92}" ShortID="1024221695">
-					<ChildrenList>
-						<Sound Name="ButtonSFX" ID="{A10A689F-56DC-4AAF-9F52-9F8098A880E5}" ShortID="1034366587">
-							<PropertyList>
-								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>7.7</Value>
->>>>>>> Stashed changes
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2287,28 +2229,16 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-<<<<<<< Updated upstream
 								<AudioFileSource Name="ButtonSFX" ID="{CBD8481E-B699-446F-A2B6-BFA4F9872417}">
 									<Language>SFX</Language>
 									<AudioFile>ButtonSFX.wav</AudioFile>
 									<MediaIDList>
 										<MediaID ID="489363982"/>
-=======
-								<AudioFileSource Name="ButtonSFX" ID="{C7BDA0DB-6605-4DB3-A117-D202D79EC6E3}">
-									<Language>SFX</Language>
-									<AudioFile>ButtonSFX.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="747245944"/>
->>>>>>> Stashed changes
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-<<<<<<< Updated upstream
 								<ActiveSource Name="ButtonSFX" ID="{CBD8481E-B699-446F-A2B6-BFA4F9872417}" Platform="Linked"/>
-=======
-								<ActiveSource Name="ButtonSFX" ID="{C7BDA0DB-6605-4DB3-A117-D202D79EC6E3}" Platform="Linked"/>
->>>>>>> Stashed changes
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
