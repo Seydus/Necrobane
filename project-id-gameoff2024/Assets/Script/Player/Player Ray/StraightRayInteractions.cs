@@ -49,7 +49,7 @@ public class StraightRayInteractions : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             Selectable Selected = hit.collider.gameObject.GetComponent<Selectable>();
-            if (Input.GetKeyDown(KeyCode.E) && distF <= 30)
+            if (Input.GetKeyDown(KeyCode.E) && distF <= 5)
             {
                 GameObject Hi = hit.collider.gameObject;
                 if(hit.collider.tag == "Lever")
