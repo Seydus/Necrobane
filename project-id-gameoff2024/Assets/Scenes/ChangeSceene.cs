@@ -1,7 +1,5 @@
 using UnityEngine;
-using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
-using UnityEditor.UI;
 using UnityEngine.UI;
 public class ChangeSceene : MonoBehaviour
 {
