@@ -15,7 +15,7 @@ MonoBehaviour:
   WeaponType: 0
   WeaponName: Gloves
   WeaponBasicDamage: 30
-  WeaponStaminaCost: 40
-  WeaponSuperAttackDamage: 200
+  WeaponStaminaCost: 80
+  WeaponSuperAttackDamage: 120
   WeaponStunDuration: 0
   WeaponBlockDuration: 0
