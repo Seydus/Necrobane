@@ -508,8 +508,8 @@ public class BossController : MonoBehaviour
     private void FinishSpikeAttack()
     {
         bossAnimation.TriggerSpikeAttackAnimation(false);
-
         spikeObj.GetComponentInChildren<BoxCollider>().enabled = false;
+        spikeObj.gameObject.SetActive(false);
         spikeObj = null;
 
         isSpike = false;

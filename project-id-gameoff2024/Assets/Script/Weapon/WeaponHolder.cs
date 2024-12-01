@@ -6,7 +6,6 @@ public class WeaponHolder : MonoBehaviour
     private BoxCollider boxCollider;
     private Rigidbody myBody;
     private Animator anim;
-    public GameObject weaponbObj;
     
     private void Awake()
     {
@@ -14,11 +13,6 @@ public class WeaponHolder : MonoBehaviour
         myBody = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         weapon = GetComponent<Weapon>();
-    }
-
-    public void SetMeshState(bool state)
-    {
-        weaponbObj.SetActive(state);
     }
 
     public void SetBoxCollider(bool state)

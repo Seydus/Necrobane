@@ -68,9 +68,8 @@ public class Sword : Weapon
                 {
                     PlayerCombat.StartCoroutine(PlayerCombat.PlayerCombatCamera.CameraShake(new CameraCombatInfo(0.15f, 0.015f, Vector3.zero)));
                     PlayerCombat.InitHitVFX(PlayerCombat.GetAllColliderHit()[i].point);
-
                     boss.GetComponent<BossProfile>().DeductHealth(weaponData.WeaponBasicDamage);
-                    AkSoundEngine.PostEvent("Play_Chops", PlayerCombat.gameObject);
+                    PlayHitSFXBoss();
                 }
             }
         }

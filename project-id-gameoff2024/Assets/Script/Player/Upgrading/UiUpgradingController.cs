@@ -8,17 +8,17 @@ public class UiUpgradingController : MonoBehaviour
 
     private void Update()
     {
-        if (playerCombat.WeaponHolder == null)
+        if (playerCombat.CurrentWeaponHolder == null)
         {
             ItemCell2.SetActive(false);
             ItemCell3.SetActive(false);
         }
-        else if (playerCombat.WeaponHolder.weapon.weaponData.WeaponType == WeaponSO.Weapons.Sword)
+        else if (playerCombat.CurrentWeaponHolder.weapon.weaponData.WeaponType == WeaponSO.Weapons.Sword)
         {
             ItemCell2.SetActive(true);
             ItemCell3.SetActive(false);
         }
-        else if (playerCombat.WeaponHolder.weapon.weaponData.WeaponType == WeaponSO.Weapons.PowerGlove)
+        else if (playerCombat.CurrentWeaponHolder.weapon.weaponData.WeaponType == WeaponSO.Weapons.PowerGlove)
         {
             ItemCell2.SetActive(false);
             ItemCell3.SetActive(true);
