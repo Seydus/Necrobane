@@ -13,5 +13,5 @@ public class EnemyProfileSO : ScriptableObject
     public float EnemyRange;
 
     [Header("Enemy Item Drop")]
-    public GameObject itemDrop;
+    public GameObject[] itemDrop;
 }

@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
     public string EnemyName { get; set; }
     public float EnemyHealth { get; set; }
     public float EnemyDamage { get; set; }
-
+    public GameObject[] ItemDropObj { get; set; }
 
     [Header("UI")]
     [SerializeField] protected Slider healthSlider;
@@ -77,6 +77,7 @@ public class Enemy : MonoBehaviour
         EnemyName = enemyProfile.EnemyName;
         EnemyHealth = enemyProfile.EnemyHealth;
         EnemyDamage = enemyProfile.EnemyDamage;
+        ItemDropObj = enemyProfile.itemDrop;
 
         healthSlider.value = EnemyHealth;
     }
@@ -101,10 +102,18 @@ public class Enemy : MonoBehaviour
                 navMeshAgent.enabled = false;
             }
 
-            Instantiate(enemyProfile.itemDrop, transform.position, Quaternion.identity);
             gameObject.SetActive(false);
             EnemyManager.Instance.enemyAttackingList.Remove(gameObject.GetComponent<Enemy>());
             AkSoundEngine.PostEvent("Play_SkeletonDeath", gameObject);
+        }
+    }
+
+    private void ItemDrop()
+    {
+        if(ItemDropObj.Length >= 0)
+        {
+            int randomValue = Random.Range(0, ItemDropObj.Length);
+            Instantiate(ItemDropObj[randomValue], transform.position, Quaternion.identity);
         }
     }
 
