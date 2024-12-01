@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected Slider healthSlider;
 
     [Header("Others")]
-    [HideInInspector] public NavMeshAgent navMeshAgent;
+    public NavMeshAgent navMeshAgent;
     public Transform player { get; set; }
 
     [Header("Wwise")]
@@ -96,6 +96,11 @@ public class Enemy : MonoBehaviour
     {
         if (EnemyHealth <= 0)
         {
+            if (navMeshAgent != null)
+            {
+                navMeshAgent.enabled = false;
+            }
+
             Instantiate(enemyProfile.itemDrop, transform.position, Quaternion.identity);
             gameObject.SetActive(false);
             EnemyManager.Instance.enemyAttackingList.Remove(gameObject.GetComponent<Enemy>());

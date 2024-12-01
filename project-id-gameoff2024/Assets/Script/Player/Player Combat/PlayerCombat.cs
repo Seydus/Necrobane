@@ -185,10 +185,14 @@ public class PlayerCombat : MonoBehaviour
 
             while (elapsed < knockbackDuration)
             {
-                if (!agent)
+                if (agent.isOnNavMesh == false)
                     yield break;
 
-                agent.Move(knockbackDirection * knockbackSpeed * Time.deltaTime);
+
+                if(agent.isOnNavMesh)
+                {
+                    agent.Move(knockbackDirection * knockbackSpeed * Time.deltaTime);
+                }
 
                 elapsed += Time.deltaTime;
                 yield return null;

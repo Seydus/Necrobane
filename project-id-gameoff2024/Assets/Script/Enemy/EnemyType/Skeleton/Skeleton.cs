@@ -101,19 +101,29 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
         enemyRoaming.Start();
     }
 
+    public void SetSkeletonSummonState(Enemy enemy, bool state)
+    {
+        EnemyManager.Instance.enemyAttackingList.Add(enemy);
+        skeletonIsSummoned = state;
+    }
+
     public override void Update()
     {
         base.Update();
 
-        EnemyRoaming();
-        EnemySummonAttack();
+        if(!skeletonIsSummoned)
+        {
+            EnemyRoaming();
+            Debug.LogError("IS ROAMING");
+        }
+        else
+        {
+            EnemySummonAttack();
+        }
     }
 
     private void EnemyRoaming()
     {
-        if (skeletonIsSummoned)
-            return;
-
         if (enableRoaming)
         {
             enemyRoaming.Update();

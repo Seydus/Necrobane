@@ -6,6 +6,7 @@ public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager Instance { get; set;}
     public List<Enemy> enemyAttackingList;
+    public BossController bossController;
 
     private void Awake()
     {
@@ -22,7 +23,7 @@ public class EnemyManager : MonoBehaviour
 
     private void SwtichToCombatMode()
     {
-        if(enemyAttackingList.Count >= 1)
+        if(enemyAttackingList.Count >= 1 || bossController != null)
         {
             Debug.Log("Combat Music");
             AkSoundEngine.SetSwitch("Music","Combat", gameObject);

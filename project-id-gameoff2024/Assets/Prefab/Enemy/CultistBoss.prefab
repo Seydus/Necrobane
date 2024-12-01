@@ -854,6 +854,7 @@ Transform:
   - {fileID: 8363676360055862294}
   - {fileID: 8054445448745869506}
   - {fileID: 6918470352026144244}
+  - {fileID: 2994419569351046256}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1488886941978934056
@@ -887,7 +888,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5791608225034213449}
   m_Enabled: 1
-  m_AgentTypeID: 1479372276
+  m_AgentTypeID: 0
   m_Radius: 1.36
   m_Speed: 1
   m_Acceleration: 0
@@ -927,23 +928,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   setDistanceBulletHellTrigger: 10
-  setSummonValue: 0
-  numberOfEnemySummon: 0
-  enemySummonRadius: 0
+  setSummonValue: 3
+  numberOfEnemySummon: 5
+  enemySummonRadius: 5
+  minEnemyDistanceSummon: 3
   enemySummonGroundPos: {fileID: 6918470352026144244}
+  skeletonPrefab: {fileID: 6217938565619059121, guid: c72b58e9af135854183614700a80e458, type: 3}
   projectileDelayStart: 0.5
   projectilePos: {fileID: 8054445448745869506}
   bossProjectilePrefab: {fileID: 5131727004973861351, guid: eaa50a5aabdf6084ab719ac0e63c612b, type: 3}
-  animSpike: {fileID: 0}
-  spikeAttackSpeed: 0
-  sphereRadius: 0
-  bossDistance: 0
+  setSpikeValue: 2
+  spikePos: {fileID: 2994419569351046256}
+  spikeObj: {fileID: 2106057423757135087, guid: c7c114da00432184b95b12be5b4e4b02, type: 3}
+  bossDistance: 50
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
-  spikeAnimCollider: {fileID: 0}
-  rotationSpeed: 1
-  skeletonPrefab: {fileID: 0}
+    m_Bits: 512
   player: {fileID: 0}
   bossMoveSpeed: 3
   bossRotationSpeed: 4
@@ -978,6 +978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossAnimator: {fileID: 1303737163261170923}
+  spikeAnimator: {fileID: 0}
 --- !u!1 &6631596511239162149
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,6 +1075,37 @@ Transform:
   - {fileID: 9068607037126794683}
   m_Father: {fileID: 1243613838569693736}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &8033153827157564679
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2994419569351046256}
+  m_Layer: 17
+  m_Name: SpikePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2994419569351046256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8033153827157564679}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5102681755558461164}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8049928426734185992
 GameObject:
   m_ObjectHideFlags: 0

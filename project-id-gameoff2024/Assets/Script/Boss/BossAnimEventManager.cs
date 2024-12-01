@@ -22,6 +22,11 @@ public class BossAnimEventManager : MonoBehaviour
         BossController.OnPerformSpikeAttackTriggered?.Invoke();
     }
 
+    public void TriggerPerformSpikeEvent()
+    {
+        BossController.OnTriggerSpikeEvent?.Invoke();
+    }
+
     public void TriggerFinishAttackEvent()
     {
         BossController.OnFinishAttackTriggered?.Invoke();

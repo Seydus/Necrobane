@@ -24,4 +24,14 @@ public class BossAnimation : MonoBehaviour
     {
         bossAnimator.SetTrigger("isBulletHell");
     }
+
+    public void TriggerSpikeAttackAnimation()
+    {
+        bossAnimator.SetTrigger("isSpike");
+    }
+
+    public void TriggerSpikeAnimation(Animator spikeAnimator)
+    {
+        spikeAnimator.SetTrigger("isAttackSpike");
+    }
 }

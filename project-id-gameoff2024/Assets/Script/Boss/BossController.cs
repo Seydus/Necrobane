@@ -16,7 +16,7 @@ public class BossController : MonoBehaviour
     [SerializeField] private float setSummonValue;
     [SerializeField] private float numberOfEnemySummon;
     [SerializeField] private float enemySummonRadius;
-    private float minEnemyDistanceSummon = 5f;
+    [SerializeField] private float minEnemyDistanceSummon = 5f;
 
     [SerializeField] private Transform enemySummonGroundPos;
     private List<Vector3> enemySummonPosition = new List<Vector3>();
@@ -32,14 +32,15 @@ public class BossController : MonoBehaviour
     [SerializeField] private GameObject bossProjectilePrefab;
     private bool isAttacking;
 
-    //[Header("Spike Attack")]
-    //[SerializeField] private Animator animSpike;
-    //[SerializeField] private float spikeAttackSpeed;
-    //[SerializeField] private float sphereRadius;
-    //[SerializeField] private float bossDistance;
-    //[SerializeField] private LayerMask playerLayer;
-    //[SerializeField] private BoxCollider spikeAnimCollider;
-    //[SerializeField] private float rotationSpeed;
+    [Header("Spike Attack")]
+    [SerializeField] private float setSpikeValue;
+    private float spikeValue;
+    [SerializeField] private Transform spikePos;
+    [SerializeField] private GameObject spikePrefab;
+    [SerializeField] private float bossDistance;
+    [SerializeField] private LayerMask playerLayer;
+
+    private GameObject spikeObj;
 
     private bool isHit;
     private bool isSpikeAttack;
@@ -64,6 +65,8 @@ public class BossController : MonoBehaviour
     public static UnityAction OnTriggerPerformAttackEvent;
     public static UnityAction OnTriggerPerformSummonEvent;
     public static UnityAction OnTriggerPerformBulletHellAttackEvent;
+
+    public static UnityAction OnTriggerSpikeEvent;
     public static UnityAction OnPerformSpikeAttackTriggered;
     public static UnityAction OnFinishAttackTriggered;
 
@@ -74,6 +77,7 @@ public class BossController : MonoBehaviour
         OnTriggerPerformBulletHellAttackEvent += PerformBulletHellAttack;
         OnPerformSpikeAttackTriggered += PerformSpikeAttack;
         OnFinishAttackTriggered += FinishAttack;
+        OnTriggerSpikeEvent += InitSpikeAttack;
     }
 
     private void OnDisable()
@@ -83,6 +87,7 @@ public class BossController : MonoBehaviour
         OnTriggerPerformBulletHellAttackEvent -= PerformBulletHellAttack;
         OnPerformSpikeAttackTriggered -= PerformSpikeAttack;
         OnFinishAttackTriggered -= FinishAttack;
+        OnTriggerSpikeEvent -= InitSpikeAttack;
     }
 
     private void Awake()
@@ -96,16 +101,21 @@ public class BossController : MonoBehaviour
 
         distanceBulletHellTrigger = setDistanceBulletHellTrigger;
         summonValue = setSummonValue;
+        spikeValue = setSpikeValue;
     }
 
     private void Update()
     {
-        if (isBulletHellDistance || isSummon)
+
+        Debug.DrawRay(transform.position, transform.forward * bossDistance);
+
+        if (isBulletHellDistance || isSummon || isSpikeAttack)
             return;
 
         Move();
         Rotation();
-        Summon();
+        //Summon();
+        Spike();
     }
 
     private void Move()
@@ -119,10 +129,22 @@ public class BossController : MonoBehaviour
         }
         else
         {
-            BulletHellDistanceTrigger();
+            //BulletHellDistanceTrigger();
         }
 
         transform.position += velocity.normalized * bossMoveSpeed * Time.deltaTime;
+    }
+
+    private void Spike()
+    {
+        if (spikeValue <= 0)
+        {
+            SpikeAttack();
+        }
+        else
+        {
+            spikeValue -= Time.deltaTime;
+        }
     }
 
     private void Summon()
@@ -172,15 +194,7 @@ public class BossController : MonoBehaviour
             GameObject summonedEnemy = Instantiate(skeletonPrefab, enemySummonPosition[i], Quaternion.identity);
             summonedEnemy.GetComponent<Enemy>().navMeshSurface = navMeshSurface;
             summonedEnemy.GetComponent<Enemy>().player = player.transform;
-            summonedEnemy.GetComponent<Enemy>().navMeshAgent = summonedEnemy.GetComponent<NavMeshAgent>();
-
-            if (summonedEnemy.GetComponent<Enemy>() is IEnemyRoaming enemyRoaming)
-            {
-                enemyRoaming.DetectRadius *= 2f;
-            }
-
-            summonedEnemy.GetComponent<Skeleton>().skeletonIsSummoned = true;
-
+            summonedEnemy.GetComponent<Skeleton>().SetSkeletonSummonState(summonedEnemy.GetComponent<Enemy>(), true);
         }
 
         isSummon = false;
@@ -253,36 +267,27 @@ public class BossController : MonoBehaviour
         bulletHellPattern.StartSequentialBulletHell();
     }
 
-    //private void SpikeAttack()
-    //{
-    //    if (isSpikeAttack)
-    //        return;
+    private void SpikeAttack()
+    {
+        if (Physics.SphereCast(transform.position, 0.1f, transform.forward, out hitInfo, bossDistance, playerLayer))
+        {
+            bossAnimation.TriggerSpikeAttackAnimation();
+            isSpikeAttack = true;
+        }
+    }
 
-    //    Vector3 directionToTargetPosition = player.transform.position - transform.position;
-    //    directionToTargetPosition.y = 0;
-    //    directionToTargetPosition.Normalize();
-
-    //    Quaternion targetRotation = Quaternion.LookRotation(directionToTargetPosition);
-    //    Quaternion yAxisOnlyRotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
-
-    //    transform.rotation = Quaternion.RotateTowards(transform.rotation, yAxisOnlyRotation, rotationSpeed * Time.deltaTime);
-
-
-    //    if (Physics.SphereCast(transform.position, sphereRadius, transform.forward, out hitInfo, bossDistance, playerLayer))
-    //    {
-    //        animSpike.SetTrigger("isAttackSpike");
-    //        isSpikeAttack = true;
-    //        isHit = true;
-    //    }
-    //    else
-    //    {
-    //        isHit = false;
-    //    }
-    //}
+    private void InitSpikeAttack()
+    {
+        Debug.Log("Spike Attack Initialized.");
+        spikeObj = Instantiate(spikePrefab, spikePos.position, transform.rotation);
+        bossAnimation.TriggerSpikeAnimation(spikeObj.GetComponentInChildren<Animator>());
+        spikeObj.transform.position = spikePos.position;
+    }
 
     private void PerformSpikeAttack()
     {
-        //spikeAnimCollider.enabled = true;
+        spikeObj.GetComponentInChildren<BoxCollider>().enabled = true;
+        spikeValue = setSpikeValue;
     }
 
     private void FinishAttack()
@@ -290,5 +295,10 @@ public class BossController : MonoBehaviour
         isSpikeAttack = false;
         isAttacking = false;
         isBulletHellDistance = false;
+
+        if(spikeObj)
+        {
+            spikeObj.GetComponentInChildren<BoxCollider>().enabled = false;
+        }
     }
 }
