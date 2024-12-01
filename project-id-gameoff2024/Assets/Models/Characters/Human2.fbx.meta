@@ -664,7 +664,7 @@ ModelImporter:
       curves: []
       events:
       - time: 0.7076725
-        functionName: TriggerPerformFirstAttackEvent
+        functionName: TriggerPerformSecondaryAttackEvent
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

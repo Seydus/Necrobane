@@ -3,6 +3,7 @@ using UnityEngine;
 public class BossProfile : MonoBehaviour
 {
     public BossProfileSO bossProfileSO;
+    [SerializeField] private GameObject winningUI;
 
     public float bossHealth { get; private set; }
 
@@ -61,6 +62,10 @@ public class BossProfile : MonoBehaviour
             Debug.Log("Boss dead");
             bossController.currentPhase = 4;
             bossHealth = 0;
+
+            winningUI.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            GameManager.Instance.GameState = false;
         }
 
         bossHealth -= damage;

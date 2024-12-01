@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
     public PlayerManager playerManager;
     public UIManager uIManager;
     public BossController bossController;
-    public bool GameState { get; private set; } = true;
+    public bool isBossFight;
+
+    public bool GameState = true;
 
     private void Awake()
     {

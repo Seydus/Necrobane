@@ -18,11 +18,14 @@ Copyright (c) 2024 Audiokinetic Inc.
 public class AkTriggerEnter : AkTriggerBase
 {
 	public UnityEngine.GameObject triggerObject = null;
+    public UnityEngine.GameObject gameManager = null;
 
-	private void OnTriggerEnter(UnityEngine.Collider in_other)
+    private void OnTriggerEnter(UnityEngine.Collider in_other)
 	{
 		if (triggerDelegate != null && (triggerObject == null || triggerObject == in_other.gameObject))
-			triggerDelegate(in_other.gameObject);
+		{
+            triggerDelegate(in_other.gameObject);
+        }
 	}
 }
 
