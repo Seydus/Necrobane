@@ -95,6 +95,19 @@ public class SaveAndLoad : MonoBehaviour
         }
     }
 
+    public void ResetSave()
+    {
+        Debug.LogError("saved");
+        save_needs sn = new save_needs();
+
+        objInfo.AllTheStuff = sn;
+        string objData = JsonUtility.ToJson(objInfo);
+        string FilePath = Application.persistentDataPath + "/Name.json";
+
+        System.IO.File.WriteAllText(FilePath, objData);
+        Load();
+    }
+
     [System.Serializable]
     public class save
     {
