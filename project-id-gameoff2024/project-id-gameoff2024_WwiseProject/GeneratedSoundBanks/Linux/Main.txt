@@ -11,6 +11,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1512643089	Play_BoneSteps			\Default Work Unit\Enemy\Skeleton\Play_BoneSteps	
 	1527095013	Play_Equip_Blade			\Default Work Unit\Player\Interaction\Equip\Play_Equip_Blade	
 	1554763031	Play_Equip_Fist			\Default Work Unit\Player\Interaction\Equip\Play_Equip_Fist	
+	1693071901	Play_Boss			\Default Work Unit\Play_Boss	
 	1875815139	Play_ButtonSFX			\Default Work Unit\Play_ButtonSFX	
 	1937570009	Stop_Ambi			\Default Work Unit\Environment\Stop_Ambi	
 	2078302632	Play_SW			\Default Work Unit\Environment\Play_SW	
@@ -24,6 +25,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2932040671	Play_Music			\Default Work Unit\Play_Music	
 	3196500978	Play_Lever			\Default Work Unit\Environment\Mechanisms\Play_Lever	
 	3488755065	Play_Chops			\Default Work Unit\Combat\Blades\Play_Chops	
+	3511702883	Stop_Boss			\Default Work Unit\Stop_Boss	
 	3689126666	Play_Jump			\Default Work Unit\Player\Play_Jump	
 	3854155799	Play_Footsteps			\Default Work Unit\Player\Play_Footsteps	
 	4115969904	Play_Parry			\Default Work Unit\Combat\Blades\Play_Parry	
@@ -45,6 +47,7 @@ State Group	ID	Name			Wwise Object Path	Notes
 State	ID	Name	State Group			Notes
 	655265632	Alive	Player			
 	748895195	None	Player			
+	1560169506	Boss	Player			
 	2044049779	Dead	Player			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes

@@ -1137,6 +1137,69 @@
 									</MultiSwitchEntry>
 								</Local>
 							</Reference>
+							<Reference>
+								<Local>
+									<MultiSwitchEntry Name="" ID="{96345905-C875-4E24-B74C-94D64DFBB1DD}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="Boss" ID="{0C0E0E23-DDA3-4242-B70A-BB29B2741FFF}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
+											</Reference>
+										</ReferenceList>
+										<ObjectLists>
+											<ObjectList Name="EntryPath">
+												<Reference>
+													<ObjectRef Name="Boss" ID="{F97148D3-1815-4510-9106-C5D079F26F3F}" WorkUnitID="{C3200CC1-E859-4F41-AB4E-671E1833DD9A}"/>
+												</Reference>
+												<Reference>
+													<ObjectRef Name="Combat" ID="{BF6A0110-A0A0-46BA-B7DD-35AF90F86F31}" WorkUnitID="{ED06FA44-546C-4D2B-ACCF-66D261F951D9}"/>
+												</Reference>
+											</ObjectList>
+										</ObjectLists>
+									</MultiSwitchEntry>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MultiSwitchEntry Name="" ID="{A59D8E64-95BE-46DA-BFBF-9C51FA74F2D5}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="Boss" ID="{0C0E0E23-DDA3-4242-B70A-BB29B2741FFF}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
+											</Reference>
+										</ReferenceList>
+										<ObjectLists>
+											<ObjectList Name="EntryPath">
+												<Reference>
+													<ObjectRef Name="Boss" ID="{F97148D3-1815-4510-9106-C5D079F26F3F}" WorkUnitID="{C3200CC1-E859-4F41-AB4E-671E1833DD9A}"/>
+												</Reference>
+												<Reference>
+													<ObjectRef Name="Exploration" ID="{2F8EC15B-5040-4CEF-A279-15848FCDCE87}" WorkUnitID="{ED06FA44-546C-4D2B-ACCF-66D261F951D9}"/>
+												</Reference>
+											</ObjectList>
+										</ObjectLists>
+									</MultiSwitchEntry>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MultiSwitchEntry Name="" ID="{B5B739E7-3C83-4A74-8304-5F36E1BE6E6C}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="Boss" ID="{0C0E0E23-DDA3-4242-B70A-BB29B2741FFF}" WorkUnitID="{AFE620BB-EB5D-4137-B063-12B722BD1EAF}"/>
+											</Reference>
+										</ReferenceList>
+										<ObjectLists>
+											<ObjectList Name="EntryPath">
+												<Reference>
+													<ObjectRef Name="Boss" ID="{F97148D3-1815-4510-9106-C5D079F26F3F}" WorkUnitID="{C3200CC1-E859-4F41-AB4E-671E1833DD9A}"/>
+												</Reference>
+												<Reference>
+													<ObjectRef Name="Bossfight" ID="{A0D03966-8A53-448F-87C3-4D5416752B64}" WorkUnitID="{ED06FA44-546C-4D2B-ACCF-66D261F951D9}"/>
+												</Reference>
+											</ObjectList>
+										</ObjectLists>
+									</MultiSwitchEntry>
+								</Local>
+							</Reference>
 						</ObjectList>
 					</ObjectLists>
 				</MusicSwitchContainer>

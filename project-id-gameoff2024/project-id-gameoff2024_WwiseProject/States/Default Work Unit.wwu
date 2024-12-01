@@ -8,6 +8,7 @@
 						<State Name="None" ID="{0EB07C9B-699A-4789-A08B-245449F2FF67}"/>
 						<State Name="Alive" ID="{F99E05A6-96FA-45B0-B6FB-F46F4EE2F349}"/>
 						<State Name="Dead" ID="{8349F435-00C0-4589-B085-E4485B0CACA3}"/>
+						<State Name="Boss" ID="{F97148D3-1815-4510-9106-C5D079F26F3F}"/>
 					</ChildrenList>
 				</StateGroup>
 			</ChildrenList>
