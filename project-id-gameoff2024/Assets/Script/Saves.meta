@@ -1,8 +1,14 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:project-id-gameoff2024/Assets/Wwise/ScriptableObjects/Event/62FDDC4C-4291-41BD-BA55-5A1803224F59.asset.meta
+guid: ae4d77e8d7a95114c836e9857f328517
+NativeFormatImporter:
+========
 guid: 3421ff01055db584c87d06de5a40d776
 folderAsset: yes
 DefaultImporter:
+>>>>>>>> main:project-id-gameoff2024/Assets/Script/Saves.meta
   externalObjects: {}
+  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

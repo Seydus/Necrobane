@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{D831EEDD-28C4-97C2-B4E0-264308566654}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{B7F0494B-B75F-9889-566C-A5E3454FC9F6}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -208,7 +208,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{C3A8249F-196A-4B58-E033-483F476E4211}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{D90F275E-2F4E-CAAB-8292-4E5C9379F10E}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -319,6 +319,10 @@
 				<File Id="474165601" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Exploration Main.wav</ShortName>
 					<CachePath>SFX/Exploration Main_F93BF523.wem</CachePath>
+				</File>
+				<File Id="489363982" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ButtonSFX.wav</ShortName>
+					<CachePath>SFX/ButtonSFX_C7CBF045.wem</CachePath>
 				</File>
 				<File Id="502519958" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>chop2.wav</ShortName>
@@ -440,6 +444,11 @@
 						<MediaRef Id="326772382"/>
 						<MediaRef Id="843067243"/>
 						<MediaRef Id="878205616"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1875815139" Name="Play_ButtonSFX" DurationType="OneShot" DurationMin="0.82172" DurationMax="0.82172">
+					<MediaRefs>
+						<MediaRef Id="489363982"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3488755065" Name="Play_Chops" DurationType="OneShot" DurationMin="0.12909532" DurationMax="0.34744823">
@@ -687,5 +696,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{A46364FF-12D6-137B-67C7-921487CE8CE9}</FileHash>
+	<FileHash>{BC88F2D3-5231-5099-DE5E-97DFF04727D7}</FileHash>
 </SoundBanksInfo>
