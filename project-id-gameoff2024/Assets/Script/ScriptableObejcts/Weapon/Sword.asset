@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   WeaponType: 1
-  WeaponName: Sword of the Sword
+  WeaponName: LangesMesser
   WeaponBasicDamage: 30
   WeaponStaminaCost: 20
   WeaponSuperAttackDamage: 0

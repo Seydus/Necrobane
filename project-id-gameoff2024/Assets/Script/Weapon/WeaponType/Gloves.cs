@@ -69,8 +69,16 @@ public class Gloves : Weapon
             {
                 PlayerCombat.StartCoroutine(PlayerCombat.PlayerCombatCamera.CameraShake(new CameraCombatInfo(0.20f, 0.020f, Vector3.zero)));
                 PlayerCombat.InitHitVFX(PlayerCombat.sphereCastHit.point);
-
                 HandleAttack(enemy, weaponData.WeaponSuperAttackDamage);
+                PlayHitSFX(enemy);
+            }
+
+            if (PlayerCombat.sphereCastHit.transform.TryGetComponent<BossController>(out BossController boss))
+            {
+                PlayerCombat.StartCoroutine(PlayerCombat.PlayerCombatCamera.CameraShake(new CameraCombatInfo(0.20f, 0.020f, Vector3.zero)));
+                PlayerCombat.InitHitVFX(PlayerCombat.sphereCastHit.point);
+                boss.GetComponent<BossProfile>().DeductHealth(weaponData.WeaponSuperAttackDamage);
+                PlayHitSFXBoss();
             }
         }
         else

@@ -13,7 +13,7 @@ public class BossBulletHellProjectile : MonoBehaviour
     {
         myBody = GetComponent<Rigidbody>();
 
-        lifeSpan = 5f;
+        lifeSpan = 20f;
     }
 
     private void FixedUpdate()
@@ -42,7 +42,7 @@ public class BossBulletHellProjectile : MonoBehaviour
         {
             if (other.transform.GetComponent<PlayerManager>().PlayerProfile.isDefending)
             {
-                other.transform.GetComponent<PlayerManager>().PlayerProfile.DeductStamina(other.transform.GetComponent<PlayerManager>().PlayerCombat.WeaponHolder.weapon.weaponData.WeaponStaminaCost);
+                other.transform.GetComponent<PlayerManager>().PlayerProfile.DeductStamina(other.transform.GetComponent<PlayerManager>().PlayerCombat.CurrentWeaponHolder.weapon.weaponData.WeaponStaminaCost);
                 Destroy(gameObject);
             }
             else
