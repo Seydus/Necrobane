@@ -4,6 +4,9 @@ public class Sword : Weapon
 {
     public override void HandleFirstAttack()
     {
+        if (PlayerCombat.IsAttacking)
+            return;
+
         if (Input.GetMouseButtonDown(0))
         {
             PlayerCombat.PlayerProfile.isDefending = false;
