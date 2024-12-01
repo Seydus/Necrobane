@@ -15,6 +15,7 @@ namespace AK
     {
         static const AkUniqueID PLAY_AMBI = 2616876087U;
         static const AkUniqueID PLAY_BONESTEPS = 1512643089U;
+        static const AkUniqueID PLAY_BUTTONSFX = 1875815139U;
         static const AkUniqueID PLAY_CHOPS = 3488755065U;
         static const AkUniqueID PLAY_DROP_ITEM = 1363530945U;
         static const AkUniqueID PLAY_EQUIP_BLADE = 1527095013U;

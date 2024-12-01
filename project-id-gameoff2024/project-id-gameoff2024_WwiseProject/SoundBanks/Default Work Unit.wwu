@@ -17,6 +17,7 @@
 						<ObjectRef Name="Play_SW" ID="{CE2828C4-1E47-44E0-BCA9-BBEA47377483}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Chops" ID="{03BA0516-35D7-44F5-A9DD-7FC55DD00984}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_SkeletonDeath" ID="{2B688C72-DE22-4543-8925-C6BF475B50B2}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="ButtonSFX" ID="{0B010303-37B4-45CD-A1F9-17AAF41B430D}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Jump" ID="{B4D92DBE-4CC5-488A-A786-BD5C88B87B7B}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Stop_Music" ID="{89CC9419-CB30-488A-8D7D-1A7852F48365}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Stop_Ambi" ID="{4E613052-4645-490F-B107-97D12197A325}" WorkUnitID="{5E2CFEFA-6731-469A-A145-0B34D8466393}" Origin="Manual" Filter="7"/>

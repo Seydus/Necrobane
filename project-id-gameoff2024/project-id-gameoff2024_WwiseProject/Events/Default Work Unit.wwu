@@ -339,6 +339,17 @@
 						</Folder>
 					</ChildrenList>
 				</Folder>
+				<Event Name="Play_ButtonSFX" ID="{62FDDC4C-4291-41BD-BA55-5A1803224F59}">
+					<ChildrenList>
+						<Action Name="" ID="{05E82950-9D86-450A-8A24-920FD81AB756}" ShortID="74413323">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ButtonSFX" ID="{0B010303-37B4-45CD-A1F9-17AAF41B430D}" WorkUnitID="{8521127E-F051-48BD-AFE0-E17C1DC96374}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

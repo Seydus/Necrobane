@@ -10,6 +10,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1512643089	Play_BoneSteps			\Default Work Unit\Enemy\Skeleton\Play_BoneSteps	
 	1527095013	Play_Equip_Blade			\Default Work Unit\Player\Interaction\Equip\Play_Equip_Blade	
 	1554763031	Play_Equip_Fist			\Default Work Unit\Player\Interaction\Equip\Play_Equip_Fist	
+	1875815139	Play_ButtonSFX			\Default Work Unit\Play_ButtonSFX	
 	1937570009	Stop_Ambi			\Default Work Unit\Environment\Stop_Ambi	
 	2078302632	Play_SW			\Default Work Unit\Environment\Play_SW	
 	2507006415	Play_SkeletonDeath			\Default Work Unit\Enemy\Skeleton\Play_SkeletonDeath	
@@ -75,6 +76,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	426715762	2Hand1	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\2Hand1_C7CBF045.wem		\Actor-Mixer Hierarchy\Default Work Unit\Combat\Blades\2Hand\Swings\2Hand1		6340
 	457189610	HitSkeleton	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\HitSkeleton_C7CBF045.wem		\Actor-Mixer Hierarchy\Default Work Unit\Combat\PowerFist\FistHit\HitBones\HitSkeleton		6340
 	474165601	Exploration Main	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\Exploration Main_F93BF523.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Exploration\Loop\Exploration Main		2167960
+	489363982	ButtonSFX	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\ButtonSFX_C7CBF045.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\ButtonSFX		8212
 	502519958	chop2	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\chop2_77251A79.wem		\Actor-Mixer Hierarchy\Default Work Unit\Combat\Blades\Chops\chop2		3244
 	522520838	Unlock_Gate	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\Unlock_Gate_C7CBF045.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Doors and Gates\Unlock_Gate		12532
 	551142929	chop1	D:\Audio\GameDev\Unity\project-id-gameoff2024\project-id-gameoff2024\project-id-gameoff2024_WwiseProject\.cache\Mac\SFX\chop1_B29FA329.wem		\Actor-Mixer Hierarchy\Default Work Unit\Combat\Blades\Chops\chop1		1984
