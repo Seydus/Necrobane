@@ -15,4 +15,4 @@ MonoBehaviour:
   objectName: Boss
   id: 1560169506
   guid: F97148D3-1815-4510-9106-C5D079F26F3F
-  WwiseStateGroupReference: {fileID: 0}
+  WwiseStateGroupReference: {fileID: 11400000, guid: a3fd69d05b1129a429c968e2cae9c544, type: 2}

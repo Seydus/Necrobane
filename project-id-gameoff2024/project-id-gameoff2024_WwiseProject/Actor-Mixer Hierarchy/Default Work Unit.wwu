@@ -1681,6 +1681,39 @@
 								</Sound>
 							</ChildrenList>
 						</Folder>
+						<Folder Name="Firewall" ID="{9A3A2C5B-DD38-426D-9109-E8675B4688B9}" ShortID="81917202">
+							<ChildrenList>
+								<Sound Name="Firewall" ID="{A2C587F7-F58D-46EE-93E3-3501ECE55CAD}" ShortID="903132233">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>7</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="ADPCM PSX" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB215FB4-A10B-484E-90D0-28FCC872317B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{C51F7AD6-AD07-49F3-B7D4-B6049F192FF5}" WorkUnitID="{88264AEC-00F1-46DA-AB46-0E630D8DA3C3}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Firewall" ID="{76A2637B-663E-4CB0-8097-DDB51A01C916}">
+											<Language>SFX</Language>
+											<AudioFile>Firewall.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="957006871"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Firewall" ID="{76A2637B-663E-4CB0-8097-DDB51A01C916}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Environment" ID="{85980BDC-E111-4C76-83CF-9EADCE9F1127}" ShortID="438283668">
