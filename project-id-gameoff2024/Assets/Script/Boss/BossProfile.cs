@@ -59,13 +59,12 @@ public class BossProfile : MonoBehaviour
         if(bossHealth <= 0)
         {
             Debug.Log("Boss dead");
+            bossController.currentPhase = 4;
             bossHealth = 0;
         }
 
         bossHealth -= damage;
 
         bossController.State();
-        bossController.ReduceSummonCooldown(0.2f);
-        bossController.ReduceBulletHellCooldown(0.2f);
     }
 }
