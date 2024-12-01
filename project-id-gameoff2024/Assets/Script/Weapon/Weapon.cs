@@ -24,6 +24,11 @@ public abstract class Weapon : MonoBehaviour
         weaponData.WeaponStunDuration = weaponSO.WeaponStunDuration;
         weaponData.WeaponBlockDuration = weaponSO.WeaponBlockDuration;
     }
+    
+    protected void PlayHitSFXBoss()
+    {
+        AkSoundEngine.PostEvent("Play_Chops", PlayerCombat.gameObject);
+    }
 
     protected void PlayHitSFX(Enemy enemy)
     {

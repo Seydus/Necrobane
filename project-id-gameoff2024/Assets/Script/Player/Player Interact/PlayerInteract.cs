@@ -18,6 +18,8 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private LayerMask interactLayer;
     [SerializeField] private float interactDistance;
 
+    public GameObject[] gloves;
+    public GameObject[] sword;
     public bool isEquipped { get; set; }
 
     [Header("Others")]
@@ -29,8 +31,6 @@ public class PlayerInteract : MonoBehaviour
     [Header("Debugging")]
     private bool isHit;
 
-    public GameObject[] gloves;
-    public GameObject[] sword;
     private void Awake()
     {
         playerCombat = GetComponent<PlayerCombat>();
@@ -105,21 +105,19 @@ public class PlayerInteract : MonoBehaviour
     {
         if ((Input.GetKeyDown(KeyCode.E)) && sphereCastInfo.hitInfo.transform.TryGetComponent<WeaponHolder>(out WeaponHolder weaponHolder))
         {
-            
+            if (playerCombat.WeaponHolderList.Count > 2)
+                return;
 
-            isEquipped = true;
+            playerCombat.AddWeapon(new WeaponDataHolder(weaponHolder, weaponHolder.GetComponent<Weapon>()));
 
-            playerCombat.WeaponHolder = weaponHolder;
-            weaponHolder.SetMeshState(false);
-            weaponHolder.SetBoxCollider(false);
-            weaponHolder.SetRigidbodyKinematic(true);
+            playerCombat.CurrentWeaponHolder = weaponHolder;
             weaponHolder.transform.SetParent(playerCombat.powerGlovesPos);
             weaponHolder.SetPosition(playerCombat.powerGlovesPos.position);
-            weaponHolder.SetRotation(Vector3.zero);
+            weaponHolder.gameObject.SetActive(false);
 
-            if(weaponHolder.weaponbObj.name == "Gloves")
+            if (weaponHolder.weapon.weaponData.WeaponName == "Gloves")
             {
-                for(int i = 0; i < sword.Length; i++)
+                for (int i = 0; i < sword.Length; i++)
                 {
                     sword[i].SetActive(false);
                 }
@@ -130,7 +128,7 @@ public class PlayerInteract : MonoBehaviour
                 }
             }
 
-            if (weaponHolder.weaponbObj.name == "LangesMesser")
+            if (weaponHolder.weapon.weaponData.WeaponName == "LangesMesser")
             {
                 for (int i = 0; i < gloves.Length; i++)
                 {
@@ -143,6 +141,7 @@ public class PlayerInteract : MonoBehaviour
                     sword[j].SetActive(true);
                 }
             }
+
             AkSoundEngine.PostEvent("Play_Equip_Fist", gameObject);
             Debug.Log("Succesfully equipped a weapon.");
         }
@@ -165,33 +164,33 @@ public class PlayerInteract : MonoBehaviour
 
     private void DropWeapon()
     {
-        if (playerCombat.WeaponHolder)
-        {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                Debug.Log("Succesfully dropped a weapon");
-                playerCombat.WeaponHolder.SetBoxCollider(true);
-                playerCombat.WeaponHolder.SetRigidbodyKinematic(false);
-                playerCombat.WeaponHolder.SetMeshState(true);
-                playerCombat.PlayerController.maxSpeed = playerCombat.oldMaxSpeed;
+        //if (playerCombat.WeaponHolder)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Q))
+        //    {
+        //        Debug.Log("Succesfully dropped a weapon");
+        //        playerCombat.WeaponHolder.SetBoxCollider(true);
+        //        playerCombat.WeaponHolder.SetRigidbodyKinematic(false);
+        //        playerCombat.WeaponHolder.SetMeshState(true);
+        //        playerCombat.PlayerController.maxSpeed = playerCombat.oldMaxSpeed;
 
-                AkSoundEngine.PostEvent("Play_Drop_Item", gameObject);
+        //        AkSoundEngine.PostEvent("Play_Drop_Item", gameObject);
 
-                playerCombat.WeaponHolder.transform.SetParent(null);
-                playerCombat.WeaponHolder = null;
-                isEquipped = false;
+        //        playerCombat.WeaponHolder.transform.SetParent(null);
+        //        playerCombat.WeaponHolder = null;
+        //        isEquipped = false;
 
-                    for (int i = 0; i < sword.Length; i++)
-                    {
-                        sword[i].SetActive(false);
-                    }
+        //            for (int i = 0; i < sword.Length; i++)
+        //            {
+        //                sword[i].SetActive(false);
+        //            }
 
-                    for (int i = 0; i < gloves.Length; i++)
-                    {
-                        gloves[i].SetActive(false);
-                    }
-            }
-        }
+        //            for (int i = 0; i < gloves.Length; i++)
+        //            {
+        //                gloves[i].SetActive(false);
+        //            }
+        //    }
+        //}
     }
 
     private void DropItem()

@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: db08735561a38424182823d8d175333b
+timeCreated: 1512896150
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 13998
+  packageName: 48 Particle Effect Pack
+  packageVersion: 3.2
+  assetPath: Assets/48 Particle Effect Pack/Script/csDestroyEffect.cs
+  uploadId: 469811

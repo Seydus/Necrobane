@@ -1,7 +1,22 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+
+[System.Serializable]
+public class WeaponDataHolder
+{
+    public WeaponHolder weaponHolder { get; set; }
+    public Weapon weapon { get; set; }
+
+    public WeaponDataHolder(WeaponHolder weaponHolder, Weapon weapon)
+    {
+        this.weaponHolder = weaponHolder;
+        this.weapon = weapon;
+    }
+}
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -9,6 +24,8 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private float knockbackSpeed = 5f;
     [SerializeField] private float knockbackDuration = 2f;
     public float oldMaxSpeed { get; set; }
+    private bool isSwitchWeapon = false;
+    private int numberOfWeapons;
 
     public bool IsAttacking { get; set; }
     private bool isKnockedBack = false;
@@ -17,6 +34,10 @@ public class PlayerCombat : MonoBehaviour
     private Vector3 knockbackDirection;
 
     public Transform powerGlovesPos;
+
+
+    public GameObject[] gloves;
+    public GameObject[] sword;
 
     [Header("Casting")]
     public float sphereRadius;
@@ -32,7 +53,8 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private GameObject hitVFXPrefab;
 
     [Header("Others")]
-    public WeaponHolder WeaponHolder { get; set; }
+    public List<WeaponDataHolder> WeaponHolderList = new List<WeaponDataHolder>();
+    public WeaponHolder CurrentWeaponHolder { get; set; }
     public PlayerProfile PlayerProfile { get; set; }
     public PlayerController PlayerController { get; set; }
     public PlayerInteract PlayerInteract { get; set; }
@@ -75,6 +97,7 @@ public class PlayerCombat : MonoBehaviour
     private void Start()
     {
         oldMaxSpeed = PlayerController.maxSpeed;
+        StartCoroutine(InitSwitchWeapon());
     }
 
     public Ray HandleCameraDirection()
@@ -91,7 +114,7 @@ public class PlayerCombat : MonoBehaviour
 
     public void TargetUICast()
     {
-        if (!WeaponHolder)
+        if (!CurrentWeaponHolder)
             return;
 
         if (WeaponCheckCastInfo())
@@ -116,50 +139,128 @@ public class PlayerCombat : MonoBehaviour
         InitAttack();
     }
 
+    public void AddWeapon(WeaponDataHolder weapon)
+    {
+        numberOfWeapons++;
+
+        if (numberOfWeapons <= 2)
+        {
+            WeaponHolderList.Add(weapon);
+        }
+    }
+
+    private void SwitchWeapon()
+    {
+        if (WeaponHolderList.Count <= 0)
+            return;
+
+    }
+
     private void InitAttack()
     {
-        if (WeaponHolder == null)
-        {
-            //Debug.LogError("No weapon holder!");
+        if (!CurrentWeaponHolder)
             return;
+
+        CurrentWeaponHolder.weapon.PlayerCombat = this;
+
+        CurrentWeaponHolder.weapon.HandleFirstAttack();
+        CurrentWeaponHolder.weapon.HandleSecondaryAttack();
+        CurrentWeaponHolder.weapon.SetAnimationLayer();
+    }
+
+    private IEnumerator InitSwitchWeapon()
+    {
+        while (true)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                if (!IsAttacking)
+                {
+                    for (int i = 0; i < WeaponHolderList.Count; i++)
+                    {
+                        if (WeaponHolderList[i].weapon.weaponData.WeaponName == "LangesMesser")
+                        {
+                            CurrentWeaponHolder = WeaponHolderList[i].weaponHolder;
+                            break;
+                        }
+                    }
+
+                    if (CurrentWeaponHolder != null)
+                    {
+                        for (int i = 0; i < sword.Length; i++)
+                        {
+                            sword[i].SetActive(true);
+                        }
+
+                        for (int i = 0; i < gloves.Length; i++)
+                        {
+                            gloves[i].SetActive(false);
+                        }
+                    }
+
+                    yield return new WaitForSeconds(0.5f);
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                if (!IsAttacking)
+                {
+                    for (int i = 0; i < WeaponHolderList.Count; i++)
+                    {
+                        if (WeaponHolderList[i].weapon.weaponData.WeaponName == "Gloves")
+                        {
+                            CurrentWeaponHolder = WeaponHolderList[i].weaponHolder;
+                            break;
+                        }
+                    }
+
+                    if (CurrentWeaponHolder != null)
+                    {
+                        for (int i = 0; i < gloves.Length; i++)
+                        {
+                            gloves[i].SetActive(true);
+
+                        }
+
+                        for (int j = 0; j < sword.Length; j++)
+                        {
+                            sword[j].SetActive(false);
+                        }
+                    }
+
+                    yield return new WaitForSeconds(0.5f);
+                }
+            }
+
+            yield return null;
         }
-
-        WeaponHolder.weapon.PlayerCombat = this;
-
-        WeaponHolder.weapon.HandleFirstAttack();
-        WeaponHolder.weapon.HandleSecondaryAttack();
-        WeaponHolder.weapon.SetAnimationLayer();
     }
 
     private void PerformBasicAttack()
     {
-        if(WeaponHolder == null)
-        {
+        if (!CurrentWeaponHolder)
             return;
-        }
 
-        WeaponHolder.weapon.PerformFirstAttack();
+        CurrentWeaponHolder.weapon.PerformFirstAttack();
     }
 
     private void PerformSuperAttack()
     {
-        if (WeaponHolder == null)
-        {
+        if (!CurrentWeaponHolder)
             return;
-        }
 
-        WeaponHolder.weapon.PerformSecondaryAttack();
+        CurrentWeaponHolder.weapon.PerformSecondaryAttack();
     }
 
     private void FinishAttack()
     {
-        if (WeaponHolder == null)
+        if (!CurrentWeaponHolder)
         {
             IsAttacking = false;
             return;
         }
 
-        WeaponHolder.weapon.FinishAttack();
+        CurrentWeaponHolder.weapon.FinishAttack();
     }
 
     public void ApplyKnockback(Vector3 sourcePosition, NavMeshAgent agent)
@@ -189,7 +290,7 @@ public class PlayerCombat : MonoBehaviour
                     yield break;
 
 
-                if(agent.isOnNavMesh)
+                if (agent.isOnNavMesh)
                 {
                     agent.Move(knockbackDirection * knockbackSpeed * Time.deltaTime);
                 }
@@ -207,8 +308,8 @@ public class PlayerCombat : MonoBehaviour
 
     public void InitHitVFX(Vector3 point)
     {
-       GameObject hitVFX = Instantiate(hitVFXPrefab, point, Quaternion.identity);
-       hitVFX.GetComponent<ParticleSystem>().Play();
+        GameObject hitVFX = Instantiate(hitVFXPrefab, point, Quaternion.identity);
+        hitVFX.GetComponent<ParticleSystem>().Play();
     }
 
 
