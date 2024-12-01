@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objname: Metal shards
-  amount: 20
+  amount: 3
   avatar: {fileID: 1668232372, guid: 637786a35bdbe2d47810628520a8038c, type: 3}
   inv: 0
   Image: {fileID: 0}
