@@ -9,25 +9,24 @@ public class BossAnimation : MonoBehaviour
         return bossAnimator.GetCurrentAnimatorStateInfo(0).length;
     }
 
-
-    public void TriggerProjectileShootAnimation()
+    public void TriggerProjectileShootAnimation(bool state)
     {
-        bossAnimator.SetTrigger("isFire");
+        bossAnimator.SetBool("isFire", state);
     }
     
-    public void TriggerSummonAnimation()
+    public void TriggerSummonAnimation(bool state)
     {
-        bossAnimator.SetTrigger("isSummon");
+        bossAnimator.SetBool("isSummon", state);
     }
 
-    public void TriggerBulletHellAnimation()
+    public void TriggerBulletHellAnimation(bool state)
     {
-        bossAnimator.SetTrigger("isBulletHell");
+        bossAnimator.SetBool("isBulletHell", state);
     }
 
-    public void TriggerSpikeAttackAnimation()
+    public void TriggerSpikeAttackAnimation(bool state)
     {
-        bossAnimator.SetTrigger("isSpike");
+        bossAnimator.SetBool("isSpike", state);
     }
 
     public void TriggerSpikeAnimation(Animator spikeAnimator)

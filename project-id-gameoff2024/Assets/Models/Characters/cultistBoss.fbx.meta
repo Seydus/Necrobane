@@ -229,7 +229,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.36918604
+      - time: 0.3715239
         functionName: TriggerPerformBulletHellAttackEvent
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -237,7 +237,7 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 1
-        functionName: TriggerFinishAttackEvent
+        functionName: TriggerFinishBulletHellAttackEvent
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -279,8 +279,8 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.98004305
-        functionName: TriggerFinishAttackEvent
+      - time: 1
+        functionName: TriggerFinishProjectileAttackEvent
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -351,6 +351,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 1
+        functionName: TriggerFinishSpikeAttackEvent
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -380,7 +387,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.55300444
+      - time: 0.706169
         functionName: TriggerPerformSummonEvent
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -388,7 +395,7 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 1
-        functionName: TriggerFinishAttackEvent
+        functionName: TriggerFinishSummonAttackEvent
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

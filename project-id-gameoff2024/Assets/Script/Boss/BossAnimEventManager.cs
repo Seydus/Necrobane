@@ -27,8 +27,23 @@ public class BossAnimEventManager : MonoBehaviour
         BossController.OnTriggerSpikeEvent?.Invoke();
     }
 
-    public void TriggerFinishAttackEvent()
+    public void TriggerFinishProjectileAttackEvent()
     {
-        BossController.OnFinishAttackTriggered?.Invoke();
+        BossController.OnFinishProjectileAttackTriggered?.Invoke();
+    }
+    
+    public void TriggerFinishBulletHellAttackEvent()
+    {
+        BossController.OnFinishBulletHellAttackTriggered?.Invoke();
+    }
+    
+    public void TriggerFinishSpikeAttackEvent()
+    {
+        BossController.OnFinishSpikeAttackTriggered?.Invoke();
+    }
+    
+    public void TriggerFinishSummonAttackEvent()
+    {
+        BossController.OnFinishSummonAttackTriggered?.Invoke();
     }
 }

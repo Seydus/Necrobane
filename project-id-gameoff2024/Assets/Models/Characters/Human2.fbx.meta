@@ -290,7 +290,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.80103856
+      - time: 0.9758715
         functionName: TriggerFinishAttackEvent
         data: 
         objectReferenceParameter: {instanceID: 0}

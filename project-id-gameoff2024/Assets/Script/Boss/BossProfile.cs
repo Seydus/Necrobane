@@ -4,16 +4,24 @@ public class BossProfile : MonoBehaviour
 {
     public BossProfileSO bossProfileSO;
 
-    private float bossHealth;
+    public float bossHealth { get; private set; }
 
     [Header("Attack Settings")]
-    private float projectileDamage;
-    private float bulletHellDamage;
-    private float bossSpikeDamage;
+    public float projectileDamage { get; private set; }
+    public float bulletHellDamage { get; private set; }
+    public float bossSpikeDamage { get; private set; }
 
     [Header("Summoning")]
-    private float numberOfSpawns;
-    private GameObject entityPrefab;
+    public float numberOfSpawns { get; private set; }
+    public GameObject entityPrefab { get; private set; }
+
+    [Header("Others")]
+    private BossController bossController;
+
+    private void Awake()
+    {
+        bossController = GetComponent<BossController>();
+    }
 
     private void Start()
     {
@@ -55,5 +63,9 @@ public class BossProfile : MonoBehaviour
         }
 
         bossHealth -= damage;
+
+        bossController.State();
+        bossController.ReduceSummonCooldown(0.2f);
+        bossController.ReduceBulletHellCooldown(0.2f);
     }
 }

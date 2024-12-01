@@ -69,6 +69,7 @@ public class BossBulletHellPattern : MonoBehaviour
         {
             GameObject bulletHellObj = Instantiate(bulletHellPrefab, bulletHellPos.position, Quaternion.Euler(bulletHellDirection[i]));
             bulletHellObj.GetComponent<BossBulletHellProjectile>().Init(bulletHellObj.transform.forward);
+            bulletHellObj.GetComponent<BossBulletHellProjectile>().projectileSpeed = 20f;
         }
     }
 

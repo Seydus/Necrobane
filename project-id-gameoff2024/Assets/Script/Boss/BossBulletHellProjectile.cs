@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BossBulletHellProjectile : MonoBehaviour
 {
-    [SerializeField] private float projectileSpeed;
+    public float projectileSpeed { get; set; }
     [SerializeField] private float projectileDamage;
     private Vector3 direction;
     private float lifeSpan;
@@ -13,7 +13,7 @@ public class BossBulletHellProjectile : MonoBehaviour
     {
         myBody = GetComponent<Rigidbody>();
 
-        lifeSpan = 3f;
+        lifeSpan = 5f;
     }
 
     private void FixedUpdate()
