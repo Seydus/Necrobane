@@ -2,15 +2,35 @@ using UnityEngine;
 
 public class BossAnimation : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private Animator bossAnimator;
+
+    public float GetCurrentAnimationLength()
     {
-        
+        return bossAnimator.GetCurrentAnimatorStateInfo(0).length;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TriggerProjectileShootAnimation(bool state)
     {
-        
+        bossAnimator.SetBool("isFire", state);
+    }
+    
+    public void TriggerSummonAnimation(bool state)
+    {
+        bossAnimator.SetBool("isSummon", state);
+    }
+
+    public void TriggerBulletHellAnimation(bool state)
+    {
+        bossAnimator.SetBool("isBulletHell", state);
+    }
+
+    public void TriggerSpikeAttackAnimation(bool state)
+    {
+        bossAnimator.SetBool("isSpike", state);
+    }
+
+    public void TriggerSpikeAnimation(Animator spikeAnimator)
+    {
+        spikeAnimator.SetTrigger("isAttackSpike");
     }
 }

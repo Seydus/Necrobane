@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 
     public PlayerManager playerManager;
     public UIManager uIManager;
-
+    public BossController bossController;
     public bool GameState { get; private set; } = true;
 
     private void Awake()
@@ -22,6 +22,15 @@ public class GameManager : MonoBehaviour
     {
         HandleGameState();
         RestartGame();
+        SetBossFightState();
+    }
+
+    private void SetBossFightState()
+    {
+        if(bossController)
+        {
+            EnemyManager.Instance.bossController = bossController;
+        }
     }
 
     private void HandleGameState()

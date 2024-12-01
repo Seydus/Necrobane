@@ -4,6 +4,9 @@ public class Sword : Weapon
 {
     public override void HandleFirstAttack()
     {
+        if (PlayerCombat.IsAttacking)
+            return;
+
         if (Input.GetMouseButtonDown(0))
         {
             PlayerCombat.PlayerProfile.isDefending = false;
@@ -59,6 +62,15 @@ public class Sword : Weapon
 
                     HandleAttack(enemy, weaponData.WeaponBasicDamage);
                     PlayHitSFX(enemy);
+                }
+                
+                if (PlayerCombat.GetAllColliderHit()[i].transform.TryGetComponent<BossController>(out BossController boss))
+                {
+                    PlayerCombat.StartCoroutine(PlayerCombat.PlayerCombatCamera.CameraShake(new CameraCombatInfo(0.15f, 0.015f, Vector3.zero)));
+                    PlayerCombat.InitHitVFX(PlayerCombat.GetAllColliderHit()[i].point);
+
+                    boss.GetComponent<BossProfile>().DeductHealth(weaponData.WeaponBasicDamage);
+                    AkSoundEngine.PostEvent("Play_Chops", PlayerCombat.gameObject);
                 }
             }
         }
