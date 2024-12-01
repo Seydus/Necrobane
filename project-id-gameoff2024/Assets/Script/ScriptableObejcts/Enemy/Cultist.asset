@@ -16,4 +16,5 @@ MonoBehaviour:
   EnemyHealth: 80
   EnemyDamage: 30
   EnemyRange: 13
-  itemDrop: []
+  itemDrop:
+  - {fileID: 3315658961275299933, guid: 49770a19f1d2ec742a5b7c1df5d0024c, type: 3}
