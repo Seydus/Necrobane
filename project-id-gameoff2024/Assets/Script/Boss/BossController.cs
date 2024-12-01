@@ -22,9 +22,10 @@ public class MethodData
 
 public class BossController : MonoBehaviour
 {
-    private int currentPhase = 0;
+    [HideInInspector] public int currentPhase = 0;
     [SerializeField] private List<MethodData> attackPatternList = new List<MethodData>();
-    private bool isGetPattern;
+    private bool isPattern;
+    private float currentCooldown;
 
     [Header("Projectile Attack")]
     [SerializeField] private float projectileDelayStart;
@@ -48,23 +49,22 @@ public class BossController : MonoBehaviour
     [SerializeField] private Transform enemySummonGroundPos;
     [SerializeField] private GameObject skeletonPrefab;
 
-    [SerializeField] private int minEnemyCurrently;
+    [SerializeField] private int minEnemyCurrently = 5;
 
     private List<Vector3> enemySummonPosition = new List<Vector3>();
     private NavMeshHit navHit;
 
     [Header("BulletHell")]
     [SerializeField] private float setBulletHellCooldown;
-    [SerializeField] private float bulletHellSummonThreshold = 8f;
-    [SerializeField] private float summonThresholdCooldownIncrease = 5f;
     private float bulletHellCooldown;
+    private Coroutine bulletHellCoroutine;
 
     private bool isBulletHell;
     private bool enableBulletHell;
 
     [Header("Spike Attack")]
-    [SerializeField] private float setSpikeValue;
-    private float spikeValue;
+    [SerializeField] private float setSpikeCooldown;
+    private float spikeCooldown;
     [SerializeField] private Transform spikePos;
     [SerializeField] private GameObject spikePrefab;
     [SerializeField] private float bossDistance;
@@ -107,8 +107,8 @@ public class BossController : MonoBehaviour
 
     private void OnEnable()
     {
-        OnTriggerPerformAttackEvent += PerformAttack;
-        OnTriggerPerformSummonEvent += PerformSummon;
+        OnTriggerPerformAttackEvent += PerformProjectileAttack;
+        OnTriggerPerformSummonEvent += PerformSummonAttack;
         OnTriggerPerformBulletHellAttackEvent += PerformBulletHellAttack;
         OnPerformSpikeAttackTriggered += PerformSpikeAttack;
         OnTriggerSpikeEvent += InitSpikeAttack;
@@ -121,8 +121,8 @@ public class BossController : MonoBehaviour
 
     private void OnDisable()
     {
-        OnTriggerPerformAttackEvent -= PerformAttack;
-        OnTriggerPerformSummonEvent -= PerformSummon;
+        OnTriggerPerformAttackEvent -= PerformProjectileAttack;
+        OnTriggerPerformSummonEvent -= PerformSummonAttack;
         OnTriggerPerformBulletHellAttackEvent -= PerformBulletHellAttack;
         OnPerformSpikeAttackTriggered -= PerformSpikeAttack;
         OnTriggerSpikeEvent -= InitSpikeAttack;
@@ -150,7 +150,7 @@ public class BossController : MonoBehaviour
 
         summonCooldown = setSummonCooldown;
 
-        spikeValue = setSpikeValue;
+        spikeCooldown = setSpikeCooldown;
     }
 
     private void Start()
@@ -162,65 +162,8 @@ public class BossController : MonoBehaviour
     {
         InitPath();
 
-        Move();
+        // Move();
         Rotation();
-        Attacks();
-    }
-
-    public void State()
-    {
-        if (currentPhase == 0 && bossProfile.bossHealth >= bossProfile.bossProfileSO.bossHealth * 0.70f)
-        {
-            currentPhase = 1;
-            Debug.LogError("First Phase");
-        }
-        else if (currentPhase == 1 && bossProfile.bossHealth < bossProfile.bossProfileSO.bossHealth * 0.70f &&
-            bossProfile.bossHealth >= bossProfile.bossProfileSO.bossHealth * 0.30f)
-        {
-            currentPhase = 2;
-
-            SecondPhaseData();
-
-            Debug.LogError("Second Phase");
-        }
-        else if (currentPhase == 2 && bossProfile.bossHealth < bossProfile.bossProfileSO.bossHealth * 0.30f)
-        {
-            currentPhase = 3;
-
-            ThirdPhaseData();
-
-            Debug.LogError("Third Phase");
-        }
-    }
-
-    private void SecondPhaseData()
-    {
-        bossMoveSpeed += 2f;
-        projectileSpeed += 10f;
-
-        enableBulletHell = true;
-
-        setNumberOfEnemySummon += 2f;
-        setSummonCooldown -= 2f;
-    }
-
-    private void ThirdPhaseData()
-    {
-        bossMoveSpeed += 5f;
-        projectileSpeed += 20f;
-
-        setBulletHellCooldown -= 2f;
-        bulletHellSummonThreshold = 3f;
-        summonThresholdCooldownIncrease = 2f;
-
-        setNumberOfEnemySummon += 4f;
-
-        enableSpikeAttack = true;
-    }
-
-    private void InitPath()
-    {
-        navMeshAgent.SetDestination(player.transform.position);
     }
 
     private void Move()
@@ -236,7 +179,7 @@ public class BossController : MonoBehaviour
 
     private void Rotation()
     {
-        if (isSummon || isBulletHell)
+        if (isSummon || isBulletHell || isSpike)
             return;
 
         targetRotation = Quaternion.LookRotation((player.transform.position - transform.position).normalized);
@@ -245,33 +188,174 @@ public class BossController : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, yAxisOnlyRotation, bossRotationSpeed * Time.deltaTime);
     }
 
-    private void Attacks()
+    public void State()
     {
-        Projectile();
-        Summon();
-        BulletHell();
-        Spike();
-    }
-
-    private void Projectile()
-    {
-        if (isProjectile || isSummon || isBulletHell)
-            return;
-
-        if (Vector3.Distance(player.transform.position, transform.position) <= 0.5f + bossStoppingDistance)
+        if (currentPhase == 0 && bossProfile.bossHealth >= bossProfile.bossProfileSO.bossHealth * 0.70f)
         {
-            isProjectile = true;
-            StartCoroutine(InitAttack(projectileDelayStart));
+            currentPhase = 1;
+            StartCoroutine(InitFirstPhase());
+
+            Debug.LogError("First Phase");
+        }
+        else if (currentPhase == 1 && bossProfile.bossHealth < bossProfile.bossProfileSO.bossHealth * 0.70f &&
+            bossProfile.bossHealth >= bossProfile.bossProfileSO.bossHealth * 0.30f)
+        {
+            SecondPhaseData();
+
+            currentPhase = 2;
+            StartCoroutine(InitSecondPhase());
+
+            Debug.LogError("Second Phase");
+        }
+        else if (currentPhase == 2 && bossProfile.bossHealth < bossProfile.bossProfileSO.bossHealth * 0.30f)
+        {
+            ThirdPhaseData();
+
+            currentPhase = 3;
+            StartCoroutine(InitThirdPhase());
+
+            Debug.LogError("Third Phase");
         }
     }
-    public IEnumerator InitAttack(float delay)
+
+    private void SecondPhaseData()
     {
-        navMeshAgent.ResetPath();
-        yield return new WaitForSeconds(delay);
-        bossAnimation.TriggerProjectileShootAnimation(true);
+        projectileSpeed += 10f;
+
+        enableBulletHell = true;
+
+        setNumberOfEnemySummon += 2f;
+        setSummonCooldown -= 2f;
+        minEnemyCurrently += 1;
     }
 
-    private void PerformAttack()
+    private void ThirdPhaseData()
+    {
+        projectileSpeed += 20f;
+
+        enableSpikeAttack = true;
+
+        setBulletHellCooldown -= 2f;
+        setNumberOfEnemySummon += 4f;
+        minEnemyCurrently += 1;
+    }
+
+    private void InitPath()
+    {
+        navMeshAgent.SetDestination(player.transform.position);
+    }
+
+    private IEnumerator InitFirstPhase()
+    {
+        while(currentPhase == 1)
+        {
+            yield return FirstPhaseAttackPattern();
+            yield return null;
+        }
+    }
+
+    private IEnumerator InitSecondPhase()
+    {
+        if(bulletHellCoroutine == null && !isSpike)
+            bulletHellCoroutine = StartCoroutine(HandleBulletHell());
+
+        while (currentPhase == 2)
+        {
+            yield return new WaitForSeconds(currentCooldown);
+            yield return SecondPhaseAttackPattern();
+            yield return null;
+        }
+    }
+
+    private IEnumerator InitThirdPhase()
+    {
+        if (bulletHellCoroutine == null && !isSpike)
+            bulletHellCoroutine = StartCoroutine(HandleBulletHell());
+
+        while (currentPhase == 3)
+        {
+            yield return new WaitForSeconds(currentCooldown);
+            yield return HandleSpikeAttack();
+            yield return ThirdPhaseAttackPattern();
+
+            yield return null;
+        }
+    }
+
+    private IEnumerator FirstPhaseAttackPattern()
+    {
+        InitProjectile();
+
+        yield return new WaitForSeconds(currentCooldown);
+
+        if (EnemyManager.Instance.enemyAttackingList.Count + 2 < minEnemyCurrently)
+        {
+            float randomSpawn = Random.Range(0f, 1f);
+
+            if (randomSpawn > 0.8f)
+            {
+                InitSummonAttack();
+                yield return new WaitForSeconds(currentCooldown);
+            }
+        }
+
+        yield return new WaitForSeconds(0.8f);
+    }
+
+    private IEnumerator SecondPhaseAttackPattern()
+    {
+        InitProjectile();
+
+        yield return new WaitForSeconds(currentCooldown);
+
+        if (EnemyManager.Instance.enemyAttackingList.Count + 2 < minEnemyCurrently)
+        {
+            float randomSpawn = Random.Range(0f, 1f);
+
+            if (randomSpawn > 0.7f)
+            {
+                InitSummonAttack();
+                yield return new WaitForSeconds(currentCooldown);
+            }
+        }
+
+        yield return new WaitForSeconds(0.6f);
+    }
+
+    private IEnumerator ThirdPhaseAttackPattern()
+    {
+        InitProjectile();
+
+        yield return new WaitForSeconds(currentCooldown);
+
+        if (EnemyManager.Instance.enemyAttackingList.Count + 2 < minEnemyCurrently)
+        {
+            float randomSpawn = Random.Range(0f, 1f);
+
+            if (randomSpawn > 0.5f)
+            {
+                InitSummonAttack();
+                yield return new WaitForSeconds(currentCooldown);
+            }
+        }
+
+        yield return new WaitForSeconds(0.4f);
+    }
+
+    ///
+
+    public void InitProjectile()
+    {
+        if (isProjectile)
+            return;
+
+        isProjectile = true;
+        navMeshAgent.ResetPath();
+        bossAnimation.TriggerProjectileShootAnimation(true);
+        currentCooldown = bossAnimation.GetCurrentAnimationLength();
+    }
+
+    private void PerformProjectileAttack()
     {
         Vector3 direction = (player.transform.position + (Vector3.up * 0.35f) - projectilePos.position).normalized;
 
@@ -286,50 +370,20 @@ public class BossController : MonoBehaviour
         bossAnimation.TriggerProjectileShootAnimation(false);
     }
 
-    // Can be used if enemy is always getting hit by the player to increase difficulty.
-    // Reference in BossProfile.cs
-    public void ReduceSummonCooldown(float value)
-    {
-        //summonCooldown -= value;
-    }
+    ///
 
-    public void IncreaseSummonCooldown(float value)
-    {
-        //summonCooldown += value;
-    }
-
-    private void Summon()
+    public void InitSummonAttack()
     {
         if (isSummon)
             return;
 
-        if (EnemyManager.Instance.enemyAttackingList.Count + 4 >= minEnemyCurrently)
-            return;
-
-        if (summonCooldown <= 0)
-        {
-            isSummon = true;
-            StartCoroutine(InitSummon(1f));
-            summonCooldown = setSummonCooldown;
-
-            Debug.LogError("Summon Initialized.");
-        }
-        else
-        {
-            summonCooldown -= Time.deltaTime;
-            //Debug.LogError("Summon Cooldown: " + summonCooldown);
-        }
-    }
-
-    public IEnumerator InitSummon(float delay)
-    {
+        isSummon = true;
         navMeshAgent.ResetPath();
-
-        yield return new WaitForSeconds(delay);
         bossAnimation.TriggerSummonAnimation(true);
+        currentCooldown = bossAnimation.GetCurrentAnimationLength();
     }
 
-    private void PerformSummon()
+    private void PerformSummonAttack()
     {
         for (int i = 0; i < 100 && enemySummonPosition.Count != numberOfEnemySummon; i++)
         {
@@ -360,49 +414,40 @@ public class BossController : MonoBehaviour
     {
         isSummon = false;
         bossAnimation.TriggerSummonAnimation(false);
+        currentCooldown = bossAnimation.GetCurrentAnimationLength();
     }
 
-    // Can be used if enemy is always getting hit by the player to increase difficulty.
-    // Reference in BossProfile.cs
-    public void ReduceBulletHellCooldown(float value)
-    {
-        // bulletHellCooldown -= value;
-    }
+    ///
 
-    private void BulletHell()
+    private IEnumerator HandleBulletHell()
     {
-        if (isBulletHell || !enableBulletHell)
-            return;
 
-        if (Vector3.Distance(player.transform.position, transform.position) > 0.5f + bossStoppingDistance)
+        while (true) 
         {
-            if (bulletHellCooldown <= 0)
+            if(!isBulletHell)
             {
-                isBulletHell = true;
-                StartCoroutine(InitBulletHell(0.3f));
-                bulletHellCooldown = setBulletHellCooldown;
+                if (bulletHellCooldown <= 0)
+                {
+                    isBulletHell = true;
+                    InitBulletHell();
+                    bulletHellCooldown = setBulletHellCooldown;
+                }
+                else
+                {
+                    bulletHellCooldown -= Time.deltaTime;
+                }
+            }
 
-                Debug.LogError("Bullet Hell Initialized.");
-            }
-            else
-            {
-                bulletHellCooldown -= Time.deltaTime;
-            }
+            yield return null;
         }
     }
 
-    public IEnumerator InitBulletHell(float delay)
+
+    public void InitBulletHell()
     {
         navMeshAgent.ResetPath();
-
-        // To avoid summon to trigger immediately after bullet hell
-        //if(summonCooldown <= bulletHellSummonThreshold)
-        //{
-        //    IncreaseSummonCooldown(summonThresholdCooldownIncrease);
-        //}
-
-        yield return new WaitForSeconds(delay);
         bossAnimation.TriggerBulletHellAnimation(true);
+        currentCooldown = bossAnimation.GetCurrentAnimationLength();
     }
 
     private void PerformBulletHellAttack()
@@ -417,28 +462,20 @@ public class BossController : MonoBehaviour
         bossAnimation.TriggerBulletHellAnimation(false);
     }
 
-    private void Spike()
+    ///
+
+    private IEnumerator HandleSpikeAttack()
     {
-        if (isSpike || !enableSpikeAttack)
-            return;
-
-        if (spikeValue <= 0)
+        if (Physics.SphereCast(transform.position, 0.1f, transform.forward, out hitInfo, bossDistance, playerLayer))
         {
-            if(Vector3.Distance(player.transform.position, transform.position) >= 15)
-            {
-                if (Physics.SphereCast(transform.position, 0.1f, transform.forward, out hitInfo, bossDistance, playerLayer))
-                {
-                    navMeshAgent.ResetPath();
-                    bossAnimation.TriggerSpikeAttackAnimation(true);
-                    isSpike = true;
-                }
-            }
+            Debug.LogError("SPIKE ATTACK");
+            navMeshAgent.ResetPath();
+            bossAnimation.TriggerSpikeAttackAnimation(true);
+            currentCooldown = bossAnimation.GetCurrentAnimationLength();
+            isSpike = true;
         }
-        else
-        {
 
-            spikeValue -= Time.deltaTime;
-        }
+        yield return new WaitForSeconds(currentCooldown);
     }
 
     private void InitSpikeAttack()
@@ -451,7 +488,7 @@ public class BossController : MonoBehaviour
     private void PerformSpikeAttack()
     {
         spikeObj.GetComponentInChildren<BoxCollider>().enabled = true;
-        spikeValue = setSpikeValue;
+        spikeCooldown = setSpikeCooldown;
     }
 
     private void FinishSpikeAttack()
