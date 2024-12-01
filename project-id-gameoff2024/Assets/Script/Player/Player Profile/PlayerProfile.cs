@@ -32,21 +32,29 @@ public class PlayerProfile : MonoBehaviour
         GameManager.Instance.uIManager.playerStaminaTxt.SetText("{0:1}", playerStamina);
     }
 
+    public void IncreaseHealth(float damage)
+    {
+        playerHealth += damage;
+
+        if (playerHealth <= 100)
+        {
+            playerHealth = 100;
+        }
+    }
+
     public void DeductHealth(float damage)
     {
         if (isDefending)
             return;
 
-        if (playerHealth >= 0)
-        {
-            playerHealth -= damage;
-            StartCoroutine(playerCombatCam.CameraShake(new CameraCombatInfo(0.25f, 0.025f, Vector3.zero)));
+        playerHealth -= damage;
 
-            if(playerHealth < 0)
-            {
-                playerHealth = 0;
-            }
+        if (playerHealth <= 0)
+        {
+            playerHealth = 0;
         }
+
+        StartCoroutine(playerCombatCam.CameraShake(new CameraCombatInfo(0.25f, 0.025f, Vector3.zero)));
     }
 
     public void DeductStamina(float cost)

@@ -41,7 +41,7 @@ public class BossController : MonoBehaviour
 
     [SerializeField] private float setNumberOfEnemySummon;
     private float numberOfEnemySummon;
-    
+
     [SerializeField] private float enemySummonRadius;
     [SerializeField] private float minEnemyDistanceSummon = 5f;
     private bool isSummon;
@@ -247,7 +247,7 @@ public class BossController : MonoBehaviour
 
     private IEnumerator InitFirstPhase()
     {
-        while(currentPhase == 1)
+        while (currentPhase == 1)
         {
             yield return FirstPhaseAttackPattern();
             yield return null;
@@ -256,7 +256,7 @@ public class BossController : MonoBehaviour
 
     private IEnumerator InitSecondPhase()
     {
-        if(bulletHellCoroutine == null && !isSpike)
+        if (bulletHellCoroutine == null)
             bulletHellCoroutine = StartCoroutine(HandleBulletHell());
 
         while (currentPhase == 2)
@@ -269,18 +269,30 @@ public class BossController : MonoBehaviour
 
     private IEnumerator InitThirdPhase()
     {
-        if (bulletHellCoroutine == null && !isSpike)
-            bulletHellCoroutine = StartCoroutine(HandleBulletHell());
-
         while (currentPhase == 3)
         {
             yield return new WaitForSeconds(currentCooldown);
-            yield return HandleSpikeAttack();
-            yield return ThirdPhaseAttackPattern();
+
+            float randomSpawn = Random.Range(0f, 1f);
+
+            if (randomSpawn > 0.6f && Vector3.Distance(player.transform.position, transform.position) > 5)
+            {
+                HandleSpikeAttack();
+            }
+            else
+            {
+                if (bulletHellCoroutine == null)
+                {
+                    bulletHellCoroutine = StartCoroutine(HandleBulletHell());
+                }
+
+                yield return ThirdPhaseAttackPattern();
+            }
 
             yield return null;
         }
     }
+
 
     private IEnumerator FirstPhaseAttackPattern()
     {
@@ -326,11 +338,10 @@ public class BossController : MonoBehaviour
     {
         InitProjectile();
 
-        yield return new WaitForSeconds(currentCooldown);
-
         if (EnemyManager.Instance.enemyAttackingList.Count + 2 < minEnemyCurrently)
         {
             float randomSpawn = Random.Range(0f, 1f);
+            yield return new WaitForSeconds(currentCooldown);
 
             if (randomSpawn > 0.5f)
             {
@@ -421,20 +432,26 @@ public class BossController : MonoBehaviour
 
     private IEnumerator HandleBulletHell()
     {
-
-        while (true) 
+        while (true)
         {
-            if(!isBulletHell)
+            if (!isBulletHell)
             {
-                if (bulletHellCooldown <= 0)
+                if (!isSpike)
                 {
-                    isBulletHell = true;
-                    InitBulletHell();
-                    bulletHellCooldown = setBulletHellCooldown;
+                    if (bulletHellCooldown <= 0)
+                    {
+                        isBulletHell = true;
+                        InitBulletHell();
+                        bulletHellCooldown = setBulletHellCooldown;
+                    }
+                    else
+                    {
+                        bulletHellCooldown -= Time.deltaTime;
+                    }
                 }
                 else
                 {
-                    bulletHellCooldown -= Time.deltaTime;
+                    bulletHellCooldown = 2f;
                 }
             }
 
@@ -464,18 +481,15 @@ public class BossController : MonoBehaviour
 
     ///
 
-    private IEnumerator HandleSpikeAttack()
+    private void HandleSpikeAttack()
     {
-        if (Physics.SphereCast(transform.position, 0.1f, transform.forward, out hitInfo, bossDistance, playerLayer))
-        {
-            Debug.LogError("SPIKE ATTACK");
-            navMeshAgent.ResetPath();
-            bossAnimation.TriggerSpikeAttackAnimation(true);
-            currentCooldown = bossAnimation.GetCurrentAnimationLength();
-            isSpike = true;
-        }
+        if (isSpike)
+            return;
 
-        yield return new WaitForSeconds(currentCooldown);
+        navMeshAgent.ResetPath();
+        bossAnimation.TriggerSpikeAttackAnimation(true);
+        currentCooldown = bossAnimation.GetCurrentAnimationLength();
+        isSpike = true;
     }
 
     private void InitSpikeAttack()
