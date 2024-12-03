@@ -131,7 +131,7 @@ public class BossController : MonoBehaviour
 
     private void Start()
     {
-        State();
+
     }
 
     private void Update()
