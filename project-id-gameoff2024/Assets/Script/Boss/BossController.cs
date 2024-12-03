@@ -5,30 +5,12 @@ using UnityEngine.Events;
 using UnityEngine.AI;
 using Unity.AI.Navigation;
 
-[System.Serializable]
-public class MethodData
-{
-    public string Name { get; set; }
-    public System.Action Method { get; set; }
-    public IEnumerator Coroutine { get; set; }
-
-    public MethodData(string name, System.Action method, IEnumerator coroutine)
-    {
-        Name = name;
-        Method = method;
-        Coroutine = coroutine;
-    }
-}
-
 public class BossController : MonoBehaviour
 {
     [HideInInspector] public int currentPhase = 0;
-    [SerializeField] private List<MethodData> attackPatternList = new List<MethodData>();
-    private bool isPattern;
     private float currentCooldown;
 
     [Header("Projectile Attack")]
-    [SerializeField] private float projectileDelayStart;
     [SerializeField] private Transform projectilePos;
     [SerializeField] private GameObject bossProjectilePrefab;
     [SerializeField] private float setProjectileSpeed;
@@ -36,8 +18,6 @@ public class BossController : MonoBehaviour
     private bool isProjectile;
 
     [Header("Summon")]
-    [SerializeField] private float setSummonCooldown;
-    private float summonCooldown;
 
     [SerializeField] private float setNumberOfEnemySummon;
     private float numberOfEnemySummon;
@@ -67,8 +47,6 @@ public class BossController : MonoBehaviour
     private float spikeCooldown;
     [SerializeField] private Transform spikePos;
     [SerializeField] private GameObject spikePrefab;
-    [SerializeField] private float bossDistance;
-    [SerializeField] private LayerMask playerLayer;
 
     private GameObject spikeObj;
 
@@ -148,8 +126,6 @@ public class BossController : MonoBehaviour
         bulletHellCooldown = setBulletHellCooldown;
         numberOfEnemySummon = setNumberOfEnemySummon;
 
-        summonCooldown = setSummonCooldown;
-
         spikeCooldown = setSpikeCooldown;
     }
 
@@ -225,7 +201,6 @@ public class BossController : MonoBehaviour
         enableBulletHell = true;
 
         setNumberOfEnemySummon += 2f;
-        setSummonCooldown -= 2f;
         minEnemyCurrently += 1;
     }
 

@@ -114,7 +114,6 @@ public class Skeleton : Enemy, IEnemyRoaming, IEnemyCombat
         if(!skeletonIsSummoned)
         {
             EnemyRoaming();
-            Debug.LogError("IS ROAMING");
         }
         else
         {

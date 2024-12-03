@@ -74,7 +74,6 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 finalMovement = UpdateMoveDirectionAndSpeed() + ApplyGravityAndJump();
 
-        //WalkAnimation();
         WalkSound();
 
         characterController.Move(finalMovement * Time.deltaTime);
@@ -82,9 +81,15 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 UpdateMoveDirectionAndSpeed()
     {
+        if (cameraHolder == null)
+        {
+            Debug.LogError("Camera Holder is not assigned!");
+            return Vector3.zero;
+        }
+
         Vector3 moveDirection = GetCameraRelativeMovement();
 
-        if (moveDirection.x != 0 || moveDirection.z != 0)
+        if (moveDirection.sqrMagnitude > 0.01f)
         {
             moveSpeed = Mathf.Lerp(moveSpeed, maxSpeed, accelerationSpeed * Time.deltaTime);
             savedDirection = moveDirection;
@@ -99,10 +104,9 @@ public class PlayerController : MonoBehaviour
             {
                 moveSpeed = Mathf.Lerp(moveSpeed, 0, decelerationSpeed * Time.deltaTime);
             }
-
         }
 
-        return savedDirection * moveSpeed;
+        return savedDirection.normalized * moveSpeed;
     }
 
     private Vector3 GetCameraRelativeMovement()
@@ -110,15 +114,21 @@ public class PlayerController : MonoBehaviour
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
 
+        if (cameraHolder == null)
+        {
+            Debug.LogError("Camera Holder is not assigned!");
+            return Vector3.zero;
+        }
+
         Vector3 forward = cameraHolder.forward;
         Vector3 right = cameraHolder.right;
 
         forward.y = 0f;
         right.y = 0f;
 
-        Vector3 direction = forward.normalized * verticalInput + right.normalized * horizontalInput;
+        Vector3 direction = (forward.normalized * verticalInput) + (right.normalized * horizontalInput);
 
-        return direction.normalized;
+        return direction.sqrMagnitude > 0.01f ? direction.normalized : Vector3.zero;
     }
 
     private Vector3 ApplyGravityAndJump()
