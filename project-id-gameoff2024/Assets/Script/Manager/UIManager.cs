@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public GameObject playerDropTxt;
     public GameObject playerCrosshair;
     public GameObject playerCrosshairLine;
+    public GameObject uIPlayerProfileObj;
 
     [Header("Drone UI")]
     public TextMeshProUGUI droneBatteryTxt;
